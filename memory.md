@@ -11,11 +11,10 @@ User is building a portfolio website to showcase their skills in AI Systems Arch
   - **Prism**: AI + 3D Integration
   - **CFB Fantasy App**: Full-Stack Production App
 - **Design Update**:
-  - Implemented modern dark theme with glassmorphism.
-  - Added `framer-motion` for animations.
-  - Added `lucide-react` for icons.
-  - Refactored `app/page.tsx` to use new components (`ProjectCard`, `Badge`).
-  - Improved typography and spacing.
+  - **Theme**: Professional "Obsidian" Dark Theme (`#030303`) with subtle blue accents (`#3b82f6`).
+  - **Typography**: Switched to **Inter** (Sans) and **JetBrains Mono** (Code/Mono).
+  - **UI Style**: Glassmorphism panels, cleaner layout, refined spacing.
+  - **Animations**: `framer-motion` for smooth reveals.
 - **Deployment**:
   - Deployed to Vercel Production: `https://portfolio-2xep33oxm-kpm34s-projects.vercel.app`
   - Deployment Date: Jan 2025
@@ -28,4 +27,4 @@ User is building a portfolio website to showcase their skills in AI Systems Arch
 
 ## User Preferences
 - Focus on AI/Automation skills.
-- Aesthetic: Professional, dark mode, modern.
+- Aesthetic: Professional, dark mode, Inter font, clean lines.
