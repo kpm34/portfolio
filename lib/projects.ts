@@ -77,6 +77,7 @@ export const projects: Project[] = [
     ],
     liveUrl: 'https://cfbfantasy.app',
     githubUrl: 'https://github.com/kpm34/cfb-fantasy',
+    diagramUrl: '/diagrams/cfb-fantasy-architecture.svg',
     image: '/projects/cfb.png',
     images: ['/projects/cfb.png', '/projects/helmet.png'], // Added helmet image to gallery
     gradient: 'from-orange-500 to-red-500'
