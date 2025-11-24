@@ -118,6 +118,41 @@ export function ProjectCard({ project, index, compact = false }: ProjectCardProp
           <div className="text-gray-400 leading-relaxed font-light text-sm">
             {getNarrative(project.id)}
           </div>
+          
+          {/* Action Links for Compact */}
+          <div className="flex gap-3 mt-4 flex-wrap">
+              {project.liveUrl && (
+                <a 
+                  href={project.liveUrl} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-blue-400 underline text-xs transition-colors"
+                >
+                  Demo
+                </a>
+              )}
+              {project.diagramUrl && (
+                <a 
+                  href={project.diagramUrl} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 underline text-xs transition-colors flex items-center gap-1"
+                >
+                  <Network size={12} />
+                  Diagram
+                </a>
+              )}
+              {project.githubUrl && (
+                <a 
+                  href={project.githubUrl} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-white underline text-xs transition-colors"
+                >
+                  Code
+                </a>
+              )}
+          </div>
         </div>
       </motion.article>
     );
@@ -206,13 +241,38 @@ export function ProjectCard({ project, index, compact = false }: ProjectCardProp
           {getNarrative(project.id)}
         </div>
         
-        {/* Mobile-only links for better UX */}
-        <div className="flex gap-4 mt-6 md:hidden">
+        {/* Action Links */}
+        <div className="flex gap-4 mt-6 flex-wrap">
             {project.liveUrl && (
-              <a href={project.liveUrl} className="text-white underline text-sm">Live Demo</a>
+              <a 
+                href={project.liveUrl} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:text-blue-400 underline text-sm transition-colors"
+              >
+                Live Demo
+              </a>
             )}
             {project.diagramUrl && (
-              <a href={project.diagramUrl} className="text-blue-400 underline text-sm">System Diagram</a>
+              <a 
+                href={project.diagramUrl} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-400 hover:text-blue-300 underline text-sm transition-colors flex items-center gap-1"
+              >
+                <Network size={14} />
+                System Diagram
+              </a>
+            )}
+            {project.githubUrl && (
+              <a 
+                href={project.githubUrl} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-white underline text-sm transition-colors"
+              >
+                Source Code
+              </a>
             )}
         </div>
       </div>
