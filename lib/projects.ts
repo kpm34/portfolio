@@ -10,7 +10,9 @@ export interface Project {
   aiHighlights: string[];
   liveUrl?: string;
   githubUrl?: string;
+  diagramUrl?: string;
   image: string;
+  images?: string[]; // Gallery images
   gradient: string; // Tailwind gradient for card
 }
 
@@ -33,6 +35,7 @@ export const projects: Project[] = [
     liveUrl: 'https://ezworks.art',
     githubUrl: 'https://github.com/kpm34/ezworks',
     image: '/projects/ezworks.png',
+    images: ['/projects/ezworks.png'],
     gradient: 'from-purple-500 to-pink-500'
   },
   {
@@ -53,6 +56,7 @@ export const projects: Project[] = [
     liveUrl: 'https://helmet-customizer.vercel.app',
     githubUrl: 'https://github.com/kpm34/helmet-customizer',
     image: '/projects/helmet.png',
+    images: ['/projects/helmet.png'],
     gradient: 'from-blue-500 to-cyan-500'
   },
   {
@@ -73,6 +77,7 @@ export const projects: Project[] = [
     liveUrl: 'https://prism.vercel.app',
     githubUrl: 'https://github.com/kpm34/prism',
     image: '/projects/prism.png',
+    images: ['/projects/prism.png'],
     gradient: 'from-emerald-500 to-teal-500'
   },
   {
@@ -93,6 +98,7 @@ export const projects: Project[] = [
     liveUrl: 'https://cfbfantasy.app',
     githubUrl: 'https://github.com/kpm34/cfb-fantasy',
     image: '/projects/cfb.png',
+    images: ['/projects/cfb.png'],
     gradient: 'from-orange-500 to-red-500'
   },
   {
@@ -113,6 +119,7 @@ export const projects: Project[] = [
     liveUrl: 'https://vectorcraft.vercel.app',
     githubUrl: 'https://github.com/kpm34/vectorcraft',
     image: '/projects/vectorcraft.png',
+    images: ['/projects/vectorcraft.png'],
     gradient: 'from-violet-500 to-purple-500'
   },
   {
@@ -130,6 +137,7 @@ export const projects: Project[] = [
       'Pattern recognition algorithms'
     ],
     image: '/projects/thirdeye.png', // Placeholder
+    images: ['/projects/thirdeye.png'],
     gradient: 'from-slate-500 to-gray-500'
   }
 ];
