@@ -18,13 +18,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         return (
           <>
             <p className="mb-4">
-              A projection engine weighing historical stats, EA ratings, weather, and betting odds across 69 Power 4 teams. 
+              A comprehensive fantasy sports platform offering real-time drafts, 3D stadium visualizations, and deep player analytics. 
             </p>
-            <p className="mb-4">
-              Orchestrates a real-time draft system feeding into a custom 3D helmet editor (formerly Helmet Customizer) that bridges Blender automation, Spline, and React Three Fiber.
-            </p>
-            <p className="text-gray-500 text-sm mt-4">
-              CFBD API → ETL Pipeline → Projection Engine → Real-time Draft → 3D Customizer
+            <p>
+              Features a custom 3D helmet editor for team branding and a projection engine that factors in weather, odds, and historical stats.
             </p>
           </>
         );
@@ -32,13 +29,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         return (
           <>
             <p className="mb-4">
-              Unified creative platform combining a 2D AI vector engine (VectorCraft) with a 3D semantic scene editor. 
+              A unified creative workspace that bridges 2D design and 3D modeling. 
             </p>
-            <p className="mb-4">
-              Orchestrates multiple AI models: Gemini 2.0 generates clean SVG vectors which are then extruded and manipulated in 3D space using GPT-4o commands. Features a multi-canvas workspace bridging the gap between 2D generative assets and 3D spatial design.
-            </p>
-            <p className="text-gray-500 text-sm mt-4">
-              Gemini 2.0 (Vector Generation) → SVG Engine → 3D Extrusion → GPT-4o (Scene Manipulation)
+            <p>
+              Users can generate SVG vectors using AI and seamlessly extrude them into 3D scenes, all within a single, multi-canvas interface.
             </p>
           </>
         );
@@ -126,7 +120,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {project.title}
         </h3>
 
-        <div className="text-gray-400 leading-relaxed font-light text-lg">
+        <div className="text-gray-400 leading-relaxed font-light text-base">
           {getNarrative(project.id)}
         </div>
         
