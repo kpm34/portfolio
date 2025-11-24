@@ -1,0 +1,201 @@
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Inter, sans-serif; font-size: 24px; font-weight: 600; fill: #ffffff; }
+      .section-title { font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; fill: #ffffff; }
+      .label { font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; fill: #e5e5e5; }
+      .sub-label { font-family: Inter, sans-serif; font-size: 12px; fill: #a0a0a0; }
+      .tech-label { font-family: Inter, sans-serif; font-size: 10px; fill: #6b7280; }
+      .arrow { stroke: #3b82f6; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-dashed { stroke: #3b82f6; stroke-width: 2; fill: none; stroke-dasharray: 5,5; marker-end: url(#arrowhead); }
+      .arrow-bidirectional { stroke: #10b981; stroke-width: 2; fill: none; }
+      .box { fill: rgba(255, 255, 255, 0.05); stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; rx: 8; }
+      .box-highlight { fill: rgba(59, 130, 246, 0.1); stroke: rgba(59, 130, 246, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-emerald { fill: rgba(16, 185, 129, 0.1); stroke: rgba(16, 185, 129, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-purple { fill: rgba(139, 92, 246, 0.1); stroke: rgba(139, 92, 246, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-orange { fill: rgba(249, 115, 22, 0.1); stroke: rgba(249, 115, 22, 0.3); stroke-width: 1.5; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#030303"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" class="title">Unified 3D Creator Architecture</text>
+  <text x="600" y="65" text-anchor="middle" class="sub-label">Three-Studio Model with AI Orchestration</text>
+
+  <!-- Three Studios Layer -->
+  <g id="studios">
+    <text x="100" y="110" class="section-title">Creative Studios</text>
+
+    <!-- Vector Studio -->
+    <rect x="50" y="130" width="340" height="140" class="box-emerald"/>
+    <text x="220" y="155" text-anchor="middle" class="label">Vector Studio</text>
+    <text x="220" y="175" text-anchor="middle" class="sub-label">/studio/vector</text>
+    <text x="100" y="200" class="tech-label">15+ Drawing Tools</text>
+    <text x="100" y="215" class="tech-label">AI Vectorization (PNG to SVG)</text>
+    <text x="100" y="230" class="tech-label">7 Export Formats</text>
+    <text x="250" y="200" class="tech-label">SVG Editor</text>
+    <text x="250" y="215" class="tech-label">JSX/React Export</text>
+    <text x="250" y="230" class="tech-label">Blender Curves</text>
+    <text x="220" y="258" text-anchor="middle" class="tech-label" style="fill: #10b981;">Gemini 2.0</text>
+
+    <!-- Texture Studio -->
+    <rect x="430" y="130" width="340" height="140" class="box-purple"/>
+    <text x="600" y="155" text-anchor="middle" class="label">Texture Studio</text>
+    <text x="600" y="175" text-anchor="middle" class="sub-label">/studio/textures</text>
+    <text x="480" y="200" class="tech-label">MatCap Generation</text>
+    <text x="480" y="215" class="tech-label">PBR Texture Generation</text>
+    <text x="480" y="230" class="tech-label">Auto Normal/Roughness Maps</text>
+    <text x="630" y="200" class="tech-label">3D Preview</text>
+    <text x="630" y="215" class="tech-label">Quality Modes</text>
+    <text x="630" y="230" class="tech-label">Upscaling</text>
+    <text x="600" y="258" text-anchor="middle" class="tech-label" style="fill: #8b5cf6;">Gemini 2.5 Flash</text>
+
+    <!-- 3D Studio -->
+    <rect x="810" y="130" width="340" height="140" class="box-highlight"/>
+    <text x="980" y="155" text-anchor="middle" class="label">3D Studio</text>
+    <text x="980" y="175" text-anchor="middle" class="sub-label">/studio/scene</text>
+    <text x="860" y="200" class="tech-label">Universal Format Support</text>
+    <text x="860" y="215" class="tech-label">600+ PBR Materials</text>
+    <text x="860" y="230" class="tech-label">Natural Language Commands</text>
+    <text x="1010" y="200" class="tech-label">GLTF/GLB/FBX/OBJ</text>
+    <text x="1010" y="215" class="tech-label">Spline Runtime</text>
+    <text x="1010" y="230" class="tech-label">Scene Hierarchy</text>
+    <text x="980" y="258" text-anchor="middle" class="tech-label" style="fill: #3b82f6;">GPT-4o Vision</text>
+  </g>
+
+  <!-- Drag & Drop Bridge -->
+  <g id="bridge">
+    <rect x="200" y="300" width="800" height="60" class="box-orange"/>
+    <text x="600" y="325" text-anchor="middle" class="label">Drag and Drop Bridge</text>
+    <text x="600" y="345" text-anchor="middle" class="sub-label">Cross-Studio Asset Transfer with Format Conversion</text>
+  </g>
+
+  <!-- Bidirectional arrows between studios and bridge -->
+  <line x1="220" y1="270" x2="220" y2="300" class="arrow-bidirectional" marker-end="url(#arrowhead-green)"/>
+  <line x1="600" y1="270" x2="600" y2="300" class="arrow-bidirectional" marker-end="url(#arrowhead-green)"/>
+  <line x1="980" y1="270" x2="980" y2="300" class="arrow-bidirectional" marker-end="url(#arrowhead-green)"/>
+
+  <!-- Infrastructure Layer -->
+  <g id="infrastructure">
+    <text x="100" y="410" class="section-title">Unified Infrastructure</text>
+
+    <!-- AI Orchestrator -->
+    <rect x="50" y="430" width="280" height="120" class="box-highlight"/>
+    <text x="190" y="455" text-anchor="middle" class="label">AI Orchestrator</text>
+    <text x="190" y="475" text-anchor="middle" class="sub-label">Multi-Agent Task Routing</text>
+    <text x="100" y="500" class="tech-label">Smart Model Selection</text>
+    <text x="100" y="515" class="tech-label">Cost Optimization</text>
+    <text x="100" y="530" class="tech-label">Fallback System</text>
+
+    <!-- State Management -->
+    <rect x="360" y="430" width="240" height="120" class="box"/>
+    <text x="480" y="455" text-anchor="middle" class="label">State Store</text>
+    <text x="480" y="475" text-anchor="middle" class="sub-label">Zustand + Persistence</text>
+    <text x="400" y="500" class="tech-label">Project Management</text>
+    <text x="400" y="515" class="tech-label">Asset Library</text>
+    <text x="400" y="530" class="tech-label">AI Task History</text>
+
+    <!-- Persistence -->
+    <rect x="630" y="430" width="240" height="120" class="box"/>
+    <text x="750" y="455" text-anchor="middle" class="label">Persistence Layer</text>
+    <text x="750" y="475" text-anchor="middle" class="sub-label">IndexedDB Storage</text>
+    <text x="670" y="500" class="tech-label">Scene Snapshots</text>
+    <text x="670" y="515" class="tech-label">Project Versioning</text>
+    <text x="670" y="530" class="tech-label">Auto-Save</text>
+
+    <!-- Format Adapters -->
+    <rect x="900" y="430" width="250" height="120" class="box"/>
+    <text x="1025" y="455" text-anchor="middle" class="label">Scene Adapters</text>
+    <text x="1025" y="475" text-anchor="middle" class="sub-label">Universal Format Support</text>
+    <text x="940" y="500" class="tech-label">SplineAdapter</text>
+    <text x="940" y="515" class="tech-label">GLTFAdapter</text>
+    <text x="940" y="530" class="tech-label">UniversalEditor</text>
+  </g>
+
+  <!-- Arrow from Bridge to Infrastructure -->
+  <line x1="600" y1="360" x2="600" y2="430" class="arrow"/>
+
+  <!-- Core Library Layer -->
+  <g id="core-library">
+    <text x="100" y="600" class="section-title">Core Library (from Prism)</text>
+
+    <rect x="50" y="620" width="1100" height="100" class="box"/>
+
+    <!-- Materials -->
+    <text x="150" y="650" text-anchor="middle" class="label">Materials</text>
+    <text x="150" y="670" text-anchor="middle" class="sub-label">600+ PBR Presets</text>
+    <text x="150" y="690" text-anchor="middle" class="tech-label">Material Manifest</text>
+    <text x="150" y="705" text-anchor="middle" class="tech-label">Search and Apply</text>
+
+    <!-- AI Agents -->
+    <text x="380" y="650" text-anchor="middle" class="label">AI Agents</text>
+    <text x="380" y="670" text-anchor="middle" class="sub-label">Scene Manipulation</text>
+    <text x="380" y="690" text-anchor="middle" class="tech-label">Vision Analysis</text>
+    <text x="380" y="705" text-anchor="middle" class="tech-label">RAG Memory</text>
+
+    <!-- Scene Utils -->
+    <text x="600" y="650" text-anchor="middle" class="label">Scene Utils</text>
+    <text x="600" y="670" text-anchor="middle" class="sub-label">Transform and Query</text>
+    <text x="600" y="690" text-anchor="middle" class="tech-label">Object Picking</text>
+    <text x="600" y="705" text-anchor="middle" class="tech-label">Spatial Math</text>
+
+    <!-- Asset Converter -->
+    <text x="820" y="650" text-anchor="middle" class="label">Asset Converter</text>
+    <text x="820" y="670" text-anchor="middle" class="sub-label">Format Translation</text>
+    <text x="820" y="690" text-anchor="middle" class="tech-label">SVG to Texture</text>
+    <text x="820" y="705" text-anchor="middle" class="tech-label">Material to CSS</text>
+
+    <!-- Embedding Service -->
+    <text x="1040" y="650" text-anchor="middle" class="label">Embeddings</text>
+    <text x="1040" y="670" text-anchor="middle" class="sub-label">Semantic Search</text>
+    <text x="1040" y="690" text-anchor="middle" class="tech-label">Material Lookup</text>
+    <text x="1040" y="705" text-anchor="middle" class="tech-label">Command Parse</text>
+  </g>
+
+  <!-- Arrow from Infrastructure to Core Library -->
+  <line x1="600" y1="550" x2="600" y2="620" class="arrow"/>
+
+  <!-- External AI Services -->
+  <g id="ai-services">
+    <text x="100" y="770" class="section-title">External AI Services</text>
+
+    <rect x="50" y="790" width="1100" height="80" class="box-highlight"/>
+
+    <!-- OpenAI -->
+    <rect x="80" y="810" width="200" height="45" class="box"/>
+    <text x="180" y="830" text-anchor="middle" class="label">OpenAI</text>
+    <text x="180" y="845" text-anchor="middle" class="sub-label">GPT-4o (Scene, Vision)</text>
+
+    <!-- Gemini -->
+    <rect x="310" y="810" width="200" height="45" class="box"/>
+    <text x="410" y="830" text-anchor="middle" class="label">Google Gemini</text>
+    <text x="410" y="845" text-anchor="middle" class="sub-label">2.5 Flash / 3 Pro</text>
+
+    <!-- Claude -->
+    <rect x="540" y="810" width="200" height="45" class="box"/>
+    <text x="640" y="830" text-anchor="middle" class="label">Anthropic</text>
+    <text x="640" y="845" text-anchor="middle" class="sub-label">Claude Sonnet 4.5</text>
+
+    <!-- OpenRouter -->
+    <rect x="770" y="810" width="200" height="45" class="box"/>
+    <text x="870" y="830" text-anchor="middle" class="label">OpenRouter</text>
+    <text x="870" y="845" text-anchor="middle" class="sub-label">Multi-Model Fallback</text>
+
+    <!-- Tech Stack -->
+    <rect x="1000" y="810" width="130" height="45" class="box"/>
+    <text x="1065" y="830" text-anchor="middle" class="label">Stack</text>
+    <text x="1065" y="845" text-anchor="middle" class="sub-label">Next.js 14 / R3F</text>
+  </g>
+
+  <!-- Arrow from Core Library to AI Services -->
+  <path d="M 190 720 L 190 790" class="arrow-dashed"/>
+
+</svg>

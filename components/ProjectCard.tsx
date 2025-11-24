@@ -30,10 +30,10 @@ export function ProjectCard({ project, index, compact = false }: ProjectCardProp
         return (
           <>
             <p className="mb-4">
-              A unified creative workspace that bridges 2D design and 3D modeling. 
+              A no-code 3D creation platform with three interconnected studios: Vector, Texture, and 3D Scene editing.
             </p>
             <p>
-              Users can generate SVG vectors using AI and seamlessly extrude them into 3D scenes, all within a single, multi-canvas interface.
+              Features a multi-agent AI orchestrator that routes tasks to GPT-4o, Gemini, or Claude based on capability and cost, with a drag-drop bridge for seamless asset transfer between studios.
             </p>
           </>
         );

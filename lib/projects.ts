@@ -42,20 +42,21 @@ export const projects: Project[] = [
   {
     id: 'prism',
     slug: 'prism',
-    title: 'Prism',
-    description: 'Unified creative platform with 3D semantic scene editor and 2D vector engine',
-    longDescription: 'Unified creative platform combining a 2D AI vector engine (VectorCraft) with a 3D semantic scene editor. Orchestrates multiple AI models: Gemini 2.0 for vector generation and GPT-4o for 3D scene manipulation. Features a multi-canvas workspace bridging the gap between 2D generative assets and 3D spatial design.',
+    title: 'Unified 3D Creator',
+    description: 'Three-studio creative platform with AI orchestration for vectors, textures, and 3D scenes',
+    longDescription: 'No-code 3D creation platform merging VectorCraft AI (2D vector engine) with Prism (3D scene editor). Features three interconnected studios: Vector Studio (15+ tools, AI vectorization), Texture Studio (MatCap/PBR generation), and 3D Studio (600+ materials, natural language commands). Multi-agent AI orchestrator routes tasks to GPT-4o, Gemini, or Claude based on cost and capability.',
     featured: true,
     category: 'ai-integration',
-    techStack: ['Next.js 15', 'React 19', 'GPT-4o', 'Gemini 2.0', 'Spline Runtime', 'THREE.js'],
+    techStack: ['Next.js 14', 'React 19', 'GPT-4o', 'Gemini 2.5', 'Claude', 'Spline Runtime', 'THREE.js', 'Zustand'],
     aiHighlights: [
-      'Multi-model AI orchestration (GPT-4o + Gemini 2.0)',
-      'Unified 2D/3D creative workflow',
-      'AI vector generation & 3D scene manipulation',
-      'Self-improving semantic analysis'
+      'Multi-agent AI orchestrator (4 providers with smart routing)',
+      'Three-studio model with drag-drop asset bridge',
+      '600+ PBR materials with semantic search',
+      'Natural language 3D scene manipulation'
     ],
     liveUrl: 'https://prism.vercel.app',
     githubUrl: 'https://github.com/kpm34/prism',
+    diagramUrl: '/diagrams/unified-3d-creator-architecture.svg',
     image: '/projects/prism.png',
     images: ['/projects/prism.png', '/projects/vectorcraft.png'],
     gradient: 'from-emerald-500 to-teal-500'
