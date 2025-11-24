@@ -34,8 +34,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <p className="mb-4">
               Multi-model orchestration system where GPT-4o handles scene manipulation logic while Gemini generates textures and materials.
             </p>
-            <p>
-              Demonstrates a self-improving knowledge loop where AI agents analyze scene structures to refine future command interpretations.
+            <p className="mb-4">
+              Currently evolving into the 3D canvas of a unified creative suite, integrating directly with the VectorCraft 2D engine.
             </p>
           </>
         );
@@ -46,7 +46,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               Automated asset pipeline that turns raw user inputs into production-ready 3D assets.
             </p>
             <p>
-              Python scripts inside Blender automate the geometry processing and UV mapping, exporting optimized GLB files directly to the web client.
+              Being integrated as the Pro Plan feature of the CFB Fantasy platform. Python scripts inside Blender automate the geometry processing and UV mapping, exporting optimized GLB files directly to the web client.
             </p>
           </>
         );
@@ -57,7 +57,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                Vectorization engine leveraging Gemini 2.0 to convert raster images into clean, editable SVG paths.
             </p>
             <p>
-              Bridges the gap between 2D generative AI and 3D workflows by automatically preparing assets for extrusion and modeling.
+              Serves as the 2D vector engine for the upcoming unified creative platform, preparing assets for extrusion and 3D modeling in Prism.
             </p>
           </>
         );
