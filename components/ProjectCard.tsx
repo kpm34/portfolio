@@ -8,9 +8,10 @@ import { ExternalLink, Github, ArrowUpRight, Network } from "lucide-react";
 interface ProjectCardProps {
   project: Project;
   index: number;
+  compact?: boolean;
 }
 
-export function ProjectCard({ project, index }: ProjectCardProps) {
+export function ProjectCard({ project, index, compact = false }: ProjectCardProps) {
   // Custom narrative descriptions based on project ID
   const getNarrative = (id: string) => {
     switch (id) {
@@ -36,10 +37,91 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </p>
           </>
         );
+      case 'ezworks':
+        return (
+          <>
+            <p className="mb-4">
+              Production AI SaaS platform for image generation with scalable architecture.
+            </p>
+            <p>
+              Simplifies ComfyUI workflows into a user-friendly interface with real-time generation progress and subscription management.
+            </p>
+          </>
+        );
       default:
         return <p>{project.description}</p>;
     }
   };
+
+  if (compact) {
+    return (
+      <motion.article
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="grid md:grid-cols-[1fr,1fr] gap-4 md:gap-6 items-center group"
+      >
+        {/* Visual */}
+        <div className="relative aspect-video rounded-lg overflow-hidden bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+          />
+          
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+             {project.liveUrl && (
+              <a 
+                href={project.liveUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 bg-white text-black rounded-full hover:scale-110 transition-transform"
+                title="Live Demo"
+              >
+                <ArrowUpRight size={16} />
+              </a>
+             )}
+             {project.githubUrl && (
+              <a 
+                href={project.githubUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 bg-black text-white border border-white/20 rounded-full hover:scale-110 transition-transform"
+                title="Source Code"
+              >
+                <Github size={16} />
+              </a>
+             )}
+             {project.diagramUrl && (
+              <a 
+                href={project.diagramUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2 bg-blue-600 text-white rounded-full hover:scale-110 transition-transform"
+                title="System Diagram"
+              >
+                <Network size={16} />
+              </a>
+             )}
+          </div>
+        </div>
+
+        {/* Narrative */}
+        <div>
+          <h3 className="text-lg font-medium text-white mb-3">
+            {project.title}
+          </h3>
+
+          <div className="text-gray-400 leading-relaxed font-light text-sm">
+            {getNarrative(project.id)}
+          </div>
+        </div>
+      </motion.article>
+    );
+  }
 
   return (
     <motion.article

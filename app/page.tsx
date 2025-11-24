@@ -98,7 +98,7 @@ export default function Home() {
           ))}
         </motion.div>
 
-        {/* Secondary Projects (Smaller) */}
+        {/* Secondary Projects (Compact Format) */}
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -106,29 +106,13 @@ export default function Home() {
           variants={containerVariants}
           className="border-t border-white/5 pt-8 mt-32"
         >
-           <div className="flex items-center gap-4 mb-6">
+           <div className="flex items-center gap-4 mb-8">
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Also in Development</h3>
               <div className="h-px bg-white/5 flex-1" />
            </div>
-           <div className="grid md:grid-cols-2 gap-6">
-              {secondaryProjects.map((project) => (
-                <motion.div 
-                  key={project.id}
-                  variants={itemVariants}
-                  className="glass-panel p-4 rounded-xl flex gap-4 items-center group hover:bg-white/5 transition-colors"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
-                    {/* Placeholder icon */}
-                    <div className="w-6 h-6 bg-gray-500/20 rounded-full" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex justify-between items-start mb-1">
-                      <h4 className="text-white font-medium truncate">{project.title}</h4>
-                      <span className="text-xs text-gray-500 bg-white/5 px-2 py-0.5 rounded border border-white/5">{project.category}</span>
-                    </div>
-                    <p className="text-sm text-gray-500 truncate">{project.description}</p>
-                  </div>
-                </motion.div>
+           <div className="space-y-8">
+              {secondaryProjects.map((project, index) => (
+                <ProjectCard key={project.id} project={project} index={index} compact={true} />
               ))}
            </div>
         </motion.div>
