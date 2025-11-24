@@ -21,7 +21,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               A projection engine weighing historical stats, EA ratings, weather, and betting odds across 69 Power 4 teams. 
             </p>
             <p className="mb-4">
-              Orchestrates a real-time draft system feeding into a custom 3D helmet editor that bridges Blender automation, Spline, and React Three Fiber.
+              Orchestrates a real-time draft system feeding into a custom 3D helmet editor (formerly Helmet Customizer) that bridges Blender automation, Spline, and React Three Fiber.
             </p>
             <p className="text-gray-500 text-sm mt-4">
               CFBD API → ETL Pipeline → Projection Engine → Real-time Draft → 3D Customizer
@@ -39,17 +39,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </p>
             <p className="text-gray-500 text-sm mt-4">
               Gemini 2.0 (Vector Generation) → SVG Engine → 3D Extrusion → GPT-4o (Scene Manipulation)
-            </p>
-          </>
-        );
-      case 'helmet-customizer':
-        return (
-          <>
-            <p className="mb-4">
-              Automated asset pipeline that turns raw user inputs into production-ready 3D assets.
-            </p>
-            <p>
-              Being integrated as the Pro Plan feature of the CFB Fantasy platform. Python scripts inside Blender automate the geometry processing and UV mapping, exporting optimized GLB files directly to the web client.
             </p>
           </>
         );

@@ -7,10 +7,16 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 export default function Home() {
   // Define the exact order of featured projects
-  const featuredProjectIds = ['prism', 'cfb-fantasy', 'helmet-customizer', 'vectorcraft'];
+  const featuredProjectIds = ['prism', 'cfb-fantasy'];
   
   // Get the full project objects in the correct order
   const featuredProjects = featuredProjectIds
+    .map(id => projects.find(p => p.id === id))
+    .filter((p): p is NonNullable<typeof p> => p !== undefined);
+
+  // Secondary projects (EZWORKS, Third Eye)
+  const secondaryProjectIds = ['ezworks', 'thirdeye'];
+  const secondaryProjects = secondaryProjectIds
     .map(id => projects.find(p => p.id === id))
     .filter((p): p is NonNullable<typeof p> => p !== undefined);
 
@@ -90,6 +96,41 @@ export default function Home() {
           {featuredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
+        </motion.div>
+
+        {/* Secondary Projects (Smaller) */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="border-t border-white/5 pt-8 mt-32"
+        >
+           <div className="flex items-center gap-4 mb-6">
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Also in Development</h3>
+              <div className="h-px bg-white/5 flex-1" />
+           </div>
+           <div className="grid md:grid-cols-2 gap-6">
+              {secondaryProjects.map((project) => (
+                <motion.div 
+                  key={project.id}
+                  variants={itemVariants}
+                  className="glass-panel p-4 rounded-xl flex gap-4 items-center group hover:bg-white/5 transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
+                    {/* Placeholder icon */}
+                    <div className="w-6 h-6 bg-gray-500/20 rounded-full" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex justify-between items-start mb-1">
+                      <h4 className="text-white font-medium truncate">{project.title}</h4>
+                      <span className="text-xs text-gray-500 bg-white/5 px-2 py-0.5 rounded border border-white/5">{project.category}</span>
+                    </div>
+                    <p className="text-sm text-gray-500 truncate">{project.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+           </div>
         </motion.div>
 
         {/* Minimal Footer / Skills Hint */}
