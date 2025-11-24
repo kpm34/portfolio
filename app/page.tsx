@@ -7,7 +7,7 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 export default function Home() {
   // Define the exact order of featured projects
-  const featuredProjectIds = ['cfb-fantasy', 'prism', 'helmet-customizer', 'vectorcraft'];
+  const featuredProjectIds = ['prism', 'cfb-fantasy', 'helmet-customizer', 'vectorcraft'];
   
   // Get the full project objects in the correct order
   const featuredProjects = featuredProjectIds
