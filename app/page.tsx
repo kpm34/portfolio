@@ -110,7 +110,7 @@ export default function Home() {
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Also in Development</h3>
               <div className="h-px bg-white/5 flex-1" />
            </div>
-           <div className="space-y-8">
+           <div className="grid md:grid-cols-2 gap-6">
               {secondaryProjects.map((project, index) => (
                 <ProjectCard key={project.id} project={project} index={index} compact={true} />
               ))}
