@@ -63,21 +63,21 @@ export const projects: Project[] = [
     id: 'prism',
     slug: 'prism',
     title: 'Prism',
-    description: 'AI-powered 3D scene editor with natural language commands',
-    longDescription: 'AI-powered 3D scene editor for exported Spline scenes. Uses GPT-4o for natural language commands to edit 3D scenes, with a material library browser featuring 600+ presets. Works offline on uploaded files.',
+    description: 'Unified creative platform with 3D semantic scene editor and 2D vector engine',
+    longDescription: 'Unified creative platform combining a 2D AI vector engine (VectorCraft) with a 3D semantic scene editor. Orchestrates multiple AI models: Gemini 2.0 for vector generation and GPT-4o for 3D scene manipulation. Features a multi-canvas workspace bridging the gap between 2D generative assets and 3D spatial design.',
     featured: true,
     category: 'ai-integration',
-    techStack: ['Next.js 15', 'React 19', 'GPT-4o', 'Spline Runtime', 'THREE.js'],
+    techStack: ['Next.js 15', 'React 19', 'GPT-4o', 'Gemini 2.0', 'Spline Runtime', 'THREE.js'],
     aiHighlights: [
-      'AI command processing with GPT-4o',
-      'Natural language → 3D scene manipulation',
-      'AI scene understanding and analysis',
-      'Real-time AI-powered editing'
+      'Multi-model AI orchestration (GPT-4o + Gemini 2.0)',
+      'Unified 2D/3D creative workflow',
+      'AI vector generation & 3D scene manipulation',
+      'Self-improving semantic analysis'
     ],
     liveUrl: 'https://prism.vercel.app',
     githubUrl: 'https://github.com/kpm34/prism',
     image: '/projects/prism.png',
-    images: ['/projects/prism.png'],
+    images: ['/projects/prism.png', '/projects/vectorcraft.png'],
     gradient: 'from-emerald-500 to-teal-500'
   },
   {
@@ -100,27 +100,6 @@ export const projects: Project[] = [
     image: '/projects/cfb.png',
     images: ['/projects/cfb.png'],
     gradient: 'from-orange-500 to-red-500'
-  },
-  {
-    id: 'vectorcraft',
-    slug: 'vectorcraft',
-    title: 'VectorCraft AI',
-    description: 'AI-powered SVG editor with Gemini 2.0 vectorization',
-    longDescription: 'SVG editor for logos, decals, and UI overlays. Features AI-powered vectorization using Google Gemini 2.0 (PNG/JPG → SVG), 3D-ready exports (decal packs, sticker borders, Blender curves), and multi-format support (web app, CLI, REST API).',
-    featured: true,
-    category: 'ai-integration',
-    techStack: ['React 19', 'Vite', 'Gemini 2.0', 'THREE.js', 'TypeScript'],
-    aiHighlights: [
-      'AI vectorization with Gemini 2.0',
-      'Image-to-vector AI conversion',
-      'Multi-format architecture (Web, CLI, API)',
-      '3D pipeline integration'
-    ],
-    liveUrl: 'https://vectorcraft.vercel.app',
-    githubUrl: 'https://github.com/kpm34/vectorcraft',
-    image: '/projects/vectorcraft.png',
-    images: ['/projects/vectorcraft.png'],
-    gradient: 'from-violet-500 to-purple-500'
   },
   {
     id: 'thirdeye',

@@ -32,10 +32,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         return (
           <>
             <p className="mb-4">
-              Multi-model orchestration system where GPT-4o handles scene manipulation logic while Gemini generates textures and materials.
+              Unified creative platform combining a 2D AI vector engine (VectorCraft) with a 3D semantic scene editor. 
             </p>
             <p className="mb-4">
-              Currently evolving into the 3D canvas of a unified creative suite, integrating directly with the VectorCraft 2D engine.
+              Orchestrates multiple AI models: Gemini 2.0 generates clean SVG vectors which are then extruded and manipulated in 3D space using GPT-4o commands. Features a multi-canvas workspace bridging the gap between 2D generative assets and 3D spatial design.
+            </p>
+            <p className="text-gray-500 text-sm mt-4">
+              Gemini 2.0 (Vector Generation) → SVG Engine → 3D Extrusion → GPT-4o (Scene Manipulation)
             </p>
           </>
         );
@@ -47,17 +50,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </p>
             <p>
               Being integrated as the Pro Plan feature of the CFB Fantasy platform. Python scripts inside Blender automate the geometry processing and UV mapping, exporting optimized GLB files directly to the web client.
-            </p>
-          </>
-        );
-      case 'vectorcraft':
-        return (
-          <>
-            <p className="mb-4">
-               Vectorization engine leveraging Gemini 2.0 to convert raster images into clean, editable SVG paths.
-            </p>
-            <p>
-              Serves as the 2D vector engine for the upcoming unified creative platform, preparing assets for extrusion and 3D modeling in Prism.
             </p>
           </>
         );
