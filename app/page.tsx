@@ -1,3 +1,5 @@
+"use client";
+
 import { projects, skills } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
 import { motion } from 'framer-motion';
@@ -46,36 +48,27 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex flex-col justify-center px-6 pt-20">
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
+        <div 
           className="relative z-10 max-w-7xl mx-auto w-full"
         >
           {/* Compact Header */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6 border-b border-white/5 pb-8">
             <div className="text-left">
-              <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full glass-panel border-blue-500/20">
+              <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full glass-panel border-blue-500/20">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
                 <span className="text-xs font-medium text-blue-400 tracking-wide uppercase">AI Systems Architect</span>
-              </motion.div>
+              </div>
 
-              <motion.h1 
-                variants={itemVariants}
-                className="text-4xl md:text-6xl font-bold mb-2 tracking-tight text-white"
-              >
+              <h1 className="text-4xl md:text-6xl font-bold mb-2 tracking-tight text-white">
                 Kashyap Maheshwari
-              </motion.h1>
+              </h1>
 
-              <motion.p 
-                variants={itemVariants}
-                className="text-lg md:text-xl text-gray-400 max-w-2xl"
-              >
+              <p className="text-lg md:text-xl text-gray-400 max-w-2xl">
                 Building production-ready AI applications with scalable architecture.
-              </motion.p>
+              </p>
             </div>
 
-            <motion.div variants={itemVariants} className="flex gap-3">
+            <div className="flex gap-3">
               <a href="https://github.com/kpm34" target="_blank" rel="noopener noreferrer" className="p-3 glass-panel rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
                 <Github size={20} />
               </a>
@@ -85,24 +78,34 @@ export default function Home() {
               <a href="mailto:kashpm2002@gmail.com" className="p-3 glass-panel rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
                 <Mail size={20} />
               </a>
-            </motion.div>
+            </div>
           </div>
 
           {/* Projects Grid (Immediately Visible) */}
-          <motion.div variants={containerVariants} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+          >
             {featuredProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </motion.div>
 
           {/* Secondary Projects (Smaller) */}
-          <motion.div variants={containerVariants} className="border-t border-white/5 pt-8">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="border-t border-white/5 pt-8"
+          >
              <div className="flex items-center gap-4 mb-6">
                 <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Also in Development</h3>
                 <div className="h-px bg-white/5 flex-1" />
              </div>
              <div className="grid md:grid-cols-2 gap-6">
-                {secondaryProjects.map((project, index) => (
+                {secondaryProjects.map((project) => (
                   <motion.div 
                     key={project.id}
                     variants={itemVariants}
@@ -123,7 +126,7 @@ export default function Home() {
              </div>
           </motion.div>
 
-        </motion.div>
+        </div>
       </section>
 
       {/* Skills Section */}
