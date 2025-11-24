@@ -124,9 +124,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div>
         <h3 className="text-2xl font-medium text-white mb-6 flex items-baseline gap-4">
           {project.title}
-          <span className="text-sm font-normal text-gray-500 hidden md:inline-block">
-            {project.category}
-          </span>
         </h3>
 
         <div className="text-gray-400 leading-relaxed font-light text-lg">
