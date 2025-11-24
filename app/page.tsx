@@ -1,12 +1,22 @@
-"use client";
-
 import { projects, skills } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, ChevronDown, Terminal, Cpu, Database, Layout, Globe } from 'lucide-react';
 
 export default function Home() {
-  const featuredProjects = projects.filter(p => p.featured);
+  // Define the exact order of featured projects
+  const featuredProjectIds = ['vectorcraft', 'cfb-fantasy', 'helmet-customizer', 'prism'];
+  
+  // Get the full project objects in the correct order
+  const featuredProjects = featuredProjectIds
+    .map(id => projects.find(p => p.id === id))
+    .filter((p): p is NonNullable<typeof p> => p !== undefined);
+
+  // Secondary projects (EZWORKS, Third Eye)
+  const secondaryProjectIds = ['ezworks', 'thirdeye'];
+  const secondaryProjects = secondaryProjectIds
+    .map(id => projects.find(p => p.id === id))
+    .filter((p): p is NonNullable<typeof p> => p !== undefined);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -35,99 +45,85 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-6">
+      <section className="relative min-h-screen flex flex-col justify-center px-6 pt-20">
         <motion.div 
           initial="hidden"
           animate="visible"
           variants={containerVariants}
-          className="relative z-10 max-w-4xl mx-auto text-center"
+          className="relative z-10 max-w-7xl mx-auto w-full"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full glass-panel">
-            <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-sm font-medium text-gray-300">Open to AI Engineering Roles</span>
-          </motion.div>
+          {/* Compact Header */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-16 gap-6 border-b border-white/5 pb-8">
+            <div className="text-left">
+              <motion.div variants={itemVariants} className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full glass-panel border-blue-500/20">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
+                <span className="text-xs font-medium text-blue-400 tracking-wide uppercase">AI Systems Architect</span>
+              </motion.div>
 
-          <motion.h1 
-            variants={itemVariants}
-            className="text-5xl md:text-7xl font-bold mb-6 tracking-tight leading-tight"
-          >
-            Kashyap Maheshwari
-          </motion.h1>
+              <motion.h1 
+                variants={itemVariants}
+                className="text-4xl md:text-6xl font-bold mb-2 tracking-tight text-white"
+              >
+                Kashyap Maheshwari
+              </motion.h1>
 
-          <motion.h2 
-            variants={itemVariants}
-            className="text-2xl md:text-3xl font-medium text-gray-400 mb-6"
-          >
-            AI Systems Architect & Full-Stack Developer
-          </motion.h2>
+              <motion.p 
+                variants={itemVariants}
+                className="text-lg md:text-xl text-gray-400 max-w-2xl"
+              >
+                Building production-ready AI applications with scalable architecture.
+              </motion.p>
+            </div>
 
-          <motion.p 
-            variants={itemVariants}
-            className="text-lg text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
-          >
-            Building production-ready AI applications with scalable architecture.
-            Specializing in AI integrations, automation systems, and infrastructure design.
-          </motion.p>
-
-          <motion.div 
-            variants={itemVariants}
-            className="flex flex-wrap gap-4 justify-center"
-          >
-            <a
-              href="#projects"
-              className="px-6 py-3 bg-white text-black rounded-lg font-medium hover:bg-gray-100 transition-colors"
-            >
-              View Work
-            </a>
-            <a
-              href="https://github.com/kpm34"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 glass-panel rounded-lg font-medium text-white hover:bg-white/5 transition-colors flex items-center gap-2"
-            >
-              <Github size={18} />
-              GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/kashyapmaheshwari"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3 glass-panel rounded-lg font-medium text-white hover:bg-white/5 transition-colors flex items-center gap-2"
-            >
-              <Linkedin size={18} />
-              LinkedIn
-            </a>
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <div className="flex flex-col items-center gap-2 text-gray-600">
-            <span className="text-xs uppercase tracking-widest">Scroll</span>
-            <ChevronDown className="animate-bounce opacity-50" size={16} />
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-32 px-6 relative z-10 border-t border-white/5 bg-black/20">
-        <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-2">Featured Projects</h2>
-            <p className="text-gray-400">Production AI applications & automation systems</p>
+            <motion.div variants={itemVariants} className="flex gap-3">
+              <a href="https://github.com/kpm34" target="_blank" rel="noopener noreferrer" className="p-3 glass-panel rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                <Github size={20} />
+              </a>
+              <a href="https://linkedin.com/in/kashyapmaheshwari" target="_blank" rel="noopener noreferrer" className="p-3 glass-panel rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                <Linkedin size={20} />
+              </a>
+              <a href="mailto:kashpm2002@gmail.com" className="p-3 glass-panel rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                <Mail size={20} />
+              </a>
+            </motion.div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          {/* Projects Grid (Immediately Visible) */}
+          <motion.div variants={containerVariants} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
             {featuredProjects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
-          </div>
-        </div>
+          </motion.div>
+
+          {/* Secondary Projects (Smaller) */}
+          <motion.div variants={containerVariants} className="border-t border-white/5 pt-8">
+             <div className="flex items-center gap-4 mb-6">
+                <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Also in Development</h3>
+                <div className="h-px bg-white/5 flex-1" />
+             </div>
+             <div className="grid md:grid-cols-2 gap-6">
+                {secondaryProjects.map((project, index) => (
+                  <motion.div 
+                    key={project.id}
+                    variants={itemVariants}
+                    className="glass-panel p-4 rounded-xl flex gap-4 items-center group hover:bg-white/5 transition-colors"
+                  >
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-40 transition-opacity flex items-center justify-center shrink-0`}>
+                      <Terminal size={20} className="text-white opacity-50" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-start mb-1">
+                        <h4 className="text-white font-medium truncate">{project.title}</h4>
+                        <span className="text-xs text-gray-500 bg-white/5 px-2 py-0.5 rounded border border-white/5">{project.category}</span>
+                      </div>
+                      <p className="text-sm text-gray-500 truncate">{project.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+             </div>
+          </motion.div>
+
+        </motion.div>
       </section>
 
       {/* Skills Section */}

@@ -5,7 +5,7 @@ export interface Project {
   description: string;
   longDescription: string;
   featured: boolean;
-  category: 'ai-systems' | 'automation' | 'ai-integration' | 'fullstack' | '3d';
+  category: 'ai-systems' | 'automation' | 'ai-integration' | 'fullstack' | '3d' | 'finance';
   techStack: string[];
   aiHighlights: string[];
   liveUrl?: string;
@@ -21,7 +21,7 @@ export const projects: Project[] = [
     title: 'EZWORKS',
     description: 'Production AI SaaS platform for image generation with scalable architecture',
     longDescription: 'Cloud-based SaaS platform that simplifies ComfyUI workflows into a user-friendly interface. Features real-time generation progress via WebSocket streaming, subscription management with Stripe, and a Redis job queue system for scalable AI processing.',
-    featured: true,
+    featured: false,
     category: 'ai-systems',
     techStack: ['Next.js 16', 'React 19', 'FastAPI', 'Redis', 'ComfyUI', 'Stable Diffusion', 'Stripe'],
     aiHighlights: [
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     title: 'VectorCraft AI',
     description: 'AI-powered SVG editor with Gemini 2.0 vectorization',
     longDescription: 'SVG editor for logos, decals, and UI overlays. Features AI-powered vectorization using Google Gemini 2.0 (PNG/JPG → SVG), 3D-ready exports (decal packs, sticker borders, Blender curves), and multi-format support (web app, CLI, REST API).',
-    featured: false,
+    featured: true,
     category: 'ai-integration',
     techStack: ['React 19', 'Vite', 'Gemini 2.0', 'THREE.js', 'TypeScript'],
     aiHighlights: [
@@ -114,6 +114,23 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/kpm34/vectorcraft',
     image: '/projects/vectorcraft.png',
     gradient: 'from-violet-500 to-purple-500'
+  },
+  {
+    id: 'thirdeye',
+    slug: 'thirdeye',
+    title: 'Third Eye Capital',
+    description: 'Financial analytics dashboard for investment tracking',
+    longDescription: 'Comprehensive financial dashboard for tracking investments, visualizing market trends, and analyzing portfolio performance. Built with Next.js and modern charting libraries for real-time data visualization.',
+    featured: false,
+    category: 'finance',
+    techStack: ['Next.js', 'TypeScript', 'Recharts', 'Tailwind CSS'],
+    aiHighlights: [
+      'Predictive analytics visualization',
+      'Real-time data processing',
+      'Pattern recognition algorithms'
+    ],
+    image: '/projects/thirdeye.png', // Placeholder
+    gradient: 'from-slate-500 to-gray-500'
   }
 ];
 
