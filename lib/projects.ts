@@ -68,7 +68,7 @@ export const projects: Project[] = [
     longDescription: 'Fantasy football platform for Power 4 conferences. Features real-time draft system, 3D stadium visualizations, player projections, depth charts, and team efficiency metrics. Built with complex domain logic for drafting, scoring, and league management.',
     featured: true,
     category: 'fullstack',
-    techStack: ['Next.js 15', 'React 19', 'Appwrite', 'THREE.js', 'Spline'],
+    techStack: ['Next.js 15', 'React 19', 'Supabase', 'THREE.js', 'Spline'],
     aiHighlights: [
       'ETL pipelines for data processing',
       'Real-time draft system architecture',
@@ -81,6 +81,28 @@ export const projects: Project[] = [
     image: '/projects/cfb.png',
     images: ['/projects/cfb.png', '/projects/helmet.png'], // Added helmet image to gallery
     gradient: 'from-orange-500 to-red-500'
+  },
+  {
+    id: 'helmet-customizer',
+    slug: 'helmet-customizer',
+    title: 'Helmet Customizer (R3F)',
+    description: '3D helmet customization with Blender automation pipeline',
+    longDescription: '3D helmet customization system using React Three Fiber with zone-based customization (5-zone vertex color system). Features automated Blender Python scripts for helmet generation, material finish selection, and GLB export pipeline.',
+    featured: true,
+    category: 'automation',
+    techStack: ['Next.js 15', 'React Three Fiber', 'THREE.js', 'Python', 'Zustand'],
+    aiHighlights: [
+      'Blender Python automation scripts',
+      'Automated GLB export pipeline',
+      '5-zone vertex color system',
+      'Foundation for AI-powered 3D generation'
+    ],
+    liveUrl: 'https://helmet-customizer.vercel.app',
+    githubUrl: 'https://github.com/kpm34/helmet-customizer',
+    diagramUrl: '/diagrams/helmet-editor-architecture.svg',
+    image: '/projects/helmet.png',
+    images: ['/projects/helmet.png'],
+    gradient: 'from-blue-500 to-cyan-500'
   },
   {
     id: 'thirdeye',

@@ -18,140 +18,109 @@
   <rect width="1200" height="800" fill="#030303"/>
   
   <!-- Title -->
-  <text x="600" y="40" text-anchor="middle" class="title">CFB Fantasy App Architecture</text>
+  <text x="600" y="40" text-anchor="middle" class="title">CFB Fantasy V2 Architecture</text>
   
   <!-- Data Sources Layer -->
   <g id="data-sources">
-    <text x="100" y="100" class="section-title">Data Sources</text>
+    <text x="100" y="100" class="section-title">External Data</text>
     
     <!-- CFBD API -->
     <rect x="50" y="120" width="140" height="80" class="box"/>
     <text x="120" y="145" text-anchor="middle" class="label">CFBD API</text>
-    <text x="120" y="165" text-anchor="middle" class="sub-label">Team Stats</text>
-    <text x="120" y="180" text-anchor="middle" class="sub-label">Player Data</text>
-    
-    <!-- Weather API -->
-    <rect x="220" y="120" width="140" height="80" class="box"/>
-    <text x="290" y="145" text-anchor="middle" class="label">Weather API</text>
-    <text x="290" y="165" text-anchor="middle" class="sub-label">Game Conditions</text>
-    <text x="290" y="180" text-anchor="middle" class="sub-label">Forecasts</text>
+    <text x="120" y="165" text-anchor="middle" class="sub-label">Game Stats</text>
+    <text x="120" y="180" text-anchor="middle" class="sub-label">Player Metadata</text>
     
     <!-- Betting Odds -->
-    <rect x="390" y="120" width="140" height="80" class="box"/>
-    <text x="460" y="145" text-anchor="middle" class="label">Betting Odds</text>
-    <text x="460" y="165" text-anchor="middle" class="sub-label">Line Movements</text>
-    <text x="460" y="180" text-anchor="middle" class="sub-label">Market Data</text>
+    <rect x="220" y="120" width="140" height="80" class="box"/>
+    <text x="290" y="145" text-anchor="middle" class="label">Betting Data</text>
+    <text x="290" y="165" text-anchor="middle" class="sub-label">Lines & Spreads</text>
     
-    <!-- EA Ratings -->
-    <rect x="560" y="120" width="140" height="80" class="box"/>
-    <text x="630" y="145" text-anchor="middle" class="label">EA Ratings</text>
-    <text x="630" y="165" text-anchor="middle" class="sub-label">Player Ratings</text>
-    <text x="630" y="180" text-anchor="middle" class="sub-label">Team Ratings</text>
+    <!-- Internal Proprietary -->
+    <rect x="390" y="120" width="140" height="80" class="box-highlight"/>
+    <text x="460" y="145" text-anchor="middle" class="label">Proprietary</text>
+    <text x="460" y="165" text-anchor="middle" class="sub-label">EA Ratings</text>
+    <text x="460" y="180" text-anchor="middle" class="sub-label">Weather Index</text>
   </g>
   
   <!-- ETL Pipeline Layer -->
   <g id="etl-pipeline">
-    <text x="100" y="280" class="section-title">ETL Pipeline</text>
+    <text x="100" y="280" class="section-title">Data Pipeline</text>
     
-    <rect x="200" y="240" width="400" height="100" class="box-highlight"/>
-    <text x="400" y="270" text-anchor="middle" class="label">Data Processing Engine</text>
-    <text x="400" y="290" text-anchor="middle" class="sub-label">Transform • Normalize • Aggregate</text>
-    <text x="400" y="310" text-anchor="middle" class="sub-label">69 Power 4 Teams</text>
-    <text x="400" y="325" text-anchor="middle" class="sub-label">Historical Stats + Real-time Updates</text>
+    <rect x="200" y="240" width="400" height="100" class="box"/>
+    <text x="400" y="270" text-anchor="middle" class="label">Ingestion Engine</text>
+    <text x="400" y="290" text-anchor="middle" class="sub-label">Normalization • Validation</text>
+    <text x="400" y="310" text-anchor="middle" class="sub-label">Player Projection Algorithm</text>
   </g>
   
   <!-- Arrows from Data Sources to ETL -->
   <line x1="120" y1="200" x2="300" y2="240" class="arrow"/>
   <line x1="290" y1="200" x2="350" y2="240" class="arrow"/>
   <line x1="460" y1="200" x2="400" y2="240" class="arrow"/>
-  <line x1="630" y1="200" x2="500" y2="240" class="arrow"/>
   
-  <!-- Projection Engine -->
-  <g id="projection-engine">
-    <text x="100" y="420" class="section-title">Projection Engine</text>
-    
-    <rect x="200" y="380" width="400" height="100" class="box-highlight"/>
-    <text x="400" y="410" text-anchor="middle" class="label">Player Projection Algorithm</text>
-    <text x="400" y="430" text-anchor="middle" class="sub-label">Weights: Stats • Weather • Odds • EA Ratings</text>
-    <text x="400" y="450" text-anchor="middle" class="sub-label">Depth Charts • Team Efficiency</text>
-    <text x="400" y="465" text-anchor="middle" class="sub-label">Real-time Projections</text>
-  </g>
-  
-  <!-- Arrow from ETL to Projection -->
-  <line x1="400" y1="340" x2="400" y2="380" class="arrow"/>
-  
-  <!-- Backend Services -->
+  <!-- Backend Services (Supabase) -->
   <g id="backend">
-    <text x="800" y="280" class="section-title">Backend Services</text>
+    <text x="800" y="280" class="section-title">Supabase Infrastructure</text>
     
-    <!-- Appwrite -->
-    <rect x="750" y="240" width="180" height="100" class="box"/>
-    <text x="840" y="265" text-anchor="middle" class="label">Appwrite</text>
-    <text x="840" y="285" text-anchor="middle" class="sub-label">Database</text>
-    <text x="840" y="300" text-anchor="middle" class="sub-label">Auth</text>
-    <text x="840" y="315" text-anchor="middle" class="sub-label">Storage</text>
+    <!-- Database -->
+    <rect x="750" y="240" width="180" height="100" class="box-highlight"/>
+    <text x="840" y="265" text-anchor="middle" class="label">PostgreSQL</text>
+    <text x="840" y="285" text-anchor="middle" class="sub-label">Relational Data</text>
+    <text x="840" y="300" text-anchor="middle" class="sub-label">Row Level Security</text>
+    <text x="840" y="315" text-anchor="middle" class="sub-label">Extensions (UUID)</text>
     
-    <!-- Real-time Draft -->
-    <rect x="750" y="380" width="180" height="100" class="box-highlight"/>
-    <text x="840" y="405" text-anchor="middle" class="label">Real-time Draft</text>
-    <text x="840" y="425" text-anchor="middle" class="sub-label">WebSocket</text>
-    <text x="840" y="440" text-anchor="middle" class="sub-label">Snake & Auction</text>
-    <text x="840" y="455" text-anchor="middle" class="sub-label">Live Updates</text>
+    <!-- Auth -->
+    <rect x="950" y="240" width="140" height="100" class="box"/>
+    <text x="1020" y="265" text-anchor="middle" class="label">Auth</text>
+    <text x="1020" y="285" text-anchor="middle" class="sub-label">JWT Tokens</text>
+    <text x="1020" y="300" text-anchor="middle" class="sub-label">User Management</text>
+    
+    <!-- Realtime -->
+    <rect x="750" y="380" width="340" height="80" class="box-highlight"/>
+    <text x="920" y="405" text-anchor="middle" class="label">Supabase Realtime</text>
+    <text x="920" y="425" text-anchor="middle" class="sub-label">WebSocket Channels (draft_sessions, picks)</text>
+    <text x="920" y="440" text-anchor="middle" class="sub-label">Instant State Synchronization</text>
   </g>
   
-  <!-- Arrows from Projection to Backend -->
-  <line x1="600" y1="430" x2="750" y2="290" class="arrow"/>
-  <line x1="600" y1="430" x2="750" y2="430" class="arrow"/>
-  
-  <!-- 3D Helmet Editor Pipeline -->
-  <g id="helmet-editor">
-    <text x="100" y="580" class="section-title">3D Helmet Editor</text>
-    
-    <!-- Blender Automation -->
-    <rect x="50" y="540" width="180" height="100" class="box-highlight"/>
-    <text x="140" y="565" text-anchor="middle" class="label">Blender Automation</text>
-    <text x="140" y="585" text-anchor="middle" class="sub-label">Python Scripts</text>
-    <text x="140" y="600" text-anchor="middle" class="sub-label">5-Zone System</text>
-    <text x="140" y="615" text-anchor="middle" class="sub-label">GLB Export</text>
-    
-    <!-- Spline Integration -->
-    <rect x="260" y="540" width="180" height="100" class="box"/>
-    <text x="350" y="565" text-anchor="middle" class="label">Spline Runtime</text>
-    <text x="350" y="585" text-anchor="middle" class="sub-label">Scene Loading</text>
-    <text x="350" y="600" text-anchor="middle" class="sub-label">3D Preview</text>
-    
-    <!-- React Three Fiber -->
-    <rect x="470" y="540" width="180" height="100" class="box"/>
-    <text x="560" y="565" text-anchor="middle" class="label">React Three Fiber</text>
-    <text x="560" y="585" text-anchor="middle" class="sub-label">Web Renderer</text>
-    <text x="560" y="600" text-anchor="middle" class="sub-label">Material Control</text>
-    <text x="560" y="615" text-anchor="middle" class="sub-label">Real-time Preview</text>
-  </g>
-  
-  <!-- Arrows for Helmet Pipeline -->
-  <line x1="230" y1="590" x2="260" y2="590" class="arrow"/>
-  <line x1="440" y1="590" x2="470" y2="590" class="arrow"/>
+  <!-- Arrow from ETL to Database -->
+  <line x1="600" y1="290" x2="750" y2="290" class="arrow"/>
   
   <!-- Frontend -->
   <g id="frontend">
-    <text x="800" y="580" class="section-title">Frontend</text>
+    <text x="100" y="580" class="section-title">Frontend Application</text>
     
-    <rect x="750" y="540" width="400" height="200" class="box-highlight"/>
-    <text x="950" y="570" text-anchor="middle" class="label">Next.js 15 + React 19</text>
+    <rect x="50" y="540" width="600" height="200" class="box-highlight"/>
+    <text x="350" y="570" text-anchor="middle" class="label">Next.js 15 + React 19 (Turbopack)</text>
     
-    <!-- Frontend Features -->
-    <text x="780" y="600" class="sub-label">• Draft Interface (Real-time)</text>
-    <text x="780" y="620" class="sub-label">• Player Projections Dashboard</text>
-    <text x="780" y="640" class="sub-label">• 3D Stadium Visualizations</text>
-    <text x="780" y="660" class="sub-label">• Helmet Customizer (Pro Plan)</text>
-    <text x="780" y="680" class="sub-label">• Team Management</text>
-    <text x="780" y="700" class="sub-label">• League Analytics</text>
+    <!-- Features -->
+    <text x="150" y="610" text-anchor="middle" class="label" style="font-size: 12px;">Draft System</text>
+    <text x="150" y="630" text-anchor="middle" class="sub-label">Snake / Auction Logic</text>
+    <text x="150" y="645" text-anchor="middle" class="sub-label">Live Timer (Client Sync)</text>
+    
+    <text x="350" y="610" text-anchor="middle" class="label" style="font-size: 12px;">League Management</text>
+    <text x="350" y="630" text-anchor="middle" class="sub-label">Commissioner Tools</text>
+    <text x="350" y="645" text-anchor="middle" class="sub-label">Scoring Settings</text>
+    
+    <text x="550" y="610" text-anchor="middle" class="label" style="font-size: 12px;">Pro Features</text>
+    <text x="550" y="630" text-anchor="middle" class="sub-label">3D Helmet Editor</text>
+    <text x="550" y="645" text-anchor="middle" class="sub-label">Advanced Analytics</text>
   </g>
   
-  <!-- Arrows to Frontend -->
-  <line x1="840" y1="340" x2="950" y2="540" class="arrow"/>
-  <line x1="840" y1="480" x2="950" y2="540" class="arrow"/>
-  <line x1="560" y1="640" x2="750" y2="640" class="arrow"/>
+  <!-- Arrows to Frontend (Realtime) -->
+  <path d="M 920 460 L 920 500 L 350 500 L 350 540" class="arrow" style="stroke-dasharray: 5,5;"/>
+  <text x="635" y="490" text-anchor="middle" class="sub-label" style="fill: #3b82f6;">WebSocket Subscription</text>
   
-</svg>
+  <!-- Arrow from Frontend to Database (API) -->
+  <path d="M 650 640 L 700 640 L 700 340 L 750 340" class="arrow"/>
+  <text x="725" y="500" text-anchor="middle" class="sub-label" transform="rotate(-90 715 500)">REST API / RPC Calls</text>
 
+  <!-- Helmet Editor Connection -->
+  <g id="helmet-integration">
+    <rect x="800" y="600" width="200" height="100" class="box"/>
+    <text x="900" y="625" text-anchor="middle" class="label">Helmet Editor (R3F)</text>
+    <text x="900" y="645" text-anchor="middle" class="sub-label">Embedded Component</text>
+    <text x="900" y="660" text-anchor="middle" class="sub-label">Direct GLB Rendering</text>
+  </g>
+  
+  <line x1="650" y1="650" x2="800" y2="650" class="arrow"/>
+
+</svg>
