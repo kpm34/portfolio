@@ -42,7 +42,7 @@ export const projects: Project[] = [
   {
     id: 'prism',
     slug: 'prism',
-    title: 'Unified 3D Creator',
+    title: 'Bisect',
     description: 'Three-studio creative platform with AI orchestration for vectors, textures, and 3D scenes',
     longDescription: 'No-code 3D creation platform merging VectorCraft AI (2D vector engine) with Prism (3D scene editor). Features three interconnected studios: Vector Studio (15+ tools, AI vectorization), Texture Studio (MatCap/PBR generation), and 3D Studio (600+ materials, natural language commands). Multi-agent AI orchestrator routes tasks to GPT-4o, Gemini, or Claude based on cost and capability.',
     featured: true,
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     ],
     liveUrl: 'https://prism.vercel.app',
     githubUrl: 'https://github.com/kpm34/prism',
-    diagramUrl: '/diagrams/unified-3d-creator-architecture.svg',
+    diagramUrl: '/diagrams/bisect-architecture.svg',
     image: '/projects/prism.png',
     images: ['/projects/prism.png', '/projects/vectorcraft.png'],
     gradient: 'from-emerald-500 to-teal-500'
