@@ -1,4 +1,4 @@
-<svg width="1200" height="950" xmlns="http://www.w3.org/2000/svg">
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <style>
       .title { font-family: Inter, sans-serif; font-size: 24px; font-weight: 600; fill: #ffffff; }
@@ -37,220 +37,207 @@
   </defs>
 
   <!-- Background -->
-  <rect width="1200" height="950" fill="#030303"/>
+  <rect width="1200" height="900" fill="#030303"/>
 
   <!-- Title -->
   <text x="600" y="40" text-anchor="middle" class="title">Helmet Editor Architecture</text>
-  <text x="600" y="65" text-anchor="middle" class="subtitle">React Three Fiber + 5-Zone Vertex Color System</text>
+  <text x="600" y="65" text-anchor="middle" class="subtitle">React Three Fiber + Zone-Based Customization</text>
 
-  <!-- 5-Zone System Visual -->
+  <!-- Zone System -->
   <g id="zone-system">
-    <text x="100" y="110" class="section-title">5-Zone Customization System</text>
+    <text x="100" y="110" class="section-title">5-Zone System (Blender Mapped)</text>
 
-    <!-- Zone boxes with colors -->
-    <rect x="50" y="130" width="200" height="130" class="box"/>
-    <text x="150" y="155" text-anchor="middle" class="label">Vertex Color Zones</text>
+    <rect x="50" y="130" width="220" height="130" class="box"/>
+    <text x="160" y="155" text-anchor="middle" class="label">GLB Zone Mapping</text>
 
-    <!-- Zone indicators -->
     <rect x="70" y="170" width="16" height="16" rx="3" class="zone-shell"/>
-    <text x="95" y="183" class="zone-label">Shell (0,0,0)</text>
+    <text x="95" y="183" class="zone-label">Shell (main body)</text>
 
     <rect x="70" y="192" width="16" height="16" rx="3" class="zone-facemask"/>
-    <text x="95" y="205" class="zone-label">Facemask (1,0,0)</text>
+    <text x="95" y="205" class="zone-label">Facemask (bars)</text>
 
     <rect x="70" y="214" width="16" height="16" rx="3" class="zone-chinstrap"/>
-    <text x="95" y="227" class="zone-label">Chinstrap (0,1,0)</text>
+    <text x="95" y="227" class="zone-label">Chinstrap</text>
 
     <rect x="70" y="236" width="16" height="16" rx="3" class="zone-padding"/>
-    <text x="95" y="249" class="zone-label">Padding (0,0,1)</text>
-
-    <!-- Zone properties -->
-    <rect x="280" y="130" width="180" height="130" class="box-highlight"/>
-    <text x="370" y="155" text-anchor="middle" class="label">Per-Zone Properties</text>
-    <text x="300" y="180" class="tech-label">color: #hex (RGB)</text>
-    <text x="300" y="198" class="tech-label">metallic: 0.0 - 1.0</text>
-    <text x="300" y="216" class="tech-label">roughness: 0.0 - 1.0</text>
-    <text x="370" y="248" text-anchor="middle" class="sub-label">15 total parameters</text>
+    <text x="95" y="249" class="zone-label">Padding + Hardware</text>
   </g>
 
-  <!-- Material Finishes -->
+  <!-- Material Finishes (Actual 4) -->
   <g id="finishes">
-    <rect x="490" y="130" width="280" height="130" class="box-purple"/>
-    <text x="630" y="155" text-anchor="middle" class="label">16 Material Finishes</text>
-    <text x="510" y="180" class="tech-label">Basic: glossy, matte</text>
-    <text x="510" y="198" class="tech-label">Metal: chrome, brushed, satin, titanium</text>
-    <text x="510" y="216" class="tech-label">Auto: pearl, metallic_flake, clearcoat</text>
-    <text x="510" y="234" class="tech-label">Modern: carbon_fiber, ceramic, holographic</text>
-    <text x="630" y="252" text-anchor="middle" class="sub-label">PBR metalness + roughness</text>
+    <rect x="300" y="130" width="250" height="130" class="box-purple"/>
+    <text x="425" y="155" text-anchor="middle" class="label">4 Material Finishes</text>
+    <text x="320" y="180" class="tech-label">Glossy: clearcoat, envMap 1.0</text>
+    <text x="320" y="198" class="tech-label">Matte: roughness 0.8, no metal</text>
+    <text x="320" y="216" class="tech-label">Chrome: metalness 1.0, mirror</text>
+    <text x="320" y="234" class="tech-label">Brushed: clearcoat + sheen</text>
+    <text x="425" y="252" text-anchor="middle" class="sub-label">MeshPhysicalMaterial</text>
   </g>
 
-  <!-- Pattern System -->
-  <g id="patterns">
-    <rect x="800" y="130" width="350" height="130" class="box-orange"/>
-    <text x="975" y="155" text-anchor="middle" class="label">Pattern System (3-Level)</text>
-    <text x="820" y="180" class="tech-label">Categories: stripes, animals, camo</text>
-    <text x="820" y="198" class="tech-label">Types: tiger, leopard, stripe_single...</text>
-    <text x="820" y="216" class="tech-label">Rendering: Bezier curves + TubeGeometry</text>
-    <text x="820" y="234" class="tech-label">Controls: color overlay + intensity</text>
-    <text x="975" y="252" text-anchor="middle" class="sub-label">PBR textures (albedo, normal, roughness)</text>
+  <!-- Stripe Pattern System -->
+  <g id="stripe-system">
+    <rect x="580" y="130" width="280" height="130" class="box-orange"/>
+    <text x="720" y="155" text-anchor="middle" class="label">Stripe Pattern System</text>
+    <text x="600" y="180" class="tech-label">CubicBezierCurve3 (4 control points)</text>
+    <text x="600" y="198" class="tech-label">TubeGeometry (50 segments, 0.15 radius)</text>
+    <text x="600" y="216" class="tech-label">Textures: single/double stripe PNG</text>
+    <text x="600" y="234" class="tech-label">Color overlay + intensity control</text>
+    <text x="720" y="252" text-anchor="middle" class="sub-label">3D curve follows helmet contour</text>
   </g>
 
-  <!-- React Three Fiber Layer -->
+  <!-- CFB Integration -->
+  <g id="cfb-integration">
+    <rect x="890" y="130" width="260" height="130" class="box-red"/>
+    <text x="1020" y="155" text-anchor="middle" class="label">CFB Fantasy Integration</text>
+    <text x="910" y="180" class="tech-label">Embedded in /studio page</text>
+    <text x="910" y="198" class="tech-label">Team helmet customizations table</text>
+    <text x="910" y="216" class="tech-label">Pro feature for team branding</text>
+    <text x="910" y="234" class="tech-label">Supabase + RLS policies</text>
+    <text x="1020" y="252" text-anchor="middle" class="sub-label">Save/load helmet configs</text>
+  </g>
+
+  <!-- React Three Fiber Canvas -->
   <g id="r3f-layer">
-    <text x="100" y="310" class="section-title">React Three Fiber Rendering</text>
+    <text x="100" y="310" class="section-title">React Three Fiber Canvas</text>
 
-    <rect x="50" y="330" width="550" height="180" class="box-cyan"/>
-    <text x="325" y="360" text-anchor="middle" class="label">HelmetScene.tsx (R3F Canvas)</text>
+    <rect x="50" y="330" width="700" height="170" class="box-cyan"/>
+    <text x="400" y="360" text-anchor="middle" class="label">HelmetScene.tsx</text>
 
-    <!-- R3F Components -->
-    <rect x="70" y="380" width="150" height="110" class="box"/>
-    <text x="145" y="405" text-anchor="middle" class="sub-label">Lighting</text>
-    <text x="90" y="425" class="tech-label">Ambient + Directional</text>
-    <text x="90" y="443" class="tech-label">Environment (studio)</text>
-    <text x="90" y="461" class="tech-label">ACES Tone Mapping</text>
-    <text x="90" y="479" class="tech-label">Polygon Offset Fix</text>
+    <!-- GLB Loading -->
+    <rect x="70" y="380" width="150" height="100" class="box"/>
+    <text x="145" y="405" text-anchor="middle" class="sub-label">GLB Model</text>
+    <text x="90" y="425" class="tech-label">useGLTF loader</text>
+    <text x="90" y="443" class="tech-label">helmet_matte_FINAL.glb</text>
+    <text x="90" y="461" class="tech-label">1.66MB optimized</text>
 
-    <rect x="240" y="380" width="160" height="110" class="box"/>
-    <text x="320" y="405" text-anchor="middle" class="sub-label">GLB Model</text>
-    <text x="260" y="425" class="tech-label">26,369 vertices</text>
-    <text x="260" y="443" class="tech-label">3 mesh objects</text>
-    <text x="260" y="461" class="tech-label">COLOR_0 attribute</text>
-    <text x="260" y="479" class="tech-label">Zone detection</text>
+    <!-- Material Application -->
+    <rect x="240" y="380" width="160" height="100" class="box"/>
+    <text x="320" y="405" text-anchor="middle" class="sub-label">Material System</text>
+    <text x="260" y="425" class="tech-label">MeshPhysicalMaterial</text>
+    <text x="260" y="443" class="tech-label">Zone name matching</text>
+    <text x="260" y="461" class="tech-label">Per-zone properties</text>
 
-    <rect x="420" y="380" width="160" height="110" class="box"/>
-    <text x="500" y="405" text-anchor="middle" class="sub-label">Materials</text>
-    <text x="440" y="425" class="tech-label">Custom PBR shader</text>
-    <text x="440" y="443" class="tech-label">Uniform updates</text>
-    <text x="440" y="461" class="tech-label">Real-time sync</text>
-    <text x="440" y="479" class="tech-label">5-10ms updates</text>
+    <!-- Lighting -->
+    <rect x="420" y="380" width="150" height="100" class="box"/>
+    <text x="495" y="405" text-anchor="middle" class="sub-label">Lighting</text>
+    <text x="440" y="425" class="tech-label">3 directional + 1 point</text>
+    <text x="440" y="443" class="tech-label">Environment: studio</text>
+    <text x="440" y="461" class="tech-label">ACES tone mapping</text>
+
+    <!-- Stripe Rendering -->
+    <rect x="590" y="380" width="140" height="100" class="box"/>
+    <text x="660" y="405" text-anchor="middle" class="sub-label">StripeCurve</text>
+    <text x="610" y="425" class="tech-label">Bezier curve tube</text>
+    <text x="610" y="443" class="tech-label">Debug markers</text>
+    <text x="610" y="461" class="tech-label">Color + opacity</text>
   </g>
 
-  <!-- Shader System -->
-  <g id="shader">
-    <rect x="630" y="330" width="520" height="180" class="box-emerald"/>
-    <text x="890" y="360" text-anchor="middle" class="label">Custom GLSL Shader</text>
+  <!-- Camera and Controls -->
+  <g id="camera">
+    <rect x="780" y="330" width="370" height="170" class="box-emerald"/>
+    <text x="965" y="360" text-anchor="middle" class="label">Camera and Controls</text>
 
-    <rect x="650" y="380" width="230" height="110" class="box"/>
-    <text x="765" y="405" text-anchor="middle" class="sub-label">Vertex Shader</text>
-    <text x="670" y="425" class="tech-label">vZoneMask = color;</text>
-    <text x="670" y="443" class="tech-label">Pass vertex colors to frag</text>
-    <text x="670" y="461" class="tech-label">Transform positions</text>
-    <text x="670" y="479" class="tech-label">UV coordinates</text>
+    <rect x="800" y="380" width="160" height="100" class="box"/>
+    <text x="880" y="405" text-anchor="middle" class="sub-label">Camera</text>
+    <text x="820" y="425" class="tech-label">Position: [0, 2, 8]</text>
+    <text x="820" y="443" class="tech-label">FOV: 50 degrees</text>
+    <text x="820" y="461" class="tech-label">Helmet scale: 0.35</text>
 
-    <rect x="900" y="380" width="230" height="110" class="box"/>
-    <text x="1015" y="405" text-anchor="middle" class="sub-label">Fragment Shader</text>
-    <text x="920" y="425" class="tech-label">Zone detection (RGB)</text>
-    <text x="920" y="443" class="tech-label">Mix zone colors</text>
-    <text x="920" y="461" class="tech-label">Apply metalness/rough</text>
-    <text x="920" y="479" class="tech-label">PBR lighting output</text>
+    <rect x="980" y="380" width="150" height="100" class="box"/>
+    <text x="1055" y="405" text-anchor="middle" class="sub-label">OrbitControls</text>
+    <text x="1000" y="425" class="tech-label">Pan/Zoom/Rotate</text>
+    <text x="1000" y="443" class="tech-label">Min dist: 4, Max: 12</text>
+    <text x="1000" y="461" class="tech-label">Target: [0, 0, 0]</text>
   </g>
-
-  <!-- Arrow from zones to shader -->
-  <path d="M 460 195 L 630 360" class="arrow"/>
 
   <!-- State Management -->
   <g id="state">
-    <text x="100" y="560" class="section-title">State Management (Zustand)</text>
+    <text x="100" y="550" class="section-title">State Management (Zustand)</text>
 
-    <rect x="50" y="580" width="400" height="150" class="box-highlight"/>
-    <text x="250" y="610" text-anchor="middle" class="label">helmetStore.ts</text>
+    <rect x="50" y="570" width="350" height="140" class="box-highlight"/>
+    <text x="225" y="600" text-anchor="middle" class="label">helmetStore.ts</text>
 
-    <text x="70" y="640" class="sub-label">State:</text>
-    <text x="70" y="660" class="tech-label">config: HelmetConfig (5 zones x 3 props)</text>
-    <text x="70" y="678" class="tech-label">activeZone: shell | facemask | chinstrap...</text>
-    <text x="70" y="696" class="tech-label">patternNav: { category, type, variant }</text>
-    <text x="70" y="714" class="tech-label">pattern: { type, color, intensity }</text>
+    <text x="70" y="630" class="sub-label">Config State:</text>
+    <text x="70" y="650" class="tech-label">shell: { color, finish }</text>
+    <text x="70" y="668" class="tech-label">facemask: { color, finish }</text>
+    <text x="70" y="686" class="tech-label">chinstrap, padding, hardware...</text>
 
-    <text x="280" y="640" class="sub-label">Actions:</text>
-    <text x="280" y="660" class="tech-label">setZoneColor(zone, hex)</text>
-    <text x="280" y="678" class="tech-label">setZoneFinish(zone, finish)</text>
-    <text x="280" y="696" class="tech-label">setPatternType(type)</text>
-    <text x="280" y="714" class="tech-label">resetToDefaults()</text>
+    <text x="230" y="630" class="sub-label">Pattern State:</text>
+    <text x="230" y="650" class="tech-label">type: stripe_single | stripe_double</text>
+    <text x="230" y="668" class="tech-label">color: #hex</text>
+    <text x="230" y="686" class="tech-label">intensity: 0.0 - 1.0</text>
   </g>
 
   <!-- UI Components -->
   <g id="ui">
-    <rect x="480" y="580" width="350" height="150" class="box"/>
-    <text x="655" y="610" text-anchor="middle" class="label">UI Components (4-Step Wizard)</text>
+    <rect x="430" y="570" width="350" height="140" class="box"/>
+    <text x="605" y="600" text-anchor="middle" class="label">UI Components (4-Step)</text>
 
-    <text x="500" y="640" class="tech-label">Step 1: Color Selection</text>
-    <text x="500" y="658" class="tech-label">Step 2: Material Finish</text>
-    <text x="500" y="676" class="tech-label">Step 3: Pattern Design</text>
-    <text x="500" y="694" class="tech-label">Step 4: Logo Upload</text>
+    <text x="450" y="630" class="tech-label">Step 1: Zone Color Selection</text>
+    <text x="450" y="650" class="tech-label">Step 2: Material Finish (4 types)</text>
+    <text x="450" y="670" class="tech-label">Step 3: Stripe Pattern</text>
+    <text x="450" y="690" class="tech-label">Step 4: Logo (coming soon)</text>
 
-    <text x="680" y="640" class="tech-label">ColorSelector (HSL)</text>
-    <text x="680" y="658" class="tech-label">MaterialFinishSelector</text>
-    <text x="680" y="676" class="tech-label">PatternCategorySelector</text>
-    <text x="680" y="694" class="tech-label">ZoneTabs (5 zones)</text>
-    <text x="655" y="720" text-anchor="middle" class="sub-label">12 CFB Team Presets</text>
+    <text x="630" y="630" class="tech-label">ColorSelector + HSL</text>
+    <text x="630" y="650" class="tech-label">MaterialFinishSelector</text>
+    <text x="630" y="670" class="tech-label">PatternTypeSelector</text>
+    <text x="630" y="690" class="tech-label">12 CFB team presets</text>
   </g>
 
-  <!-- CFB Fantasy Integration -->
-  <g id="integration">
-    <rect x="860" y="580" width="290" height="150" class="box-red"/>
-    <text x="1005" y="610" text-anchor="middle" class="label">CFB Fantasy V2 Integration</text>
+  <!-- Export/Save -->
+  <g id="export">
+    <rect x="810" y="570" width="340" height="140" class="box-orange"/>
+    <text x="980" y="600" text-anchor="middle" class="label">Export and Persistence</text>
 
-    <text x="880" y="640" class="tech-label">Database: Supabase + RLS</text>
-    <text x="880" y="658" class="tech-label">Table: team_helmet_customizations</text>
-    <text x="880" y="676" class="tech-label">15 columns (5 zones x 3 props)</text>
-    <text x="880" y="694" class="tech-label">API: /api/teams/[id]/helmet</text>
-    <text x="880" y="712" class="tech-label">Auth: JWT + middleware protection</text>
+    <text x="830" y="630" class="tech-label">Screenshot capture (planned)</text>
+    <text x="830" y="650" class="tech-label">GLB export (planned)</text>
+    <text x="830" y="670" class="tech-label">Save to Supabase (planned)</text>
+    <text x="830" y="690" class="tech-label">Reset to defaults</text>
   </g>
 
-  <!-- Arrows: State to UI and R3F -->
-  <line x1="250" y1="580" x2="250" y2="510" class="arrow-green"/>
-  <text x="260" y="545" class="tech-label" style="fill: #10b981;">Real-time sync</text>
+  <!-- Arrows -->
+  <line x1="225" y1="570" x2="225" y2="500" class="arrow-green"/>
+  <text x="235" y="535" class="tech-label" style="fill: #10b981;">Real-time sync</text>
 
-  <line x1="450" y1="655" x2="480" y2="655" class="arrow"/>
-
-  <line x1="830" y1="655" x2="860" y2="655" class="arrow-orange"/>
-  <text x="845" y="640" class="tech-label" style="fill: #f97316;">Save</text>
+  <line x1="400" y1="640" x2="430" y2="640" class="arrow"/>
 
   <!-- Data Flow -->
   <g id="dataflow">
-    <text x="100" y="780" class="section-title">Data Flow</text>
+    <text x="100" y="760" class="section-title">Data Flow</text>
 
-    <rect x="50" y="800" width="1100" height="120" class="box"/>
+    <rect x="50" y="780" width="1100" height="90" class="box"/>
 
-    <!-- Flow steps -->
-    <rect x="80" y="830" width="140" height="60" class="box-highlight"/>
-    <text x="150" y="855" text-anchor="middle" class="sub-label">User Input</text>
-    <text x="150" y="875" text-anchor="middle" class="tech-label">Color/Finish/Pattern</text>
+    <rect x="80" y="800" width="130" height="50" class="box-highlight"/>
+    <text x="145" y="822" text-anchor="middle" class="sub-label">User Input</text>
+    <text x="145" y="838" text-anchor="middle" class="tech-label">Color/Finish/Stripe</text>
 
-    <rect x="270" y="830" width="140" height="60" class="box-emerald"/>
-    <text x="340" y="855" text-anchor="middle" class="sub-label">Zustand Store</text>
-    <text x="340" y="875" text-anchor="middle" class="tech-label">State Update</text>
+    <rect x="250" y="800" width="130" height="50" class="box-emerald"/>
+    <text x="315" y="822" text-anchor="middle" class="sub-label">Zustand</text>
+    <text x="315" y="838" text-anchor="middle" class="tech-label">State Update</text>
 
-    <rect x="460" y="830" width="140" height="60" class="box-cyan"/>
-    <text x="530" y="855" text-anchor="middle" class="sub-label">R3F Scene</text>
-    <text x="530" y="875" text-anchor="middle" class="tech-label">Uniform Sync</text>
+    <rect x="420" y="800" width="130" height="50" class="box-cyan"/>
+    <text x="485" y="822" text-anchor="middle" class="sub-label">R3F Canvas</text>
+    <text x="485" y="838" text-anchor="middle" class="tech-label">useEffect sync</text>
 
-    <rect x="650" y="830" width="140" height="60" class="box-purple"/>
-    <text x="720" y="855" text-anchor="middle" class="sub-label">GLSL Shader</text>
-    <text x="720" y="875" text-anchor="middle" class="tech-label">Material Apply</text>
+    <rect x="590" y="800" width="130" height="50" class="box-purple"/>
+    <text x="655" y="822" text-anchor="middle" class="sub-label">Material</text>
+    <text x="655" y="838" text-anchor="middle" class="tech-label">Property apply</text>
 
-    <rect x="840" y="830" width="140" height="60" class="box-orange"/>
-    <text x="910" y="855" text-anchor="middle" class="sub-label">3D Render</text>
-    <text x="910" y="875" text-anchor="middle" class="tech-label">60fps Output</text>
+    <rect x="760" y="800" width="130" height="50" class="box-orange"/>
+    <text x="825" y="822" text-anchor="middle" class="sub-label">3D Render</text>
+    <text x="825" y="838" text-anchor="middle" class="tech-label">60fps output</text>
 
-    <rect x="1030" y="830" width="100" height="60" class="box-red"/>
-    <text x="1080" y="855" text-anchor="middle" class="sub-label">Supabase</text>
-    <text x="1080" y="875" text-anchor="middle" class="tech-label">Persist</text>
+    <rect x="930" y="800" width="100" height="50" class="box-red"/>
+    <text x="980" y="822" text-anchor="middle" class="sub-label">DB</text>
+    <text x="980" y="838" text-anchor="middle" class="tech-label">Persist</text>
 
-    <!-- Flow arrows -->
-    <line x1="220" y1="860" x2="270" y2="860" class="arrow"/>
-    <line x1="410" y1="860" x2="460" y2="860" class="arrow-green"/>
-    <line x1="600" y1="860" x2="650" y2="860" class="arrow"/>
-    <line x1="790" y1="860" x2="840" y2="860" class="arrow"/>
-    <line x1="980" y1="860" x2="1030" y2="860" class="arrow-dashed"/>
+    <line x1="210" y1="825" x2="250" y2="825" class="arrow"/>
+    <line x1="380" y1="825" x2="420" y2="825" class="arrow-green"/>
+    <line x1="550" y1="825" x2="590" y2="825" class="arrow"/>
+    <line x1="720" y1="825" x2="760" y2="825" class="arrow"/>
+    <line x1="890" y1="825" x2="930" y2="825" class="arrow-dashed"/>
 
-    <text x="600" y="910" text-anchor="middle" class="sub-label">5-10ms real-time updates | Persist on save</text>
-  </g>
-
-  <!-- Tech Stack Footer -->
-  <g id="tech-stack">
-    <rect x="50" y="930" width="1100" height="15" class="box"/>
-    <text x="600" y="942" text-anchor="middle" class="tech-label">Next.js 14 | React Three Fiber 8.15 | Three.js 0.170 | Zustand 5.0 | Supabase | Tailwind CSS</text>
+    <text x="600" y="865" text-anchor="middle" class="sub-label">Real-time material updates | Stripe Bezier curve rendering</text>
   </g>
 
 </svg>

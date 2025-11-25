@@ -52,10 +52,10 @@ export function ProjectCard({ project, index, compact = false }: ProjectCardProp
         return (
           <>
             <p className="mb-4">
-              Real-time 3D helmet customization using React Three Fiber with custom GLSL shaders for zone-based material mixing.
+              Real-time 3D helmet customization using React Three Fiber with zone-based color application and MeshPhysicalMaterial.
             </p>
             <p>
-              Features a 5-zone vertex color system, 16 PBR material finishes, and Bezier curve pattern rendering. Integrates with CFB Fantasy V2 for team branding persistence.
+              Features 4 material finishes (glossy, matte, chrome, brushed) and stripe patterns rendered as 3D Bezier curve tubes following the helmet contour.
             </p>
           </>
         );

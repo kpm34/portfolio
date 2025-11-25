@@ -87,16 +87,16 @@ export const projects: Project[] = [
     id: 'helmet-customizer',
     slug: 'helmet-customizer',
     title: 'Helmet Editor (R3F)',
-    description: 'Real-time 3D helmet customizer with custom GLSL shaders and 5-zone vertex color system',
-    longDescription: 'Production-ready 3D helmet customization system built with React Three Fiber. Features a 5-zone vertex color system (shell, facemask, chinstrap, padding, hardware), 16 PBR material finishes, custom GLSL shaders for real-time zone detection, and 3-level pattern system with Bezier curve rendering. Integrates with CFB Fantasy V2 via Supabase for team branding persistence.',
+    description: 'Real-time 3D helmet customizer with zone-based colors and Bezier curve stripe patterns',
+    longDescription: 'Interactive 3D helmet customization system built with React Three Fiber. Features zone-based color customization (shell, facemask, chinstrap, padding), 4 material finishes (glossy, matte, chrome, brushed), and stripe patterns rendered as 3D Bezier curve tubes. Integrates with CFB Fantasy V2 for team branding.',
     featured: true,
     category: '3d',
-    techStack: ['Next.js 14', 'React Three Fiber', 'Three.js', 'GLSL Shaders', 'Zustand', 'Supabase'],
+    techStack: ['Next.js 14', 'React Three Fiber', 'Three.js', 'Zustand', 'Supabase'],
     aiHighlights: [
-      'Custom GLSL shaders for zone-based material mixing',
-      '5-10ms real-time updates at 60fps',
-      '16 PBR finishes (chrome, carbon fiber, holographic...)',
-      'Bezier curve pattern rendering with TubeGeometry'
+      'MeshPhysicalMaterial with clearcoat and sheen',
+      'Bezier curve stripe rendering (CubicBezierCurve3)',
+      '4 material finishes with PBR properties',
+      'Real-time zone color updates at 60fps'
     ],
     liveUrl: 'https://helmet-customizer.vercel.app',
     githubUrl: 'https://github.com/kpm34/helmet-customizer',
