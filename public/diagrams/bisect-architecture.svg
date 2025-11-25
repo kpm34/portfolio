@@ -27,7 +27,7 @@
   <rect width="1200" height="900" fill="#030303"/>
 
   <!-- Title -->
-  <text x="600" y="40" text-anchor="middle" class="title">Unified 3D Creator Architecture</text>
+  <text x="600" y="40" text-anchor="middle" class="title">Bisect Architecture</text>
   <text x="600" y="65" text-anchor="middle" class="sub-label">Three-Studio Model with AI Orchestration</text>
 
   <!-- Three Studios Layer -->
