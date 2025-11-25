@@ -1,0 +1,228 @@
+<svg width="1200" height="850" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Inter, sans-serif; font-size: 24px; font-weight: 600; fill: #ffffff; }
+      .subtitle { font-family: Inter, sans-serif; font-size: 14px; fill: #a0a0a0; }
+      .section-title { font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; fill: #ffffff; }
+      .label { font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; fill: #e5e5e5; }
+      .sub-label { font-family: Inter, sans-serif; font-size: 11px; fill: #a0a0a0; }
+      .tech-label { font-family: monospace; font-size: 10px; fill: #9ca3af; }
+      .code { font-family: monospace; font-size: 10px; fill: #60a5fa; }
+      .grade-a { fill: #22c55e; }
+      .grade-b { fill: #84cc16; }
+      .grade-c { fill: #eab308; }
+      .grade-d { fill: #f97316; }
+      .grade-f { fill: #ef4444; }
+      .box { fill: rgba(255, 255, 255, 0.05); stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; rx: 8; }
+      .box-blue { fill: rgba(59, 130, 246, 0.1); stroke: rgba(59, 130, 246, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-green { fill: rgba(34, 197, 94, 0.1); stroke: rgba(34, 197, 94, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-purple { fill: rgba(168, 85, 247, 0.1); stroke: rgba(168, 85, 247, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-orange { fill: rgba(249, 115, 22, 0.1); stroke: rgba(249, 115, 22, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-yellow { fill: rgba(234, 179, 8, 0.1); stroke: rgba(234, 179, 8, 0.3); stroke-width: 1.5; rx: 8; }
+      .arrow { stroke: #3b82f6; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-green { stroke: #22c55e; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#22c55e" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="850" fill="#030303"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" class="title">Scoring System</text>
+  <text x="600" y="65" text-anchor="middle" class="subtitle">League Settings, Point Calculations, and Draft Grades</text>
+
+  <!-- League Settings -->
+  <g id="settings">
+    <text x="100" y="110" class="section-title">League Settings Configuration</text>
+
+    <rect x="50" y="130" width="500" height="250" class="box-blue"/>
+    <text x="300" y="160" text-anchor="middle" class="label">league_settings table (one per league)</text>
+
+    <!-- Roster Composition -->
+    <rect x="70" y="180" width="220" height="180" class="box"/>
+    <text x="180" y="205" text-anchor="middle" class="sub-label">Roster Composition</text>
+    <text x="90" y="230" class="tech-label">qb_slots: 1</text>
+    <text x="90" y="245" class="tech-label">rb_slots: 2</text>
+    <text x="90" y="260" class="tech-label">wr_slots: 2</text>
+    <text x="90" y="275" class="tech-label">te_slots: 1</text>
+    <text x="90" y="290" class="tech-label">flex_slots: 1</text>
+    <text x="90" y="305" class="tech-label">k_slots: 1</text>
+    <text x="90" y="320" class="tech-label">dst_slots: 1</text>
+    <text x="90" y="340" class="tech-label">bench_slots: 6</text>
+
+    <!-- Scoring Type -->
+    <rect x="310" y="180" width="220" height="180" class="box"/>
+    <text x="420" y="205" text-anchor="middle" class="sub-label">Scoring Configuration</text>
+    <text x="330" y="230" class="code">scoring_type:</text>
+    <text x="330" y="250" class="tech-label">  'standard' | 'ppr'</text>
+    <text x="330" y="265" class="tech-label">  'half_ppr' | 'custom'</text>
+    <text x="330" y="290" class="code">league_format:</text>
+    <text x="330" y="310" class="tech-label">  'head_to_head'</text>
+    <text x="330" y="325" class="tech-label">  'points' (roto)</text>
+    <text x="330" y="350" class="tech-label">trades_allowed: boolean</text>
+  </g>
+
+  <!-- Point Values -->
+  <g id="points">
+    <text x="620" y="110" class="section-title">Point Values (ScoringSettings)</text>
+
+    <rect x="580" y="130" width="580" height="250" class="box-green"/>
+
+    <!-- Passing -->
+    <rect x="600" y="155" width="130" height="100" class="box"/>
+    <text x="665" y="180" text-anchor="middle" class="sub-label">Passing</text>
+    <text x="620" y="200" class="tech-label">yards: 0.04/yd</text>
+    <text x="620" y="215" class="tech-label">TD: 4 pts</text>
+    <text x="620" y="230" class="tech-label">INT: -2 pts</text>
+    <text x="620" y="245" class="tech-label">2PT: 2 pts</text>
+
+    <!-- Rushing -->
+    <rect x="745" y="155" width="130" height="100" class="box"/>
+    <text x="810" y="180" text-anchor="middle" class="sub-label">Rushing</text>
+    <text x="765" y="200" class="tech-label">yards: 0.1/yd</text>
+    <text x="765" y="215" class="tech-label">TD: 6 pts</text>
+    <text x="765" y="230" class="tech-label">fumble: -2 pts</text>
+    <text x="765" y="245" class="tech-label">2PT: 2 pts</text>
+
+    <!-- Receiving -->
+    <rect x="890" y="155" width="130" height="100" class="box"/>
+    <text x="955" y="180" text-anchor="middle" class="sub-label">Receiving</text>
+    <text x="910" y="200" class="tech-label">rec: 1 (PPR)</text>
+    <text x="910" y="215" class="tech-label">yards: 0.1/yd</text>
+    <text x="910" y="230" class="tech-label">TD: 6 pts</text>
+    <text x="910" y="245" class="tech-label">2PT: 2 pts</text>
+
+    <!-- Kicking -->
+    <rect x="1035" y="155" width="110" height="100" class="box"/>
+    <text x="1090" y="180" text-anchor="middle" class="sub-label">Kicking</text>
+    <text x="1055" y="200" class="tech-label">FG 0-19: 3</text>
+    <text x="1055" y="215" class="tech-label">FG 20-29: 3</text>
+    <text x="1055" y="230" class="tech-label">FG 30-39: 3</text>
+    <text x="1055" y="245" class="tech-label">FG 50+: 5</text>
+
+    <!-- Defense -->
+    <rect x="600" y="265" width="260" height="100" class="box"/>
+    <text x="730" y="290" text-anchor="middle" class="sub-label">Defense/Special Teams</text>
+    <text x="620" y="310" class="tech-label">Sack: 1  |  INT: 2  |  Fumble Rec: 2</text>
+    <text x="620" y="325" class="tech-label">Safety: 2  |  TD: 6  |  Block Kick: 2</text>
+    <text x="620" y="345" class="tech-label">Points Allowed: 0(10), 1-6(7), 7-13(4), 14-20(1), 21-27(0), 28+(-1)</text>
+
+    <!-- Bonuses -->
+    <rect x="880" y="265" width="265" height="100" class="box-yellow"/>
+    <text x="1012" y="290" text-anchor="middle" class="sub-label">Bonuses (Optional)</text>
+    <text x="900" y="310" class="tech-label">100+ rush yards: +3</text>
+    <text x="900" y="325" class="tech-label">100+ rec yards: +3</text>
+    <text x="900" y="345" class="tech-label">300+ pass yards: +3</text>
+  </g>
+
+  <!-- Draft Grades -->
+  <g id="grades">
+    <text x="100" y="420" class="section-title">Draft Grade Calculation</text>
+
+    <rect x="50" y="440" width="550" height="200" class="box-purple"/>
+    <text x="325" y="470" text-anchor="middle" class="label">RPC: calculate_draft_grades(league_id)</text>
+
+    <!-- Factors -->
+    <rect x="70" y="490" width="250" height="130" class="box"/>
+    <text x="195" y="515" text-anchor="middle" class="sub-label">Grading Factors</text>
+    <text x="90" y="540" class="tech-label">Position Balance Score</text>
+    <text x="100" y="555" class="tech-label">QB/RB/WR/TE coverage</text>
+    <text x="90" y="575" class="tech-label">Draft Value Score</text>
+    <text x="100" y="590" class="tech-label">ADP vs actual pick position</text>
+    <text x="90" y="610" class="tech-label">Roster Depth Score</text>
+
+    <!-- Output -->
+    <rect x="340" y="490" width="240" height="130" class="box"/>
+    <text x="460" y="515" text-anchor="middle" class="sub-label">Output (teams table)</text>
+    <text x="360" y="540" class="code">draft_grade: 'A' to 'F'</text>
+    <text x="360" y="565" class="code">draft_grade_details: JSON</text>
+    <text x="370" y="585" class="tech-label">position_score: 85</text>
+    <text x="370" y="600" class="tech-label">value_score: 72</text>
+    <text x="370" y="615" class="tech-label">depth_score: 90</text>
+
+    <!-- Grade Scale -->
+    <rect x="610" y="440" width="250" height="200" class="box"/>
+    <text x="735" y="470" text-anchor="middle" class="label">Grade Scale</text>
+    <rect x="630" y="490" width="50" height="25" rx="4" class="box" style="fill: rgba(34, 197, 94, 0.3);"/>
+    <text x="655" y="508" text-anchor="middle" class="grade-a" style="font-weight: bold;">A</text>
+    <text x="700" y="508" class="tech-label">90-100 points</text>
+
+    <rect x="630" y="520" width="50" height="25" rx="4" class="box" style="fill: rgba(132, 204, 22, 0.3);"/>
+    <text x="655" y="538" text-anchor="middle" class="grade-b" style="font-weight: bold;">B</text>
+    <text x="700" y="538" class="tech-label">80-89 points</text>
+
+    <rect x="630" y="550" width="50" height="25" rx="4" class="box" style="fill: rgba(234, 179, 8, 0.3);"/>
+    <text x="655" y="568" text-anchor="middle" class="grade-c" style="font-weight: bold;">C</text>
+    <text x="700" y="568" class="tech-label">70-79 points</text>
+
+    <rect x="630" y="580" width="50" height="25" rx="4" class="box" style="fill: rgba(249, 115, 22, 0.3);"/>
+    <text x="655" y="598" text-anchor="middle" class="grade-d" style="font-weight: bold;">D</text>
+    <text x="700" y="598" class="tech-label">60-69 points</text>
+
+    <rect x="630" y="610" width="50" height="25" rx="4" class="box" style="fill: rgba(239, 68, 68, 0.3);"/>
+    <text x="655" y="628" text-anchor="middle" class="grade-f" style="font-weight: bold;">F</text>
+    <text x="700" y="628" class="tech-label">Below 60 points</text>
+  </g>
+
+  <!-- Weekly Scoring -->
+  <g id="weekly">
+    <text x="920" y="420" class="section-title">Weekly Scoring Flow</text>
+
+    <rect x="880" y="440" width="280" height="200" class="box-orange"/>
+
+    <rect x="900" y="465" width="240" height="55" class="box"/>
+    <text x="1020" y="490" text-anchor="middle" class="sub-label">1. Stats Sync</text>
+    <text x="920" y="510" class="tech-label">CFBD API to player_stats</text>
+
+    <rect x="900" y="530" width="240" height="55" class="box"/>
+    <text x="1020" y="555" text-anchor="middle" class="sub-label">2. Calculate Points</text>
+    <text x="920" y="575" class="tech-label">calculateFantasyPoints() per player</text>
+
+    <rect x="900" y="595" width="240" height="30" class="box"/>
+    <text x="1020" y="615" text-anchor="middle" class="tech-label">3. Sum team roster points</text>
+
+    <line x1="1020" y1="520" x2="1020" y2="530" class="arrow-green"/>
+    <line x1="1020" y1="585" x2="1020" y2="595" class="arrow-green"/>
+  </g>
+
+  <!-- Standings -->
+  <g id="standings">
+    <text x="100" y="680" class="section-title">Standings and Matchups</text>
+
+    <rect x="50" y="700" width="550" height="130" class="box"/>
+
+    <!-- Teams Table -->
+    <rect x="70" y="720" width="250" height="90" class="box-blue"/>
+    <text x="195" y="745" text-anchor="middle" class="sub-label">teams table</text>
+    <text x="90" y="770" class="tech-label">wins, losses, ties</text>
+    <text x="90" y="785" class="tech-label">points_for, points_against</text>
+    <text x="90" y="800" class="tech-label">playoff_seed</text>
+
+    <!-- Matchups -->
+    <rect x="340" y="720" width="240" height="90" class="box-green"/>
+    <text x="460" y="745" text-anchor="middle" class="sub-label">matchups table</text>
+    <text x="360" y="770" class="tech-label">team_a_id, team_b_id</text>
+    <text x="360" y="785" class="tech-label">team_a_score, team_b_score</text>
+    <text x="360" y="800" class="tech-label">winner_id, week</text>
+  </g>
+
+  <!-- Tiebreakers -->
+  <g id="tiebreakers">
+    <text x="680" y="680" class="section-title">Tiebreaker Rules</text>
+
+    <rect x="630" y="700" width="530" height="130" class="box-yellow"/>
+
+    <text x="650" y="730" class="label">Playoff Seeding Tiebreakers (in order):</text>
+    <text x="670" y="755" class="tech-label">1. Head-to-head record between tied teams</text>
+    <text x="670" y="775" class="tech-label">2. Total points scored (points_for)</text>
+    <text x="670" y="795" class="tech-label">3. Points against (lower is better)</text>
+    <text x="670" y="815" class="tech-label">4. Coin flip / commissioner decision</text>
+  </g>
+
+</svg>

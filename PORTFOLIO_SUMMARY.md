@@ -1,137 +1,143 @@
-# Portfolio Project Summary
+# Portfolio Summary
 
-## Quick Overview
+**Live Site:** https://kashyapmaheshwari.vercel.app
 
-You have **7 impressive projects** ready for your portfolio, positioned for **AI-focused roles**:
+## Featured Projects
 
-### Top 4 Projects (Must Include - AI Angle)
+### 1. Bisect (formerly Prism + VectorCraft)
+**Three-Studio Creative Platform with AI Orchestration**
 
-1. **EZWORKS** ⭐⭐⭐⭐⭐ - **PRIMARY FEATURE**
-   - **Type:** Production AI SaaS Platform
-   - **Live:** https://ezworks.art
-   - **Tech:** Next.js 16, FastAPI, Redis, ComfyUI, Stable Diffusion, Stripe
-   - **AI Highlights:**
-     - AI workflow engine (ComfyUI integration)
-     - Redis job queue for scalable AI processing
-     - Real-time AI progress via WebSocket
-     - Automated workflow generation
-   - **Automation:** Workflow automation, procedural generation
-   - **Why Feature:** Production AI SaaS, scalable architecture, real users
+- **Live:** https://prism.vercel.app
+- **Tech:** Next.js 14, React 19, GPT-4o, Spline Runtime, THREE.js, Zustand
+- **Key Features:**
+  - Universal Editor with format-agnostic adapter pattern (Spline, GLTF, GLB)
+  - AI Command System - natural language to 3D manipulation via GPT-4o
+  - 600+ PBR Material presets with semantic search
+  - Three interconnected studios: Vector, Texture, 3D Scene
+- **Architecture Diagrams:**
+  - System Overview
+  - Universal Editor (Adapter Pattern)
+  - AI Commands (GPT-4o Integration)
+  - Material System (600+ PBR Presets)
+- **Demo Video:** Included on portfolio
 
-2. **Helmet Customizer (R3F)** ⭐⭐⭐⭐⭐ - **PRIMARY FEATURE**
-   - **Type:** Automation System + 3D Customization
-   - **Tech:** Next.js 14, React Three Fiber, Python, Blender
-   - **AI Highlights:** Foundation for AI-powered 3D generation
-   - **Automation Highlights:**
-     - Blender Python automation scripts
-     - Automated GLB export pipeline
-     - 5-zone vertex color system
-     - Integration architecture
-   - **Why Feature:** Strong automation systems, integration thinking
+### 2. CFB Fantasy App
+**Full-Stack Fantasy Football Platform**
 
-3. **Prism** ⭐⭐⭐⭐
-   - **Type:** AI + 3D Integration
-   - **Live:** https://prism.vercel.app
-   - **Tech:** Next.js 15, React 19, GPT-4o, Spline Runtime
-   - **AI Highlights:** AI command processing, natural language → 3D
-   - **Why Feature:** AI + 3D integration, natural language processing
+- **Live:** https://cfbfantasy.app
+- **Tech:** Next.js 15, React 19, Supabase, THREE.js
+- **Key Features:**
+  - Real-time draft system (Snake & Auction) with Supabase Realtime
+  - WebSocket subscriptions for live updates
+  - Player projections pipeline with CFBD API integration
+  - Fantasy scoring calculator (Standard, PPR, Half-PPR)
+  - Draft grade calculation (A-F)
+  - 3D Helmet Editor integration
+- **Architecture Diagrams:**
+  - System Overview
+  - Real-Time Draft System
+  - Authentication Flow
+  - Projections Pipeline
+  - Scoring System
 
-4. **CFB Fantasy App** ⭐⭐⭐⭐
-   - **Type:** Full-Stack + Data Pipeline
-   - **Live:** https://cfbfantasy.app
-   - **Tech:** Next.js 15, Appwrite, THREE.js
-   - **AI Highlights:** ETL pipelines (AI data prep foundation)
-   - **Why Feature:** Production experience, data pipeline expertise
+### 3. Helmet Editor (R3F)
+**Real-Time 3D Helmet Customization**
 
-### Additional Projects
+- **Live:** https://helmet-customizer.vercel.app
+- **Tech:** Next.js 14, React Three Fiber, Three.js, Zustand, Supabase
+- **Key Features:**
+  - Zone-based color customization (shell, facemask, chinstrap, padding)
+  - 4 material finishes (glossy, matte, chrome, brushed) via MeshPhysicalMaterial
+  - Stripe patterns as 3D Bezier curve tubes (CubicBezierCurve3 + TubeGeometry)
+  - Real-time updates at 60fps
+  - Integrates with CFB Fantasy for team branding
+- **Architecture Diagram:** Helmet Editor Architecture
 
-5. **VectorCraft AI** - AI vectorization (Gemini), multi-format architecture
+## Secondary Projects
 
----
+### 4. EZWORKS
+**Production AI SaaS Platform**
 
-## Key Skills Demonstrated (AI Job Focus)
+- **Live:** https://ezworks.art
+- **Tech:** Next.js 16, React 19, FastAPI, Redis, ComfyUI, Stable Diffusion, Stripe
+- **Key Features:**
+  - AI workflow engine with ComfyUI integration
+  - Redis job queue for scalable AI processing
+  - Real-time generation progress via WebSocket
+  - Subscription management with Stripe
 
-### AI Systems Architecture ⭐ (PRIMARY)
-- ✅ **Workflow Engines** - ComfyUI integration, workflow automation
-- ✅ **Job Queue Systems** - Redis-based queues for AI processing
-- ✅ **Real-time AI** - WebSocket streaming for live AI progress
-- ✅ **RAG Systems** - Vector databases, knowledge indexing
-- ✅ **Procedural Generation** - AI-powered workflow generation
+### 5. Third Eye Capital
+**Financial Analytics Dashboard**
 
-### AI Integration ⭐ (PRIMARY)
-- ✅ **ComfyUI** - AI workflow engine integration
-- ✅ **GPT-4o** - Natural language processing, vision
-- ✅ **Gemini 2.0** - Vectorization, multimodal AI
-- ✅ **Stable Diffusion** - Image generation models
-
-### Automation ⭐ (PRIMARY)
-- ✅ **Blender Automation** - Python scripts for 3D asset generation
-- ✅ **ETL Pipelines** - Data processing and transformation
-- ✅ **Workflow Automation** - Automated workflow generation
-- ✅ **Asset Pipelines** - Automated GLB export and optimization
-
-### Full-Stack Development
-- ✅ **Next.js 14/15/16** - App Router, Server Components
-- ✅ **FastAPI** - Python async API framework
-- ✅ **TypeScript/Python** - Type-safe development
-- ✅ **Production Experience** - Deployed apps, real users
+- **Tech:** Next.js, TypeScript, Recharts, Tailwind CSS
+- **Status:** In development
 
 ---
 
-## Portfolio Website Plan (AI-Focused)
+## Technical Highlights
 
-**Created Documents:**
-1. `PROJECT_REVIEW.md` - Detailed project analysis (AI-focused)
-2. `PORTFOLIO_PLAN.md` - Implementation guide (AI angle)
-3. `PORTFOLIO_SUMMARY.md` - This file
+### AI Integration
+- GPT-4o for natural language 3D commands
+- Multi-agent orchestration (provider routing)
+- RAG system with ChromaDB (optional)
+- ComfyUI + Stable Diffusion workflows
 
-**Portfolio Focus:**
-- **Primary:** AI Systems Architecture, AI Integration, Automation
-- **Secondary:** Full-Stack Development, Production Experience
-- **Target Roles:** AI Engineer, ML Engineer, AI Systems Engineer, Automation Engineer
+### Real-Time Systems
+- Supabase Realtime for WebSocket subscriptions
+- Live draft updates across multiple clients
+- 60fps 3D rendering with React Three Fiber
 
-**Next Steps:**
-1. Review the plans (updated for AI focus)
-2. Gather project assets (screenshots, videos, architecture diagrams)
-3. Create architecture diagrams for EZWORKS and Helmet Customizer
-4. Set up Next.js portfolio project
-5. Build incrementally (emphasize AI/automation sections)
-6. Deploy to Vercel
+### Architecture Patterns
+- Format-agnostic adapter pattern (ISceneAdapter)
+- Zustand for client-side state management
+- Row Level Security (RLS) with Supabase
+- Snake draft calculation via PostgreSQL RPC
 
----
-
-## Quick Start
-
-```bash
-# Create portfolio project
-npx create-next-app@latest portfolio-website --typescript --tailwind --app
-
-# Navigate to project
-cd portfolio-website
-
-# Install additional dependencies
-npm install framer-motion @react-three/fiber @react-three/drei
-
-# Start development
-npm run dev
-```
+### 3D Graphics
+- React Three Fiber + Three.js
+- MeshPhysicalMaterial with clearcoat/sheen
+- Bezier curve geometry (CubicBezierCurve3)
+- Spline Runtime integration
+- 600+ PBR material presets
 
 ---
 
-## Target Roles
+## Architecture Diagrams
 
-**Primary Targets:**
-- AI Engineer / AI Systems Engineer
-- ML Engineer / ML Infrastructure Engineer
-- AI Integration Engineer
-- Automation Engineer
-- Full-Stack AI Developer
+The portfolio includes **10 detailed SVG architecture diagrams** rendered as dedicated pages:
 
-**Portfolio Positioning:**
-- Emphasize **production AI experience** (not just demos)
-- Highlight **scalable AI architecture** (job queues, workflow engines)
-- Show **automation systems** (Blender, ETL, workflows)
-- Demonstrate **end-to-end AI development** (UI → API → AI → Infrastructure)
+**CFB Fantasy (5 diagrams):**
+- `/diagrams/cfb-fantasy-architecture` - System Overview
+- `/diagrams/cfb-realtime-draft` - Real-Time Draft System
+- `/diagrams/cfb-auth` - Authentication Flow
+- `/diagrams/cfb-projections` - Projections Pipeline
+- `/diagrams/cfb-scoring` - Scoring System
 
-**You're ready to build an impressive AI-focused portfolio! 🚀**
+**Bisect (4 diagrams):**
+- `/diagrams/bisect-architecture` - System Overview
+- `/diagrams/bisect-universal-editor` - Universal Editor
+- `/diagrams/bisect-ai-commands` - AI Commands
+- `/diagrams/bisect-materials` - Material System
 
+**Helmet Editor (1 diagram):**
+- `/diagrams/helmet-editor-architecture` - R3F Architecture
+
+---
+
+## Tech Stack
+
+**Frontend:** Next.js 14/15/16, React 19, TypeScript, Tailwind CSS, Framer Motion
+**3D:** React Three Fiber, Three.js, Spline Runtime
+**State:** Zustand
+**Backend:** Supabase, FastAPI, Redis
+**AI:** OpenAI GPT-4o, ComfyUI, Stable Diffusion
+**Payments:** Stripe
+**Deployment:** Vercel
+
+---
+
+## Contact
+
+- **GitHub:** https://github.com/kpm34
+- **LinkedIn:** https://linkedin.com/in/kashyapmaheshwari
+- **Email:** kashpm2002@gmail.com

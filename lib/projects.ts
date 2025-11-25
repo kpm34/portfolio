@@ -1,3 +1,8 @@
+export interface DiagramInfo {
+  slug: string;
+  title: string;
+}
+
 export interface Project {
   id: string;
   slug: string;
@@ -11,7 +16,9 @@ export interface Project {
   liveUrl?: string;
   githubUrl?: string;
   diagramUrl?: string;
+  diagrams?: DiagramInfo[]; // Multiple diagrams
   image: string;
+  demoVideo?: string; // Demo video URL
   images?: string[]; // Gallery images
   gradient: string; // Tailwind gradient for card
 }
@@ -56,8 +63,15 @@ export const projects: Project[] = [
     ],
     liveUrl: 'https://prism.vercel.app',
     githubUrl: 'https://github.com/kpm34/prism',
-    diagramUrl: '/diagrams/bisect-architecture.svg',
+    diagramUrl: '/diagrams/bisect-architecture',
+    diagrams: [
+      { slug: 'bisect-architecture', title: 'System Overview' },
+      { slug: 'bisect-universal-editor', title: 'Universal Editor' },
+      { slug: 'bisect-ai-commands', title: 'AI Commands' },
+      { slug: 'bisect-materials', title: 'Material System' }
+    ],
     image: '/projects/prism.png',
+    demoVideo: '/projects/Demo.mov',
     images: ['/projects/prism.png', '/projects/vectorcraft.png'],
     gradient: 'from-emerald-500 to-teal-500'
   },
@@ -78,9 +92,16 @@ export const projects: Project[] = [
     ],
     liveUrl: 'https://cfbfantasy.app',
     githubUrl: 'https://github.com/kpm34/cfb-fantasy',
-    diagramUrl: '/diagrams/cfb-fantasy-architecture.svg',
+    diagramUrl: '/diagrams/cfb-fantasy-architecture',
+    diagrams: [
+      { slug: 'cfb-fantasy-architecture', title: 'System Overview' },
+      { slug: 'cfb-realtime-draft', title: 'Real-Time Draft' },
+      { slug: 'cfb-auth', title: 'Authentication' },
+      { slug: 'cfb-projections', title: 'Projections Pipeline' },
+      { slug: 'cfb-scoring', title: 'Scoring System' }
+    ],
     image: '/projects/cfb.png',
-    images: ['/projects/cfb.png', '/projects/helmet.png'], // Added helmet image to gallery
+    images: ['/projects/cfb.png', '/projects/helmet.png'],
     gradient: 'from-orange-500 to-red-500'
   },
   {
@@ -100,7 +121,7 @@ export const projects: Project[] = [
     ],
     liveUrl: 'https://helmet-customizer.vercel.app',
     githubUrl: 'https://github.com/kpm34/helmet-customizer',
-    diagramUrl: '/diagrams/helmet-editor-architecture.svg',
+    diagramUrl: '/diagrams/helmet-editor-architecture',
     image: '/projects/helmet.png',
     images: ['/projects/helmet.png'],
     gradient: 'from-blue-500 to-cyan-500'

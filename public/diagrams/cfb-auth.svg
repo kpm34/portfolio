@@ -1,0 +1,221 @@
+<svg width="1200" height="850" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Inter, sans-serif; font-size: 24px; font-weight: 600; fill: #ffffff; }
+      .subtitle { font-family: Inter, sans-serif; font-size: 14px; fill: #a0a0a0; }
+      .section-title { font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; fill: #ffffff; }
+      .label { font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; fill: #e5e5e5; }
+      .sub-label { font-family: Inter, sans-serif; font-size: 11px; fill: #a0a0a0; }
+      .tech-label { font-family: monospace; font-size: 10px; fill: #9ca3af; }
+      .code { font-family: monospace; font-size: 10px; fill: #60a5fa; }
+      .box { fill: rgba(255, 255, 255, 0.05); stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; rx: 8; }
+      .box-blue { fill: rgba(59, 130, 246, 0.1); stroke: rgba(59, 130, 246, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-green { fill: rgba(34, 197, 94, 0.1); stroke: rgba(34, 197, 94, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-purple { fill: rgba(168, 85, 247, 0.1); stroke: rgba(168, 85, 247, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-orange { fill: rgba(249, 115, 22, 0.1); stroke: rgba(249, 115, 22, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-red { fill: rgba(239, 68, 68, 0.1); stroke: rgba(239, 68, 68, 0.3); stroke-width: 1.5; rx: 8; }
+      .arrow { stroke: #3b82f6; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-green { stroke: #22c55e; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+      .arrow-red { stroke: #ef4444; stroke-width: 2; fill: none; marker-end: url(#arrowhead-red); }
+      .arrow-dashed { stroke: #3b82f6; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#22c55e" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#ef4444" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="850" fill="#030303"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" class="title">Authentication Flow</text>
+  <text x="600" y="65" text-anchor="middle" class="subtitle">Supabase Auth + Next.js Middleware Protection</text>
+
+  <!-- Sign Up/In Flow -->
+  <g id="signup">
+    <text x="100" y="110" class="section-title">Sign Up / Sign In Flow</text>
+
+    <rect x="50" y="130" width="500" height="280" class="box-blue"/>
+
+    <!-- Step 1 -->
+    <rect x="70" y="150" width="140" height="80" class="box"/>
+    <text x="140" y="175" text-anchor="middle" class="sub-label">1. User Input</text>
+    <text x="90" y="195" class="tech-label">Email + Password</text>
+    <text x="90" y="210" class="tech-label">OAuth Provider</text>
+    <text x="90" y="225" class="tech-label">(Google, GitHub)</text>
+
+    <!-- Step 2 -->
+    <rect x="230" y="150" width="150" height="80" class="box-purple"/>
+    <text x="305" y="175" text-anchor="middle" class="sub-label">2. Supabase Auth</text>
+    <text x="250" y="195" class="tech-label">signUp() / signIn()</text>
+    <text x="250" y="210" class="tech-label">Built-in validation</text>
+    <text x="250" y="225" class="tech-label">Session creation</text>
+
+    <!-- Step 3 -->
+    <rect x="400" y="150" width="130" height="80" class="box-green"/>
+    <text x="465" y="175" text-anchor="middle" class="sub-label">3. Email Sent</text>
+    <text x="420" y="195" class="tech-label">Confirmation</text>
+    <text x="420" y="210" class="tech-label">Magic link</text>
+    <text x="420" y="225" class="tech-label">OTP code</text>
+
+    <!-- Arrows -->
+    <line x1="210" y1="190" x2="230" y2="190" class="arrow"/>
+    <line x1="380" y1="190" x2="400" y2="190" class="arrow-green"/>
+
+    <!-- OAuth Callback -->
+    <rect x="70" y="260" width="460" height="130" class="box-orange"/>
+    <text x="300" y="285" text-anchor="middle" class="label">OAuth Callback: GET /api/auth/callback</text>
+
+    <text x="90" y="310" class="code">const code = searchParams.get('code')</text>
+    <text x="90" y="330" class="code">await supabase.auth.exchangeCodeForSession(code)</text>
+    <text x="90" y="350" class="tech-label">Exchange auth code for session tokens</text>
+    <text x="90" y="370" class="tech-label">Redirect to /auth/email-confirmed or /dashboard</text>
+  </g>
+
+  <!-- Auth Context -->
+  <g id="context">
+    <text x="620" y="110" class="section-title">Auth Context (React)</text>
+
+    <rect x="580" y="130" width="350" height="280" class="box-purple"/>
+    <text x="755" y="160" text-anchor="middle" class="label">AuthContext Provider</text>
+    <text x="600" y="185" class="code">src/lib/auth/auth-context.tsx</text>
+
+    <!-- State -->
+    <rect x="600" y="200" width="150" height="90" class="box"/>
+    <text x="675" y="225" text-anchor="middle" class="sub-label">Context State</text>
+    <text x="620" y="245" class="tech-label">user: User | null</text>
+    <text x="620" y="260" class="tech-label">loading: boolean</text>
+    <text x="620" y="275" class="tech-label">error: string | null</text>
+
+    <!-- Actions -->
+    <rect x="770" y="200" width="140" height="90" class="box"/>
+    <text x="840" y="225" text-anchor="middle" class="sub-label">Actions</text>
+    <text x="790" y="245" class="tech-label">signOut()</text>
+    <text x="790" y="260" class="tech-label">refreshUser()</text>
+    <text x="790" y="275" class="tech-label">getSession()</text>
+
+    <!-- Listeners -->
+    <rect x="600" y="310" width="310" height="80" class="box-green"/>
+    <text x="755" y="335" text-anchor="middle" class="sub-label">Auth State Listener</text>
+    <text x="620" y="355" class="code">supabase.auth.onAuthStateChange()</text>
+    <text x="620" y="375" class="tech-label">Auto-updates user on sign in/out events</text>
+  </g>
+
+  <!-- Middleware -->
+  <g id="middleware">
+    <text x="1000" y="110" class="section-title">Middleware</text>
+
+    <rect x="960" y="130" width="200" height="280" class="box-red"/>
+    <text x="1060" y="160" text-anchor="middle" class="label">Route Protection</text>
+    <text x="980" y="185" class="code">src/middleware.ts</text>
+
+    <!-- Protected Routes -->
+    <rect x="980" y="200" width="160" height="90" class="box"/>
+    <text x="1060" y="225" text-anchor="middle" class="sub-label">Protected Routes</text>
+    <text x="1000" y="245" class="tech-label">/dashboard</text>
+    <text x="1000" y="260" class="tech-label">/profile</text>
+    <text x="1000" y="275" class="tech-label">/leagues/*</text>
+
+    <!-- Auth Routes -->
+    <rect x="980" y="310" width="160" height="80" class="box"/>
+    <text x="1060" y="335" text-anchor="middle" class="sub-label">Auth Routes</text>
+    <text x="1000" y="355" class="tech-label">/auth/signin</text>
+    <text x="1000" y="370" class="tech-label">/auth/signup</text>
+  </g>
+
+  <!-- Arrow from Context to Middleware -->
+  <line x1="930" y1="270" x2="960" y2="270" class="arrow-dashed"/>
+
+  <!-- Session Management -->
+  <g id="session">
+    <text x="100" y="460" class="section-title">Session Management</text>
+
+    <rect x="50" y="480" width="550" height="180" class="box"/>
+
+    <!-- Client -->
+    <rect x="70" y="500" width="240" height="140" class="box-blue"/>
+    <text x="190" y="525" text-anchor="middle" class="label">Browser (Client)</text>
+    <text x="90" y="550" class="code">createBrowserClient()</text>
+    <text x="90" y="575" class="tech-label">Cookies: sb-access-token</text>
+    <text x="90" y="590" class="tech-label">Cookies: sb-refresh-token</text>
+    <text x="90" y="610" class="tech-label">Auto-refresh on expiry</text>
+    <text x="90" y="630" class="tech-label">Persists across tabs</text>
+
+    <!-- Server -->
+    <rect x="340" y="500" width="240" height="140" class="box-green"/>
+    <text x="460" y="525" text-anchor="middle" class="label">Server (API Routes)</text>
+    <text x="360" y="550" class="code">createServerClient()</text>
+    <text x="360" y="575" class="tech-label">Reads cookies from request</text>
+    <text x="360" y="590" class="tech-label">Validates JWT signature</text>
+    <text x="360" y="610" class="tech-label">Checks token expiry</text>
+    <text x="360" y="630" class="tech-label">Returns user or null</text>
+  </g>
+
+  <!-- API Authentication -->
+  <g id="api-auth">
+    <text x="670" y="460" class="section-title">API Route Authentication</text>
+
+    <rect x="630" y="480" width="530" height="180" class="box-orange"/>
+    <text x="895" y="510" text-anchor="middle" class="label">Every Protected API Route</text>
+
+    <text x="650" y="540" class="code">const supabase = createServerClient(cookies())</text>
+    <text x="650" y="560" class="code">const { data: { user } } = await supabase.auth.getUser()</text>
+    <text x="650" y="585" class="tech-label">if (!user) return Response.json({ error: 'Unauthorized' }, { status: 401 })</text>
+
+    <rect x="650" y="600" width="490" height="40" class="box-red"/>
+    <text x="895" y="625" text-anchor="middle" class="sub-label">Row Level Security (RLS) enforces data access based on user.id</text>
+  </g>
+
+  <!-- Protection Flow -->
+  <g id="flow">
+    <text x="100" y="710" class="section-title">Route Protection Flow</text>
+
+    <rect x="50" y="730" width="1100" height="100" class="box"/>
+
+    <!-- Request -->
+    <rect x="80" y="755" width="120" height="55" class="box-blue"/>
+    <text x="140" y="780" text-anchor="middle" class="sub-label">Request</text>
+    <text x="140" y="800" text-anchor="middle" class="tech-label">/dashboard</text>
+
+    <!-- Middleware Check -->
+    <rect x="230" y="755" width="150" height="55" class="box-purple"/>
+    <text x="305" y="780" text-anchor="middle" class="sub-label">Middleware</text>
+    <text x="305" y="800" text-anchor="middle" class="tech-label">Check session</text>
+
+    <!-- Decision -->
+    <rect x="410" y="755" width="120" height="55" class="box-orange"/>
+    <text x="470" y="780" text-anchor="middle" class="sub-label">Has User?</text>
+    <text x="470" y="800" text-anchor="middle" class="tech-label">Yes / No</text>
+
+    <!-- Allow -->
+    <rect x="570" y="745" width="130" height="35" class="box-green"/>
+    <text x="635" y="768" text-anchor="middle" class="tech-label">Allow Access</text>
+
+    <!-- Redirect -->
+    <rect x="570" y="790" width="130" height="35" class="box-red"/>
+    <text x="635" y="813" text-anchor="middle" class="tech-label">Redirect /signin</text>
+
+    <!-- Auth Routes Reverse -->
+    <rect x="730" y="755" width="180" height="55" class="box"/>
+    <text x="820" y="780" text-anchor="middle" class="sub-label">Auth Routes</text>
+    <text x="820" y="800" text-anchor="middle" class="tech-label">User exists? to /dashboard</text>
+
+    <!-- Public -->
+    <rect x="940" y="755" width="180" height="55" class="box"/>
+    <text x="1030" y="780" text-anchor="middle" class="sub-label">Public Routes</text>
+    <text x="1030" y="800" text-anchor="middle" class="tech-label">/, /about - no check</text>
+
+    <!-- Arrows -->
+    <line x1="200" y1="782" x2="230" y2="782" class="arrow"/>
+    <line x1="380" y1="782" x2="410" y2="782" class="arrow"/>
+    <line x1="530" y1="762" x2="570" y2="762" class="arrow-green"/>
+    <line x1="530" y1="807" x2="570" y2="807" class="arrow-red"/>
+  </g>
+
+</svg>

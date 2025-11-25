@@ -180,12 +180,23 @@ export function ProjectCard({ project, index, compact = false }: ProjectCardProp
       {/* Visual */}
       <div className="space-y-4">
         <div className="relative aspect-video rounded-lg overflow-hidden bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-          />
+          {project.demoVideo ? (
+            <video
+              src={project.demoVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            />
+          )}
           
           {/* Hover Overlay */}
           <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
@@ -255,8 +266,8 @@ export function ProjectCard({ project, index, compact = false }: ProjectCardProp
         {/* Action Links */}
         <div className="flex gap-4 mt-6 flex-wrap">
             {project.liveUrl && (
-              <a 
-                href={project.liveUrl} 
+              <a
+                href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white hover:text-blue-400 underline text-sm transition-colors"
@@ -264,11 +275,20 @@ export function ProjectCard({ project, index, compact = false }: ProjectCardProp
                 Live Demo
               </a>
             )}
-            {project.diagramUrl && (
-              <a 
-                href={project.diagramUrl} 
-                target="_blank"
-                rel="noopener noreferrer"
+            {project.diagrams && project.diagrams.length > 0 ? (
+              project.diagrams.map((diagram) => (
+                <a
+                  key={diagram.slug}
+                  href={`/diagrams/${diagram.slug}`}
+                  className="text-blue-400 hover:text-blue-300 underline text-sm transition-colors flex items-center gap-1"
+                >
+                  <Network size={14} />
+                  {diagram.title}
+                </a>
+              ))
+            ) : project.diagramUrl && (
+              <a
+                href={project.diagramUrl}
                 className="text-blue-400 hover:text-blue-300 underline text-sm transition-colors flex items-center gap-1"
               >
                 <Network size={14} />
@@ -276,8 +296,8 @@ export function ProjectCard({ project, index, compact = false }: ProjectCardProp
               </a>
             )}
             {project.githubUrl && (
-              <a 
-                href={project.githubUrl} 
+              <a
+                href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-white underline text-sm transition-colors"

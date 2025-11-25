@@ -1,0 +1,188 @@
+<svg width="1200" height="850" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Inter, sans-serif; font-size: 24px; font-weight: 600; fill: #ffffff; }
+      .subtitle { font-family: Inter, sans-serif; font-size: 14px; fill: #a0a0a0; }
+      .section-title { font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; fill: #ffffff; }
+      .label { font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; fill: #e5e5e5; }
+      .sub-label { font-family: Inter, sans-serif; font-size: 11px; fill: #a0a0a0; }
+      .tech-label { font-family: monospace; font-size: 10px; fill: #9ca3af; }
+      .code { font-family: monospace; font-size: 10px; fill: #60a5fa; }
+      .box { fill: rgba(255, 255, 255, 0.05); stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; rx: 8; }
+      .box-emerald { fill: rgba(16, 185, 129, 0.1); stroke: rgba(16, 185, 129, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-blue { fill: rgba(59, 130, 246, 0.1); stroke: rgba(59, 130, 246, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-purple { fill: rgba(168, 85, 247, 0.1); stroke: rgba(168, 85, 247, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-orange { fill: rgba(249, 115, 22, 0.1); stroke: rgba(249, 115, 22, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-cyan { fill: rgba(6, 182, 212, 0.1); stroke: rgba(6, 182, 212, 0.3); stroke-width: 1.5; rx: 8; }
+      .arrow { stroke: #10b981; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-blue { stroke: #3b82f6; stroke-width: 2; fill: none; marker-end: url(#arrowhead-blue); }
+      .arrow-dashed { stroke: #10b981; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#10b981" />
+    </marker>
+    <marker id="arrowhead-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="850" fill="#030303"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" class="title">Universal Editor Architecture</text>
+  <text x="600" y="65" text-anchor="middle" class="subtitle">Format-Agnostic 3D Editing with Adapter Pattern</text>
+
+  <!-- File Input -->
+  <g id="input">
+    <text x="100" y="110" class="section-title">File Input</text>
+
+    <rect x="50" y="130" width="300" height="140" class="box"/>
+    <text x="200" y="160" text-anchor="middle" class="label">Supported Formats</text>
+
+    <rect x="70" y="180" width="80" height="35" class="box-purple"/>
+    <text x="110" y="203" text-anchor="middle" class="tech-label">.splinecode</text>
+
+    <rect x="160" y="180" width="80" height="35" class="box-blue"/>
+    <text x="200" y="203" text-anchor="middle" class="tech-label">.gltf / .glb</text>
+
+    <rect x="250" y="180" width="80" height="35" class="box" style="stroke-dasharray: 3,3;"/>
+    <text x="290" y="203" text-anchor="middle" class="tech-label">.fbx (soon)</text>
+
+    <text x="200" y="250" text-anchor="middle" class="sub-label">Drag-drop or file picker upload</text>
+  </g>
+
+  <!-- Universal Editor -->
+  <g id="universal-editor">
+    <text x="450" y="110" class="section-title">UniversalEditor.ts (335 lines)</text>
+
+    <rect x="400" y="130" width="400" height="140" class="box-emerald"/>
+    <text x="600" y="160" text-anchor="middle" class="label">Format Detection and Routing</text>
+
+    <text x="420" y="190" class="code">detectFormat(file: File): SceneFormat</text>
+    <text x="430" y="210" class="tech-label">Extension check: .splinecode, .gltf, .glb</text>
+    <text x="430" y="230" class="tech-label">MIME type fallback for ambiguous files</text>
+    <text x="430" y="250" class="tech-label">Returns: 'spline' | 'gltf' | 'glb' | 'unknown'</text>
+  </g>
+
+  <!-- Arrow from Input to Universal Editor -->
+  <line x1="350" y1="200" x2="400" y2="200" class="arrow"/>
+
+  <!-- ISceneAdapter Interface -->
+  <g id="interface">
+    <text x="900" y="110" class="section-title">ISceneAdapter Interface</text>
+
+    <rect x="850" y="130" width="300" height="140" class="box-cyan"/>
+    <text x="1000" y="160" text-anchor="middle" class="label">Unified API Contract</text>
+
+    <text x="870" y="185" class="code">findObject(name: string)</text>
+    <text x="870" y="200" class="code">setColor(objectId, hex)</text>
+    <text x="870" y="215" class="code">setPosition(objectId, x, y, z)</text>
+    <text x="870" y="230" class="code">setRotation(objectId, x, y, z)</text>
+    <text x="870" y="245" class="code">setScale(objectId, x, y, z)</text>
+    <text x="870" y="260" class="code">setRoughness/setMetalness(...)</text>
+  </g>
+
+  <!-- Arrow from Universal Editor to Interface -->
+  <line x1="800" y1="200" x2="850" y2="200" class="arrow"/>
+  <text x="825" y="190" class="tech-label">implements</text>
+
+  <!-- Adapters -->
+  <g id="adapters">
+    <text x="100" y="320" class="section-title">Format Adapters</text>
+
+    <!-- Spline Adapter -->
+    <rect x="50" y="340" width="350" height="200" class="box-purple"/>
+    <text x="225" y="370" text-anchor="middle" class="label">SplineAdapter.ts (400+ lines)</text>
+
+    <rect x="70" y="390" width="310" height="130" class="box"/>
+    <text x="90" y="415" class="sub-label">Spline Runtime Integration</text>
+    <text x="90" y="440" class="tech-label">@splinetool/runtime Application API</text>
+    <text x="90" y="460" class="tech-label">NodeMaterial uniforms (nodeU0-nodeU8)</text>
+    <text x="100" y="480" class="code">nodeU0: Main color (RGB)</text>
+    <text x="100" y="495" class="code">nodeU5: Roughness (0-1)</text>
+    <text x="100" y="510" class="code">nodeU6: Metalness (0-1)</text>
+
+    <!-- GLTF Adapter -->
+    <rect x="420" y="340" width="350" height="200" class="box-blue"/>
+    <text x="595" y="370" text-anchor="middle" class="label">GLTFAdapter.ts (400+ lines)</text>
+
+    <rect x="440" y="390" width="310" height="130" class="box"/>
+    <text x="460" y="415" class="sub-label">THREE.js Integration</text>
+    <text x="460" y="440" class="tech-label">GLTFLoader for model import</text>
+    <text x="460" y="460" class="tech-label">MeshStandardMaterial properties</text>
+    <text x="470" y="480" class="code">material.color.set(hex)</text>
+    <text x="470" y="495" class="code">material.roughness = value</text>
+    <text x="470" y="510" class="code">material.metalness = value</text>
+
+    <!-- Future Adapters -->
+    <rect x="790" y="340" width="350" height="200" class="box" style="stroke-dasharray: 5,5;"/>
+    <text x="965" y="370" text-anchor="middle" class="label">Future Adapters</text>
+
+    <rect x="810" y="390" width="150" height="50" class="box"/>
+    <text x="885" y="420" text-anchor="middle" class="tech-label">FBXAdapter</text>
+
+    <rect x="970" y="390" width="150" height="50" class="box"/>
+    <text x="1045" y="420" text-anchor="middle" class="tech-label">OBJAdapter</text>
+
+    <rect x="810" y="455" width="150" height="50" class="box"/>
+    <text x="885" y="485" text-anchor="middle" class="tech-label">USDZAdapter</text>
+
+    <rect x="970" y="455" width="150" height="50" class="box"/>
+    <text x="1045" y="485" text-anchor="middle" class="tech-label">BlenderAdapter</text>
+  </g>
+
+  <!-- Selection Context -->
+  <g id="selection">
+    <text x="100" y="590" class="section-title">Selection Context (React)</text>
+
+    <rect x="50" y="610" width="500" height="160" class="box-orange"/>
+    <text x="300" y="640" text-anchor="middle" class="label">SelectionContext.tsx (300+ lines)</text>
+
+    <rect x="70" y="660" width="220" height="90" class="box"/>
+    <text x="180" y="685" text-anchor="middle" class="sub-label">Selection State</text>
+    <text x="90" y="710" class="code">selectedObjects: Set&lt;string&gt;</text>
+    <text x="90" y="725" class="code">lockedObjects: Set&lt;string&gt;</text>
+    <text x="90" y="740" class="tech-label">Multi-select with Shift+Click</text>
+
+    <rect x="310" y="660" width="220" height="90" class="box"/>
+    <text x="420" y="685" text-anchor="middle" class="sub-label">Actions</text>
+    <text x="330" y="710" class="code">toggleSelection(obj)</text>
+    <text x="330" y="725" class="code">selectAll() / deselectAll()</text>
+    <text x="330" y="740" class="code">selectObjectByName(name)</text>
+  </g>
+
+  <!-- Rendering -->
+  <g id="rendering">
+    <text x="620" y="590" class="section-title">Rendering Pipeline</text>
+
+    <rect x="580" y="610" width="560" height="160" class="box"/>
+
+    <rect x="600" y="640" width="160" height="110" class="box-purple"/>
+    <text x="680" y="670" text-anchor="middle" class="sub-label">Spline Canvas</text>
+    <text x="620" y="695" class="tech-label">SplineViewer component</text>
+    <text x="620" y="715" class="tech-label">WebGL context</text>
+    <text x="620" y="735" class="tech-label">Event delegation</text>
+
+    <rect x="780" y="640" width="160" height="110" class="box-blue"/>
+    <text x="860" y="670" text-anchor="middle" class="sub-label">R3F Canvas</text>
+    <text x="800" y="695" class="tech-label">React Three Fiber</text>
+    <text x="800" y="715" class="tech-label">THREE.js renderer</text>
+    <text x="800" y="735" class="tech-label">OrbitControls</text>
+
+    <rect x="960" y="640" width="160" height="110" class="box-emerald"/>
+    <text x="1040" y="670" text-anchor="middle" class="sub-label">Universal Canvas</text>
+    <text x="980" y="695" class="tech-label">Auto-switches based</text>
+    <text x="980" y="715" class="tech-label">on loaded format</text>
+    <text x="980" y="735" class="tech-label">Unified interactions</text>
+  </g>
+
+  <!-- Data Flow -->
+  <g id="dataflow">
+    <text x="100" y="810" class="section-title">Edit Command Flow</text>
+
+    <rect x="50" y="825" width="1100" height="15" class="box"/>
+    <text x="600" y="837" text-anchor="middle" class="tech-label">UI Action to setColor(id, hex) to UniversalEditor to Adapter.setColor() to Material Update to WebGL Re-render</text>
+  </g>
+
+</svg>

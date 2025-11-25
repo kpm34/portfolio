@@ -1,0 +1,256 @@
+<svg width="1400" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Inter, sans-serif; font-size: 24px; font-weight: 600; fill: #ffffff; }
+      .subtitle { font-family: Inter, sans-serif; font-size: 14px; fill: #a0a0a0; }
+      .section-title { font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; fill: #ffffff; }
+      .label { font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; fill: #e5e5e5; }
+      .sub-label { font-family: Inter, sans-serif; font-size: 11px; fill: #a0a0a0; }
+      .tech-label { font-family: monospace; font-size: 10px; fill: #9ca3af; }
+      .code { font-family: monospace; font-size: 10px; fill: #60a5fa; }
+      .box { fill: rgba(255, 255, 255, 0.05); stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; rx: 8; }
+      .box-blue { fill: rgba(59, 130, 246, 0.1); stroke: rgba(59, 130, 246, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-green { fill: rgba(34, 197, 94, 0.1); stroke: rgba(34, 197, 94, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-purple { fill: rgba(168, 85, 247, 0.1); stroke: rgba(168, 85, 247, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-orange { fill: rgba(249, 115, 22, 0.1); stroke: rgba(249, 115, 22, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-red { fill: rgba(239, 68, 68, 0.1); stroke: rgba(239, 68, 68, 0.3); stroke-width: 1.5; rx: 8; }
+      .arrow { stroke: #3b82f6; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-green { stroke: #22c55e; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+      .arrow-dashed { stroke: #3b82f6; stroke-width: 2; fill: none; stroke-dasharray: 5,5; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#3b82f6" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#22c55e" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#030303"/>
+
+  <!-- Title -->
+  <text x="700" y="40" text-anchor="middle" class="title">Real-Time Draft System</text>
+  <text x="700" y="65" text-anchor="middle" class="subtitle">Snake and Auction Draft Architecture with Supabase Realtime</text>
+
+  <!-- Client Side -->
+  <g id="client">
+    <text x="100" y="110" class="section-title">Client (Live Draft Page)</text>
+
+    <rect x="50" y="130" width="600" height="280" class="box-blue"/>
+    <text x="350" y="160" text-anchor="middle" class="label">React Component: /leagues/[id]/draft/live/page.tsx</text>
+
+    <!-- Initial Load -->
+    <rect x="70" y="180" width="170" height="100" class="box"/>
+    <text x="155" y="205" text-anchor="middle" class="sub-label">Initial Load</text>
+    <text x="90" y="225" class="tech-label">useEffect on mount</text>
+    <text x="90" y="240" class="tech-label">GET /api/.../draft/state</text>
+    <text x="90" y="255" class="tech-label">Auto-start check</text>
+    <text x="90" y="270" class="tech-label">Setup realtime subs</text>
+
+    <!-- Realtime Subscriptions -->
+    <rect x="260" y="180" width="180" height="100" class="box-green"/>
+    <text x="350" y="205" text-anchor="middle" class="sub-label">Realtime Subscriptions</text>
+    <text x="280" y="225" class="code">draft-session-{id}</text>
+    <text x="280" y="240" class="code">draft-picks-{id}</text>
+    <text x="280" y="255" class="code">auction-bids-{id}</text>
+    <text x="280" y="270" class="tech-label">Trigger: fetchDraftState()</text>
+
+    <!-- UI State -->
+    <rect x="460" y="180" width="170" height="100" class="box"/>
+    <text x="545" y="205" text-anchor="middle" class="sub-label">UI State (useState)</text>
+    <text x="480" y="225" class="tech-label">draftState: DraftState</text>
+    <text x="480" y="240" class="tech-label">selectedPlayer</text>
+    <text x="480" y="255" class="tech-label">isSubmittingPick</text>
+    <text x="480" y="270" class="tech-label">showCompletionModal</text>
+
+    <!-- Pick Action -->
+    <rect x="70" y="300" width="270" height="90" class="box-purple"/>
+    <text x="205" y="325" text-anchor="middle" class="sub-label">Handle Manual Pick</text>
+    <text x="90" y="345" class="tech-label">Guard: is_my_turn and not submitting</text>
+    <text x="90" y="360" class="tech-label">POST /api/.../draft/pick</text>
+    <text x="90" y="375" class="tech-label">Handle: 409 (already picked), 403 (not turn)</text>
+
+    <!-- Auction Actions -->
+    <rect x="360" y="300" width="270" height="90" class="box-orange"/>
+    <text x="495" y="325" text-anchor="middle" class="sub-label">Auction Actions</text>
+    <text x="380" y="345" class="tech-label">POST /nominate - Start bidding</text>
+    <text x="380" y="360" class="tech-label">POST /bid - Place bid</text>
+    <text x="380" y="375" class="tech-label">POST /resolve - Award player</text>
+  </g>
+
+  <!-- API Layer -->
+  <g id="api">
+    <text x="750" y="110" class="section-title">API Routes (Next.js)</text>
+
+    <rect x="700" y="130" width="350" height="280" class="box"/>
+
+    <!-- Draft State -->
+    <rect x="720" y="150" width="150" height="70" class="box-blue"/>
+    <text x="795" y="175" text-anchor="middle" class="sub-label">GET /draft/state</text>
+    <text x="740" y="195" class="tech-label">Returns: session,</text>
+    <text x="740" y="208" class="tech-label">teams, picks, budget</text>
+
+    <!-- Pick API -->
+    <rect x="720" y="235" width="150" height="80" class="box-purple"/>
+    <text x="795" y="258" text-anchor="middle" class="sub-label">POST /draft/pick</text>
+    <text x="740" y="278" class="tech-label">Validate user auth</text>
+    <text x="740" y="291" class="tech-label">Check availability</text>
+    <text x="740" y="304" class="tech-label">Create draft_picks</text>
+
+    <!-- Nominate API -->
+    <rect x="885" y="150" width="150" height="70" class="box-orange"/>
+    <text x="960" y="175" text-anchor="middle" class="sub-label">POST /nominate</text>
+    <text x="905" y="195" class="tech-label">Start 30s timer</text>
+    <text x="905" y="208" class="tech-label">Create auction_bids</text>
+
+    <!-- Bid API -->
+    <rect x="885" y="235" width="150" height="80" class="box-orange"/>
+    <text x="960" y="258" text-anchor="middle" class="sub-label">POST /bid</text>
+    <text x="905" y="278" class="tech-label">Validate budget</text>
+    <text x="905" y="291" class="tech-label">Check bid amount</text>
+    <text x="905" y="304" class="tech-label">Update high bidder</text>
+
+    <!-- Draft Completion -->
+    <rect x="720" y="330" width="310" height="60" class="box-green"/>
+    <text x="875" y="355" text-anchor="middle" class="sub-label">Draft Completion Logic</text>
+    <text x="740" y="375" class="tech-label">nextPick > (teams x rounds) ? complete : continue</text>
+  </g>
+
+  <!-- Arrow from Client to API -->
+  <line x1="650" y1="250" x2="700" y2="250" class="arrow"/>
+
+  <!-- Supabase -->
+  <g id="supabase">
+    <text x="100" y="460" class="section-title">Supabase Infrastructure</text>
+
+    <!-- Database -->
+    <rect x="50" y="480" width="400" height="200" class="box-blue"/>
+    <text x="250" y="510" text-anchor="middle" class="label">PostgreSQL Database</text>
+
+    <rect x="70" y="530" width="170" height="130" class="box"/>
+    <text x="155" y="555" text-anchor="middle" class="sub-label">Core Tables</text>
+    <text x="90" y="575" class="tech-label">draft_sessions</text>
+    <text x="90" y="590" class="tech-label">  status, current_round</text>
+    <text x="90" y="605" class="tech-label">  current_team_id</text>
+    <text x="90" y="620" class="tech-label">  pick_deadline</text>
+    <text x="90" y="635" class="tech-label">draft_picks</text>
+    <text x="90" y="650" class="tech-label">auction_bids</text>
+
+    <rect x="260" y="530" width="170" height="130" class="box"/>
+    <text x="345" y="555" text-anchor="middle" class="sub-label">RPC Functions</text>
+    <text x="280" y="575" class="code">get_snake_draft_team_turn()</text>
+    <text x="280" y="595" class="tech-label">  Calculates next team</text>
+    <text x="280" y="615" class="code">get_next_nominator()</text>
+    <text x="280" y="635" class="tech-label">  Auction rotation</text>
+    <text x="280" y="655" class="code">calculate_draft_grades()</text>
+
+    <!-- Realtime -->
+    <rect x="480" y="480" width="350" height="200" class="box-green"/>
+    <text x="655" y="510" text-anchor="middle" class="label">Supabase Realtime</text>
+
+    <text x="500" y="540" class="sub-label">Channel: draft-session-{id}</text>
+    <text x="520" y="560" class="tech-label">Event: UPDATE on draft_sessions</text>
+    <text x="520" y="575" class="tech-label">Payload: status, turn, timer changes</text>
+
+    <text x="500" y="600" class="sub-label">Channel: draft-picks-{id}</text>
+    <text x="520" y="620" class="tech-label">Event: INSERT on draft_picks</text>
+    <text x="520" y="635" class="tech-label">Payload: new pick made</text>
+
+    <text x="500" y="660" class="sub-label">Channel: auction-bids-{id}</text>
+    <text x="520" y="680" class="tech-label">Event: INSERT on auction_bids</text>
+  </g>
+
+  <!-- Arrow from API to Database -->
+  <line x1="875" y1="410" x2="250" y2="480" class="arrow"/>
+
+  <!-- Arrow from Realtime to Client (WebSocket) -->
+  <path d="M 655 480 L 655 430 L 350 430 L 350 410" class="arrow-green" style="stroke-dasharray: 5,5;"/>
+  <text x="500" y="420" class="tech-label" style="fill: #22c55e;">WebSocket Push</text>
+
+  <!-- Snake Draft Logic -->
+  <g id="snake">
+    <text x="900" y="460" class="section-title">Snake Draft Logic</text>
+
+    <rect x="860" y="480" width="500" height="200" class="box-purple"/>
+
+    <text x="880" y="510" class="label">Alternating Direction Pattern</text>
+
+    <rect x="880" y="525" width="220" height="65" class="box"/>
+    <text x="990" y="550" text-anchor="middle" class="sub-label">Round Direction</text>
+    <text x="900" y="570" class="tech-label">Odd rounds: Team 1 to Team N</text>
+    <text x="900" y="585" class="tech-label">Even rounds: Team N to Team 1</text>
+
+    <rect x="1120" y="525" width="220" height="65" class="box"/>
+    <text x="1230" y="550" text-anchor="middle" class="sub-label">Example (4 teams)</text>
+    <text x="1140" y="570" class="tech-label">R1: 1,2,3,4  R2: 4,3,2,1</text>
+    <text x="1140" y="585" class="tech-label">R3: 1,2,3,4  R4: 4,3,2,1</text>
+
+    <rect x="880" y="605" width="460" height="55" class="box"/>
+    <text x="1110" y="630" text-anchor="middle" class="sub-label">Pick Tracking</text>
+    <text x="900" y="650" class="tech-label">current_round | current_pick_in_round | current_overall_pick | pick_deadline</text>
+  </g>
+
+  <!-- Data Flow -->
+  <g id="dataflow">
+    <text x="100" y="730" class="section-title">Complete Pick Flow</text>
+
+    <rect x="50" y="750" width="1300" height="100" class="box"/>
+
+    <rect x="80" y="770" width="140" height="60" class="box-blue"/>
+    <text x="150" y="795" text-anchor="middle" class="sub-label">User Selects</text>
+    <text x="150" y="815" text-anchor="middle" class="tech-label">Player + Confirm</text>
+
+    <rect x="260" y="770" width="140" height="60" class="box-purple"/>
+    <text x="330" y="795" text-anchor="middle" class="sub-label">POST /pick</text>
+    <text x="330" y="815" text-anchor="middle" class="tech-label">Validation</text>
+
+    <rect x="440" y="770" width="160" height="60" class="box"/>
+    <text x="520" y="795" text-anchor="middle" class="sub-label">Create Record</text>
+    <text x="520" y="815" text-anchor="middle" class="tech-label">draft_picks INSERT</text>
+
+    <rect x="640" y="770" width="160" height="60" class="box-orange"/>
+    <text x="720" y="795" text-anchor="middle" class="sub-label">Calculate Next</text>
+    <text x="720" y="815" text-anchor="middle" class="tech-label">RPC: snake_turn()</text>
+
+    <rect x="840" y="770" width="160" height="60" class="box"/>
+    <text x="920" y="795" text-anchor="middle" class="sub-label">Update Session</text>
+    <text x="920" y="815" text-anchor="middle" class="tech-label">draft_sessions</text>
+
+    <rect x="1040" y="770" width="140" height="60" class="box-green"/>
+    <text x="1110" y="795" text-anchor="middle" class="sub-label">Broadcast</text>
+    <text x="1110" y="815" text-anchor="middle" class="tech-label">Realtime Push</text>
+
+    <rect x="1220" y="770" width="110" height="60" class="box-blue"/>
+    <text x="1275" y="795" text-anchor="middle" class="sub-label">All Clients</text>
+    <text x="1275" y="815" text-anchor="middle" class="tech-label">UI Refresh</text>
+
+    <line x1="220" y1="800" x2="260" y2="800" class="arrow"/>
+    <line x1="400" y1="800" x2="440" y2="800" class="arrow"/>
+    <line x1="600" y1="800" x2="640" y2="800" class="arrow"/>
+    <line x1="800" y1="800" x2="840" y2="800" class="arrow"/>
+    <line x1="1000" y1="800" x2="1040" y2="800" class="arrow-green"/>
+    <line x1="1180" y1="800" x2="1220" y2="800" class="arrow-green"/>
+  </g>
+
+  <!-- Race Condition Protection -->
+  <g id="race">
+    <text x="100" y="890" class="section-title">Race Condition Protection</text>
+
+    <rect x="50" y="910" width="400" height="70" class="box-red"/>
+    <text x="250" y="935" text-anchor="middle" class="sub-label">Double-Pick Prevention</text>
+    <text x="70" y="955" class="tech-label">Check existing pick at (session_id, overall_pick)</text>
+    <text x="70" y="970" class="tech-label">409 Conflict treated as success (already submitted)</text>
+
+    <rect x="480" y="910" width="400" height="70" class="box-red"/>
+    <text x="680" y="935" text-anchor="middle" class="sub-label">Stale State Handling</text>
+    <text x="500" y="955" class="tech-label">403 Not Your Turn: fetch state and retry</text>
+    <text x="500" y="970" class="tech-label">Client validates is_my_turn before submit</text>
+
+    <rect x="910" y="910" width="440" height="70" class="box-red"/>
+    <text x="1130" y="935" text-anchor="middle" class="sub-label">Auto-Pick Timeout</text>
+    <text x="930" y="955" class="tech-label">pick_deadline tracked in draft_sessions</text>
+    <text x="930" y="970" class="tech-label">POST /auto-pick triggered on timer expiry</text>
+  </g>
+
+</svg>

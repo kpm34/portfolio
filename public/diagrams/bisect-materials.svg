@@ -1,0 +1,225 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Inter, sans-serif; font-size: 24px; font-weight: 600; fill: #ffffff; }
+      .subtitle { font-family: Inter, sans-serif; font-size: 14px; fill: #a0a0a0; }
+      .section-title { font-family: Inter, sans-serif; font-size: 16px; font-weight: 600; fill: #ffffff; }
+      .label { font-family: Inter, sans-serif; font-size: 13px; font-weight: 500; fill: #e5e5e5; }
+      .sub-label { font-family: Inter, sans-serif; font-size: 11px; fill: #a0a0a0; }
+      .tech-label { font-family: monospace; font-size: 10px; fill: #9ca3af; }
+      .code { font-family: monospace; font-size: 10px; fill: #60a5fa; }
+      .box { fill: rgba(255, 255, 255, 0.05); stroke: rgba(255, 255, 255, 0.1); stroke-width: 1; rx: 8; }
+      .box-emerald { fill: rgba(16, 185, 129, 0.1); stroke: rgba(16, 185, 129, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-blue { fill: rgba(59, 130, 246, 0.1); stroke: rgba(59, 130, 246, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-purple { fill: rgba(168, 85, 247, 0.1); stroke: rgba(168, 85, 247, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-orange { fill: rgba(249, 115, 22, 0.1); stroke: rgba(249, 115, 22, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-cyan { fill: rgba(6, 182, 212, 0.1); stroke: rgba(6, 182, 212, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-pink { fill: rgba(236, 72, 153, 0.1); stroke: rgba(236, 72, 153, 0.3); stroke-width: 1.5; rx: 8; }
+      .box-yellow { fill: rgba(234, 179, 8, 0.1); stroke: rgba(234, 179, 8, 0.3); stroke-width: 1.5; rx: 8; }
+      .arrow { stroke: #10b981; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#10b981" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#030303"/>
+
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" class="title">Material System</text>
+  <text x="600" y="65" text-anchor="middle" class="subtitle">600+ PBR Material Presets with Texture Support</text>
+
+  <!-- Material Manifest -->
+  <g id="manifest">
+    <text x="100" y="110" class="section-title">Material Manifest (600+ presets)</text>
+
+    <rect x="50" y="130" width="500" height="200" class="box-emerald"/>
+    <text x="300" y="160" text-anchor="middle" class="label">material-manifest.ts</text>
+
+    <!-- Categories -->
+    <rect x="70" y="180" width="100" height="35" class="box"/>
+    <text x="120" y="203" text-anchor="middle" class="tech-label">Metals</text>
+
+    <rect x="180" y="180" width="100" height="35" class="box"/>
+    <text x="230" y="203" text-anchor="middle" class="tech-label">Wood</text>
+
+    <rect x="290" y="180" width="100" height="35" class="box"/>
+    <text x="340" y="203" text-anchor="middle" class="tech-label">Stone</text>
+
+    <rect x="400" y="180" width="100" height="35" class="box"/>
+    <text x="450" y="203" text-anchor="middle" class="tech-label">Fabric</text>
+
+    <rect x="70" y="225" width="100" height="35" class="box"/>
+    <text x="120" y="248" text-anchor="middle" class="tech-label">Plastic</text>
+
+    <rect x="180" y="225" width="100" height="35" class="box"/>
+    <text x="230" y="248" text-anchor="middle" class="tech-label">Glass</text>
+
+    <rect x="290" y="225" width="100" height="35" class="box"/>
+    <text x="340" y="248" text-anchor="middle" class="tech-label">Ceramic</text>
+
+    <rect x="400" y="225" width="100" height="35" class="box"/>
+    <text x="450" y="248" text-anchor="middle" class="tech-label">Concrete</text>
+
+    <text x="300" y="295" text-anchor="middle" class="sub-label">Semantic search across all presets</text>
+    <text x="300" y="315" text-anchor="middle" class="tech-label">Tags: shiny, matte, rough, metallic, organic, etc.</text>
+  </g>
+
+  <!-- Material Uniforms -->
+  <g id="uniforms">
+    <text x="620" y="110" class="section-title">MaterialUniforms (Spline NodeMaterial)</text>
+
+    <rect x="580" y="130" width="350" height="200" class="box-purple"/>
+    <text x="755" y="160" text-anchor="middle" class="label">types.ts - Uniform Mapping</text>
+
+    <rect x="600" y="180" width="150" height="130" class="box"/>
+    <text x="675" y="205" text-anchor="middle" class="sub-label">Primary Uniforms</text>
+    <text x="620" y="230" class="code">nodeU0: RGB</text>
+    <text x="630" y="248" class="tech-label">Main color</text>
+    <text x="620" y="270" class="code">nodeU1: number</text>
+    <text x="630" y="288" class="tech-label">Opacity (0-1)</text>
+
+    <rect x="765" y="180" width="150" height="130" class="box"/>
+    <text x="840" y="205" text-anchor="middle" class="sub-label">PBR Uniforms</text>
+    <text x="785" y="230" class="code">nodeU5: number</text>
+    <text x="795" y="248" class="tech-label">Roughness (0-1)</text>
+    <text x="785" y="270" class="code">nodeU6: number</text>
+    <text x="795" y="288" class="tech-label">Metalness (0-1)</text>
+  </g>
+
+  <!-- Material Textures -->
+  <g id="textures">
+    <text x="1000" y="110" class="section-title">Texture Maps</text>
+
+    <rect x="960" y="130" width="200" height="200" class="box-blue"/>
+    <text x="1060" y="160" text-anchor="middle" class="label">MaterialTextures</text>
+
+    <text x="980" y="190" class="tech-label">baseColor (albedo)</text>
+    <text x="980" y="210" class="tech-label">normal (bump detail)</text>
+    <text x="980" y="230" class="tech-label">metallicRoughness</text>
+    <text x="990" y="248" class="code">R=AO, G=Rough, B=Metal</text>
+    <text x="980" y="270" class="tech-label">occlusion (AO)</text>
+    <text x="980" y="290" class="tech-label">emissive (glow)</text>
+    <text x="980" y="310" class="tech-label">thumbnail (512px)</text>
+  </g>
+
+  <!-- Material Selector UI -->
+  <g id="selector">
+    <text x="100" y="380" class="section-title">Material Selector UI</text>
+
+    <rect x="50" y="400" width="550" height="220" class="box-orange"/>
+    <text x="325" y="430" text-anchor="middle" class="label">MaterialSelector.tsx</text>
+
+    <!-- Color Picker -->
+    <rect x="70" y="455" width="160" height="145" class="box"/>
+    <text x="150" y="480" text-anchor="middle" class="sub-label">Color Picker</text>
+    <text x="90" y="505" class="tech-label">HSL color wheel</text>
+    <text x="90" y="525" class="tech-label">Hex input field</text>
+    <text x="90" y="545" class="tech-label">RGB sliders</text>
+    <text x="90" y="565" class="tech-label">Recent colors</text>
+    <text x="90" y="585" class="tech-label">Preset swatches</text>
+
+    <!-- Sliders -->
+    <rect x="250" y="455" width="160" height="145" class="box"/>
+    <text x="330" y="480" text-anchor="middle" class="sub-label">PBR Sliders</text>
+    <text x="270" y="505" class="tech-label">Roughness: 0-100%</text>
+    <text x="280" y="523" class="code">0 = glossy mirror</text>
+    <text x="280" y="538" class="code">1 = matte diffuse</text>
+    <text x="270" y="560" class="tech-label">Metalness: 0-100%</text>
+    <text x="280" y="578" class="code">0 = dielectric</text>
+    <text x="280" y="593" class="code">1 = full metal</text>
+
+    <!-- Preset Grid -->
+    <rect x="430" y="455" width="150" height="145" class="box"/>
+    <text x="505" y="480" text-anchor="middle" class="sub-label">Preset Browser</text>
+    <text x="450" y="505" class="tech-label">Grid view</text>
+    <text x="450" y="525" class="tech-label">Category filter</text>
+    <text x="450" y="545" class="tech-label">Search bar</text>
+    <text x="450" y="565" class="tech-label">Favorites</text>
+    <text x="450" y="585" class="tech-label">Recent used</text>
+  </g>
+
+  <!-- Application Flow -->
+  <g id="flow">
+    <text x="680" y="380" class="section-title">Material Application Flow</text>
+
+    <rect x="630" y="400" width="530" height="220" class="box-cyan"/>
+
+    <!-- Step 1 -->
+    <rect x="650" y="430" width="150" height="80" class="box"/>
+    <text x="725" y="455" text-anchor="middle" class="sub-label">1. Select Object</text>
+    <text x="670" y="480" class="tech-label">Click in viewport</text>
+    <text x="670" y="500" class="tech-label">Multi-select: Shift</text>
+
+    <!-- Step 2 -->
+    <rect x="820" y="430" width="150" height="80" class="box"/>
+    <text x="895" y="455" text-anchor="middle" class="sub-label">2. Choose Material</text>
+    <text x="840" y="480" class="tech-label">Preset or custom</text>
+    <text x="840" y="500" class="tech-label">Adjust sliders</text>
+
+    <!-- Step 3 -->
+    <rect x="990" y="430" width="150" height="80" class="box"/>
+    <text x="1065" y="455" text-anchor="middle" class="sub-label">3. Apply</text>
+    <text x="1010" y="480" class="tech-label">UniversalEditor</text>
+    <text x="1010" y="500" class="tech-label">setColor/Rough/Metal</text>
+
+    <!-- Arrows -->
+    <line x1="800" y1="470" x2="820" y2="470" class="arrow"/>
+    <line x1="970" y1="470" x2="990" y2="470" class="arrow"/>
+
+    <!-- Adapter routing -->
+    <rect x="650" y="530" width="500" height="70" class="box-purple"/>
+    <text x="900" y="555" text-anchor="middle" class="sub-label">Adapter Routing</text>
+    <text x="670" y="580" class="tech-label">Spline: NodeMaterial.uniforms.nodeU0.value = new Color(hex)</text>
+    <text x="670" y="595" class="tech-label">GLTF: MeshStandardMaterial.color.set(hex)</text>
+  </g>
+
+  <!-- Examples -->
+  <g id="examples">
+    <text x="100" y="670" class="section-title">Material Preset Examples</text>
+
+    <rect x="50" y="690" width="1100" height="90" class="box"/>
+
+    <!-- Chrome -->
+    <rect x="70" y="710" width="120" height="55" class="box-blue"/>
+    <text x="130" y="730" text-anchor="middle" class="sub-label">Chrome</text>
+    <text x="130" y="750" text-anchor="middle" class="tech-label">R:0.1 M:1.0</text>
+
+    <!-- Matte Clay -->
+    <rect x="210" y="710" width="120" height="55" class="box-orange"/>
+    <text x="270" y="730" text-anchor="middle" class="sub-label">Matte Clay</text>
+    <text x="270" y="750" text-anchor="middle" class="tech-label">R:0.9 M:0.0</text>
+
+    <!-- Brushed Steel -->
+    <rect x="350" y="710" width="120" height="55" class="box"/>
+    <text x="410" y="730" text-anchor="middle" class="sub-label">Brushed Steel</text>
+    <text x="410" y="750" text-anchor="middle" class="tech-label">R:0.4 M:0.9</text>
+
+    <!-- Glass -->
+    <rect x="490" y="710" width="120" height="55" class="box-cyan"/>
+    <text x="550" y="730" text-anchor="middle" class="sub-label">Glass</text>
+    <text x="550" y="750" text-anchor="middle" class="tech-label">R:0.0 M:0.0 O:0.3</text>
+
+    <!-- Wood -->
+    <rect x="630" y="710" width="120" height="55" class="box-yellow"/>
+    <text x="690" y="730" text-anchor="middle" class="sub-label">Oak Wood</text>
+    <text x="690" y="750" text-anchor="middle" class="tech-label">R:0.6 M:0.0</text>
+
+    <!-- Plastic -->
+    <rect x="770" y="710" width="120" height="55" class="box-pink"/>
+    <text x="830" y="730" text-anchor="middle" class="sub-label">Glossy Plastic</text>
+    <text x="830" y="750" text-anchor="middle" class="tech-label">R:0.2 M:0.0</text>
+
+    <!-- Gold -->
+    <rect x="910" y="710" width="120" height="55" class="box-emerald"/>
+    <text x="970" y="730" text-anchor="middle" class="sub-label">Gold</text>
+    <text x="970" y="750" text-anchor="middle" class="tech-label">R:0.2 M:1.0</text>
+
+    <!-- Concrete -->
+    <rect x="1050" y="710" width="90" height="55" class="box"/>
+    <text x="1095" y="730" text-anchor="middle" class="sub-label">Concrete</text>
+    <text x="1095" y="750" text-anchor="middle" class="tech-label">R:0.95 M:0.0</text>
+  </g>
+
+</svg>
