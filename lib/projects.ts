@@ -86,17 +86,17 @@ export const projects: Project[] = [
   {
     id: 'helmet-customizer',
     slug: 'helmet-customizer',
-    title: 'Helmet Customizer (R3F)',
-    description: '3D helmet customization with Blender automation pipeline',
-    longDescription: '3D helmet customization system using React Three Fiber with zone-based customization (5-zone vertex color system). Features automated Blender Python scripts for helmet generation, material finish selection, and GLB export pipeline.',
+    title: 'Helmet Editor (R3F)',
+    description: 'Real-time 3D helmet customizer with custom GLSL shaders and 5-zone vertex color system',
+    longDescription: 'Production-ready 3D helmet customization system built with React Three Fiber. Features a 5-zone vertex color system (shell, facemask, chinstrap, padding, hardware), 16 PBR material finishes, custom GLSL shaders for real-time zone detection, and 3-level pattern system with Bezier curve rendering. Integrates with CFB Fantasy V2 via Supabase for team branding persistence.',
     featured: true,
-    category: 'automation',
-    techStack: ['Next.js 15', 'React Three Fiber', 'THREE.js', 'Python', 'Zustand'],
+    category: '3d',
+    techStack: ['Next.js 14', 'React Three Fiber', 'Three.js', 'GLSL Shaders', 'Zustand', 'Supabase'],
     aiHighlights: [
-      'Blender Python automation scripts',
-      'Automated GLB export pipeline',
-      '5-zone vertex color system',
-      'Foundation for AI-powered 3D generation'
+      'Custom GLSL shaders for zone-based material mixing',
+      '5-10ms real-time updates at 60fps',
+      '16 PBR finishes (chrome, carbon fiber, holographic...)',
+      'Bezier curve pattern rendering with TubeGeometry'
     ],
     liveUrl: 'https://helmet-customizer.vercel.app',
     githubUrl: 'https://github.com/kpm34/helmet-customizer',
