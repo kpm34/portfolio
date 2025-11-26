@@ -54,7 +54,7 @@ export function Hero() {
                     WebkitMaskImage: isHovered
                         ? `radial-gradient(100px circle at ${mousePosition.x}px ${mousePosition.y}px, black, transparent)`
                         : "radial-gradient(0px circle at 0px 0px, black, transparent)",
-                }}
+                } as any}
                 transition={{ type: "tween", ease: "backOut", duration: 0.4 }}
             >
                 <div
