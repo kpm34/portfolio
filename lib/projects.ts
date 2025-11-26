@@ -28,7 +28,7 @@ export const projects: Project[] = [
     id: 'ezworks',
     slug: 'ezworks',
     title: 'EZWORKS',
-    description: 'Production AI SaaS platform for image generation with scalable architecture',
+    description: 'Production AI SaaS for scalable image generation',
     longDescription: 'Cloud-based SaaS platform that simplifies ComfyUI workflows into a user-friendly interface. Features real-time generation progress via WebSocket streaming, subscription management with Stripe, and a Redis job queue system for scalable AI processing.',
     featured: false,
     category: 'ai-systems',
@@ -100,7 +100,7 @@ export const projects: Project[] = [
       { slug: 'cfb-projections', title: 'Projections Pipeline' },
       { slug: 'cfb-scoring', title: 'Scoring System' }
     ],
-    image: '/projects/cfb.png',
+    image: '/projects/cfb-new.png',
     images: ['/projects/cfb.png', '/projects/helmet.png'],
     gradient: 'from-orange-500 to-red-500'
   },
@@ -140,8 +140,8 @@ export const projects: Project[] = [
       'Real-time data processing',
       'Pattern recognition algorithms'
     ],
-    image: '/projects/thirdeye.png', // Placeholder
-    images: ['/projects/thirdeye.png'],
+    image: '/projects/thirdeye-v2.png',
+    images: ['/projects/thirdeye-v2.png'],
     gradient: 'from-slate-500 to-gray-500'
   }
 ];

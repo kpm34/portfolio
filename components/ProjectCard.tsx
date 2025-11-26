@@ -12,299 +12,78 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index, compact = false }: ProjectCardProps) {
-  // Custom narrative descriptions based on project ID
-  const getNarrative = (id: string) => {
-    switch (id) {
-      case 'cfb-fantasy':
-        return (
-          <>
-            <p className="mb-4">
-              A comprehensive fantasy sports platform offering real-time drafts, 3D stadium visualizations, and deep player analytics. 
-            </p>
-            <p>
-              Features a custom 3D helmet editor for team branding and a projection engine that factors in weather, odds, and historical stats.
-            </p>
-          </>
-        );
-      case 'prism':
-        return (
-          <>
-            <p className="mb-4">
-              A no-code 3D creation platform with three interconnected studios: Vector, Texture, and 3D Scene editing.
-            </p>
-            <p>
-              Features a multi-agent AI orchestrator that routes tasks to GPT-4o, Gemini, or Claude based on capability and cost, with a drag-drop bridge for seamless asset transfer between studios.
-            </p>
-          </>
-        );
-      case 'ezworks':
-        return (
-          <>
-            <p className="mb-4">
-              Production AI SaaS platform for image generation with scalable architecture.
-            </p>
-            <p>
-              Simplifies ComfyUI workflows into a user-friendly interface with real-time generation progress and subscription management.
-            </p>
-          </>
-        );
-      case 'helmet-customizer':
-        return (
-          <>
-            <p className="mb-4">
-              Real-time 3D helmet customization using React Three Fiber with zone-based color application and MeshPhysicalMaterial.
-            </p>
-            <p>
-              Features 4 material finishes (glossy, matte, chrome, brushed) and stripe patterns rendered as 3D Bezier curve tubes following the helmet contour.
-            </p>
-          </>
-        );
-      default:
-        return <p>{project.description}</p>;
-    }
-  };
+  const isCompact = compact || project.id === 'prism' || project.id === 'cfb-fantasy';
+  const isMinimal = compact; // Use compact prop to trigger minimal styling if explicitly passed
 
-  if (compact) {
-    return (
-      <motion.article
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid md:grid-cols-[1fr,1fr] gap-4 md:gap-6 items-center group"
-      >
-        {/* Visual */}
-        <div className="relative aspect-video rounded-lg overflow-hidden bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: "circOut" }}
+      viewport={{ once: true, margin: "-100px" }}
+      className={`group relative ${isCompact ? 'max-w-xl mx-auto' : 'w-full'}`}
+    >
+      {/* Large Visual Container */}
+      <div className={`relative w-full overflow-hidden bg-[#1C1C1C] border border-[#F5F5DC]/10 group-hover:border-[#800020]/50 transition-colors duration-500 ${isCompact ? 'aspect-[16/8.1]' : 'aspect-[16/9]'}`}>
+        {project.demoVideo ? (
+          <video
+            src={project.demoVideo}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={`w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700 ${isCompact ? 'object-bottom' : 'object-center'}`}
+          />
+        ) : (
           <Image
             src={project.image}
             alt={project.title}
             fill
-            className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+            className="object-cover opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
           />
-          
-          {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-             {project.liveUrl && (
-              <a 
-                href={project.liveUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 bg-white text-black rounded-full hover:scale-110 transition-transform"
-                title="Live Demo"
-              >
-                <ArrowUpRight size={16} />
-              </a>
-             )}
-             {project.githubUrl && (
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 bg-black text-white border border-white/20 rounded-full hover:scale-110 transition-transform"
-                title="Source Code"
-              >
-                <Github size={16} />
-              </a>
-             )}
-             {project.diagramUrl && (
-              <a 
-                href={project.diagramUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 bg-blue-600 text-white rounded-full hover:scale-110 transition-transform"
-                title="System Diagram"
-              >
-                <Network size={16} />
-              </a>
-             )}
-          </div>
-        </div>
+        )}
 
-        {/* Narrative */}
-        <div>
-          <h3 className="text-lg font-medium text-white mb-3">
+        {/* Overlay Gradient - Removed */}
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C1C] via-transparent to-transparent opacity-90" /> */}
+      </div>
+
+      {/* Content Below */}
+      <div className={`w-full mt-6 flex flex-col ${isMinimal ? '' : 'md:flex-row'} justify-between items-start gap-6`}>
+        <div className={isMinimal ? 'w-full' : 'max-w-2xl'}>
+          <h3 className={`${isMinimal ? 'text-2xl' : 'text-3xl md:text-4xl'} font-bold text-[#800020] mb-4 tracking-tight`}>
             {project.title}
           </h3>
 
-          <div className="text-gray-400 leading-relaxed font-light text-sm">
-            {getNarrative(project.id)}
-          </div>
-          
-          {/* Action Links for Compact */}
-          <div className="flex gap-3 mt-4 flex-wrap">
-              {project.liveUrl && (
-                <a 
-                  href={project.liveUrl} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white hover:text-blue-400 underline text-xs transition-colors"
-                >
-                  Demo
-                </a>
-              )}
-              {project.diagramUrl && (
-                <a 
-                  href={project.diagramUrl} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 underline text-xs transition-colors flex items-center gap-1"
-                >
-                  <Network size={12} />
-                  Diagram
-                </a>
-              )}
-              {project.githubUrl && (
-                <a 
-                  href={project.githubUrl} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-500 hover:text-white underline text-xs transition-colors"
-                >
-                  Code
-                </a>
-              )}
-          </div>
+          <p className={`text-[#F5F5DC]/70 font-light leading-relaxed ${isMinimal ? 'text-sm' : ''} mb-6`}>
+            {project.description}
+          </p>
         </div>
-      </motion.article>
-    );
-  }
 
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      className="grid md:grid-cols-[1.2fr,1fr] gap-8 md:gap-16 items-center group"
-    >
-      {/* Visual */}
-      <div className="space-y-4">
-        <div className="relative aspect-video rounded-lg overflow-hidden bg-white/5 border border-white/10 group-hover:border-white/20 transition-colors">
-          {project.demoVideo ? (
-            <video
-              src={project.demoVideo}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-            />
+        {/* Actions */}
+        <div className="flex gap-4">
+          {project.diagramUrl && (
+            <a
+              href={project.diagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-2 ${isMinimal ? 'px-4 py-2 text-xs' : 'px-6 py-3'} bg-[#1C1C1C]/80 backdrop-blur-md border border-[#F5F5DC]/10 text-[#F5F5DC] hover:border-[#800020] hover:text-[#800020] transition-all duration-300 group/btn`}
+            >
+              <Network size={isMinimal ? 14 : 18} />
+              <span className="font-medium">Architecture</span>
+            </a>
           )}
-          
-          {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-             {project.liveUrl && (
-              <a 
-                href={project.liveUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 bg-white text-black rounded-full hover:scale-110 transition-transform"
-                title="Live Demo"
-              >
-                <ArrowUpRight size={20} />
-              </a>
-             )}
-             {project.githubUrl && (
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 bg-black text-white border border-white/20 rounded-full hover:scale-110 transition-transform"
-                title="Source Code"
-              >
-                <Github size={20} />
-              </a>
-             )}
-             {project.diagramUrl && (
-              <a 
-                href={project.diagramUrl} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 bg-blue-600 text-white rounded-full hover:scale-110 transition-transform"
-                title="System Diagram"
-              >
-                <Network size={20} />
-              </a>
-             )}
-          </div>
-        </div>
 
-        {/* Gallery Preview */}
-        {project.images && project.images.length > 1 && (
-          <div className="grid grid-cols-3 gap-2">
-            {project.images.slice(0, 3).map((img, i) => (
-              <div key={i} className="relative aspect-video rounded-md overflow-hidden bg-white/5 border border-white/10">
-                <Image
-                  src={img}
-                  alt={`${project.title} screenshot ${i + 1}`}
-                  fill
-                  className="object-cover hover:opacity-80 transition-opacity cursor-pointer"
-                />
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* Narrative */}
-      <div>
-        <h3 className="text-2xl font-medium text-white mb-6 flex items-baseline gap-4">
-          {project.title}
-        </h3>
-
-        <div className="text-gray-400 leading-relaxed font-light text-base">
-          {getNarrative(project.id)}
-        </div>
-        
-        {/* Action Links */}
-        <div className="flex gap-4 mt-6 flex-wrap">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-blue-400 underline text-sm transition-colors"
-              >
-                Live Demo
-              </a>
-            )}
-            {project.diagrams && project.diagrams.length > 0 ? (
-              project.diagrams.map((diagram) => (
-                <a
-                  key={diagram.slug}
-                  href={`/diagrams/${diagram.slug}`}
-                  className="text-blue-400 hover:text-blue-300 underline text-sm transition-colors flex items-center gap-1"
-                >
-                  <Network size={14} />
-                  {diagram.title}
-                </a>
-              ))
-            ) : project.diagramUrl && (
-              <a
-                href={project.diagramUrl}
-                className="text-blue-400 hover:text-blue-300 underline text-sm transition-colors flex items-center gap-1"
-              >
-                <Network size={14} />
-                System Diagram
-              </a>
-            )}
-            {project.githubUrl && (
-              <a
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-white underline text-sm transition-colors"
-              >
-                Source Code
-              </a>
-            )}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-2 ${isMinimal ? 'px-4 py-2 text-xs' : 'px-6 py-3'} bg-[#F5F5DC] text-[#1C1C1C] hover:bg-[#800020] hover:text-[#F5F5DC] transition-all duration-300`}
+            >
+              <span className="font-medium">View Project</span>
+              <ArrowUpRight size={isMinimal ? 14 : 18} />
+            </a>
+          )}
         </div>
       </div>
     </motion.article>

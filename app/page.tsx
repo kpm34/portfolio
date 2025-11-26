@@ -2,132 +2,67 @@
 
 import { projects } from '@/lib/projects';
 import { ProjectCard } from '@/components/ProjectCard';
+import { Hero } from '@/components/Hero';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail } from 'lucide-react';
 
 export default function Home() {
   // Define the exact order of featured projects
   const featuredProjectIds = ['prism', 'cfb-fantasy'];
-  
+
   // Get the full project objects in the correct order
   const featuredProjects = featuredProjectIds
     .map(id => projects.find(p => p.id === id))
     .filter((p): p is NonNullable<typeof p> => p !== undefined);
 
-  // Secondary projects (EZWORKS, Third Eye)
-  const secondaryProjectIds = ['ezworks', 'thirdeye'];
-  const secondaryProjects = secondaryProjectIds
+  // In Development projects
+  const devProjectIds = ['ezworks', 'thirdeye'];
+  const devProjects = devProjectIds
     .map(id => projects.find(p => p.id === id))
     .filter((p): p is NonNullable<typeof p> => p !== undefined);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0
-    }
-  };
-
   return (
-    <main className="min-h-screen relative overflow-hidden bg-[#030303]">
+    <main className="min-h-screen relative overflow-hidden bg-[#1C1C1C]">
       {/* Subtle Background Mesh */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(59,130,246,0.03),transparent_50%)]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(128,0,32,0.03),transparent_50%)]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-20 pb-32 relative z-10">
-        
-        {/* Minimal Hero */}
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="mb-24"
-        >
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8">
-            <div>
-              <motion.h1 
-                variants={itemVariants}
-                className="text-3xl font-medium text-white mb-2 tracking-tight"
-              >
-                Kashyap Maheshwari
-              </motion.h1>
-              <motion.p 
-                variants={itemVariants}
-                className="text-lg text-gray-400 font-light"
-              >
-                Systems that ship.
-              </motion.p>
-            </div>
+      <Hero />
 
-            <motion.div variants={itemVariants} className="flex gap-4">
-              <a href="https://github.com/kpm34" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                <Github size={20} />
-              </a>
-              <a href="https://linkedin.com/in/kashyapmaheshwari" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-white transition-colors">
-                <Linkedin size={20} />
-              </a>
-              <a href="mailto:kashpm2002@gmail.com" className="text-gray-500 hover:text-white transition-colors">
-                <Mail size={20} />
-              </a>
-            </motion.div>
-          </div>
-          
-          <motion.div variants={itemVariants} className="h-px bg-white/10 w-full" />
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-6 pb-32 relative z-10">
 
         {/* Narrative Project Grid */}
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="space-y-32"
-        >
+        <div className="space-y-40 mt-20">
           {featuredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
-        </motion.div>
+        </div>
 
-        {/* Secondary Projects (Compact Format) */}
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="border-t border-white/5 pt-8 mt-32"
-        >
-           <div className="flex items-center gap-4 mb-8">
-              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Also in Development</h3>
-              <div className="h-px bg-white/5 flex-1" />
-           </div>
-           <div className="grid md:grid-cols-2 gap-6">
-              {secondaryProjects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} compact={true} />
-              ))}
-           </div>
-        </motion.div>
+        {/* In Development Section */}
+        <div className="mt-40">
+          <div className="flex items-center gap-4 mb-16">
+            <div className="h-[1px] flex-1 bg-[#F5F5DC]/10" />
+            <h2 className="text-xl font-mono text-[#F5F5DC]/40 uppercase tracking-widest">In Development</h2>
+            <div className="h-[1px] flex-1 bg-[#F5F5DC]/10" />
+          </div>
 
-        {/* Minimal Footer / Skills Hint */}
-        <motion.div 
+          <div className="grid md:grid-cols-2 gap-12">
+            {devProjects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} index={index} compact={true} />
+            ))}
+          </div>
+        </div>
+
+        {/* Minimal Footer */}
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mt-32 pt-8 border-t border-white/5 flex justify-between items-center text-sm text-gray-600"
+          className="mt-40 pt-12 border-t border-[#F5F5DC]/5 flex justify-between items-center text-sm text-[#F5F5DC]/40"
         >
           <p>© {new Date().getFullYear()} Kashyap Maheshwari</p>
-          <div className="flex gap-4">
+          <div className="flex gap-6 font-mono text-xs">
             <span>Next.js</span>
-            <span>Python</span>
             <span>React Three Fiber</span>
             <span>AI Architecture</span>
           </div>

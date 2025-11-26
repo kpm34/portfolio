@@ -1,0 +1,285 @@
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#030303"/>
+  
+  <!-- Definitions for Gradients -->
+  <defs>
+    <linearGradient id="grad-vector" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(16, 185, 129, 0.1)"/>
+      <stop offset="100%" stop-color="rgba(16, 185, 129, 0.02)"/>
+    </linearGradient>
+    <linearGradient id="stroke-vector" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(16, 185, 129, 0.5)"/>
+      <stop offset="100%" stop-color="rgba(16, 185, 129, 0.1)"/>
+    </linearGradient>
+    
+    <linearGradient id="grad-texture" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(139, 92, 246, 0.1)"/>
+      <stop offset="100%" stop-color="rgba(139, 92, 246, 0.02)"/>
+    </linearGradient>
+    <linearGradient id="stroke-texture" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(139, 92, 246, 0.5)"/>
+      <stop offset="100%" stop-color="rgba(139, 92, 246, 0.1)"/>
+    </linearGradient>
+
+    <linearGradient id="grad-3d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(59, 130, 246, 0.1)"/>
+      <stop offset="100%" stop-color="rgba(59, 130, 246, 0.02)"/>
+    </linearGradient>
+    <linearGradient id="stroke-3d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(59, 130, 246, 0.5)"/>
+      <stop offset="100%" stop-color="rgba(59, 130, 246, 0.1)"/>
+    </linearGradient>
+
+    <linearGradient id="grad-bridge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(245, 158, 11, 0.1)"/>
+      <stop offset="50%" stop-color="rgba(245, 158, 11, 0.05)"/>
+      <stop offset="100%" stop-color="rgba(245, 158, 11, 0.1)"/>
+    </linearGradient>
+    <linearGradient id="stroke-bridge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(245, 158, 11, 0.3)"/>
+      <stop offset="50%" stop-color="rgba(245, 158, 11, 0.1)"/>
+      <stop offset="100%" stop-color="rgba(245, 158, 11, 0.3)"/>
+    </linearGradient>
+
+    <linearGradient id="grad-infra" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.05)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.01)"/>
+    </linearGradient>
+    <linearGradient id="stroke-infra" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.2)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.05)"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Title -->
+  <text x="700" y="60" text-anchor="middle" font-family="Inter, sans-serif" font-size="32" font-weight="bold" fill="white">Bisect Architecture</text>
+  <text x="700" y="90" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" fill="#888">Three-Studio Model with AI Orchestration</text>
+
+  <!-- Section Label: Creative Studios -->
+  <text x="50" y="140" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ddd">Creative Studios</text>
+
+  <!-- Vector Studio -->
+  <g transform="translate(50, 160)">
+    <rect width="400" height="180" rx="12" fill="url(#grad-vector)" stroke="url(#stroke-vector)" stroke-width="1"/>
+    <text x="200" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#10B981">Vector Studio</text>
+    <text x="200" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#10B981" opacity="0.8">/studio/vector</text>
+    
+    <g transform="translate(30, 80)" font-family="Inter, sans-serif" font-size="12" fill="#aaa">
+      <text x="0" y="0">15+ Drawing Tools</text>
+      <text x="0" y="20">AI Vectorization (PNG to SVG)</text>
+      <text x="0" y="40">7 Export Formats</text>
+      
+      <text x="200" y="0">SVG Editor</text>
+      <text x="200" y="20">JSX/React Export</text>
+      <text x="200" y="40">Blender Curves</text>
+    </g>
+    <text x="200" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#10B981" font-weight="500">Gemini 2.0</text>
+  </g>
+
+  <!-- Texture Studio -->
+  <g transform="translate(500, 160)">
+    <rect width="400" height="180" rx="12" fill="url(#grad-texture)" stroke="url(#stroke-texture)" stroke-width="1"/>
+    <text x="200" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#8B5CF6">Texture Studio</text>
+    <text x="200" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#8B5CF6" opacity="0.8">/studio/textures</text>
+
+    <g transform="translate(30, 80)" font-family="Inter, sans-serif" font-size="12" fill="#aaa">
+      <text x="0" y="0">MatCap Generation</text>
+      <text x="0" y="20">PBR Texture Generation</text>
+      <text x="0" y="40">Auto Normal/Roughness</text>
+      
+      <text x="200" y="0">3D Preview</text>
+      <text x="200" y="20">Quality Modes</text>
+      <text x="200" y="40">Upscaling</text>
+    </g>
+    <text x="200" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#8B5CF6" font-weight="500">Gemini 2.5 Flash</text>
+  </g>
+
+  <!-- 3D Studio -->
+  <g transform="translate(950, 160)">
+    <rect width="400" height="180" rx="12" fill="url(#grad-3d)" stroke="url(#stroke-3d)" stroke-width="1"/>
+    <text x="200" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#3B82F6">3D Studio</text>
+    <text x="200" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#3B82F6" opacity="0.8">/studio/scene</text>
+
+    <g transform="translate(30, 80)" font-family="Inter, sans-serif" font-size="12" fill="#aaa">
+      <text x="0" y="0">Universal Format Support</text>
+      <text x="0" y="20">600+ PBR Materials</text>
+      <text x="0" y="40">Natural Language Cmds</text>
+      
+      <text x="200" y="0">GLTF/GLB/FBX/OBJ</text>
+      <text x="200" y="20">Spline Runtime</text>
+      <text x="200" y="40">Scene Hierarchy</text>
+    </g>
+    <text x="200" y="160" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#3B82F6" font-weight="500">GPT-4o Vision</text>
+  </g>
+
+  <!-- Arrows to Bridge -->
+  <path d="M 250 340 L 250 365" stroke="#10B981" stroke-width="2" marker-end="url(#arrow-vector)"/>
+  <path d="M 700 340 L 700 365" stroke="#8B5CF6" stroke-width="2" marker-end="url(#arrow-texture)"/>
+  <path d="M 1150 340 L 1150 365" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-3d)"/>
+
+  <!-- Bridge -->
+  <g transform="translate(200, 375)">
+    <rect width="1000" height="60" rx="8" fill="url(#grad-bridge)" stroke="url(#stroke-bridge)" stroke-width="1"/>
+    <text x="500" y="25" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#F59E0B">Drag and Drop Bridge</text>
+    <text x="500" y="45" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#F59E0B" opacity="0.8">Cross-Studio Asset Transfer with Format Conversion</text>
+  </g>
+
+  <!-- Arrow to Infra -->
+  <path d="M 700 435 L 700 470" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow-bridge)"/>
+
+  <!-- Section Label: Unified Infrastructure -->
+  <text x="50" y="480" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ddd">Unified Infrastructure</text>
+
+  <!-- Infrastructure Row -->
+  <g transform="translate(50, 500)">
+    <!-- AI Orchestrator -->
+    <g>
+      <rect width="300" height="140" rx="8" fill="url(#grad-infra)" stroke="url(#stroke-infra)" stroke-width="1"/>
+      <text x="150" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="white">AI Orchestrator</text>
+      <text x="150" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#aaa">Multi-Agent Task Routing</text>
+      <g transform="translate(30, 80)" font-family="Inter, sans-serif" font-size="11" fill="#888">
+        <text x="0" y="0">Smart Model Selection</text>
+        <text x="0" y="15">Cost Optimization</text>
+        <text x="0" y="30">Fallback System</text>
+      </g>
+    </g>
+
+    <!-- State Store -->
+    <g transform="translate(330, 0)">
+      <rect width="300" height="140" rx="8" fill="url(#grad-infra)" stroke="url(#stroke-infra)" stroke-width="1"/>
+      <text x="150" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="white">State Store</text>
+      <text x="150" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#aaa">Zustand + Persistence</text>
+      <g transform="translate(30, 80)" font-family="Inter, sans-serif" font-size="11" fill="#888">
+        <text x="0" y="0">Project Management</text>
+        <text x="0" y="15">Asset Library</text>
+        <text x="0" y="30">AI Task History</text>
+      </g>
+    </g>
+
+    <!-- Persistence Layer -->
+    <g transform="translate(660, 0)">
+      <rect width="300" height="140" rx="8" fill="url(#grad-infra)" stroke="url(#stroke-infra)" stroke-width="1"/>
+      <text x="150" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="white">Persistence Layer</text>
+      <text x="150" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#aaa">IndexedDB Storage</text>
+      <g transform="translate(30, 80)" font-family="Inter, sans-serif" font-size="11" fill="#888">
+        <text x="0" y="0">Scene Snapshots</text>
+        <text x="0" y="15">Project Versioning</text>
+        <text x="0" y="30">Auto-Save</text>
+      </g>
+    </g>
+
+    <!-- Scene Adapters -->
+    <g transform="translate(990, 0)">
+      <rect width="300" height="140" rx="8" fill="url(#grad-infra)" stroke="url(#stroke-infra)" stroke-width="1"/>
+      <text x="150" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="white">Scene Adapters</text>
+      <text x="150" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#aaa">Universal Format Support</text>
+      <g transform="translate(30, 80)" font-family="Inter, sans-serif" font-size="11" fill="#888">
+        <text x="0" y="0">SplineAdapter</text>
+        <text x="0" y="15">GLTFAdapter</text>
+        <text x="0" y="30">UniversalEditor</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Arrow to Core -->
+  <path d="M 700 640 L 700 675" stroke="#3B82F6" stroke-width="2" marker-end="url(#arrow-core)"/>
+
+  <!-- Section Label: Core Library -->
+  <text x="50" y="685" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ddd">Core Library (from Prism)</text>
+
+  <!-- Core Library -->
+  <g transform="translate(50, 700)">
+    <rect width="1300" height="100" rx="8" fill="#111" stroke="#333" stroke-width="1"/>
+    
+    <!-- Columns -->
+    <g transform="translate(0, 0)">
+       <text x="130" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="white">Materials</text>
+       <text x="130" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888">600+ PBR Presets</text>
+    </g>
+    <line x1="260" y1="20" x2="260" y2="80" stroke="#333"/>
+
+    <g transform="translate(260, 0)">
+       <text x="130" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="white">AI Agents</text>
+       <text x="130" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888">Scene Manipulation</text>
+    </g>
+    <line x1="520" y1="20" x2="520" y2="80" stroke="#333"/>
+
+    <g transform="translate(520, 0)">
+       <text x="130" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="white">Scene Utils</text>
+       <text x="130" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888">Transform and Query</text>
+    </g>
+    <line x1="780" y1="20" x2="780" y2="80" stroke="#333"/>
+
+    <g transform="translate(780, 0)">
+       <text x="130" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="white">Asset Converter</text>
+       <text x="130" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888">Format Translation</text>
+    </g>
+    <line x1="1040" y1="20" x2="1040" y2="80" stroke="#333"/>
+
+    <g transform="translate(1040, 0)">
+       <text x="130" y="30" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="white">Embeddings</text>
+       <text x="130" y="50" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#888">Semantic Search</text>
+    </g>
+  </g>
+
+  <!-- Arrow to External -->
+  <path d="M 200 800 L 200 835" stroke="#3B82F6" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-core)"/>
+
+  <!-- Section Label: External AI Services -->
+  <text x="50" y="845" font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#ddd">External AI Services</text>
+
+  <!-- External AI Services -->
+  <g transform="translate(50, 860)">
+    <rect width="1300" height="80" rx="8" fill="url(#grad-3d)" stroke="url(#stroke-3d)" stroke-width="1"/>
+    
+    <g transform="translate(30, 25)">
+      <rect width="220" height="40" rx="4" fill="#111" stroke="#333"/>
+      <text x="110" y="18" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="white">OpenAI</text>
+      <text x="110" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#888">GPT-4o (Scene, Vision)</text>
+    </g>
+
+    <g transform="translate(290, 25)">
+      <rect width="220" height="40" rx="4" fill="#111" stroke="#333"/>
+      <text x="110" y="18" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="white">Google Gemini</text>
+      <text x="110" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#888">2.5 Flash / 3 Pro</text>
+    </g>
+
+    <g transform="translate(550, 25)">
+      <rect width="220" height="40" rx="4" fill="#111" stroke="#333"/>
+      <text x="110" y="18" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="white">Anthropic</text>
+      <text x="110" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#888">Claude Sonnet 3.5</text>
+    </g>
+
+    <g transform="translate(810, 25)">
+      <rect width="220" height="40" rx="4" fill="#111" stroke="#333"/>
+      <text x="110" y="18" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="white">OpenRouter</text>
+      <text x="110" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#888">Multi-Model Fallback</text>
+    </g>
+
+    <g transform="translate(1070, 25)">
+      <rect width="200" height="40" rx="4" fill="#111" stroke="#333"/>
+      <text x="100" y="18" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="white">Stack</text>
+      <text x="100" y="32" text-anchor="middle" font-family="Inter, sans-serif" font-size="10" fill="#888">Next.js 14 / R3F</text>
+    </g>
+  </g>
+
+  <!-- Markers -->
+  <defs>
+    <marker id="arrow-vector" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#10B981" />
+    </marker>
+    <marker id="arrow-texture" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#8B5CF6" />
+    </marker>
+    <marker id="arrow-3d" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3B82F6" />
+    </marker>
+    <marker id="arrow-bridge" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#F59E0B" />
+    </marker>
+    <marker id="arrow-core" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3B82F6" />
+    </marker>
+  </defs>
+</svg>

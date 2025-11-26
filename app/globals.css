@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030303;
-  --foreground: #e5e5e5;
-  --accent: #3b82f6; /* Professional Blue */
-  --accent-glow: rgba(59, 130, 246, 0.15);
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --card-border: rgba(255, 255, 255, 0.08);
+  --background: #1C1C1C; /* Deep Charcoal */
+  --foreground: #F5F5DC; /* Warm Beige */
+  --accent: #800020; /* Deep Burgundy */
+  --accent-glow: rgba(128, 0, 32, 0.15);
+  --card-bg: rgba(245, 245, 220, 0.03); /* Beige with low opacity */
+  --card-border: rgba(245, 245, 220, 0.08);
 }
 
 @theme inline {
@@ -22,11 +22,11 @@
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#F5F5DC] via-[#E8E6E3] to-[#D3D3D3] bg-clip-text text-transparent;
   }
 
   .text-accent-gradient {
-    @apply bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#800020] to-[#A52A2A] bg-clip-text text-transparent;
   }
 }
 

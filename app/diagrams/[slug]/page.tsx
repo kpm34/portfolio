@@ -1,6 +1,3 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -55,12 +52,20 @@ const diagrams: Record<string, { title: string; subtitle: string; project: strin
     title: "Material System",
     subtitle: "600+ PBR Material Presets",
     project: "prism"
+  },
+  "agent-debate-architecture": {
+    title: "Agent Debate Architecture",
+    subtitle: "Gemini 3.0 vs Claude 4.5 Consensus Protocol",
+    project: "prism"
   }
 };
 
-export default function DiagramPage() {
-  const params = useParams();
-  const slug = params.slug as string;
+import { BisectArchitectureDiagram } from "@/components/BisectArchitectureDiagram";
+import { BisectAICommandDiagram } from "@/components/BisectAICommandDiagram";
+import { AgentDebateDiagram } from "@/components/AgentDebateDiagram";
+
+export default async function DiagramPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const diagram = diagrams[slug];
 
   if (!diagram) {
@@ -101,13 +106,27 @@ export default function DiagramPage() {
       {/* Diagram Container */}
       <div className="p-6 flex items-center justify-center min-h-[calc(100vh-73px)]">
         <div className="max-w-full overflow-auto">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`/diagrams/${slug}.svg`}
-            alt={diagram.title}
-            className="max-w-none"
-            style={{ minWidth: "1200px" }}
-          />
+          {slug === "bisect-architecture" ? (
+            <div style={{ minWidth: "1200px" }}>
+              <BisectArchitectureDiagram />
+            </div>
+          ) : slug === "bisect-ai-commands" ? (
+            <div style={{ minWidth: "1200px" }}>
+              <BisectAICommandDiagram />
+            </div>
+          ) : slug === "agent-debate-architecture" ? (
+            <div style={{ minWidth: "1200px" }}>
+              <AgentDebateDiagram />
+            </div>
+          ) : (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={`/diagrams/${slug}.svg`}
+              alt={diagram.title}
+              className="max-w-none"
+              style={{ minWidth: "1200px" }}
+            />
+          )}
         </div>
       </div>
     </main>
