@@ -41,7 +41,7 @@ export const projects: Project[] = [
     ],
     liveUrl: 'https://ezworks.art',
     githubUrl: 'https://github.com/kpm34/ezworks',
-    diagramUrl: '/ezworks_architecture_flow.png',
+    diagramUrl: '/diagrams/ezworks-architecture',
     image: '/projects/ezworks.png',
     images: ['/projects/ezworks.png'],
     gradient: 'from-purple-500 to-pink-500'
