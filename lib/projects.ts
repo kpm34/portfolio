@@ -61,7 +61,7 @@ export const projects: Project[] = [
       '600+ PBR materials with semantic search',
       'Natural language 3D scene manipulation'
     ],
-    liveUrl: 'https://prism.vercel.app',
+    liveUrl: 'https://bisect.app',
     githubUrl: 'https://github.com/kpm34/prism',
     diagramUrl: '/diagrams/bisect-architecture',
     diagrams: [

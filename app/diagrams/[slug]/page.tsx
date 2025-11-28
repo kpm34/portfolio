@@ -125,33 +125,34 @@ export default function DiagramPage({ params }: { params: Promise<{ slug: string
         </div>
 
         {/* Grid of Cards */}
-        <div className="max-w-7xl mx-auto px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-4xl mx-auto px-6 py-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {cfbSubDiagrams.map((sub) => (
               <motion.div
                 key={sub.id}
-                whileHover={{ y: -5 }}
-                className="bg-[#111] border border-white/10 rounded-xl overflow-hidden cursor-pointer group"
+                whileHover={{ y: -2 }}
+                className="bg-[#111] border border-white/10 rounded-md overflow-hidden cursor-pointer group"
                 onClick={() => setSelectedSubDiagram(sub.id)}
               >
-                {/* Preview Area */}
-                <div className="aspect-video bg-[#0A0A0A] relative flex items-center justify-center p-4 group-hover:bg-[#151515] transition-colors">
-                  <div className="scale-[0.25] origin-center w-[1400px] h-[900px] pointer-events-none select-none">
-                    <sub.Component />
+                {/* Preview Area - fixed height */}
+                <div className="h-20 bg-[#0A0A0A] relative flex items-center justify-center overflow-hidden group-hover:bg-[#151515] transition-colors">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="scale-[0.06] origin-center w-[1400px] h-[900px] pointer-events-none select-none opacity-60">
+                      <sub.Component />
+                    </div>
                   </div>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 text-white text-sm font-medium">
-                      <Maximize2 size={14} />
-                      View Diagram
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                    <div className="bg-white/20 backdrop-blur-md px-2 py-1 rounded-full flex items-center gap-1 text-white text-[10px] font-medium">
+                      <Maximize2 size={10} />
+                      View
                     </div>
                   </div>
                 </div>
 
                 {/* Info */}
-                <div className="p-6 border-t border-white/5">
-                  <h3 className="text-lg font-medium text-white mb-1">{sub.title}</h3>
-                  <p className="text-sm text-gray-500">{sub.subtitle}</p>
+                <div className="px-2 py-1.5 border-t border-white/5">
+                  <h3 className="text-[11px] font-medium text-white truncate">{sub.title}</h3>
+                  <p className="text-[9px] text-gray-500 truncate">{sub.subtitle}</p>
                 </div>
               </motion.div>
             ))}

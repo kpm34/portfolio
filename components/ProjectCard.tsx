@@ -39,6 +39,9 @@ export function ProjectCard({ project, index, compact = false }: ProjectCardProp
             src={project.image}
             alt={project.title}
             fill
+            quality={60}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+            loading={index < 2 ? "eager" : "lazy"}
             className="object-cover opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
           />
         )}
