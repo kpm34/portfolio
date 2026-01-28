@@ -23,7 +23,9 @@ export interface Project {
   gradient: string; // Tailwind gradient for card
 }
 
-export const projects: Project[] = [
+// ARCHIVED: EZWORKS - kept for reference, not displayed on portfolio
+// May be integrated into Bisect in the future
+export const archivedProjects: Project[] = [
   {
     id: 'ezworks',
     slug: 'ezworks',
@@ -45,7 +47,10 @@ export const projects: Project[] = [
     image: '/projects/ezworks.png',
     images: ['/projects/ezworks.png'],
     gradient: 'from-purple-500 to-pink-500'
-  },
+  }
+];
+
+export const projects: Project[] = [
   {
     id: 'prism',
     slug: 'prism',
