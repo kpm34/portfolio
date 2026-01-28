@@ -137,7 +137,7 @@ export const projects: Project[] = [
     title: 'Third Eye Capital',
     description: 'Financial analytics dashboard for investment tracking',
     longDescription: 'Comprehensive financial dashboard for tracking investments, visualizing market trends, and analyzing portfolio performance. Built with Next.js and modern charting libraries for real-time data visualization.',
-    featured: false,
+    featured: true,
     category: 'finance',
     techStack: ['Next.js', 'TypeScript', 'Recharts', 'Tailwind CSS'],
     aiHighlights: [
@@ -145,6 +145,7 @@ export const projects: Project[] = [
       'Real-time data processing',
       'Pattern recognition algorithms'
     ],
+    liveUrl: 'https://thirdeyecapital.ai',
     image: '/projects/thirdeye-v2.png',
     images: ['/projects/thirdeye-v2.png'],
     gradient: 'from-slate-500 to-gray-500'

@@ -8,16 +8,10 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   // Define the exact order of featured projects
-  const featuredProjectIds = ['prism', 'cfb-fantasy'];
+  const featuredProjectIds = ['prism', 'cfb-fantasy', 'thirdeye'];
 
   // Get the full project objects in the correct order
   const featuredProjects = featuredProjectIds
-    .map(id => projects.find(p => p.id === id))
-    .filter((p): p is NonNullable<typeof p> => p !== undefined);
-
-  // In Development projects (removed ezworks)
-  const devProjectIds = ['thirdeye'];
-  const devProjects = devProjectIds
     .map(id => projects.find(p => p.id === id))
     .filter((p): p is NonNullable<typeof p> => p !== undefined);
 
@@ -38,23 +32,6 @@ export default function Home() {
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </div>
-
-        {/* In Development Section */}
-        {devProjects.length > 0 && (
-          <div className="mt-40">
-            <div className="flex items-center gap-4 mb-16">
-              <div className="h-[1px] flex-1 bg-[#F5F5DC]/10" />
-              <h2 className="text-xl font-mono text-[#F5F5DC]/40 uppercase tracking-widest">In Development</h2>
-              <div className="h-[1px] flex-1 bg-[#F5F5DC]/10" />
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-12">
-              {devProjects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} compact={true} />
-              ))}
-            </div>
-          </div>
-        )}
 
         {/* Contact Form */}
         <div className="mt-40">
