@@ -12,7 +12,7 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, index, compact = false }: ProjectCardProps) {
-  const isCompact = compact || project.id === 'prism' || project.id === 'cfb-fantasy';
+  const isCompact = compact || project.id === 'prism' || project.id === 'cfb-fantasy' || project.id === 'thirdeye';
   const isMinimal = compact; // Use compact prop to trigger minimal styling if explicitly passed
 
   return (
