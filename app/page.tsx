@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   // Define the exact order of featured projects
-  const featuredProjectIds = ['prism', 'cfb-fantasy', 'thirdeye'];
+  const featuredProjectIds = ['cfb-fantasy', 'thirdeye', 'prism'];
 
   // Get the full project objects in the correct order
   const featuredProjects = featuredProjectIds
