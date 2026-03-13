@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ResumeVariant } from '@/lib/dashboard/types';
 import { targetRoles } from '@/lib/dashboard/roles-data';
-import { Plus, Copy, Trash2, Save, Download, ClipboardCopy } from 'lucide-react';
+import { Plus, Copy, Trash2, Save, Download, ClipboardCopy, Pencil } from 'lucide-react';
 
 interface VariantManagerProps {
   variants: ResumeVariant[];
@@ -12,6 +12,7 @@ interface VariantManagerProps {
   onCreate: (roleId: string, name?: string) => void;
   onDuplicate: (id: string) => void;
   onDelete: (id: string) => void;
+  onRename: (id: string, name: string) => void;
   onSave: () => void;
   onExportText: () => void;
   onExportHtml: () => void;
@@ -24,6 +25,7 @@ export default function VariantManager({
   onCreate,
   onDuplicate,
   onDelete,
+  onRename,
   onSave,
   onExportText,
   onExportHtml,
@@ -32,6 +34,9 @@ export default function VariantManager({
   const [newRoleId, setNewRoleId] = useState(targetRoles[0].id);
   const [newName, setNewName] = useState('');
   const [showExport, setShowExport] = useState(false);
+  const [isRenaming, setIsRenaming] = useState(false);
+  const [renameText, setRenameText] = useState('');
+  const renameRef = useRef<HTMLInputElement>(null);
 
   const handleCreate = () => {
     onCreate(newRoleId, newName || undefined);
@@ -39,20 +44,70 @@ export default function VariantManager({
     setNewName('');
   };
 
+  const startRename = () => {
+    if (!activeVariant) return;
+    setRenameText(activeVariant.name);
+    setIsRenaming(true);
+  };
+
+  const confirmRename = () => {
+    if (activeVariant && renameText.trim()) {
+      onRename(activeVariant.id, renameText.trim());
+    }
+    setIsRenaming(false);
+  };
+
+  const cancelRename = () => {
+    setIsRenaming(false);
+  };
+
+  useEffect(() => {
+    if (isRenaming && renameRef.current) {
+      renameRef.current.focus();
+      renameRef.current.select();
+    }
+  }, [isRenaming]);
+
   return (
     <div className="rounded-xl bg-[#F5F5DC]/[0.02] border border-[#F5F5DC]/5 p-4">
       <div className="flex flex-wrap items-center gap-3">
-        {/* Variant selector */}
-        <select
-          value={activeVariant?.id || ''}
-          onChange={(e) => onSelect(e.target.value)}
-          className="bg-[#1C1C1C] border border-[#F5F5DC]/10 text-[#F5F5DC] text-sm rounded-lg px-3 py-2 font-mono focus:outline-none focus:border-[#800020]/50 min-w-[200px]"
-        >
-          <option value="" disabled>Select variant...</option>
-          {variants.map((v) => (
-            <option key={v.id} value={v.id}>{v.name}</option>
-          ))}
-        </select>
+        {/* Variant selector or rename input */}
+        {isRenaming ? (
+          <input
+            ref={renameRef}
+            type="text"
+            value={renameText}
+            onChange={(e) => setRenameText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') confirmRename();
+              if (e.key === 'Escape') cancelRename();
+            }}
+            onBlur={confirmRename}
+            className="bg-[#1C1C1C] border border-[#800020]/50 text-[#F5F5DC] text-sm rounded-lg px-3 py-2 font-mono focus:outline-none focus:border-[#800020] min-w-[200px]"
+          />
+        ) : (
+          <div className="flex items-center gap-1.5">
+            <select
+              value={activeVariant?.id || ''}
+              onChange={(e) => onSelect(e.target.value)}
+              className="bg-[#1C1C1C] border border-[#F5F5DC]/10 text-[#F5F5DC] text-sm rounded-lg px-3 py-2 font-mono focus:outline-none focus:border-[#800020]/50 min-w-[200px]"
+            >
+              <option value="" disabled>Select variant...</option>
+              {variants.map((v) => (
+                <option key={v.id} value={v.id}>{v.name}</option>
+              ))}
+            </select>
+            {activeVariant && (
+              <button
+                onClick={startRename}
+                className="p-1.5 rounded-md text-[#F5F5DC]/30 hover:text-[#F5F5DC]/70 hover:bg-[#F5F5DC]/[0.05] transition-colors"
+                title="Rename variant"
+              >
+                <Pencil size={13} />
+              </button>
+            )}
+          </div>
+        )}
 
         {/* New variant */}
         <button

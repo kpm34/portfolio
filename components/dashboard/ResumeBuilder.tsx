@@ -118,6 +118,13 @@ export default function ResumeBuilder() {
     [activeVariant, saveAndFlash]
   );
 
+  const handleRename = useCallback(
+    (id: string, name: string) => {
+      saveAndFlash(id, { name });
+    },
+    [saveAndFlash]
+  );
+
   const handleSave = useCallback(() => {
     // Already auto-saved via localStorage, but could add a toast
   }, []);
@@ -159,6 +166,7 @@ export default function ResumeBuilder() {
         onCreate={handleCreate}
         onDuplicate={duplicateVariant}
         onDelete={handleDelete}
+        onRename={handleRename}
         onSave={handleSave}
         onExportText={handleExportText}
         onExportHtml={handleExportHtml}
