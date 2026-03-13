@@ -11,6 +11,12 @@ interface ResumePreviewProps {
 
 export default function ResumePreview({ variant }: ResumePreviewProps) {
   const bulletMap = useMemo(() => new Map(allBullets.map((b) => [b.id, b])), []);
+  const overrides = variant.bulletOverrides || {};
+
+  const getBulletText = (id: string) => {
+    if (overrides[id]) return overrides[id];
+    return bulletMap.get(id)?.text || '';
+  };
 
   const intelivanceSel = variant.bulletSelections.find((s) => s.projectId === 'intelivance');
   const achdSel = variant.bulletSelections.find((s) => s.projectId === 'achd-lab');
@@ -72,11 +78,11 @@ export default function ResumePreview({ variant }: ResumePreviewProps) {
             <p className="text-[10px] text-gray-500 -mt-0.5">Intelivance &nbsp;|&nbsp; Remote</p>
             <ul className="mt-1 space-y-0.5 list-disc list-outside ml-4">
               {intelivanceSel.bulletIds.map((id) => {
-                const bullet = bulletMap.get(id);
-                if (!bullet) return null;
+                const text = getBulletText(id);
+                if (!text) return null;
                 return (
                   <li key={id} className="text-[10.5px] text-gray-800 leading-[1.45]">
-                    {bullet.text}
+                    {text}
                   </li>
                 );
               })}
@@ -96,11 +102,11 @@ export default function ResumePreview({ variant }: ResumePreviewProps) {
             </p>
             <ul className="mt-1 space-y-0.5 list-disc list-outside ml-4">
               {achdSel.bulletIds.map((id) => {
-                const bullet = bulletMap.get(id);
-                if (!bullet) return null;
+                const text = getBulletText(id);
+                if (!text) return null;
                 return (
                   <li key={id} className="text-[10.5px] text-gray-800 leading-[1.45]">
-                    {bullet.text}
+                    {text}
                   </li>
                 );
               })}
@@ -118,11 +124,11 @@ export default function ResumePreview({ variant }: ResumePreviewProps) {
             <p className="text-[10px] text-gray-500 -mt-0.5">UPMC &nbsp;|&nbsp; Pittsburgh, PA</p>
             <ul className="mt-1 space-y-0.5 list-disc list-outside ml-4">
               {upmcSel.bulletIds.map((id) => {
-                const bullet = bulletMap.get(id);
-                if (!bullet) return null;
+                const text = getBulletText(id);
+                if (!text) return null;
                 return (
                   <li key={id} className="text-[10.5px] text-gray-800 leading-[1.45]">
-                    {bullet.text}
+                    {text}
                   </li>
                 );
               })}
@@ -179,6 +185,12 @@ export default function ResumePreview({ variant }: ResumePreviewProps) {
 export function generateResumeText(variant: ResumeVariant): string {
   const bulletMap = new Map(allBullets.map((b) => [b.id, b]));
   const skillMap = new Map(skills.map((s) => [s.id, s]));
+  const overrides = variant.bulletOverrides || {};
+
+  const getBulletText = (id: string) => {
+    if (overrides[id]) return overrides[id];
+    return bulletMap.get(id)?.text || '';
+  };
 
   const lines: string[] = [];
   lines.push('KASHYAP MAHESHWARI');
@@ -197,8 +209,8 @@ export function generateResumeText(variant: ResumeVariant): string {
   if (intelivanceSel && intelivanceSel.bulletIds.length > 0) {
     lines.push('Software Engineer | Intelivance | Remote | 2024–Present');
     for (const id of intelivanceSel.bulletIds) {
-      const b = bulletMap.get(id);
-      if (b) lines.push(`  • ${b.text}`);
+      const text = getBulletText(id);
+      if (text) lines.push(`  • ${text}`);
     }
     lines.push('');
   }
@@ -207,8 +219,8 @@ export function generateResumeText(variant: ResumeVariant): string {
   if (achdSel && achdSel.bulletIds.length > 0) {
     lines.push('Microbiologist | Allegheny County Health Department | Pittsburgh, PA | 2020–2021');
     for (const id of achdSel.bulletIds) {
-      const b = bulletMap.get(id);
-      if (b) lines.push(`  • ${b.text}`);
+      const text = getBulletText(id);
+      if (text) lines.push(`  • ${text}`);
     }
     lines.push('');
   }
@@ -217,8 +229,8 @@ export function generateResumeText(variant: ResumeVariant): string {
   if (upmcSel && upmcSel.bulletIds.length > 0) {
     lines.push('Cardiovascular Research Assistant | UPMC | Pittsburgh, PA | 2017–2019');
     for (const id of upmcSel.bulletIds) {
-      const b = bulletMap.get(id);
-      if (b) lines.push(`  • ${b.text}`);
+      const text = getBulletText(id);
+      if (text) lines.push(`  • ${text}`);
     }
     lines.push('');
   }

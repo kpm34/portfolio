@@ -62,6 +62,20 @@ export default function ResumeBuilder() {
     [activeVariant, updateVariant]
   );
 
+  const handleEditBullet = useCallback(
+    (bulletId: string, text: string | null) => {
+      if (!activeVariant) return;
+      const overrides = { ...(activeVariant.bulletOverrides || {}) };
+      if (text === null) {
+        delete overrides[bulletId];
+      } else {
+        overrides[bulletId] = text;
+      }
+      updateVariant(activeVariant.id, { bulletOverrides: overrides });
+    },
+    [activeVariant, updateVariant]
+  );
+
   const handleSummaryChange = useCallback(
     (summary: string) => {
       if (!activeVariant) return;
@@ -133,6 +147,7 @@ export default function ResumeBuilder() {
             <BulletLibrary
               variant={activeVariant}
               onToggleBullet={handleToggleBullet}
+              onEditBullet={handleEditBullet}
             />
           </motion.div>
 

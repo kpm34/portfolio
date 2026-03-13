@@ -5,11 +5,12 @@ import { motion } from 'framer-motion';
 import { ResumeBulletPoint, ResumeVariant } from '@/lib/dashboard/types';
 import { intelivanceBullets, workBullets, scoreBulletForRole } from '@/lib/dashboard/bullets-data';
 import { targetRoles } from '@/lib/dashboard/roles-data';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Pencil, X } from 'lucide-react';
 
 interface BulletLibraryProps {
   variant: ResumeVariant;
   onToggleBullet: (sectionId: string, bulletId: string) => void;
+  onEditBullet: (bulletId: string, text: string | null) => void;
 }
 
 interface BulletSection {
@@ -40,7 +41,7 @@ const sections: BulletSection[] = [
   },
 ];
 
-export default function BulletLibrary({ variant, onToggleBullet }: BulletLibraryProps) {
+export default function BulletLibrary({ variant, onToggleBullet, onEditBullet }: BulletLibraryProps) {
   const role = useMemo(
     () => targetRoles.find((r) => r.id === variant.roleId),
     [variant.roleId]
@@ -67,7 +68,9 @@ export default function BulletLibrary({ variant, onToggleBullet }: BulletLibrary
           section={section}
           role={role}
           selectedIds={selectedIds}
+          bulletOverrides={variant.bulletOverrides || {}}
           onToggle={(bulletId) => onToggleBullet(section.id, bulletId)}
+          onEdit={onEditBullet}
         />
       ))}
     </div>
@@ -78,14 +81,20 @@ function SectionGroup({
   section,
   role,
   selectedIds,
+  bulletOverrides,
   onToggle,
+  onEdit,
 }: {
   section: BulletSection;
   role: ReturnType<typeof targetRoles.find>;
   selectedIds: Set<string>;
+  bulletOverrides: Record<string, string>;
   onToggle: (bulletId: string) => void;
+  onEdit: (bulletId: string, text: string | null) => void;
 }) {
   const [expanded, setExpanded] = useState(true);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editText, setEditText] = useState('');
 
   const selectedCount = section.bullets.filter((b) => selectedIds.has(b.id)).length;
 
@@ -98,6 +107,28 @@ function SectionGroup({
       }))
       .sort((a, b) => b.score - a.score);
   }, [section.bullets, role]);
+
+  const startEdit = (bullet: ResumeBulletPoint) => {
+    setEditingId(bullet.id);
+    setEditText(bulletOverrides[bullet.id] || bullet.text);
+  };
+
+  const saveEdit = () => {
+    if (editingId) {
+      const original = section.bullets.find((b) => b.id === editingId);
+      // If text matches original, clear the override
+      if (original && editText === original.text) {
+        onEdit(editingId, null);
+      } else {
+        onEdit(editingId, editText);
+      }
+      setEditingId(null);
+    }
+  };
+
+  const cancelEdit = () => {
+    setEditingId(null);
+  };
 
   return (
     <div className="rounded-lg bg-[#F5F5DC]/[0.02] border border-[#F5F5DC]/5 overflow-hidden">
@@ -125,15 +156,18 @@ function SectionGroup({
         <div className="border-t border-[#F5F5DC]/5 px-2 py-2 space-y-1">
           {scoredBullets.map(({ bullet, score }) => {
             const isSelected = selectedIds.has(bullet.id);
+            const isEditing = editingId === bullet.id;
+            const hasOverride = bullet.id in bulletOverrides;
+            const displayText = bulletOverrides[bullet.id] || bullet.text;
             const relevance =
               score >= 15 ? 'high' : score >= 5 ? 'medium' : 'low';
 
             return (
-              <motion.label
+              <motion.div
                 key={bullet.id}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className={`flex items-start gap-3 px-3 py-2.5 rounded-lg cursor-pointer transition-colors ${
+                className={`flex items-start gap-3 px-3 py-2.5 rounded-lg transition-colors ${
                   isSelected
                     ? 'bg-[#800020]/10 border border-[#800020]/20'
                     : 'hover:bg-[#F5F5DC]/[0.02] border border-transparent'
@@ -143,14 +177,52 @@ function SectionGroup({
                   type="checkbox"
                   checked={isSelected}
                   onChange={() => onToggle(bullet.id)}
-                  className="mt-1 shrink-0 accent-[#800020]"
+                  className="mt-1 shrink-0 accent-[#800020] cursor-pointer"
                 />
                 <div className="flex-1 min-w-0">
-                  <p className={`text-xs leading-relaxed ${isSelected ? 'text-[#F5F5DC]/80' : 'text-[#F5F5DC]/50'}`}>
-                    {bullet.text}
-                  </p>
-                  {bullet.impact && (
-                    <span className="text-[10px] text-[#800020]/60 font-mono">{bullet.impact}</span>
+                  {isEditing ? (
+                    <div className="space-y-2">
+                      <textarea
+                        value={editText}
+                        onChange={(e) => setEditText(e.target.value)}
+                        rows={3}
+                        className="w-full bg-[#1C1C1C] border border-[#800020]/30 text-[#F5F5DC]/80 text-xs rounded px-2 py-1.5 font-mono leading-relaxed focus:outline-none focus:border-[#800020]/60 resize-none"
+                        autoFocus
+                      />
+                      <div className="flex gap-2">
+                        <button
+                          onClick={saveEdit}
+                          className="text-[10px] font-mono px-2 py-0.5 rounded bg-[#800020]/20 text-[#F5F5DC]/70 hover:bg-[#800020]/30"
+                        >
+                          Save
+                        </button>
+                        <button
+                          onClick={cancelEdit}
+                          className="text-[10px] font-mono px-2 py-0.5 rounded text-[#F5F5DC]/30 hover:text-[#F5F5DC]/50"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="group">
+                      <p className={`text-xs leading-relaxed ${isSelected ? 'text-[#F5F5DC]/80' : 'text-[#F5F5DC]/50'}`}>
+                        {displayText}
+                        {hasOverride && (
+                          <span className="text-[9px] text-yellow-400/50 ml-1">(edited)</span>
+                        )}
+                      </p>
+                      {bullet.impact && (
+                        <span className="text-[10px] text-[#800020]/60 font-mono">{bullet.impact}</span>
+                      )}
+                      <button
+                        onClick={(e) => { e.stopPropagation(); startEdit(bullet); }}
+                        className="hidden group-hover:inline-flex items-center gap-1 mt-1 text-[10px] font-mono text-[#F5F5DC]/20 hover:text-[#F5F5DC]/50 transition-colors"
+                      >
+                        <Pencil size={10} />
+                        Edit
+                      </button>
+                    </div>
                   )}
                 </div>
                 <span
@@ -163,7 +235,7 @@ function SectionGroup({
                   }`}
                   title={`Relevance: ${relevance} (${score})`}
                 />
-              </motion.label>
+              </motion.div>
             );
           })}
         </div>

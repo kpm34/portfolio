@@ -89,6 +89,7 @@ export interface ResumeVariant {
     bulletIds: string[];
   }[];
   skillOrder: string[];
+  bulletOverrides?: Record<string, string>; // bulletId -> custom text (per-variant edits)
   notes?: string;
 }
 
