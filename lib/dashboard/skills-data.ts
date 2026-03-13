@@ -590,6 +590,17 @@ export const skills: Skill[] = [
     ],
   },
   {
+    id: 'excel',
+    name: 'Excel / Spreadsheets',
+    category: 'data-engineering',
+    proficiency: 3,
+    yearsUsed: 3,
+    keywords: ['excel', 'spreadsheets', 'google sheets', 'pivot tables', 'data analysis'],
+    evidence: [
+      { projectId: 'achd-lab', description: 'Built Excel reporting systems for specimen tracking that improved lab efficiency' },
+    ],
+  },
+  {
     id: 'financial-modeling',
     name: 'Financial Modeling',
     category: 'data-engineering',

@@ -73,6 +73,24 @@ export const targetRoles: TargetRole[] = [
       { skillId: 'kubernetes', importance: 6, isRequired: false },
     ],
   },
+  {
+    id: 'data-analyst',
+    title: 'Data Analyst',
+    industry: 'general',
+    description: 'Transform raw data into actionable insights through SQL queries, dashboards, and statistical analysis. Communicate findings to stakeholders and drive data-informed decisions.',
+    requirements: [
+      { skillId: 'postgresql', importance: 10, isRequired: true },
+      { skillId: 'data-visualization', importance: 10, isRequired: true },
+      { skillId: 'python', importance: 8, isRequired: false },
+      { skillId: 'statistical-analysis', importance: 8, isRequired: true },
+      { skillId: 'pandas', importance: 8, isRequired: false },
+      { skillId: 'etl', importance: 7, isRequired: false },
+      { skillId: 'jupyter', importance: 6, isRequired: false },
+      { skillId: 'recharts', importance: 5, isRequired: false },
+      { skillId: 'excel', importance: 6, isRequired: false },
+      { skillId: 'financial-modeling', importance: 5, isRequired: false },
+    ],
+  },
 ];
 
 export const getRoleById = (id: string): TargetRole | undefined =>
