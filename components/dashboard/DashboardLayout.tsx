@@ -16,6 +16,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <MobileNavLink href="/dashboard" label="Overview" />
           <MobileNavLink href="/dashboard/skills" label="Skills" />
           <MobileNavLink href="/dashboard/roles" label="Roles" />
+          <MobileNavLink href="/dashboard/resume" label="Resume" />
         </div>
       </div>
 

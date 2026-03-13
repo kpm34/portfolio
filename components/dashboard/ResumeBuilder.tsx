@@ -1,0 +1,173 @@
+'use client';
+
+import { useState, useCallback } from 'react';
+import { motion } from 'framer-motion';
+import { ResumeVariant } from '@/lib/dashboard/types';
+import { useResumeVariants } from '@/lib/dashboard/resume-store';
+import { useHydration } from '@/lib/dashboard/use-dashboard-store';
+import VariantManager from './VariantManager';
+import BulletLibrary from './BulletLibrary';
+import SummaryEditor from './SummaryEditor';
+import ResumePreview, { generateResumeText } from './ResumePreview';
+
+export default function ResumeBuilder() {
+  const hydrated = useHydration();
+  const { variants, createVariant, updateVariant, duplicateVariant, deleteVariant } = useResumeVariants();
+  const [activeId, setActiveId] = useState<string | null>(null);
+
+  const activeVariant = variants.find((v) => v.id === activeId) || null;
+
+  const handleCreate = useCallback(
+    (roleId: string, name?: string) => {
+      const variant = createVariant(roleId, name);
+      if (variant) setActiveId(variant.id);
+    },
+    [createVariant]
+  );
+
+  const handleSelect = useCallback((id: string) => {
+    setActiveId(id);
+  }, []);
+
+  const handleDelete = useCallback(
+    (id: string) => {
+      deleteVariant(id);
+      if (activeId === id) setActiveId(null);
+    },
+    [deleteVariant, activeId]
+  );
+
+  const handleToggleBullet = useCallback(
+    (sectionId: string, bulletId: string) => {
+      if (!activeVariant) return;
+
+      const updated = activeVariant.bulletSelections.map((sel) => {
+        if (sel.projectId !== sectionId) return sel;
+        const has = sel.bulletIds.includes(bulletId);
+        return {
+          ...sel,
+          bulletIds: has
+            ? sel.bulletIds.filter((id) => id !== bulletId)
+            : [...sel.bulletIds, bulletId],
+        };
+      });
+
+      // If section doesn't exist yet, add it
+      if (!updated.find((s) => s.projectId === sectionId)) {
+        updated.push({ projectId: sectionId, bulletIds: [bulletId] });
+      }
+
+      updateVariant(activeVariant.id, { bulletSelections: updated });
+    },
+    [activeVariant, updateVariant]
+  );
+
+  const handleSummaryChange = useCallback(
+    (summary: string) => {
+      if (!activeVariant) return;
+      updateVariant(activeVariant.id, { summary });
+    },
+    [activeVariant, updateVariant]
+  );
+
+  const handleSave = useCallback(() => {
+    // Already auto-saved via localStorage, but could add a toast
+  }, []);
+
+  const handleExportText = useCallback(() => {
+    if (!activeVariant) return;
+    const text = generateResumeText(activeVariant);
+    navigator.clipboard.writeText(text);
+  }, [activeVariant]);
+
+  const handleExportHtml = useCallback(() => {
+    if (!activeVariant) return;
+    const text = generateResumeText(activeVariant);
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `resume-${activeVariant.name.replace(/\s+/g, '-').toLowerCase()}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [activeVariant]);
+
+  if (!hydrated) {
+    return (
+      <div className="animate-pulse space-y-4">
+        <div className="h-16 bg-[#F5F5DC]/[0.02] rounded-xl" />
+        <div className="h-96 bg-[#F5F5DC]/[0.02] rounded-xl" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-6">
+      {/* Variant manager bar */}
+      <VariantManager
+        variants={variants}
+        activeVariant={activeVariant}
+        onSelect={handleSelect}
+        onCreate={handleCreate}
+        onDuplicate={duplicateVariant}
+        onDelete={handleDelete}
+        onSave={handleSave}
+        onExportText={handleExportText}
+        onExportHtml={handleExportHtml}
+      />
+
+      {activeVariant ? (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Left: Editor */}
+          <motion.div
+            initial={{ opacity: 0, x: -12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4 }}
+            className="space-y-6"
+          >
+            <SummaryEditor
+              summary={activeVariant.summary}
+              roleId={activeVariant.roleId}
+              onChange={handleSummaryChange}
+            />
+            <BulletLibrary
+              variant={activeVariant}
+              onToggleBullet={handleToggleBullet}
+            />
+          </motion.div>
+
+          {/* Right: Preview */}
+          <motion.div
+            initial={{ opacity: 0, x: 12 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="lg:sticky lg:top-6 lg:self-start"
+          >
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-xs font-mono text-[#F5F5DC]/30 uppercase tracking-widest">
+                Preview
+              </h3>
+              <span className="text-[10px] font-mono text-[#F5F5DC]/20">
+                Auto-saved
+              </span>
+            </div>
+            <ResumePreview variant={activeVariant} />
+          </motion.div>
+        </div>
+      ) : (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center py-24"
+        >
+          <p className="text-[#F5F5DC]/30 text-lg">
+            Create a new variant or select an existing one to start
+          </p>
+          <p className="text-[#F5F5DC]/15 text-sm mt-2 font-mono">
+            Each variant tailors your resume for a specific target role
+          </p>
+        </motion.div>
+      )}
+    </div>
+  );
+}

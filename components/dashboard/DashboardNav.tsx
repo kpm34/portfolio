@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BarChart3, Target, Layers, ArrowLeft } from 'lucide-react';
+import { BarChart3, Target, Layers, FileText, ArrowLeft } from 'lucide-react';
 
 const navItems = [
   { href: '/dashboard', label: 'Overview', icon: BarChart3 },
   { href: '/dashboard/skills', label: 'Skills', icon: Layers },
   { href: '/dashboard/roles', label: 'Roles', icon: Target },
+  { href: '/dashboard/resume', label: 'Resume', icon: FileText },
 ];
 
 export default function DashboardNav() {
