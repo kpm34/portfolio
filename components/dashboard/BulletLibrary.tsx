@@ -35,8 +35,8 @@ const sections: BulletSection[] = [
   },
   {
     id: 'upmc-research',
-    title: 'Cardiovascular Research Assistant | UPMC',
-    subtitle: 'Pittsburgh, PA | 2017–2019',
+    title: 'Research Intern | UPMC Cardiovascular Ultrasound Lab',
+    subtitle: 'Pittsburgh, PA | Jun–Sep 2017',
     bullets: workBullets.filter((b) => b.projectId === 'upmc-research'),
   },
 ];

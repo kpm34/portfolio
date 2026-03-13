@@ -163,10 +163,10 @@ export default function ResumePreview({ variant }: ResumePreviewProps) {
         {upmcSel && upmcSel.bulletIds.length > 0 && (
           <div className={d.item}>
             <div className="flex justify-between items-baseline">
-              <p className="font-bold text-[11px]">Cardiovascular Research Assistant</p>
-              <p className="text-[10px] text-gray-500">2017–2019</p>
+              <p className="font-bold text-[11px]">Research Intern</p>
+              <p className="text-[10px] text-gray-500">Jun–Sep 2017</p>
             </div>
-            <p className="text-[10px] text-gray-500 -mt-0.5">UPMC &nbsp;|&nbsp; Pittsburgh, PA</p>
+            <p className="text-[10px] text-gray-500 -mt-0.5">UPMC Cardiovascular Ultrasound Lab &nbsp;|&nbsp; Pittsburgh, PA</p>
             <ul className="mt-1 space-y-0.5 list-disc list-outside ml-4">
               {upmcSel.bulletIds.map((id) => {
                 const text = getBulletText(id);
@@ -289,7 +289,7 @@ export function generateResumeText(variant: ResumeVariant): string {
 
   const upmcSel = variant.bulletSelections.find((sel) => sel.projectId === 'upmc-research');
   if (upmcSel && upmcSel.bulletIds.length > 0) {
-    lines.push('Cardiovascular Research Assistant | UPMC | Pittsburgh, PA | 2017–2019');
+    lines.push('Research Intern | UPMC Cardiovascular Ultrasound Lab | Pittsburgh, PA | Jun–Sep 2017');
     for (const id of upmcSel.bulletIds) {
       const text = getBulletText(id);
       if (text) lines.push(`  • ${text}`);

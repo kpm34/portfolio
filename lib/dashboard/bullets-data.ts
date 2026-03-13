@@ -202,7 +202,7 @@ export const workBullets: ResumeBulletPoint[] = [
   {
     id: 'work-upmc',
     projectId: 'upmc-research',
-    text: 'Performed RT-PCR gene expression analysis on cardiovascular arterial tissue in animal model studies',
+    text: 'Assisted with cardiovascular ultrasound research and RT-PCR gene expression analysis on arterial tissue samples',
     skills: ['rt-pcr', 'compliance'],
   },
 ];
