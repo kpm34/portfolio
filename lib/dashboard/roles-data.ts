@@ -1,0 +1,79 @@
+import { TargetRole } from './types';
+
+export const targetRoles: TargetRole[] = [
+  {
+    id: 'ai-solutions-engineer',
+    title: 'AI Solutions Engineer',
+    industry: 'ai-ml',
+    description: 'Design and implement AI-powered solutions using LLMs, RAG pipelines, multi-agent systems, and cloud infrastructure. Bridge the gap between AI research and production applications.',
+    requirements: [
+      { skillId: 'llm-integration', importance: 10, isRequired: true },
+      { skillId: 'python', importance: 9, isRequired: true },
+      { skillId: 'rag', importance: 9, isRequired: true },
+      { skillId: 'multi-agent', importance: 8, isRequired: false },
+      { skillId: 'rest-apis', importance: 8, isRequired: true },
+      { skillId: 'claude', importance: 7, isRequired: false },
+      { skillId: 'docker', importance: 7, isRequired: false },
+      { skillId: 'postgresql', importance: 6, isRequired: false },
+      { skillId: 'typescript', importance: 6, isRequired: false },
+      { skillId: 'cloud-platforms', importance: 7, isRequired: false },
+    ],
+  },
+  {
+    id: 'fullstack-developer',
+    title: 'Full-Stack Developer',
+    industry: 'saas',
+    description: 'Build and maintain full-stack web applications with modern frameworks, databases, authentication, and real-time features. Own features end-to-end from database to UI.',
+    requirements: [
+      { skillId: 'react', importance: 10, isRequired: true },
+      { skillId: 'typescript', importance: 9, isRequired: true },
+      { skillId: 'nextjs', importance: 9, isRequired: true },
+      { skillId: 'postgresql', importance: 8, isRequired: true },
+      { skillId: 'rest-apis', importance: 8, isRequired: true },
+      { skillId: 'nodejs', importance: 7, isRequired: false },
+      { skillId: 'tailwind', importance: 6, isRequired: false },
+      { skillId: 'websockets', importance: 6, isRequired: false },
+      { skillId: 'oauth', importance: 6, isRequired: false },
+      { skillId: 'git', importance: 5, isRequired: true },
+    ],
+  },
+  {
+    id: 'data-scientist',
+    title: 'Data Scientist',
+    industry: 'general',
+    description: 'Analyze data, build ML models, and derive insights to drive business decisions. Requires strong statistics, Python, and visualization skills.',
+    requirements: [
+      { skillId: 'python', importance: 10, isRequired: true },
+      { skillId: 'statistical-analysis', importance: 10, isRequired: true },
+      { skillId: 'ml-pipelines', importance: 9, isRequired: true },
+      { skillId: 'xgboost', importance: 8, isRequired: false },
+      { skillId: 'data-visualization', importance: 8, isRequired: true },
+      { skillId: 'etl', importance: 7, isRequired: false },
+      { skillId: 'postgresql', importance: 6, isRequired: false },
+      { skillId: 'jupyter', importance: 7, isRequired: false },
+      { skillId: 'pandas', importance: 8, isRequired: false },
+      { skillId: 'scikit-learn', importance: 7, isRequired: false },
+    ],
+  },
+  {
+    id: 'ml-engineer',
+    title: 'ML Engineer',
+    industry: 'ai-ml',
+    description: 'Build, deploy, and maintain ML models in production. Focus on model serving, data pipelines, MLOps, and infrastructure to scale ML systems.',
+    requirements: [
+      { skillId: 'python', importance: 10, isRequired: true },
+      { skillId: 'ml-pipelines', importance: 10, isRequired: true },
+      { skillId: 'docker', importance: 8, isRequired: true },
+      { skillId: 'etl', importance: 8, isRequired: true },
+      { skillId: 'xgboost', importance: 7, isRequired: false },
+      { skillId: 'postgresql', importance: 7, isRequired: false },
+      { skillId: 'rest-apis', importance: 7, isRequired: false },
+      { skillId: 'github-actions', importance: 6, isRequired: false },
+      { skillId: 'cloud-platforms', importance: 8, isRequired: false },
+      { skillId: 'kubernetes', importance: 6, isRequired: false },
+    ],
+  },
+];
+
+export const getRoleById = (id: string): TargetRole | undefined =>
+  targetRoles.find((r) => r.id === id);

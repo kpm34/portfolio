@@ -2,9 +2,9 @@ import React from 'react';
 
 export const CfbAuthDiagram = () => {
     return (
-        <svg width="700" height="950" viewBox="0 0 700 950" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+        <svg width="700" height="930" viewBox="0 0 700 930" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
             {/* Background */}
-            <rect width="700" height="950" fill="#030303" />
+            <rect width="700" height="930" fill="#030303" />
 
             {/* Gradients */}
             <defs>
@@ -58,10 +58,6 @@ export const CfbAuthDiagram = () => {
                     <stop offset="100%" stopColor="rgba(6, 182, 212, 0.2)" />
                 </linearGradient>
 
-                {/* Arrow marker - filled triangle pointing down */}
-                <marker id="arrow-down-auth" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
-                    <path d="M2,2 L10,2 L6,10 Z" fill="#666" />
-                </marker>
             </defs>
 
             {/* Title */}
@@ -87,7 +83,8 @@ export const CfbAuthDiagram = () => {
             </g>
 
             {/* Arrow 1 */}
-            <path d="M 350 200 L 350 220" stroke="#666" strokeWidth="1.5" markerEnd="url(#arrow-down-auth)" />
+            <path d="M 350 200 L 350 218" stroke="#666" strokeWidth="1.5" />
+            <polygon points="350,228 344,218 356,218" fill="#666" />
 
             {/* ==================== LAYER 2: SUPABASE AUTH ==================== */}
             <g transform="translate(50, 235)">
@@ -119,7 +116,8 @@ export const CfbAuthDiagram = () => {
             </g>
 
             {/* Arrow 2 */}
-            <path d="M 350 365 L 350 385" stroke="#666" strokeWidth="1.5" markerEnd="url(#arrow-down-auth)" />
+            <path d="M 350 365 L 350 383" stroke="#666" strokeWidth="1.5" />
+            <polygon points="350,393 344,383 356,383" fill="#666" />
 
             {/* ==================== LAYER 3: MIDDLEWARE ==================== */}
             <g transform="translate(50, 400)">
@@ -147,7 +145,8 @@ export const CfbAuthDiagram = () => {
             </g>
 
             {/* Arrow 3 */}
-            <path d="M 350 550 L 350 570" stroke="#666" strokeWidth="1.5" markerEnd="url(#arrow-down-auth)" />
+            <path d="M 350 550 L 350 568" stroke="#666" strokeWidth="1.5" />
+            <polygon points="350,578 344,568 356,568" fill="#666" />
 
             {/* ==================== LAYER 4: RLS POLICIES ==================== */}
             <g transform="translate(50, 585)">
@@ -179,7 +178,8 @@ export const CfbAuthDiagram = () => {
             </g>
 
             {/* Arrow 4 */}
-            <path d="M 350 715 L 350 735" stroke="#666" strokeWidth="1.5" markerEnd="url(#arrow-down-auth)" />
+            <path d="M 350 715 L 350 733" stroke="#666" strokeWidth="1.5" />
+            <polygon points="350,743 344,733 356,733" fill="#666" />
 
             {/* ==================== LAYER 5: PROTECTED DATA ==================== */}
             <g transform="translate(50, 750)">
@@ -190,6 +190,20 @@ export const CfbAuthDiagram = () => {
                 <text x="300" y="50" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="14" fontWeight="600" fill="#fff">Only YOUR Data Visible</text>
                 <text x="300" y="75" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="11" fill="#06B6D4">Leagues  |  Teams  |  Rosters  |  Draft Picks</text>
                 <text x="300" y="95" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#666">Others hidden at database level - zero trust architecture</text>
+            </g>
+
+            {/* Footer stats */}
+            <g transform="translate(50, 870)">
+                <rect width="180" height="28" rx="14" fill="#000" stroke="#666" strokeOpacity="0.3" />
+                <text x="90" y="18" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">JWT + Session Tokens</text>
+            </g>
+            <g transform="translate(260, 870)">
+                <rect width="180" height="28" rx="14" fill="#000" stroke="#666" strokeOpacity="0.3" />
+                <text x="90" y="18" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Multi-Tenant RLS</text>
+            </g>
+            <g transform="translate(470, 870)">
+                <rect width="180" height="28" rx="14" fill="#000" stroke="#666" strokeOpacity="0.3" />
+                <text x="90" y="18" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Zero Trust Architecture</text>
             </g>
 
         </svg>

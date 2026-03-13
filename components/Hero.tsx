@@ -2,6 +2,7 @@
 
 import { motion, Variants } from 'framer-motion';
 import { Github, Linkedin, Mail, CornerRightDown } from 'lucide-react';
+import Link from 'next/link';
 import { useState } from 'react';
 
 export function Hero() {
@@ -72,15 +73,21 @@ export function Hero() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "circOut" }}
-                className="absolute top-0 left-0 w-full flex justify-center py-8 z-50 pointer-events-auto"
+                className="absolute top-0 left-0 w-full py-8 z-50 pointer-events-auto px-6"
             >
-                <div className="w-full max-w-7xl px-6 flex justify-between items-start">
+                <div className="w-full flex justify-between items-center">
                     {/* Left: Tagline */}
-                    <div className="max-w-[200px]">
-                        <h2 className="text-sm md:text-base font-light text-[#F5F5DC]/60 tracking-wide">
-                            Systems that ship.
-                        </h2>
-                    </div>
+                    <h2 className="text-sm font-light text-[#F5F5DC]/60 tracking-wide">
+                        Systems that ship.
+                    </h2>
+
+                    {/* Center: About */}
+                    <Link
+                        href="/about"
+                        className="text-sm font-mono text-[#F5F5DC]/60 hover:text-[#800020] transition-colors duration-300 tracking-widest absolute left-1/2 -translate-x-1/2"
+                    >
+                        ABOUT
+                    </Link>
 
                     {/* Right: Socials */}
                     <div className="flex gap-6 items-center">
@@ -113,13 +120,11 @@ export function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1, duration: 1 }}
-                className="absolute bottom-12 left-0 w-full flex justify-center pointer-events-none"
+                className="absolute bottom-12 left-0 w-full px-6 pointer-events-none"
             >
-                <div className="w-full max-w-7xl px-6">
-                    <div className="flex items-center gap-4">
-                        <span className="text-[#F5F5DC]/40 font-mono text-xs tracking-widest uppercase">Projects</span>
-                        <CornerRightDown className="text-[#F5F5DC]/40" size={20} />
-                    </div>
+                <div className="flex items-center gap-4">
+                    <span className="text-[#F5F5DC]/40 font-mono text-xs tracking-widest uppercase">Projects</span>
+                    <CornerRightDown className="text-[#F5F5DC]/40" size={20} />
                 </div>
             </motion.div>
         </section>

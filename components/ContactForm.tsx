@@ -17,8 +17,11 @@ export function ContactForm() {
           <h2 className="text-2xl md:text-3xl font-bold text-[#F5F5DC] mb-4">
             Get in Touch
           </h2>
-          <p className="text-[#F5F5DC]/60 font-mono text-sm">
-            Have a project in mind or want to connect?
+          <p className="text-[#F5F5DC]/60 font-mono text-sm mb-3">
+            Whether you're hiring, have a project, or want to connect.
+          </p>
+          <p className="text-[#800020] font-mono text-xs">
+            Open to full-time roles and select consulting projects.
           </p>
         </motion.div>
 

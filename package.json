@@ -6,15 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "remotion:studio": "remotion studio remotion/index.ts",
+    "remotion:render:cfb": "remotion render remotion/index.ts CFBDemo public/projects/cfb-demo.mp4",
+    "remotion:render:thirdeye": "remotion render remotion/index.ts ThirdEyeDemo public/projects/thirdeye-demo.mp4",
+    "remotion:render:bisect": "remotion render remotion/index.ts BisectDemo public/projects/bisect-demo.mp4",
+    "remotion:render:all": "npm run remotion:render:cfb && npm run remotion:render:thirdeye && npm run remotion:render:bisect"
   },
   "dependencies": {
+    "@remotion/cli": "^4.0.410",
+    "@remotion/player": "^4.0.410",
+    "@remotion/three": "^4.0.410",
+    "@remotion/transitions": "^4.0.410",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.554.0",
     "next": "16.1.6",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "recharts": "^3.8.0",
+    "remotion": "^4.0.410",
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
