@@ -90,6 +90,7 @@ export interface ResumeVariant {
   }[];
   skillOrder: string[];
   bulletOverrides?: Record<string, string>; // bulletId -> custom text (per-variant edits)
+  style?: import('./resume-themes').ResumeStyle;
   notes?: string;
 }
 

@@ -5,9 +5,11 @@ import { motion } from 'framer-motion';
 import { ResumeVariant } from '@/lib/dashboard/types';
 import { useResumeVariants } from '@/lib/dashboard/resume-store';
 import { useHydration } from '@/lib/dashboard/use-dashboard-store';
+import { ResumeStyle, DEFAULT_STYLE } from '@/lib/dashboard/resume-themes';
 import VariantManager from './VariantManager';
 import BulletLibrary from './BulletLibrary';
 import SummaryEditor from './SummaryEditor';
+import StyleEditor from './StyleEditor';
 import ResumePreview, { generateResumeText } from './ResumePreview';
 
 export default function ResumeBuilder() {
@@ -84,6 +86,14 @@ export default function ResumeBuilder() {
     [activeVariant, updateVariant]
   );
 
+  const handleStyleChange = useCallback(
+    (style: ResumeStyle) => {
+      if (!activeVariant) return;
+      updateVariant(activeVariant.id, { style });
+    },
+    [activeVariant, updateVariant]
+  );
+
   const handleSave = useCallback(() => {
     // Already auto-saved via localStorage, but could add a toast
   }, []);
@@ -139,6 +149,10 @@ export default function ResumeBuilder() {
             transition={{ duration: 0.4 }}
             className="space-y-6"
           >
+            <StyleEditor
+              style={activeVariant.style || DEFAULT_STYLE}
+              onChange={handleStyleChange}
+            />
             <SummaryEditor
               summary={activeVariant.summary}
               roleId={activeVariant.roleId}
