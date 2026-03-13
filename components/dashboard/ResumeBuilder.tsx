@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useCallback, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Check } from 'lucide-react';
 import { ResumeVariant } from '@/lib/dashboard/types';
 import { useResumeVariants } from '@/lib/dashboard/resume-store';
 import { useHydration } from '@/lib/dashboard/use-dashboard-store';
@@ -18,6 +19,29 @@ export default function ResumeBuilder() {
   const [activeId, setActiveId] = useState<string | null>(null);
 
   const activeVariant = variants.find((v) => v.id === activeId) || null;
+
+  // Save flash indicator
+  const [showSaved, setShowSaved] = useState(false);
+  const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const flashSaved = useCallback(() => {
+    setShowSaved(true);
+    if (saveTimer.current) clearTimeout(saveTimer.current);
+    saveTimer.current = setTimeout(() => setShowSaved(false), 1500);
+  }, []);
+
+  useEffect(() => {
+    return () => { if (saveTimer.current) clearTimeout(saveTimer.current); };
+  }, []);
+
+  // Wrap updateVariant to trigger the flash
+  const saveAndFlash = useCallback(
+    (id: string, updates: Partial<ResumeVariant>) => {
+      updateVariant(id, updates);
+      flashSaved();
+    },
+    [updateVariant, flashSaved]
+  );
 
   const handleCreate = useCallback(
     (roleId: string, name?: string) => {
@@ -59,9 +83,9 @@ export default function ResumeBuilder() {
         updated.push({ projectId: sectionId, bulletIds: [bulletId] });
       }
 
-      updateVariant(activeVariant.id, { bulletSelections: updated });
+      saveAndFlash(activeVariant.id, { bulletSelections: updated });
     },
-    [activeVariant, updateVariant]
+    [activeVariant, saveAndFlash]
   );
 
   const handleEditBullet = useCallback(
@@ -73,25 +97,25 @@ export default function ResumeBuilder() {
       } else {
         overrides[bulletId] = text;
       }
-      updateVariant(activeVariant.id, { bulletOverrides: overrides });
+      saveAndFlash(activeVariant.id, { bulletOverrides: overrides });
     },
-    [activeVariant, updateVariant]
+    [activeVariant, saveAndFlash]
   );
 
   const handleSummaryChange = useCallback(
     (summary: string) => {
       if (!activeVariant) return;
-      updateVariant(activeVariant.id, { summary });
+      saveAndFlash(activeVariant.id, { summary });
     },
-    [activeVariant, updateVariant]
+    [activeVariant, saveAndFlash]
   );
 
   const handleStyleChange = useCallback(
     (style: ResumeStyle) => {
       if (!activeVariant) return;
-      updateVariant(activeVariant.id, { style });
+      saveAndFlash(activeVariant.id, { style });
     },
-    [activeVariant, updateVariant]
+    [activeVariant, saveAndFlash]
   );
 
   const handleSave = useCallback(() => {
@@ -176,9 +200,32 @@ export default function ResumeBuilder() {
               <h3 className="text-xs font-mono text-[#F5F5DC]/30 uppercase tracking-widest">
                 Preview
               </h3>
-              <span className="text-[10px] font-mono text-[#F5F5DC]/20">
-                Auto-saved
-              </span>
+              <AnimatePresence mode="wait">
+                {showSaved ? (
+                  <motion.span
+                    key="saved"
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 4 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex items-center gap-1 text-[10px] font-mono text-emerald-400"
+                  >
+                    <Check size={12} />
+                    Saved
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="auto"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-[10px] font-mono text-[#F5F5DC]/20"
+                  >
+                    Auto-saved
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </div>
             <ResumePreview variant={activeVariant} />
           </motion.div>
