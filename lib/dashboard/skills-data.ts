@@ -543,6 +543,17 @@ export const skills: Skill[] = [
 
   // ===== DATA SCIENCE TOOLS =====
   {
+    id: 'jupyter',
+    name: 'Jupyter / Notebooks',
+    category: 'data-engineering',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['jupyter', 'jupyter notebook', 'jupyter lab', 'ipython', 'notebooks', 'watson studio'],
+    evidence: [
+      { projectId: 'ibm-certification', description: 'IBM Watson Studio certification — cloud-based Jupyter notebooks for data prep, model building, and deployment workflows' },
+    ],
+  },
+  {
     id: 'pandas',
     name: 'Pandas / NumPy',
     category: 'data-engineering',
@@ -567,14 +578,15 @@ export const skills: Skill[] = [
   },
   {
     id: 'cloud-platforms',
-    name: 'Cloud Platforms (AWS/GCP)',
+    name: 'Cloud Platforms (AWS/GCP/IBM)',
     category: 'devops',
     proficiency: 3,
     yearsUsed: 2,
-    keywords: ['aws', 'gcp', 'google cloud', 'amazon web services', 'cloud', 'cloud infrastructure'],
+    keywords: ['aws', 'gcp', 'google cloud', 'amazon web services', 'cloud', 'cloud infrastructure', 'ibm cloud', 'watson studio'],
     evidence: [
       { projectId: 'cfb-fantasy', description: 'Deployed across Vercel, AWS, and Google Cloud' },
       { projectId: 'cfb-fantasy', description: 'Docker containers for FastAPI ML microservice on cloud infrastructure' },
+      { projectId: 'ibm-certification', description: 'IBM Watson Studio certification — cloud ML platform for data prep, model building, and deployment workflows' },
     ],
   },
   {
