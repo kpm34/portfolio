@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 export default function Home() {
   // Define the exact order of featured projects
-  const featuredProjectIds = ['cfb-fantasy', 'thirdeye', 'bisect'];
+  const featuredProjectIds = ['cfb-fantasy', 'thirdeye', 'bisect', 'nightkey'];
 
   // Get the full project objects in the correct order
   const featuredProjects = featuredProjectIds
@@ -27,7 +27,7 @@ export default function Home() {
       <div className="w-full px-6 pb-32 relative z-10">
 
         {/* Horizontal Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-24 mt-20 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mt-20 max-w-7xl mx-auto">
           {featuredProjects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}

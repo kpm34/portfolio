@@ -13,6 +13,7 @@ export const skills: Skill[] = [
       { projectId: 'cfb-fantasy', description: 'Built full-stack SaaS platform with Next.js 15 App Router', impact: '100+ features, 4 months solo' },
       { projectId: 'thirdeye', description: 'Stock analysis terminal with Next.js', impact: '9-tab terminal interface' },
       { projectId: 'bisect', description: 'Creative platform with Next.js 14', impact: '5 studios' },
+      { projectId: 'nightkey', description: 'iPad-first Next.js 16 dashboard for club operators with Konva floor plan editor and real-time booking state' },
     ],
   },
   {
@@ -132,6 +133,7 @@ export const skills: Skill[] = [
     keywords: ['websocket', 'real-time', 'broadcast', 'presence', 'live updates', 'supabase realtime'],
     evidence: [
       { projectId: 'cfb-fantasy', description: 'Real-time draft system with WebSocket broadcasts and presence tracking' },
+      { projectId: 'nightkey', description: 'Supabase Realtime + Broadcast powering the Tonight cockpit — live booking arrivals, server assignments, and door-side check-in state' },
     ],
   },
   {
@@ -143,6 +145,182 @@ export const skills: Skill[] = [
     keywords: ['stripe', 'payments', 'subscriptions', 'billing', 'saas billing'],
     evidence: [
       { projectId: 'cfb-fantasy', description: 'Stripe billing with 3 tiers, free trials, feature gating across 12 premium features' },
+    ],
+  },
+  {
+    id: 'payfac',
+    name: 'Payment Facilitator (PayFac)',
+    category: 'backend',
+    proficiency: 4,
+    yearsUsed: 1,
+    keywords: ['payfac', 'payment facilitator', 'sub-merchant boarding', 'kyb', 'kyc', 'merchant of record', 'split payouts', 'underwriting'],
+    evidence: [
+      { projectId: 'nightkey', description: 'Sub-merchant boarding for clubs and promoters, KYB/KYC document flow, split payouts to multiple sub-merchants, merchant-of-record routing' },
+    ],
+  },
+  {
+    id: 'qorcommerce',
+    name: 'QorCommerce / Card Processing',
+    category: 'backend',
+    proficiency: 4,
+    yearsUsed: 1,
+    keywords: ['qorcommerce', 'qorpay', 'card processing', 'card tokenization', 'payframe', 'merchant boarding', 'channels api'],
+    evidence: [
+      { projectId: 'nightkey', description: 'QorCommerce Channels v3 integration: new_merchant boarding, transaction settlement, refunds, ACH credits, PayFrame card capture' },
+    ],
+  },
+  {
+    id: 'hmac-signing',
+    name: 'HMAC / Cryptographic Signing',
+    category: 'backend',
+    proficiency: 4,
+    yearsUsed: 2,
+    keywords: ['hmac', 'hmac-sha256', 'signing', 'cryptographic signatures', 'jose', 'jwt signing', 'request signing'],
+    evidence: [
+      { projectId: 'nightkey', description: 'HMAC-SHA256 PayFrame signing server-side so processor keys never reach the client; jose-signed JWTs for wallet pass tokens' },
+    ],
+  },
+  {
+    id: 'pdf-generation',
+    name: 'PDF Generation & E-Sign',
+    category: 'backend',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['pdf-lib', 'pdf generation', 'e-sign', 'electronic signature', 'document automation', 'pdf stamping'],
+    evidence: [
+      { projectId: 'nightkey', description: 'pdf-lib pipeline for non-solicitation agreements — overlays promoter signature, EIN, ISO timestamp, then writes signed PDF to Supabase Storage' },
+    ],
+  },
+  {
+    id: 'apple-wallet',
+    name: 'Apple Wallet / PassKit',
+    category: 'backend',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['apple wallet', 'passkit', 'passkit-generator', 'pkpass', 'wallet pass', 'digital pass'],
+    evidence: [
+      { projectId: 'nightkey', description: 'Generated signed .pkpass files (passkit-generator + jose) for VIP, event, and voucher cards delivered to Apple Wallet' },
+    ],
+  },
+  {
+    id: 'twilio',
+    name: 'Twilio (SMS / Verify)',
+    category: 'backend',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['twilio', 'sms', 'twilio verify', 'otp', 'phone verification', 'transactional sms'],
+    evidence: [
+      { projectId: 'nightkey', description: 'Twilio Verify for step-up auth OTP on sensitive staff actions; transactional SMS for booking confirmations and door-side alerts' },
+    ],
+  },
+  {
+    id: 'expo-push',
+    name: 'Expo Push Notifications',
+    category: 'backend',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['expo push', 'push notifications', 'expo notifications', 'mobile push'],
+    evidence: [
+      { projectId: 'nightkey', description: 'Expo Push API for transactional mobile alerts: booking state changes, promoter check-ins, payout confirmations' },
+    ],
+  },
+  {
+    id: 'deno-edge',
+    name: 'Deno / Supabase Edge Functions',
+    category: 'backend',
+    proficiency: 4,
+    yearsUsed: 1,
+    keywords: ['deno', 'supabase edge functions', 'edge functions', 'serverless deno', 'esm.sh'],
+    evidence: [
+      { projectId: 'nightkey', description: '24 Deno-based Edge Functions covering boarding, payouts, webhooks, ID verification, PDF generation, push, and step-up auth — with TDD on money paths' },
+    ],
+  },
+  {
+    id: 'state-machines',
+    name: 'State Machine Design',
+    category: 'backend',
+    proficiency: 4,
+    yearsUsed: 2,
+    keywords: ['state machine', 'state transitions', 'finite state machine', 'workflow', 'lifecycle modeling', 'idempotency'],
+    evidence: [
+      { projectId: 'nightkey', description: 'Booking lifecycle (pending → confirmed → active → completed/cancelled/no_show) with idempotent transitions across web, mobile, and webhook surfaces' },
+    ],
+  },
+  {
+    id: 'multi-tenant',
+    name: 'Multi-Tenant Architecture',
+    category: 'backend',
+    proficiency: 4,
+    yearsUsed: 2,
+    keywords: ['multi-tenant', 'tenancy', 'rls', 'row-level security', 'marketplace', 'role-based access'],
+    evidence: [
+      { projectId: 'nightkey', description: 'Four-role marketplace (clubs, promoters, guests, bottle servers) on one Postgres with role-aware RLS on every table — 73 versioned migrations' },
+    ],
+  },
+  {
+    id: 'pci-compliance',
+    name: 'PCI / Payment Compliance',
+    category: 'backend',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['pci', 'pci-dss', 'pci compliance', 'card data', 'hosted iframe', 'payframe', 'scope reduction'],
+    evidence: [
+      { projectId: 'nightkey', description: 'Kept PCI scope out of the app by using QorCommerce hosted PayFrame iframe with server-side HMAC signing; card data never touches the platform' },
+    ],
+  },
+  {
+    id: 'aws-rekognition',
+    name: 'AWS Rekognition',
+    category: 'ai-ml',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['aws rekognition', 'rekognition', 'face match', 'facial recognition', 'computer vision', 'identity verification'],
+    evidence: [
+      { projectId: 'nightkey', description: 'CompareFaces selfie ↔ ID-photo verification with tunable confidence thresholds for at-the-door scenarios' },
+    ],
+  },
+  {
+    id: 'google-vision',
+    name: 'Google Cloud Vision',
+    category: 'ai-ml',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['google vision', 'cloud vision', 'ocr', 'document ai', 'text detection', 'id verification'],
+    evidence: [
+      { projectId: 'nightkey', description: 'OCR for ID-document text extraction composed with AAMVA state-by-state barcode validation in a single verify-id pipeline' },
+    ],
+  },
+  {
+    id: 'konva',
+    name: 'Konva / Canvas Editors',
+    category: 'frontend',
+    proficiency: 4,
+    yearsUsed: 1,
+    keywords: ['konva', 'react-konva', 'canvas', 'canvas editor', 'drag and drop', 'snap to grid', 'floor plan editor'],
+    evidence: [
+      { projectId: 'nightkey', description: 'iPad-first floor-plan editor with drag-drop tables, snap-to-grid, zone overlays, and auto-layout templates' },
+    ],
+  },
+  {
+    id: 'ipad-touch-ui',
+    name: 'iPad / Touch-First UI',
+    category: 'frontend',
+    proficiency: 4,
+    yearsUsed: 1,
+    keywords: ['ipad', 'touch ui', 'tablet ui', 'touch targets', 'pen input', 'gesture handling', 'ios-grade'],
+    evidence: [
+      { projectId: 'nightkey', description: 'iPad-first dashboard with 44px+ touch targets, pen+touch input on the Konva editor, and a premium photography-forward visual language' },
+    ],
+  },
+  {
+    id: 'static-ip-networking',
+    name: 'Static-IP / Compliance Networking',
+    category: 'devops',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['static ip', 'ip allowlist', 'render forwarder', 'compliance networking', 'egress', 'outbound ip'],
+    evidence: [
+      { projectId: 'nightkey', description: 'Node forwarder on Render with a static outbound IP to satisfy QorCommerce IP allowlist requirement without losing the Supabase egress story' },
     ],
   },
   {
@@ -314,6 +492,7 @@ export const skills: Skill[] = [
     keywords: ['postgresql', 'postgres', 'sql', 'relational database', 'rdbms'],
     evidence: [
       { projectId: 'cfb-fantasy', description: '50+ tables, 24 migrations, 30+ stored procedures, RLS policies', impact: '50+ tables with RLS' },
+      { projectId: 'nightkey', description: '73 versioned migrations modeling four-role marketplace (clubs, promoters, guests, servers) with RLS on every table' },
     ],
   },
   {
@@ -326,6 +505,7 @@ export const skills: Skill[] = [
     evidence: [
       { projectId: 'cfb-fantasy', description: 'Auth, storage, database, realtime broadcast, RLS' },
       { projectId: 'thirdeye', description: 'Supabase caching and auth with tiered access control' },
+      { projectId: 'nightkey', description: '24 Deno Edge Functions, Realtime/Broadcast, Storage for signed PDFs, and role-aware RLS across the entire schema' },
     ],
   },
   {
@@ -504,6 +684,7 @@ export const skills: Skill[] = [
     keywords: ['expo', 'react native', 'mobile app', 'cross-platform', 'ota updates'],
     evidence: [
       { projectId: 'cfb-fantasy', description: 'Companion Expo mobile app with over-the-air updates' },
+      { projectId: 'nightkey', description: 'Guest and promoter Expo apps sharing the Supabase schema with the dashboard; phone OTP auth, EAS Build with auto-submit to TestFlight and Play Internal' },
     ],
   },
   {
@@ -516,6 +697,7 @@ export const skills: Skill[] = [
     evidence: [
       { projectId: 'cfb-fantasy', description: 'OAuth (Google/Apple), JWT mobile auth, RBAC with audit logging' },
       { projectId: 'thirdeye', description: 'Supabase auth with tiered access control' },
+      { projectId: 'nightkey', description: 'OAuth/email for the dashboard, phone OTP for mobile, Twilio Verify step-up auth for sensitive staff actions (refunds, comps, settlement edits)' },
     ],
   },
   {
@@ -538,6 +720,7 @@ export const skills: Skill[] = [
     keywords: ['playwright', 'e2e testing', 'browser automation', 'web scraping'],
     evidence: [
       { projectId: 'thirdeye', description: 'Playwright for browser automation in data pipeline' },
+      { projectId: 'nightkey', description: 'Playwright E2E suite covering booking lifecycle, staff step-up auth, and Konva floor plan editor interactions' },
     ],
   },
 

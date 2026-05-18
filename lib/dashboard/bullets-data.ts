@@ -188,6 +188,44 @@ export const intelivanceBullets: ResumeBulletPoint[] = [
     text: 'Implemented code export pipeline generating React and vanilla Three.js components from 3D scenes',
     skills: ['react', 'threejs', 'typescript'],
   },
+
+  // --- Nightkey ---
+  {
+    id: 'nk-marketplace',
+    projectId: 'nightkey',
+    text: 'Architected a four-sided marketplace (clubs, promoters, guests, bottle servers) on a single Supabase Postgres with 73 versioned migrations and role-aware RLS on every table',
+    skills: ['multi-tenant', 'postgresql', 'supabase', 'nextjs', 'typescript'],
+  },
+  {
+    id: 'nk-payfac',
+    projectId: 'nightkey',
+    text: 'Integrated a Payment Facilitator (QorCommerce) for sub-merchant boarding, KYB/KYC documents, hosted card capture, and split nightly payouts to club and promoter sub-merchants',
+    skills: ['payfac', 'qorcommerce', 'pci-compliance', 'hmac-signing', 'rest-apis'],
+  },
+  {
+    id: 'nk-edge-functions',
+    projectId: 'nightkey',
+    text: 'Built 24 Deno-based Supabase Edge Functions covering boarding, payouts, webhooks, ID verification, PDF generation, and step-up auth — with TDD test suites on every money-handling path',
+    skills: ['deno-edge', 'supabase', 'state-machines', 'rest-apis'],
+  },
+  {
+    id: 'nk-id-verify',
+    projectId: 'nightkey',
+    text: 'Built an ID-verification pipeline composing AWS Rekognition face match, Google Cloud Vision OCR, and AAMVA state-by-state driver-license barcode validation in a single edge function',
+    skills: ['aws-rekognition', 'google-vision', 'cloud-platforms', 'deno-edge'],
+  },
+  {
+    id: 'nk-konva',
+    projectId: 'nightkey',
+    text: 'Shipped an iPad-first Konva canvas editor for venue floor plans with drag-drop tables, snap-to-grid, zone overlays, and auto-layout templates feeding every downstream booking and door-side surface',
+    skills: ['konva', 'ipad-touch-ui', 'react', 'typescript'],
+  },
+  {
+    id: 'nk-mobile-parity',
+    projectId: 'nightkey',
+    text: 'Shipped Expo mobile apps for guests and promoters against the same Supabase schema as the web dashboard — phone OTP auth, Expo Push notifications, and EAS auto-submit to TestFlight and Play Internal',
+    skills: ['expo', 'oauth', 'expo-push', 'supabase', 'typescript'],
+  },
 ];
 
 // ===== WORK EXPERIENCE BULLETS =====

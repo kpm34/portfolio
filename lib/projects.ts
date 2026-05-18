@@ -46,32 +46,6 @@ export interface Project {
   skills?: { title: string; description: string }[];
 }
 
-// ARCHIVED: EZWORKS - kept for reference, not displayed on portfolio
-export const archivedProjects: Project[] = [
-  {
-    id: 'ezworks',
-    slug: 'ezworks',
-    title: 'EZWORKS',
-    description: 'Production AI SaaS for scalable image generation',
-    longDescription: 'Cloud-based SaaS platform that simplifies ComfyUI workflows into a user-friendly interface. Features real-time generation progress via WebSocket streaming, subscription management with Stripe, and a Redis job queue system for scalable AI processing.',
-    featured: false,
-    category: 'ai-systems',
-    techStack: ['Next.js 16', 'React 19', 'FastAPI', 'Redis', 'ComfyUI', 'Stable Diffusion', 'Stripe'],
-    aiHighlights: [
-      'AI workflow engine with ComfyUI integration',
-      'Redis job queue for scalable AI processing',
-      'Real-time AI progress via WebSocket streaming',
-      'Automated workflow generation from user inputs'
-    ],
-    liveUrl: 'https://ezworks.art',
-    githubUrl: 'https://github.com/kpm34/ezworks',
-    diagramUrl: '/diagrams/ezworks-architecture',
-    image: '/projects/ezworks.png',
-    images: ['/projects/ezworks.png'],
-    gradient: 'from-purple-500 to-pink-500'
-  }
-];
-
 export const projects: Project[] = [
   {
     id: 'cfb-fantasy',
@@ -334,7 +308,6 @@ export const projects: Project[] = [
       'E-commerce ready (Shopify, WooCommerce)'
     ],
     liveUrl: 'https://bisect.app',
-    githubUrl: 'https://github.com/kpm34/prism',
     diagramUrl: '/diagrams/bisect-architecture',
     diagrams: [
       { slug: 'bisect-architecture', title: 'System Overview' },
@@ -344,7 +317,7 @@ export const projects: Project[] = [
     ],
     image: '/projects/prism.png',
     demoVideo: '/projects/Demo.mov',
-    images: ['/projects/prism.png', '/projects/vectorcraft.png'],
+    images: ['/projects/prism.png'],
     gradient: 'from-emerald-500 to-teal-500',
     // New comprehensive fields
     outcome: 'Multi-LLM creative pipeline with CLI + MCP integration',
@@ -407,26 +380,158 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: 'helmet-customizer',
-    slug: 'helmet-customizer',
-    title: 'Helmet Editor (R3F)',
-    description: 'Real-time 3D helmet customizer with zone-based colors and Bezier curve stripe patterns',
-    longDescription: 'Interactive 3D helmet customization system built with React Three Fiber. Features zone-based color customization (shell, facemask, chinstrap, padding), 4 material finishes (glossy, matte, chrome, brushed), and stripe patterns rendered as 3D Bezier curve tubes. Integrates with CFB Fantasy V2 for team branding.',
-    featured: false, // Not in top 3
-    category: '3d',
-    techStack: ['Next.js 14', 'React Three Fiber', 'Three.js', 'Zustand', 'Supabase'],
+    id: 'nightkey',
+    slug: 'nightkey',
+    title: 'Nightkey',
+    description: 'Multi-sided nightlife marketplace — iPad club dashboard, mobile apps for guests and promoters, PayFac payments, and live operations from booking to door',
+    longDescription: 'Nightkey is a four-sided marketplace for high-end nightlife: an iPad-first club dashboard for venue operators, a guest app for table bookings and bottle service, a promoter app for guest lists and commissions, and a bottle-server experience for in-night service. One Supabase backend powers all four surfaces with row-level security per role, real-time booking state, an embedded payment facilitator pipeline for sub-merchant boarding and split payouts, and a Konva-based floor-plan editor that operators use to lay out their venue and accept reservations.',
+    featured: true,
+    category: 'fullstack',
+    techStack: ['Next.js 15', 'Expo', 'React 19', 'Supabase', 'TypeScript', 'Konva', 'QorCommerce'],
+    techStackDetailed: {
+      frontend: ['Next.js 15 (App Router)', 'React 19', 'TypeScript', 'Tailwind CSS', 'Konva', 'Framer Motion'],
+      mobile: ['Expo SDK', 'React Native', 'EAS Build & Submit', 'Expo Push'],
+      backend: ['Supabase Postgres', '73 Migrations', 'Row-Level Security', '24 Edge Functions (Deno)', 'Supabase Realtime', 'Supabase Storage'],
+      payments: ['QorCommerce PFaaS', 'Sub-merchant boarding', 'Render (static-IP relay)', 'pdf-lib (NSA generation)'],
+      infra: ['Vercel', 'Twilio (SMS)', 'AWS Rekognition (ID)', 'Google Cloud Vision (ID)', 'Resend (email)']
+    },
     aiHighlights: [
-      'MeshPhysicalMaterial with clearcoat and sheen',
-      'Bezier curve stripe rendering (CubicBezierCurve3)',
-      '4 material finishes with PBR properties',
-      'Real-time zone color updates at 60fps'
+      'Four user roles across web + mobile on one shared Supabase schema',
+      'PayFac sub-merchant boarding with PDF NSA generation and e-sign',
+      'Real-time booking state machine with door-side guest check-in',
+      'iPad-first Konva floor-plan editor with auto-layout'
     ],
-    liveUrl: 'https://helmet-customizer.vercel.app',
-    githubUrl: 'https://github.com/kpm34/helmet-customizer',
-    diagramUrl: '/diagrams/helmet-editor-architecture',
-    image: '/projects/helmet.png',
-    images: ['/projects/helmet.png'],
-    gradient: 'from-blue-500 to-cyan-500'
+    liveUrl: 'https://nightkey.io',
+    diagramUrl: '/diagrams/nightkey-architecture',
+    diagrams: [
+      { slug: 'nightkey-architecture', title: 'System Architecture' },
+      { slug: 'nightkey-payments', title: 'Payments & Payouts' },
+      { slug: 'nightkey-onboarding', title: 'Merchant Onboarding' },
+      { slug: 'nightkey-floor-plan', title: 'Floor Plan & Bookings' }
+    ],
+    image: '/projects/nightkey.png',
+    images: ['/projects/nightkey.png'],
+    gradient: 'from-amber-500 to-orange-600',
+    problemStatement: 'Nightclubs run on spreadsheets, group chats, and improvised cash splits. Guests can\'t reliably book a table, promoters can\'t prove the heads they brought, and operators can\'t see their floor in real time. Nightkey is the operating layer that ties guests, promoters, hosts, and venues together — with payments, bookings, and accountability built in.',
+    metrics: [
+      { label: 'Surfaces', value: '4', detail: 'Club dashboard, guest app, promoter app, bottle server' },
+      { label: 'Edge Functions', value: '24', detail: 'Boarding, payouts, webhooks, ID verify, notifications' },
+      { label: 'Migrations', value: '73', detail: 'Versioned Postgres schema with RLS on every table' },
+      { label: 'Platforms', value: '3', detail: 'Web (iPad), iOS, Android — one schema' }
+    ],
+    outcome: 'Production marketplace with payments, bookings, and door operations',
+    technicalHighlights: [
+      {
+        title: 'iPad-First Club Dashboard',
+        description: 'Next.js App Router dashboard tuned for landing-on-the-iPad operations: 44px+ touch targets, Tonight cockpit for live floor view, Konva-based floor plan editor, staff management, and a Centurion-Lounge-style premium aesthetic — not a generic admin template.',
+        tags: ['Next.js', 'iPad', 'iOS-grade UI']
+      },
+      {
+        title: 'Konva Floor-Plan Editor',
+        description: 'Drag-and-drop venue layout editor with auto-layout templates, table sizing, shape primitives, and zone coloring. Operators design their venue once; bookings, server assignments, and door-side check-in all reference the same canonical layout.',
+        tags: ['Konva', 'Canvas', 'Editor']
+      },
+      {
+        title: 'Four-Role Marketplace on One Schema',
+        description: 'Clubs, promoters, guests, and bottle servers share one Postgres instance with role-aware RLS policies. Promoter affiliations join through promoter_profiles; club staff use is_active. Every table enforces tenancy at the database layer, not the app layer.',
+        tags: ['Multi-tenant', 'RLS', 'Postgres']
+      },
+      {
+        title: 'PayFac Sub-Merchant Boarding',
+        description: 'Clubs and promoters onboard as sub-merchants under a Payment Facilitator. board-merchant and board-promoter Edge Functions call QorCommerce new_merchant, store provider IDs, and gate live charges on a verified status returned by the payment-webhook.',
+        tags: ['PayFac', 'QorCommerce', 'Boarding']
+      },
+      {
+        title: 'Promoter NSA PDF Pipeline',
+        description: 'generate-promoter-nsa-pdf stamps a non-solicitation agreement with the promoter\'s name, EIN, signature image, and timestamp using pdf-lib, then writes the signed PDF to Supabase Storage and links it to the promoter profile. Drives the legal handoff for paid promoter status.',
+        tags: ['pdf-lib', 'E-sign', 'Compliance']
+      },
+      {
+        title: 'Underwriting Document Relay',
+        description: 'Underwriting documents (KYB/KYC) flow from Supabase Storage through a small Node forwarder deployed on Render with a static outbound IP, satisfying the payment processor\'s IP allowlist requirement without rewriting the Supabase egress story.',
+        tags: ['Render', 'Static IP', 'Underwriting']
+      },
+      {
+        title: 'Booking State Machine + Door Operations',
+        description: 'Bookings flow through pending → confirmed → active → completed | cancelled | no_show. guest-checkin-confirm flips state at the door, settle-booking captures the final charge, and the host-side Tonight view updates in realtime via Supabase Broadcast.',
+        tags: ['State machine', 'Realtime', 'Door']
+      },
+      {
+        title: 'Split Payouts',
+        description: 'daily-club-payout and disburse-payouts settle nightly: platform commission is deducted from the club share, promoter commissions are routed to the promoter sub-merchant, and the remainder is paid to the club sub-merchant. Configurable per-club schedules.',
+        tags: ['Payouts', 'Splits', 'Commissions']
+      },
+      {
+        title: 'ID Verification (Rekognition + Vision)',
+        description: 'verify-id Edge Function combines AWS Rekognition face match and Google Cloud Vision OCR for ID document verification — separate from Stripe Identity, so the platform owns the data pipeline and can adjust thresholds, retry behavior, and audit logging.',
+        tags: ['AWS', 'GCP', 'KYC']
+      },
+      {
+        title: 'Step-up Auth for Staff',
+        description: 'staff-step-up-start and staff-step-up-verify add a second factor for sensitive operator actions (refunds, comps, settlement edits). Time-boxed elevation tokens scoped to the staff session, never to the device.',
+        tags: ['Auth', 'Step-up', 'Audit']
+      },
+      {
+        title: 'Cross-Platform Mobile (Expo)',
+        description: 'Guest and promoter apps ship from a separate Expo repo against the same Supabase schema. Phone OTP auth for mobile, OAuth/email for the dashboard. EAS Build with auto-submit, TestFlight gated by an Apple-review demo venue that bypasses the payment processor for review screens.',
+        tags: ['Expo', 'iOS', 'Android']
+      },
+      {
+        title: 'Webhook-Driven Status Sync',
+        description: 'payment-webhook handles merchant.verified, merchant.declined, payment events, and disputes through a single typed dispatcher. updateMerchantBoardingStatus updates either clubs or promoter_payout_profiles depending on the sub-merchant role.',
+        tags: ['Webhooks', 'Sync', 'Dispatch']
+      }
+    ],
+    skills: [
+      {
+        title: 'Multi-Tenant Postgres + RLS',
+        description: '73 versioned migrations across clubs, promoters, guests, staff, bookings, payments, and underwriting. Row-Level Security on every table with role-aware helpers (is_active for staff, promoter_profiles join for affiliations). Indexes tuned for live floor queries during peak hours.'
+      },
+      {
+        title: 'Payment Facilitator Integration',
+        description: 'Sub-merchant boarding flow against QorCommerce: new_merchant requests, status polling, underwriting doc upload, and a payment-webhook dispatcher that updates internal status. PayFac merchant of record routes funds through the platform before splits.'
+      },
+      {
+        title: 'Edge Function Architecture',
+        description: '24 Deno-based Supabase Edge Functions covering boarding, payouts, webhooks, notifications, ID verification, and PDF generation. Shared helpers in _shared/ for state validation, timezone mapping, and QorCommerce request signing. TDD with Deno test suites.'
+      },
+      {
+        title: 'PDF Generation & E-Sign',
+        description: 'pdf-lib-based NSA stamping pipeline that overlays promoter signature, name, EIN, and ISO timestamp on a base PDF template. Signed agreements stored in Supabase Storage with row-level access tied to the promoter profile.'
+      },
+      {
+        title: 'Realtime Operations UI',
+        description: 'Supabase Broadcast + Realtime for the Tonight cockpit: live booking arrivals, host floor view, server assignments, and booking state transitions. Optimistic UI on the client, RLS-gated subscriptions on the server.'
+      },
+      {
+        title: 'Canvas Editor (Konva)',
+        description: 'Floor-plan editor with shape primitives, snap-to-grid, auto-layout templates, zone coloring, and persisted state. Hand-tuned for iPad pencil + touch input. Output drives every downstream surface — bookings, server assignments, door-side check-in.'
+      },
+      {
+        title: 'Cross-Platform Schema Sharing',
+        description: 'One Supabase project powers both the Next.js dashboard and an Expo mobile app in a separate repo. Generated TypeScript types from the Postgres schema flow into both clients. Phone OTP for mobile, OAuth/email for web, unified RLS for both.'
+      },
+      {
+        title: 'Compliance & Static IP Networking',
+        description: 'Vendor IP-allowlist requirement solved with a thin Node forwarder on Render with a static outbound IP. Supabase Storage signed URLs piped through the relay so client documents never leave the platform without being authenticated.'
+      },
+      {
+        title: 'ID Verification Pipeline',
+        description: 'AWS Rekognition face match + Google Cloud Vision OCR composed in a single verify-id Edge Function. Confidence thresholds tuned for nightlife at-the-door scenarios; failed attempts logged for audit with PII redaction.'
+      },
+      {
+        title: 'TDD on Critical Paths',
+        description: 'Deno test suites for payment-webhook (30 tests), board-promoter (15 tests), poll-merchant-status, and shared qor-helpers. Each flow developed RED → GREEN before deployment, with tests asserting state transitions, error mapping, and webhook idempotency.'
+      },
+      {
+        title: 'Premium iPad UI',
+        description: 'Amex Centurion Lounge and Airbnb references. Phosphor duotone icons (not lucide), generous spacing, photography-forward cards, Framer Motion page and list transitions. Amber accent with warm dark theme; iPad-class touch targets throughout.'
+      },
+      {
+        title: 'Mobile Release Engineering',
+        description: 'Expo EAS Build with --auto-submit to TestFlight and Play Internal. Apple-review demo venue isolated from production data via dashboard bypass mode for payments; live venue data never exposed to review accounts.'
+      }
+    ]
   }
 ];
 

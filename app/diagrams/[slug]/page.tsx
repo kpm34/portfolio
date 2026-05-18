@@ -24,7 +24,7 @@ const diagrams: Record<string, { title: string; subtitle: string; project: strin
   "helmet-editor-architecture": {
     title: "Helmet Editor Architecture",
     subtitle: "React Three Fiber + Zone-Based Customization",
-    project: "helmet-customizer"
+    project: "cfb-fantasy"
   },
   "thirdeye-architecture": {
     title: "Third Eye Capital Architecture",
@@ -66,24 +66,39 @@ const diagrams: Record<string, { title: string; subtitle: string; project: strin
     subtitle: "Gemini 3.0 vs Claude 4.5 Consensus Protocol",
     project: "bisect"
   },
-  "ezworks-architecture": {
-    title: "EZ Works Architecture",
-    subtitle: "Scalable AI Image Generation Pipeline",
-    project: "ezworks"
+  "nightkey-architecture": {
+    title: "Nightkey System Architecture",
+    subtitle: "Four-Sided Marketplace · Supabase · PayFac Payments",
+    project: "nightkey"
+  },
+  "nightkey-payments": {
+    title: "Payments & Payouts",
+    subtitle: "Booking → Hold → Settle → Split → Disburse",
+    project: "nightkey"
+  },
+  "nightkey-onboarding": {
+    title: "Merchant Onboarding",
+    subtitle: "Promoter NSA · QorCommerce Boarding · Underwriting",
+    project: "nightkey"
+  },
+  "nightkey-floor-plan": {
+    title: "Floor Plan & Bookings",
+    subtitle: "Konva Editor · Realtime Sync · State Machine",
+    project: "nightkey"
   }
 };
 
 import { BisectArchitectureDiagram } from "@/components/BisectArchitectureDiagram";
 import { BisectAICommandDiagram } from "@/components/BisectAICommandDiagram";
 import { AgentDebateDiagram } from "@/components/AgentDebateDiagram";
-import { EzWorksArchitectureDiagram } from "@/components/EzWorksArchitectureDiagram";
-import { CfbAuthDiagram } from "@/components/CfbAuthDiagram";
-import { CfbProjectionsDiagram } from "@/components/CfbProjectionsDiagram";
 import { CfbScoringDiagram } from "@/components/CfbScoringDiagram";
-import { HelmetEditorDiagram } from "@/components/HelmetEditorDiagram";
 import { ThirdEyeArchitectureDiagram } from "@/components/ThirdEyeArchitectureDiagram";
 import { ThirdEye3DJourneyDiagram } from "@/components/ThirdEye3DJourneyDiagram";
 import { ThirdEyeCFAPlatformDiagram } from "@/components/ThirdEyeCFAPlatformDiagram";
+import { NightkeyArchitectureDiagram } from "@/components/NightkeyArchitectureDiagram";
+import { NightkeyPaymentsDiagram } from "@/components/NightkeyPaymentsDiagram";
+import { NightkeyOnboardingDiagram } from "@/components/NightkeyOnboardingDiagram";
+import { NightkeyFloorPlanDiagram } from "@/components/NightkeyFloorPlanDiagram";
 
 export default function DiagramPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
@@ -140,10 +155,6 @@ export default function DiagramPage({ params }: { params: Promise<{ slug: string
             <div style={{ minWidth: "1200px" }}>
               <AgentDebateDiagram />
             </div>
-          ) : slug === "ezworks-architecture" ? (
-            <div style={{ minWidth: "1200px" }}>
-              <EzWorksArchitectureDiagram />
-            </div>
           ) : slug === "cfb-scoring" ? (
             <div style={{ minWidth: "700px" }}>
               <CfbScoringDiagram />
@@ -159,6 +170,22 @@ export default function DiagramPage({ params }: { params: Promise<{ slug: string
           ) : slug === "thirdeye-cfa-platform" ? (
             <div style={{ minWidth: "900px" }}>
               <ThirdEyeCFAPlatformDiagram />
+            </div>
+          ) : slug === "nightkey-architecture" ? (
+            <div style={{ minWidth: "800px" }}>
+              <NightkeyArchitectureDiagram />
+            </div>
+          ) : slug === "nightkey-payments" ? (
+            <div style={{ minWidth: "900px" }}>
+              <NightkeyPaymentsDiagram />
+            </div>
+          ) : slug === "nightkey-onboarding" ? (
+            <div style={{ minWidth: "900px" }}>
+              <NightkeyOnboardingDiagram />
+            </div>
+          ) : slug === "nightkey-floor-plan" ? (
+            <div style={{ minWidth: "900px" }}>
+              <NightkeyFloorPlanDiagram />
             </div>
           ) : (
             /* eslint-disable-next-line @next/next/no-img-element */
