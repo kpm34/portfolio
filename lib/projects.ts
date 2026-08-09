@@ -132,6 +132,11 @@ export const projects: Project[] = [
         tags: ['Content', 'Articles', 'News']
       },
       {
+        title: 'AI Content Studio (Internal)',
+        description: 'A separate AI-operated content factory that powers CFB Central and social growth. Specialized agents — article writer, social poster, scout, mixer, analyst, strategist — poll a Supabase task queue, draft content, and route everything through human approval before a one-way publish into the app. Includes an operator UI (Content Hub, Writing Room, Studio Conveyor), a Remotion render engine, ComfyUI/Blender generation workflows, and a custom MCP server for article CRUD.',
+        tags: ['AI Agents', 'Content Factory', 'Internal Tooling']
+      },
+      {
         title: '3D Explore Experience',
         description: 'An immersive 3D navigation page where users browse CFB teams by conference. Click any team to see their real roster, schedule, and stats in a side panel.',
         tags: ['3D', 'Explore', 'Teams']
@@ -195,8 +200,12 @@ export const projects: Project[] = [
         description: '440+ React components with TypeScript strict mode, shadcn/ui + Radix primitives, dnd-kit drag-and-drop interfaces, Framer Motion animations, and Turbopack for fast builds. Responsive from mobile to desktop.'
       },
       {
+        title: 'AI Agent Orchestration',
+        description: 'An internal content studio where article, social, scout, mixer, analyst, and strategist agents run against a Supabase task queue with a Python worker — drafts flow through quality review and human approval, then publish one-way into the consumer app via a two-database factory/storefront architecture. Includes a custom MCP server (cfb-articles-mcp) for article CRUD.'
+      },
+      {
         title: 'Video Production',
-        description: 'Remotion framework for programmatic video rendering — 1,696-frame investor demo with 6 animated sequences, custom SVG chart animations with strokeDasharray draw effects, and mobile device frame mockups.'
+        description: 'Remotion framework for programmatic video rendering — 1,696-frame investor demo with 6 animated sequences, custom SVG chart animations, and a shared remotion-engine package rendering highlight mixes and social carousels through a studio conveyor pipeline, with ComfyUI and Blender generation workflows feeding the assembly line.'
       },
       {
         title: 'DevOps & CI/CD',

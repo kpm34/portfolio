@@ -94,6 +94,12 @@ export const intelivanceBullets: ResumeBulletPoint[] = [
     text: 'Produced programmatic demo video using Remotion with animated data visualizations and automated rendering',
     skills: ['remotion', 'react'],
   },
+  {
+    id: 'cfb-content-studio',
+    projectId: 'cfb-fantasy',
+    text: 'Built an internal AI content factory with specialized agents (article, social, scout, analyst, strategist) polling a Supabase task queue, human approval gates, and one-way publish promotion into the production app',
+    skills: ['multi-agent', 'llm-integration', 'supabase', 'python', 'mcp-servers'],
+  },
 
   // --- Third Eye Capital ---
   {

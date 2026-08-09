@@ -52,7 +52,7 @@ const skillSections = {
     },
     {
       category: "Video Production",
-      description: "Remotion framework for programmatic video generation. Investor demo: 6-sequence orchestrated pitch video (1,696 frames) with SVG line chart animations using strokeDasharray draw effects, mobile device frame mockups with screen recordings, and automated MP4 rendering pipeline."
+      description: "Remotion framework for programmatic video generation. Investor demo: 6-sequence orchestrated pitch video (1,696 frames) with SVG line chart animations, mobile device frame mockups, and automated MP4 rendering. Internal content studio with a shared remotion-engine package rendering highlight mixes and social carousels, plus ComfyUI and Blender generation workflows feeding the assembly pipeline."
     },
     {
       category: "DevOps & Infrastructure",
@@ -70,7 +70,7 @@ const skillSections = {
     },
     {
       category: "Multi-Agent Systems",
-      description: "Bisect's AI agent architecture: Gemini Spatial Agent for scene arrangements, Material Agent with RAG from PBR preset library, Claude Blender Agent for complex mesh operations, and Agent Debate for consensus-based decisions. Multi-LLM routing (GPT-4o, Claude, Gemini) based on task requirements."
+      description: "Ballknowers' internal content studio: an AI workforce of article, social, scout, mixer, analyst, and strategist agents polling a Supabase task queue with human approval on every publish path, feeding the app through a one-way factory/storefront publish flow. Bisect's agent architecture: Gemini Spatial Agent, Material Agent with RAG, Claude Blender Agent, and Agent Debate for consensus-based decisions. Multi-LLM routing (GPT-4o, Claude, Gemini) based on task requirements. Custom MCP servers for Blender scene manipulation and article CRUD."
     },
     {
       category: "Data Pipelines",

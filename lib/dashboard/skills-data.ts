@@ -11,8 +11,7 @@ export const skills: Skill[] = [
     keywords: ['next.js', 'nextjs', 'next', 'app router', 'server components', 'SSR', 'SSG'],
     evidence: [
       { projectId: 'cfb-fantasy', description: 'Built full-stack SaaS platform with Next.js 15 App Router', impact: '100+ features, 10 months solo' },
-      { projectId: 'thirdeye', description: 'Stock analysis terminal with Next.js', impact: '9-tab terminal interface' },
-      { projectId: 'bisect', description: 'Creative platform with Next.js 14', impact: '5 studios' },
+      { projectId: 'bisect', description: 'Creative platform with Next.js 14', impact: '3 shipped studios' },
       { projectId: 'nightkey', description: 'iPad-first Next.js 16 dashboard for club operators with Konva floor plan editor and real-time booking state' },
     ],
   },
@@ -25,7 +24,7 @@ export const skills: Skill[] = [
     keywords: ['react', 'react.js', 'reactjs', 'hooks', 'components', 'jsx', 'tsx'],
     evidence: [
       { projectId: 'cfb-fantasy', description: 'Complex state management across 100+ features with React 19' },
-      { projectId: 'thirdeye', description: 'React frontend with 9-tab terminal using TanStack Query' },
+      { projectId: 'thirdeye', description: 'React 18 + Vite equity terminal — 15 data tabs per symbol using TanStack Query' },
     ],
   },
   {
@@ -333,6 +332,7 @@ export const skills: Skill[] = [
     evidence: [
       { projectId: 'thirdeye', description: 'FastAPI backend, backtesting engine, statistical analysis' },
       { projectId: 'bisect', description: 'Blender Python scripting for scene manipulation' },
+      { projectId: 'content-studio', description: 'Flask API, AI agent executors, and Supabase task-queue worker powering the Ballknowers content factory' },
     ],
   },
 
@@ -347,6 +347,7 @@ export const skills: Skill[] = [
     evidence: [
       { projectId: 'cfb-fantasy', description: 'Dual AI system: Claude for vision analysis + structured output, Gemini for web search + content gen' },
       { projectId: 'bisect', description: 'Multi-LLM routing (GPT-4o, Claude, Gemini) based on task requirements' },
+      { projectId: 'content-studio', description: 'LLM-drafted articles and social posts with quality review gates and human approval before publish' },
     ],
   },
   {
@@ -382,6 +383,7 @@ export const skills: Skill[] = [
     keywords: ['multi-agent', 'agent systems', 'agent orchestration', 'agent debate', 'ai agents'],
     evidence: [
       { projectId: 'bisect', description: 'Gemini Spatial Agent, Material Agent with RAG, Claude Blender Agent, Agent Debate for consensus' },
+      { projectId: 'content-studio', description: 'AI content workforce — article, social, scout, mixer, analyst, and strategist agents polling a Supabase task queue with human approval on every publish path' },
     ],
   },
   {
@@ -430,6 +432,29 @@ export const skills: Skill[] = [
       { projectId: 'bisect', description: 'Gemini Spatial Agent for scene arrangements' },
     ],
   },
+  {
+    id: 'comfyui',
+    name: 'ComfyUI / AI Media Generation',
+    category: 'ai-ml',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['comfyui', 'image generation', 'ai video', 'diffusion workflows', 'generative media'],
+    evidence: [
+      { projectId: 'content-studio', description: 'ComfyUI workflows for generated clips and images feeding the video assembly pipeline alongside Blender scenes' },
+    ],
+  },
+  {
+    id: 'mcp-servers',
+    name: 'MCP Server Development',
+    category: 'ai-ml',
+    proficiency: 4,
+    yearsUsed: 1,
+    keywords: ['mcp', 'model context protocol', 'ai tooling', 'claude code integration', 'agent tools'],
+    evidence: [
+      { projectId: 'bisect', description: 'MCP server exposing Blender scene manipulation to AI code assistants' },
+      { projectId: 'content-studio', description: 'cfb-articles-mcp server for article CRUD against the studio admin API' },
+    ],
+  },
 
   // ===== DATA ENGINEERING =====
   {
@@ -466,7 +491,7 @@ export const skills: Skill[] = [
     keywords: ['data viz', 'visualization', 'dashboards', 'charts', 'graphs', 'analytics'],
     evidence: [
       { projectId: 'cfb-fantasy', description: 'Fantasy Lab: area charts, radar comparisons, ML feature importance visualizations' },
-      { projectId: 'thirdeye', description: '9-tab terminal with Recharts + lightweight-charts' },
+      { projectId: 'thirdeye', description: 'Equity terminal charts across 15 data tabs with Recharts + lightweight-charts' },
       { projectId: 'portfolio', description: '40+ ReactFlow architecture diagrams with Dagre auto-layout' },
     ],
   },
@@ -506,6 +531,7 @@ export const skills: Skill[] = [
       { projectId: 'cfb-fantasy', description: 'Auth, storage, database, realtime broadcast, RLS' },
       { projectId: 'thirdeye', description: 'Supabase caching and auth with tiered access control' },
       { projectId: 'nightkey', description: '24 Deno Edge Functions, Realtime/Broadcast, Storage for signed PDFs, and role-aware RLS across the entire schema' },
+      { projectId: 'content-studio', description: 'Two-database factory/storefront architecture — content DB for drafts, approvals, and orchestrator state with one-way publish promotion into the consumer app DB' },
     ],
   },
   {
@@ -662,6 +688,7 @@ export const skills: Skill[] = [
     keywords: ['remotion', 'programmatic video', 'video generation', 'video rendering'],
     evidence: [
       { projectId: 'cfb-fantasy', description: '6-sequence investor demo video (1,696 frames) with SVG animations' },
+      { projectId: 'content-studio', description: 'Shared remotion-engine package — HighlightMix, carousel slides, and cinematic compositions rendered through a studio conveyor pipeline' },
     ],
   },
   {
