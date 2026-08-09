@@ -61,7 +61,7 @@ export const projects: Project[] = [
       '3d': ['React Three Fiber', 'Three.js', 'Drei'],
       backend: ['Supabase', 'PostgreSQL', 'Vercel Cron', 'Stripe'],
       ai: ['Claude API', 'Gemini API', 'Pinecone'],
-      infra: ['Vercel', 'Upstash Redis', 'Resend', 'Expo']
+      infra: ['Vercel', 'Render', 'Resend', 'Expo']
     },
     aiHighlights: [
       'Dual AI system (Claude + Gemini) with RAG memory',
@@ -169,7 +169,7 @@ export const projects: Project[] = [
       },
       {
         title: 'ML Prediction Engine',
-        description: 'XGBoost + Ridge Regression ensemble combining Vegas lines, injury adjustments, defensive matchups, and trailing usage shares. Weekly backtesting, boom/bust projections, and confidence scoring.'
+        description: 'Calibrated Ridge and Logistic Regression models with TimeSeriesSplit validation, combining Vegas lines, injury adjustments, defensive matchups, and trailing usage shares. Weekly backtesting, boom/bust projections, and confidence scoring.'
       },
       {
         title: 'Security Engineering',
@@ -209,7 +209,7 @@ export const projects: Project[] = [
       },
       {
         title: 'DevOps & CI/CD',
-        description: 'Docker containers for Remotion renderer and FastAPI ML service. GitHub Actions CI/CD workflows with draft E2E tests. Jest test suite for snake draft calculations and scheduling. Redis caching with in-memory fallback. PWA manifest with maskable icons.'
+        description: 'Docker containers for Remotion renderer and FastAPI ML service. GitHub Actions CI/CD workflows with draft E2E tests. Jest test suite for snake draft calculations and scheduling. In-memory caching layer. PWA manifest with maskable icons.'
       }
     ]
   },

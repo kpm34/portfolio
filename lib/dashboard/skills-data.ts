@@ -394,7 +394,7 @@ export const skills: Skill[] = [
     yearsUsed: 1,
     keywords: ['xgboost', 'gradient boosting', 'ensemble', 'tree-based models'],
     evidence: [
-      { projectId: 'cfb-fantasy', description: 'XGBoost + Ridge Regression ensemble for player projections' },
+      { projectId: 'thirdeye', description: 'Walk-forward XGBoost pattern-outcome classifier in the backtesting pipeline' },
     ],
   },
   {
@@ -543,17 +543,6 @@ export const skills: Skill[] = [
       { projectId: 'thirdeye', description: 'Supabase caching and auth with tiered access control' },
       { projectId: 'nightkey', description: '24 Deno Edge Functions, Realtime/Broadcast, Storage for signed PDFs, and role-aware RLS across the entire schema' },
       { projectId: 'content-studio', description: 'Two-database factory/storefront architecture — content DB for drafts, approvals, and orchestrator state with one-way publish promotion into the consumer app DB' },
-    ],
-  },
-  {
-    id: 'redis',
-    name: 'Redis',
-    category: 'database',
-    proficiency: 3,
-    yearsUsed: 1,
-    keywords: ['redis', 'caching', 'upstash', 'in-memory database', 'key-value store'],
-    evidence: [
-      { projectId: 'cfb-fantasy', description: 'Upstash Redis caching with in-memory fallback' },
     ],
   },
   {
@@ -794,7 +783,7 @@ export const skills: Skill[] = [
     yearsUsed: 1,
     keywords: ['scikit-learn', 'sklearn', 'machine learning', 'ridge regression', 'model selection', 'preprocessing'],
     evidence: [
-      { projectId: 'cfb-fantasy', description: 'Ridge Regression in XGBoost + Ridge ensemble for player projections', impact: 'Weekly backtesting against actuals' },
+      { projectId: 'cfb-fantasy', description: 'Calibrated Ridge/Logistic ensemble for player projections', impact: 'Weekly backtesting against actuals' },
     ],
   },
   {

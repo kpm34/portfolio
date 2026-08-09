@@ -32,7 +32,7 @@ const skillSections = {
   "Engineering": [
     {
       category: "Full-Stack Development",
-      description: "Built CFB Fantasy from scratch with Next.js, React, TypeScript, and Tailwind. Multi-tenant PostgreSQL with Row Level Security, Supabase Broadcast for real-time draft orchestration, Pinecone for semantic search, and Redis caching. Stripe subscriptions, OAuth (Google/Apple), Twilio phone verification, and JWT mobile auth. Internal CRM with lead scoring and pipeline stages. Companion Expo mobile app with over-the-air updates. Deployed across Vercel, AWS, and Google Cloud."
+      description: "Built CFB Fantasy from scratch with Next.js, React, TypeScript, and Tailwind. Multi-tenant PostgreSQL with Row Level Security, Supabase Broadcast for real-time draft orchestration, Pinecone for semantic search, and an in-memory caching layer. Stripe subscriptions, OAuth (Google/Apple), Twilio phone verification, and JWT mobile auth. Internal CRM with lead scoring and pipeline stages. Companion Expo mobile app with over-the-air updates. Deployed across Vercel, AWS, and Google Cloud."
     },
     {
       category: "3D & Interactive Graphics",
@@ -56,7 +56,7 @@ const skillSections = {
     },
     {
       category: "DevOps & Infrastructure",
-      description: "Vercel deployment with 16 scheduled cron jobs. Docker containerization for Remotion video renderer and FastAPI ML microservice. GitHub Actions CI/CD with draft E2E tests and cron verification. Jest test suite for snake draft calculations and round-robin scheduling. Redis caching via Upstash with in-memory fallback. Domain management with SPF/DKIM email authentication."
+      description: "Vercel deployment with 16 scheduled cron jobs. Docker containerization for Remotion video renderer and FastAPI ML microservice. GitHub Actions CI/CD with draft E2E tests and cron verification. Jest test suite for snake draft calculations and round-robin scheduling. Domain management with SPF/DKIM email authentication."
     },
   ],
   "AI & Data": [
@@ -66,7 +66,7 @@ const skillSections = {
     },
     {
       category: "ML Projections Pipeline",
-      description: "XGBoost + Ridge Regression ensemble combining Vegas betting lines, injury adjustments, defensive matchups, and trailing usage shares with configurable weights that evolve through the season. Weekly backtesting against actual outcomes with boom/bust rate calculation from historical game data. ATS prediction model with confidence scoring. Full ML feedback loop: predictions stored, outcomes tracked, accuracy measured per model version."
+      description: "Calibrated Ridge and Logistic Regression models with TimeSeriesSplit validation in Ballknowers, combining Vegas betting lines, injury adjustments, defensive matchups, and trailing usage shares. Walk-forward XGBoost pattern screen in Third Eye Capital. Weekly backtesting against actual outcomes with boom/bust rate calculation. Full ML feedback loop: predictions stored, outcomes tracked, accuracy measured per model version."
     },
     {
       category: "Multi-Agent Systems",

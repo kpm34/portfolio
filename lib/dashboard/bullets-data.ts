@@ -31,8 +31,8 @@ export const intelivanceBullets: ResumeBulletPoint[] = [
   {
     id: 'cfb-ml',
     projectId: 'cfb-fantasy',
-    text: 'Built ML prediction engine using ensemble models with automated weekly backtesting against real outcomes',
-    skills: ['xgboost', 'scikit-learn', 'ml-pipelines', 'statistical-analysis', 'python'],
+    text: 'Built ML prediction engine with calibrated regression ensembles and automated weekly backtesting against real outcomes',
+    skills: ['scikit-learn', 'ml-pipelines', 'statistical-analysis', 'python'],
   },
   {
     id: 'cfb-projections',
@@ -85,8 +85,8 @@ export const intelivanceBullets: ResumeBulletPoint[] = [
   {
     id: 'cfb-devops',
     projectId: 'cfb-fantasy',
-    text: 'Deployed across Vercel, AWS, and Google Cloud with Docker containers, CI/CD pipelines, and Redis caching',
-    skills: ['vercel', 'docker', 'github-actions', 'cloud-platforms', 'redis', 'git'],
+    text: 'Deployed across Vercel, AWS, and Google Cloud with Docker containers and CI/CD pipelines',
+    skills: ['vercel', 'docker', 'github-actions', 'cloud-platforms', 'git'],
   },
   {
     id: 'cfb-video',
