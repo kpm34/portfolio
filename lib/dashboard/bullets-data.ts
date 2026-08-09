@@ -135,7 +135,7 @@ export const intelivanceBullets: ResumeBulletPoint[] = [
   {
     id: 'te-montecarlo',
     projectId: 'thirdeye',
-    text: 'Implemented Monte Carlo forecasting with probability-weighted scenarios, options pricing models, and confidence intervals',
+    text: 'Built a backtesting engine over 786 enriched pattern setups (2020–2025), reporting hit rates per price target and time horizon',
     skills: ['financial-modeling', 'statistical-analysis', 'python'],
   },
   {
@@ -193,7 +193,7 @@ export const intelivanceBullets: ResumeBulletPoint[] = [
   {
     id: 'nk-marketplace',
     projectId: 'nightkey',
-    text: 'Architected a four-sided marketplace (clubs, promoters, guests, bottle servers) on a single Supabase Postgres with 73 versioned migrations and role-aware RLS on every table',
+    text: 'Architected a four-sided marketplace (clubs, promoters, guests, bottle servers) on a single Supabase Postgres with 121 versioned migrations and role-aware RLS on every table',
     skills: ['multi-tenant', 'postgresql', 'supabase', 'nextjs', 'typescript'],
   },
   {

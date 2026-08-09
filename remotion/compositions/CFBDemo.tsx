@@ -345,7 +345,7 @@ const CTAScene: React.FC = () => {
             fontFamily: "Inter, sans-serif",
           }}
         >
-          cfbfantasy.app
+          ballknowers.app
         </div>
       </div>
     </AbsoluteFill>

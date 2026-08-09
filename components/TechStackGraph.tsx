@@ -29,7 +29,7 @@ const connections: Record<string, string[]> = {
   "Gemini": ["Claude", "ChromaDB"],
   "Claude": ["ChromaDB"],
   "Vercel": ["Upstash Redis", "Vercel Cron"],
-  "Appwrite": ["GoHighLevel CRM"],
+  "FastAPI": ["Supabase", "Pinecone"],
   "GSAP": ["Anime.js"],
 };
 

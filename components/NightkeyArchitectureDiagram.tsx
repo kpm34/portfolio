@@ -230,7 +230,7 @@ export const NightkeyArchitectureDiagram = () => {
 
         {/* DB band */}
         <rect x="20" y="125" width="650" height="60" rx="6" fill="#000" fillOpacity="0.4" stroke="#22C55E" strokeOpacity="0.3" />
-        <text x="345" y="148" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill="#fff">PostgreSQL · 73 Migrations</text>
+        <text x="345" y="148" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill="#fff">PostgreSQL · 121 Migrations</text>
         <text x="345" y="168" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">clubs · promoters · staff · bookings · tables · payments · payouts · documents · audit</text>
       </g>
 
@@ -308,7 +308,7 @@ export const NightkeyArchitectureDiagram = () => {
         </g>
       </g>
 
-      <text x="400" y="1080" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#666">73 migrations · 24 edge functions · 4 client surfaces · 1 schema</text>
+      <text x="400" y="1080" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#666">121 migrations · 33 edge functions · 4 client surfaces · 1 schema</text>
       <text x="400" y="1098" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#444">Production marketplace · iPad-first operations · PayFac payments end-to-end</text>
     </svg>
   );

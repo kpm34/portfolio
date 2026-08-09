@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kashyap Maheshwari - Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @page { size: letter; margin: 0.42in 0.6in; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.26;
+      color: #333;
+      max-width: 7in;
+      margin: 0 auto;
+      padding: 0.5in 0.65in;
+    }
+
+    h1 { font-size: 18pt; color: #1a5276; margin-bottom: 4px; letter-spacing: 1px; }
+
+    .contact { color: #555; margin-bottom: 7px; font-size: 9.5pt; }
+    .contact a { color: #1a5276; text-decoration: none; }
+
+    h2 {
+      font-size: 11pt;
+      color: #1a5276;
+      border-bottom: 1.5px solid #1a5276;
+      padding-bottom: 2px;
+      margin: 8px 0 5px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .summary { text-align: justify; margin-bottom: 4px; }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1px;
+    }
+
+    .role-title { font-weight: bold; color: #1a5276; }
+    .role-dates { color: #666; font-size: 9pt; white-space: nowrap; padding-left: 12px; }
+
+    .role-subtitle {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 4px;
+      font-size: 9.5pt;
+    }
+
+    .role-subtitle a { color: #1a5276; text-decoration: none; font-style: normal; }
+
+    .role { margin-bottom: 5px; }
+
+    ul { margin-left: 15px; margin-bottom: 4px; }
+    li { margin-bottom: 2px; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 3px 8px;
+      font-size: 9.5pt;
+    }
+    .skill-label { font-weight: bold; color: #1a5276; }
+
+    .education-item { margin-bottom: 2px; }
+    .education-item strong { color: #1a5276; }
+
+    .prior { font-size: 9.5pt; color: #555; margin-top: 4px; }
+
+    strong { font-weight: 600; }
+
+    @media print {
+      body {
+        padding: 0; margin: 0; max-width: 100%;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>KASHYAP MAHESHWARI</h1>
+  <div class="contact">
+    Louisville, KY | (412) 980-1292 | kashpm2002@gmail.com | <a href="https://kashcreates.app">kashcreates.app</a>
+  </div>
+
+  <h2>Summary</h2>
+  <p class="summary">
+    Full-stack software engineer who ships production systems end to end — web, iOS, and Android.
+    Currently building and maintaining three live products: a multi-sided booking marketplace, a
+    fantasy sports platform published to the App Store and Google Play, and an equity research
+    terminal. Depth in real-time systems, PostgreSQL and row-level security, payments and KYC, data
+    pipelines, and 3D graphics on the web.
+  </p>
+
+  <h2>Experience</h2>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Software Engineer &mdash; Nightkey (Growthneuron LLC)</span>
+      <span class="role-dates">2024 &ndash; Present</span>
+    </div>
+    <div class="role-subtitle">
+      Multi-sided nightlife booking marketplace &mdash; clients, promoters, venues, bottle servers |
+      <a href="https://nightkey.io">nightkey.io</a>
+    </div>
+    <ul>
+      <li>Built and shipped four product surfaces on one schema: iPad-optimized venue dashboard (Next.js) plus guest and promoter apps for iOS and Android (Expo/React Native)</li>
+      <li>Designed the PostgreSQL schema across 121 versioned migrations with row-level security on every table, serving four distinct user roles from a shared Supabase backend</li>
+      <li>Implemented 33 Supabase Edge Functions covering merchant boarding, payouts, payment webhooks, identity verification, and notifications</li>
+      <li>Integrated payment processing, Twilio SMS, Expo push notifications, and automated ID verification via AWS Rekognition and Google Cloud Vision</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Software Engineer &mdash; Ballknowers (CFB Fantasy LLC)</span>
+      <span class="role-dates">Oct 2025 &ndash; Present</span>
+    </div>
+    <div class="role-subtitle">
+      Season-long fantasy sports platform, live on the App Store, Google Play, and web |
+      <a href="https://ballknowers.app">ballknowers.app</a>
+    </div>
+    <ul>
+      <li>Shipped a full fantasy platform across web, iOS, and Android: real-time snake and auction drafts, live scoring, waivers with FAAB bidding, trades, lineups, and playoffs</li>
+      <li>Built the real-time draft system on WebSocket broadcast with presence tracking, backed by PostgreSQL stored procedures for atomic pick resolution under concurrency</li>
+      <li>Published and maintained native iOS and Android apps through App Store and Google Play review cycles, with an over-the-air update pipeline, native Apple/Google sign-in, and universal-link invites</li>
+      <li>Integrated Stripe billing with subscription tiers, webhook-driven entitlement grants, and feature gating; built 15+ scheduled jobs for live scoring, waiver processing, and data ETL</li>
+      <li>Built a React Three Fiber 3D uniform editor backed by a custom Blender-to-web asset pipeline</li>
+      <li>Instrumented the funnel end to end: PostHog events across web and native, install attribution, and an App Store Connect pipeline feeding an internal analytics dashboard</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="role-header">
+      <span class="role-title">Software Engineer &mdash; Third Eye Capital</span>
+      <span class="role-dates">Jun 2025 &ndash; Present</span>
+    </div>
+    <div class="role-subtitle">
+      Equity research terminal and pattern detection platform |
+      <a href="https://thirdeyecapital.ai">thirdeyecapital.ai</a>
+    </div>
+    <ul>
+      <li>Built a FastAPI backend exposing 130+ REST endpoints, fed by an automated market-data pipeline with caching and a multi-source fallback chain</li>
+      <li>Developed a backtesting engine with target-hit screening and statistical analysis (correlation, covariance matrices, quartile decomposition)</li>
+      <li>Built a 9-tab research terminal in React with Recharts and lightweight-charts, TanStack Query for server state, and tiered access control</li>
+    </ul>
+  </div>
+
+  <h2>Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-label">Languages</div>
+    <div>TypeScript, JavaScript, Python, SQL</div>
+    <div class="skill-label">Frontend</div>
+    <div>React, Next.js, React Native (Expo), Tailwind CSS, Three.js / React Three Fiber</div>
+    <div class="skill-label">Backend</div>
+    <div>Node.js, FastAPI, PostgreSQL, Supabase, REST API design, row-level security</div>
+    <div class="skill-label">Infrastructure</div>
+    <div>Vercel, Edge Functions, Redis, scheduled jobs, CI/CD, OTA mobile releases</div>
+    <div class="skill-label">Integrations</div>
+    <div>Stripe, Twilio, AWS Rekognition, Google Cloud Vision, Claude and Gemini APIs</div>
+    <div class="skill-label">Analytics</div>
+    <div>PostHog (web + native), AppsFlyer attribution, App Store Connect API, funnel instrumentation</div>
+  </div>
+
+  <h2>Education</h2>
+  <div class="education-item">
+    <strong>M.S. Human Physiology</strong>, University of Louisville, GPA 3.93 (2021&ndash;23) &middot;
+    <strong>B.S. Biological Sciences</strong>, University of Pittsburgh (2016&ndash;19)
+  </div>
+  <p class="prior">
+    Prior: Microbiologist, Allegheny County Health Dept. (2020&ndash;21) &middot;
+    Research Assistant, UPMC (2017&ndash;19)
+  </p>
+</body>
+</html>

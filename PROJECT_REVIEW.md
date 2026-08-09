@@ -1,7 +1,17 @@
 # Project Review & Portfolio Analysis
 
-**Date:** 2026-05-18
+**Date:** 2026-08-09 (previous revision 2026-05-18)
 **Purpose:** Review of the four projects to feature on the portfolio site
+
+**Repo state at this revision** — all figures verified against the working trees,
+not from memory:
+
+| Project | Last commit | Commits / 90d | Status |
+|---|---|---|---|
+| Nightkey (2 repos) | 2026-08-05 | 448 + 180 | Active |
+| Ballknowers (CFB) | 2026-08-08 | 555 | Active |
+| Third Eye Capital | 2026-08-08 | 126 | Active |
+| Bisect | 2026-05-23 | 2 | **Parked** |
 
 ---
 
@@ -9,19 +19,23 @@
 
 The portfolio showcases four production projects:
 
-1. **CFB Fantasy** — Full-stack fantasy football platform
+1. **Ballknowers** — Season-long college football fantasy across web, iOS, and Android
 2. **Third Eye Capital** — Financial research & pattern-detection platform
 3. **Bisect** — Visual bridge between Blender and ComfyUI
 4. **Nightkey** — Nightlife booking marketplace (club dashboard + mobile)
 
 ---
 
-## 1. CFB Fantasy App
+## 1. Ballknowers (CFB Fantasy)
 
 **Type:** Full-Stack Web Application
-**Tech Stack:** Next.js 15, React 19, TypeScript, Appwrite, THREE.js, React Three Fiber, Spline
-**Status:** Production — [cfbfantasy.app](https://cfbfantasy.app)
+**Tech Stack:** Next.js 15, React 19, TypeScript, Supabase (Postgres + RLS + Realtime), Expo/React Native, THREE.js, React Three Fiber, Stripe
+**Status:** Production — [ballknowers.app](https://ballknowers.app) + iOS and Android
 **Complexity:** Very High
+
+> **Corrected 2026-08-09:** this entry previously listed Appwrite. The app was
+> migrated to Supabase and there are now zero Appwrite references in the source.
+> 84 Supabase migrations as of this revision.
 
 **What It Does:**
 - Fantasy football platform for Power 4 conferences
@@ -35,7 +49,7 @@ The portfolio showcases four production projects:
 - **Complex domain logic** — Drafting, scoring, lineups, waivers, leagues
 - **3D integration** — Helmet customizer and stadium visuals using R3F
 - **Data pipeline** — ETL for rosters, depth charts, projections
-- **Real-time systems** — Live draft sync via Appwrite
+- **Real-time systems** — Live draft sync over WebSocket broadcast, with Postgres stored procedures resolving picks atomically under concurrency
 - **Testing** — Playwright E2E + Jest unit tests
 
 **Portfolio Angle:**
@@ -55,7 +69,13 @@ The portfolio showcases four production projects:
 **What It Does:**
 - **Stock Research Terminal** — Equity research surface for ~290 symbols (targeting 2,500+ US stocks >$1B market cap), with 15 data tabs per symbol: fundamentals, valuation, financials (10-year), ratios, estimates, dividends, momentum, ownership.
 - **Wick-Wick Pattern Detection** — Proprietary candlestick pattern model identifying high-probability monthly/quarterly liquidity-purge setups; ~76.5% backtested hit rate on `target_100`.
+- **Options surface & backtesting** — ThetaData v3 client capturing the full
+  options surface, with a 5-month backtest harness. *(Added since the May
+  revision; not yet reflected in the resume or any job-search doc.)*
 - **Newsletter, portfolio tracking, play tracking, learning zone, admin CRM.**
+
+**Scale as of 2026-08-09:** 130+ REST endpoints across 20 route modules in
+`backend/api/` (previously documented as 70+).
 
 **Highlights:**
 - **Data ingestion at scale** — Playwright + SA API scraper, fallback chain (SA cache → RapidAPI → yfinance), Supabase-cached
@@ -75,8 +95,14 @@ The portfolio showcases four production projects:
 
 **Type:** Creative Tooling Platform (Web + CLI + MCP Server)
 **Tech Stack:** Next.js, TypeScript, Tailwind, Supabase, Blender (MCP), ComfyUI, React Three Fiber, Tauri
-**Status:** Beta v0.2.0 — [bisect.app](https://bisect.app)
+**Status:** **Parked** — v0.1.0 per `package.json`, last commit 2026-05-23
 **Complexity:** High
+
+> **Corrected 2026-08-09:** previously stated "Beta v0.2.0." The manifest says
+> 0.1.0. Two commits in the last 90 days, the last being a Tauri v2 desktop
+> scaffold preceded by a `wip: in-flight studio work` commit — it was stopped
+> mid-change. Present this as a completed-and-parked project (Nov 2025 – May
+> 2026), not as ongoing.
 
 **What It Does:**
 The glue between Blender and ComfyUI — a visual interface that brings pro-level 3D and GenAI pipelines to creators who don't want to manage nodes or scripts.
@@ -110,6 +136,9 @@ The glue between Blender and ComfyUI — a visual interface that brings pro-leve
 **Tech Stack:** Next.js (App Router), TypeScript, Tailwind, Supabase (Postgres + RLS + Realtime), Expo/React Native (mobile), QorCommerce, Twilio, AWS Rekognition + GCP Vision
 **Status:** Pre-launch — [nightkey.io](https://nightkey.io) (Club Dashboard) + iOS/Android (Client + Promoter)
 **Complexity:** Very High
+**Scale as of 2026-08-09:** 121 migrations, 33 Edge Functions, Expo SDK 54.
+Previously documented as 73 and 24 — both were understated. Most active
+codebase of the four (628 commits across both repos in 90 days).
 
 **What It Does:**
 A nightlife booking platform connecting four sides: **Clients, Promoters, Nightclubs, and Bottle Servers.** Two repos share one Supabase backend.
@@ -144,12 +173,12 @@ A nightlife booking platform connecting four sides: **Clients, Promoters, Nightc
 
 ### Backends & Data
 - Supabase (Postgres + RLS + Realtime + Auth) — TEC, Nightkey, Bisect
-- Appwrite (CFB Fantasy)
+- Supabase (Ballknowers — 84 migrations; migrated off Appwrite)
 - Pinecone (RAG over research content)
 - ETL / data ingestion at scale (TEC scraper, CFB projections)
 
 ### Real-Time & Multi-User
-- Live draft sync (CFB Fantasy)
+- Live draft sync (Ballknowers)
 - Realtime bookings + table state (Nightkey)
 - Multi-role permissions and RLS-enforced separation
 
@@ -191,7 +220,7 @@ A nightlife booking platform connecting four sides: **Clients, Promoters, Nightc
 
 A reasonable opening order:
 
-1. **CFB Fantasy** — most visually striking, easiest to grasp in 5 seconds
+1. **Ballknowers** — most visually striking, easiest to grasp in 5 seconds
 2. **Third Eye Capital** — heaviest engineering story, signals depth
 3. **Bisect** — tooling/AI angle, demonstrates range
 4. **Nightkey** — real client work, demonstrates ability to ship for a paying customer
@@ -200,7 +229,7 @@ A reasonable opening order:
 
 | Project | Primary Signal |
 |---------|----------------|
-| CFB Fantasy | Owns a complex domain end-to-end, ships real-time + 3D in production |
+| Ballknowers (CFB) | Owns a complex domain end-to-end, ships real-time + 3D in production |
 | Third Eye Capital | Builds research/data products with a real model behind them |
 | Bisect | Designs tooling; thinks in systems and interfaces |
 | Nightkey | Ships premium client work across web + mobile + payments |
@@ -212,5 +241,5 @@ A reasonable opening order:
 1. **Capture assets** for each project: hero image/video, 1–2 in-product screenshots, optional short clip
 2. **Lock copy** — one tagline + 3–5 bullets per project (drafts above are starting points, not final voice)
 3. **Decide on architecture diagrams** — at minimum for TEC (data pipeline) and Bisect (bridge); optional for Nightkey (multi-app + Supabase)
-4. **Wire live links** — cfbfantasy.app, thirdeyecapital.ai, bisect.app, nightkey.io
+4. **Wire live links** — ballknowers.app, thirdeyecapital.ai, bisect.app, nightkey.io
 5. **Confirm what to leave out** — older projects (EZWORKS, Helmet Customizer R3F, Prism, VectorCraft AI) are intentionally not surfaced

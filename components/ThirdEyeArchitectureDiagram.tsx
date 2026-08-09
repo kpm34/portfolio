@@ -56,20 +56,20 @@ export const ThirdEyeArchitectureDiagram = () => {
 
             {/* Title */}
             <text x="350" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="24" fontWeight="bold" fill="white">Third Eye Capital Architecture</text>
-            <text x="350" y="62" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fill="#666">Newsletter Platform + Financial Visualization</text>
+            <text x="350" y="62" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fill="#666">Research Terminal + Pattern Detection Engine</text>
 
             {/* Tech badges */}
             <g transform="translate(170, 75)">
                 <rect width="70" height="20" rx="10" fill="#000" stroke="#F97316" strokeOpacity="0.5" />
-                <text x="35" y="14" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#F97316">Next.js</text>
+                <text x="35" y="14" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#F97316">React + Vite</text>
             </g>
             <g transform="translate(250, 75)">
                 <rect width="65" height="20" rx="10" fill="#000" stroke="#3B82F6" strokeOpacity="0.5" />
-                <text x="32" y="14" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#3B82F6">Three.js</text>
+                <text x="32" y="14" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#3B82F6">FastAPI</text>
             </g>
             <g transform="translate(325, 75)">
                 <rect width="55" height="20" rx="10" fill="#000" stroke="#22C55E" strokeOpacity="0.5" />
-                <text x="27" y="14" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#22C55E">GSAP</text>
+                <text x="27" y="14" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#22C55E">Supabase</text>
             </g>
             <g transform="translate(390, 75)">
                 <rect width="70" height="20" rx="10" fill="#000" stroke="#06B6D4" strokeOpacity="0.5" />
@@ -85,34 +85,34 @@ export const ThirdEyeArchitectureDiagram = () => {
                 {/* Four client modules */}
                 <g transform="translate(15, 30)">
                     <rect width="135" height="75" rx="6" fill="#000" fillOpacity="0.4" stroke="#F97316" strokeOpacity="0.3" />
-                    <text x="67" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#fff">Newsletter</text>
-                    <text x="67" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Landing page</text>
-                    <text x="67" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Subscription flow</text>
-                    <text x="67" y="68" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#F97316">/</text>
+                    <text x="67" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#fff">Terminal</text>
+                    <text x="67" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">15 tabs per symbol</text>
+                    <text x="67" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">290+ symbols</text>
+                    <text x="67" y="68" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#F97316">/terminal</text>
                 </g>
 
                 <g transform="translate(160, 30)">
                     <rect width="135" height="75" rx="6" fill="#000" fillOpacity="0.4" stroke="#F97316" strokeOpacity="0.3" />
-                    <text x="67" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#fff">3D Journey</text>
-                    <text x="67" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">60+ nodes</text>
-                    <text x="67" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Scroll experience</text>
-                    <text x="67" y="68" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#F97316">/explore</text>
+                    <text x="67" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#fff">Scanner</text>
+                    <text x="67" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Pattern scan + screen</text>
+                    <text x="67" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Market map</text>
+                    <text x="67" y="68" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#F97316">/scanner</text>
                 </g>
 
                 <g transform="translate(305, 30)">
                     <rect width="135" height="75" rx="6" fill="#000" fillOpacity="0.4" stroke="#F97316" strokeOpacity="0.3" />
-                    <text x="67" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#fff">CFA Platform</text>
-                    <text x="67" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Study materials</text>
-                    <text x="67" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Practice exams</text>
-                    <text x="67" y="68" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#F97316">/study</text>
+                    <text x="67" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#fff">Track Record</text>
+                    <text x="67" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Auditable outcome ladder</text>
+                    <text x="67" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Published plays</text>
+                    <text x="67" y="68" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#F97316">/track-record</text>
                 </g>
 
                 <g transform="translate(450, 30)">
                     <rect width="135" height="75" rx="6" fill="#000" fillOpacity="0.4" stroke="#F97316" strokeOpacity="0.3" />
-                    <text x="67" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#fff">Analytics</text>
-                    <text x="67" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Portfolio metrics</text>
-                    <text x="67" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Forecasting tools</text>
-                    <text x="67" y="68" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#F97316">/tools</text>
+                    <text x="67" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#fff">Portfolio</text>
+                    <text x="67" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">Play tracking</text>
+                    <text x="67" y="54" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#888">CFA learning hub</text>
+                    <text x="67" y="68" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#F97316">/portfolio · /learn</text>
                 </g>
             </g>
 
@@ -121,25 +121,25 @@ export const ThirdEyeArchitectureDiagram = () => {
 
             {/* ==================== LAYER 2: VISUALIZATION ==================== */}
             <g transform="translate(50, 285)">
-                <text x="0" y="0" fontFamily="Inter, sans-serif" fontSize="10" fontWeight="600" fill="#3B82F6" letterSpacing="1">VISUALIZATION LAYER</text>
+                <text x="0" y="0" fontFamily="Inter, sans-serif" fontSize="10" fontWeight="600" fill="#3B82F6" letterSpacing="1">CHART &amp; STATE LAYER</text>
 
                 <rect x="0" y="15" width="600" height="140" rx="8" fill="url(#grad-te-viz)" stroke="url(#stroke-te-viz)" strokeWidth="1" />
 
                 {/* Two visualization systems */}
                 <g transform="translate(20, 30)">
                     <rect width="270" height="90" rx="6" fill="#000" fillOpacity="0.4" stroke="#3B82F6" strokeOpacity="0.3" />
-                    <text x="135" y="25" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill="#3B82F6">Three.js + React Three Fiber</text>
-                    <text x="135" y="48" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#fff">60+ Financial Concept Nodes</text>
-                    <text x="135" y="65" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">InstancedMesh for GPU efficiency</text>
-                    <text x="135" y="80" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">GSAP scroll-driven camera</text>
+                    <text x="135" y="25" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill="#3B82F6">Recharts + lightweight-charts</text>
+                    <text x="135" y="48" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#fff">Financials, ratios, momentum</text>
+                    <text x="135" y="65" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Candlestick pattern charts</text>
+                    <text x="135" y="80" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Outcome ladder + carousels</text>
                 </g>
 
                 <g transform="translate(310, 30)">
                     <rect width="270" height="90" rx="6" fill="#000" fillOpacity="0.4" stroke="#3B82F6" strokeOpacity="0.3" />
-                    <text x="135" y="25" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill="#3B82F6">Recharts Analytics</text>
-                    <text x="135" y="48" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#fff">Performance Charts</text>
-                    <text x="135" y="65" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Monte Carlo forecasts</text>
-                    <text x="135" y="80" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Portfolio simulations</text>
+                    <text x="135" y="25" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill="#3B82F6">TanStack Query</text>
+                    <text x="135" y="48" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#fff">Server state + caching</text>
+                    <text x="135" y="65" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Tiered access gating</text>
+                    <text x="135" y="80" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Supabase Auth session</text>
                 </g>
             </g>
 
@@ -148,58 +148,58 @@ export const ThirdEyeArchitectureDiagram = () => {
 
             {/* ==================== LAYER 3: METRICS ENGINE ==================== */}
             <g transform="translate(50, 480)">
-                <text x="0" y="0" fontFamily="Inter, sans-serif" fontSize="10" fontWeight="600" fill="#06B6D4" letterSpacing="1">METRICS ENGINE</text>
+                <text x="0" y="0" fontFamily="Inter, sans-serif" fontSize="10" fontWeight="600" fill="#06B6D4" letterSpacing="1">PATTERN ENGINE (PYTHON)</text>
 
                 <rect x="0" y="15" width="600" height="160" rx="8" fill="url(#grad-te-metrics)" stroke="url(#stroke-te-metrics)" strokeWidth="1" />
 
-                <text x="300" y="45" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="14" fontWeight="600" fill="#fff">14 Financial Metrics from Real Trade Data</text>
+                <text x="300" y="45" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="14" fontWeight="600" fill="#fff">Wick-Wick Detector · 786 Patterns Backtested 2020–2025</text>
 
                 {/* Metric pills - Row 1 */}
                 <g transform="translate(30, 60)">
                     <rect width="80" height="26" rx="4" fill="#000" fillOpacity="0.5" stroke="#06B6D4" strokeOpacity="0.3" />
-                    <text x="40" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Sharpe</text>
+                    <text x="40" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Wick-Wick</text>
                 </g>
                 <g transform="translate(120, 60)">
                     <rect width="80" height="26" rx="4" fill="#000" fillOpacity="0.5" stroke="#06B6D4" strokeOpacity="0.3" />
-                    <text x="40" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Sortino</text>
+                    <text x="40" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Monthly</text>
                 </g>
                 <g transform="translate(210, 60)">
                     <rect width="80" height="26" rx="4" fill="#000" fillOpacity="0.5" stroke="#06B6D4" strokeOpacity="0.3" />
-                    <text x="40" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Calmar</text>
+                    <text x="40" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Quarterly</text>
                 </g>
                 <g transform="translate(300, 60)">
                     <rect width="80" height="26" rx="4" fill="#000" fillOpacity="0.5" stroke="#06B6D4" strokeOpacity="0.3" />
-                    <text x="40" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Alpha</text>
+                    <text x="40" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Purge</text>
                 </g>
                 <g transform="translate(390, 60)">
                     <rect width="80" height="26" rx="4" fill="#000" fillOpacity="0.5" stroke="#06B6D4" strokeOpacity="0.3" />
-                    <text x="40" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Beta</text>
+                    <text x="40" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Range %</text>
                 </g>
                 <g transform="translate(480, 60)">
                     <rect width="90" height="26" rx="4" fill="#000" fillOpacity="0.5" stroke="#06B6D4" strokeOpacity="0.3" />
-                    <text x="45" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">VaR (95%)</text>
+                    <text x="45" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Filters</text>
                 </g>
 
                 {/* Metric pills - Row 2 */}
                 <g transform="translate(70, 95)">
                     <rect width="110" height="26" rx="4" fill="#000" fillOpacity="0.5" stroke="#06B6D4" strokeOpacity="0.3" />
-                    <text x="55" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Max Drawdown</text>
+                    <text x="55" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Ground Truth</text>
                 </g>
                 <g transform="translate(195, 95)">
                     <rect width="90" height="26" rx="4" fill="#000" fillOpacity="0.5" stroke="#06B6D4" strokeOpacity="0.3" />
-                    <text x="45" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Win Rate</text>
+                    <text x="45" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Hit Rate</text>
                 </g>
                 <g transform="translate(300, 95)">
                     <rect width="90" height="26" rx="4" fill="#000" fillOpacity="0.5" stroke="#06B6D4" strokeOpacity="0.3" />
-                    <text x="45" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Profit Factor</text>
+                    <text x="45" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Backtest</text>
                 </g>
                 <g transform="translate(405, 95)">
                     <rect width="110" height="26" rx="4" fill="#000" fillOpacity="0.5" stroke="#06B6D4" strokeOpacity="0.3" />
-                    <text x="55" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">R-Squared</text>
+                    <text x="55" y="17" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#06B6D4">Options Surface</text>
                 </g>
 
                 {/* Bottom description */}
-                <text x="300" y="145" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Real-time calculations from trade history • Configurable time periods</text>
+                <text x="300" y="145" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Validated against known plays • Hit rates reported per target and horizon</text>
             </g>
 
             {/* Arrow 3 */}
@@ -207,25 +207,25 @@ export const ThirdEyeArchitectureDiagram = () => {
 
             {/* ==================== LAYER 4: BACKEND ==================== */}
             <g transform="translate(50, 695)">
-                <text x="0" y="0" fontFamily="Inter, sans-serif" fontSize="10" fontWeight="600" fill="#22C55E" letterSpacing="1">BACKEND SERVICES</text>
+                <text x="0" y="0" fontFamily="Inter, sans-serif" fontSize="10" fontWeight="600" fill="#22C55E" letterSpacing="1">BACKEND SERVICES (RENDER + VERCEL)</text>
 
                 <rect x="0" y="15" width="600" height="120" rx="8" fill="url(#grad-te-backend)" stroke="url(#stroke-te-backend)" strokeWidth="1" />
 
                 {/* Two backend services */}
                 <g transform="translate(30, 30)">
                     <rect width="260" height="75" rx="6" fill="#000" fillOpacity="0.4" stroke="#22C55E" strokeOpacity="0.3" />
-                    <text x="130" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill="#22C55E">Appwrite</text>
-                    <text x="130" y="42" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#fff">Trade Storage & History</text>
-                    <text x="130" y="58" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">User accounts & auth</text>
-                    <text x="130" y="72" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#666">Batch operations • Pending states</text>
+                    <text x="130" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill="#22C55E">FastAPI + Supabase</text>
+                    <text x="130" y="42" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#fff">130+ endpoints · 20 modules</text>
+                    <text x="130" y="58" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Postgres + Auth + RLS</text>
+                    <text x="130" y="72" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#666">sa_cache • ~2,600 entries</text>
                 </g>
 
                 <g transform="translate(310, 30)">
                     <rect width="260" height="75" rx="6" fill="#000" fillOpacity="0.4" stroke="#22C55E" strokeOpacity="0.3" />
-                    <text x="130" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill="#22C55E">GoHighLevel CRM</text>
-                    <text x="130" y="42" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#fff">Subscriber Management</text>
-                    <text x="130" y="58" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Email sequences & tiers</text>
-                    <text x="130" y="72" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#666">Basic • Premium • Professional</text>
+                    <text x="130" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="13" fontWeight="600" fill="#22C55E">Data Pipeline</text>
+                    <text x="130" y="42" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#fff">Playwright + SA API scraper</text>
+                    <text x="130" y="58" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">15 tabs per symbol, resumable</text>
+                    <text x="130" y="72" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#666">Cache → SA → RapidAPI → yfinance</text>
                 </g>
             </g>
 
@@ -236,11 +236,11 @@ export const ThirdEyeArchitectureDiagram = () => {
             </g>
             <g transform="translate(260, 840)">
                 <rect width="180" height="28" rx="14" fill="#000" stroke="#666" strokeOpacity="0.3" />
-                <text x="90" y="18" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">6K+ Lines CFA UI</text>
+                <text x="90" y="18" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">786 Backtested Patterns</text>
             </g>
             <g transform="translate(470, 840)">
                 <rect width="180" height="28" rx="14" fill="#000" stroke="#666" strokeOpacity="0.3" />
-                <text x="90" y="18" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Monte Carlo Engine</text>
+                <text x="90" y="18" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="10" fill="#888">Pinecone RAG Knowledge Base</text>
             </g>
 
         </svg>

@@ -50,9 +50,9 @@ export const projects: Project[] = [
   {
     id: 'cfb-fantasy',
     slug: 'cfb-fantasy',
-    title: 'CFB Fantasy App',
-    description: 'Season-long college football fantasy with live drafts, 3D helmet editor, player analytics, and AI chat assistant',
-    longDescription: 'The first fantasy platform built exclusively for college football. Create or join leagues, draft real Power 4 and Notre Dame players through live snake or auction drafts, set weekly lineups, manage your roster through trades and waivers, and compete head-to-head all season — with playoffs, standings, and draft grades. Includes a Fantasy Lab for advanced analytics and an AI chat assistant that knows your league.',
+    title: 'Ballknowers — CFB Fantasy',
+    description: 'Season-long college football fantasy — live on the App Store, Google Play, and web. Real-time drafts, 3D helmet editor, player analytics, and AI chat assistant',
+    longDescription: 'A fantasy platform dedicated exclusively to college football. Create or join leagues, draft real Power 4 and Notre Dame players through live snake or auction drafts, set weekly lineups, manage your roster through trades and waivers, and compete head-to-head all season — with playoffs, standings, and draft grades. Includes a Fantasy Lab for advanced analytics and an AI chat assistant that knows your league.',
     featured: true,
     category: 'fullstack',
     techStack: ['Next.js 15', 'React 19', 'Supabase', 'THREE.js', 'Claude', 'Pinecone'],
@@ -69,8 +69,7 @@ export const projects: Project[] = [
       '15+ background cron jobs',
       'Multi-tenant RLS architecture'
     ],
-    liveUrl: 'https://cfbfantasy.app',
-    githubUrl: 'https://github.com/kpm34/cfb-fantasy',
+    liveUrl: 'https://ballknowers.app',
     diagramUrl: '/diagrams/cfb-fantasy-architecture',
     diagrams: [
       { slug: 'cfb-auth', title: 'Authentication' },
@@ -83,12 +82,12 @@ export const projects: Project[] = [
     images: ['/projects/cfb-new.png', '/projects/cfb.png', '/projects/helmet.png'],
     gradient: 'from-orange-500 to-red-500',
     // New comprehensive fields
-    problemStatement: 'College football has 75 million fans but no dedicated fantasy platform. ESPN and Yahoo treat CFB as an afterthought. We built the app those fans deserve.',
+    problemStatement: 'College football has 75 million fans, but fantasy has always treated CFB as an afterthought. Ballknowers is a platform dedicated to college fantasy — built to give those fans the app they deserve.',
     metrics: [
+      { label: 'Platforms', value: '3', detail: 'Live on iOS, Android, and web' },
       { label: 'Players', value: '2,500+', detail: 'Power 4 + Notre Dame' },
       { label: 'Scoring Types', value: '3', detail: 'PPR, Half-PPR, Standard' },
-      { label: 'Features', value: '100+', detail: 'Fantasy, social, content, analytics' },
-      { label: 'Built Solo', value: '4 mo', detail: 'Design to deploy' }
+      { label: 'Built Solo', value: '10 mo', detail: 'Design to app store release' }
     ],
     outcome: 'Fantasy, content, and social platform for college football fans',
     technicalHighlights: [
@@ -209,22 +208,25 @@ export const projects: Project[] = [
     id: 'thirdeye',
     slug: 'thirdeye',
     title: 'Third Eye Capital',
-    description: 'Stock newsletter and analysis platform with proprietary financial models, 3D concept visualizations, and investor tools',
-    longDescription: 'Investment analysis platform for active investors—like Seeking Alpha with a proprietary edge. Features an immersive 3D scroll journey through financial concepts (Valuation, Technical Analysis, Quantitative Methods), stock analysis with custom financial models, Monte Carlo forecasting tools, and GoHighLevel CRM integration for subscriber management.',
+    description: 'Equity research terminal and proprietary pattern-detection engine — 130+ endpoint FastAPI backend, an automated market-data pipeline, and a published track record',
+    longDescription: 'A subscriber research product built around a proprietary edge. The terminal covers ~290 symbols with 15 data tabs each — fundamentals, valuation, 10-year financials, ratio trends, estimates, dividends, momentum, and ownership — fed by an automated Seeking Alpha ingestion pipeline with a four-stage fallback chain. On top of it sits the Wick-Wick model, a candlestick pattern detector for monthly and quarterly liquidity-purge setups, backtested across 786 enriched patterns from 2020–2025 and published as an auditable track record. Rounded out with a pattern scanner, screener, backtesting engine, options-surface capture, portfolio and play tracking, a CFA learning hub, and a tiered subscriber funnel with admin CRM.',
     featured: true,
     category: 'finance',
-    techStack: ['Next.js', 'TypeScript', 'Three.js', 'GSAP', 'Recharts', 'Appwrite'],
+    techStack: ['React 18', 'TypeScript', 'FastAPI', 'Python', 'Supabase', 'Recharts'],
     techStackDetailed: {
-      frontend: ['Next.js', 'React', 'TypeScript', 'Recharts'],
-      '3d': ['Three.js', 'React Three Fiber', 'GSAP', 'Anime.js'],
-      backend: ['Appwrite', 'GoHighLevel CRM'],
-      education: ['CFA Curriculum', 'Practice Exams', 'Flashcards']
+      frontend: ['React 18', 'Vite', 'TypeScript', 'Tailwind', 'shadcn/ui', 'TanStack Query', 'React Router'],
+      backend: ['FastAPI', 'Python 3', 'Pydantic', 'Supabase (Postgres + Auth + RLS)'],
+      data: ['Playwright scraping', 'Seeking Alpha API', 'RapidAPI', 'yfinance', 'ThetaData v3 (options)'],
+      charts: ['Recharts', 'lightweight-charts'],
+      ai: ['Pinecone (RAG knowledge base)'],
+      '3d': ['Three.js', 'React Three Fiber', 'GSAP'],
+      infra: ['Vercel (frontend)', 'Render (Python API)', 'GoHighLevel CRM']
     },
     aiHighlights: [
-      'Immersive 3D financial concept journey',
-      '60+ nodes across 3 disciplines',
-      'CFA study platform with practice exams',
-      'GoHighLevel CRM subscriber management'
+      '130+ REST endpoints across 20 route modules',
+      'Proprietary pattern model with a published, auditable track record',
+      'Automated ingestion: 15 tabs × ~290 symbols, four-stage fallback chain',
+      'Pinecone RAG over a research knowledge base'
     ],
     liveUrl: 'https://thirdeyecapital.ai',
     diagramUrl: '/diagrams/thirdeye-architecture',
@@ -237,51 +239,62 @@ export const projects: Project[] = [
     images: ['/projects/thirdeye-v2.png'],
     gradient: 'from-slate-500 to-gray-500',
     // New comprehensive fields
-    problemStatement: 'Active investors need actionable analysis, not just news. Third Eye combines proprietary financial models with immersive content delivery and practical analysis tools.',
+    outcome: 'Subscriber research product with a proprietary model and a published track record',
+    problemStatement: 'Retail investors get news and opinion, not an edge with its results shown. Third Eye pairs a research terminal with a proprietary pattern model — and publishes every play, including the ones that did not work.',
     metrics: [
-      { label: 'Study Views', value: '9', detail: 'CFA curriculum sections' },
-      { label: '3D Nodes', value: '60+', detail: 'Financial concept visualization' },
-      { label: 'Disciplines', value: '3', detail: 'Valuation, Technical, Quant' },
-      { label: 'CFA Platform', value: '6K+', detail: 'Lines of curriculum UI' }
+      { label: 'API Endpoints', value: '130+', detail: 'Across 20 FastAPI route modules' },
+      { label: 'Symbols', value: '290+', detail: '15 data tabs each, ~2,600 cached entries' },
+      { label: 'Patterns', value: '786', detail: 'Enriched setups backtested 2020–2025' },
+      { label: 'Frontend Pages', value: '26', detail: 'Terminal, scanner, track record, admin' }
     ],
     technicalHighlights: [
       {
-        title: '3D Financial Journey',
-        description: '60+ financial nodes distributed across Valuation, Technical Analysis, and Quantitative Methods. Scroll-driven camera with fog reveal effect inspired by mont-fort.com.',
-        tags: ['Three.js', 'GSAP', '3D']
+        title: 'Wick-Wick Pattern Engine',
+        description: 'Proprietary detector for monthly and quarterly liquidity-purge setups, enriched with fundamental quality filters and validated against ground-truth plays. Backtested across 786 patterns from 2020–2025, with a scanner that runs it across the market and a backtest harness behind an admin surface.',
+        tags: ['Quant', 'Backtesting', 'Python']
       },
       {
-        title: 'CFA Study Platform',
-        description: 'Multi-view state management across 9 views with hierarchical curriculum navigation, flashcards, practice exams, and progress tracking.',
-        tags: ['Education', 'CFA', 'React']
+        title: 'Automated Market-Data Pipeline',
+        description: 'Playwright browser automation plus API calls collect 15 tabs per symbol — 10-year financials, factor grades, ownership, seasonality — and cache them to Supabase. Requests resolve through a four-stage fallback chain: in-memory TTL cache, Supabase cache, RapidAPI, then yfinance, so a dead upstream degrades instead of failing.',
+        tags: ['ETL', 'Playwright', 'Caching']
       },
       {
-        title: 'Monte Carlo Forecasting',
-        description: 'Probabilistic projections based on historical performance. Parametric inputs for capital, contributions, and strategy selection help subscribers plan.',
-        tags: ['Statistics', 'Forecasting', 'Tools']
+        title: 'Published Track Record',
+        description: 'An auditable outcome ladder where every row states its own time window and denominator, built so losing plays stay as visible as the winners. Rebuilt deliberately to strip out overstated headline claims and misleading peak-return framing.',
+        tags: ['Trust', 'Analytics', 'Product']
       },
       {
-        title: 'CRM Integration',
-        description: 'GoHighLevel integration for subscriber management with tiered access levels (basic, premium, professional) and application workflow.',
-        tags: ['GoHighLevel', 'CRM', 'Subscriptions']
+        title: 'Options Surface Capture',
+        description: 'ThetaData v3 client capturing the full options surface, with a 5-month backtest window chosen as a deliberate buffer against the 4-month price-target horizon.',
+        tags: ['Options', 'ThetaData', 'Backtesting']
+      },
+      {
+        title: 'Research Terminal',
+        description: 'Per-symbol tabs for fundamentals, valuation, growth, profitability, ratio trends, estimates, dividends, momentum, capital structure, peers, seasonality, and ownership — TanStack Query for server state, Recharts and lightweight-charts for the visuals, tiered access gating throughout.',
+        tags: ['React', 'TanStack Query', 'Charts']
+      },
+      {
+        title: 'Subscriber Platform',
+        description: 'Application and approval funnel, tiered access (basic, premium, professional), newsletter and published plays, portfolio and play tracking, a CFA learning hub, and an admin CRM with GoHighLevel sync and per-admin workspace isolation.',
+        tags: ['Supabase Auth', 'RLS', 'CRM']
       }
     ],
     skills: [
       {
-        title: 'Financial Modeling',
-        description: 'Portfolio forecasting with probability-weighted scenarios, exit strategy modeling, Black-Scholes options pricing, and risk assessment with 95% confidence intervals.'
+        title: 'Quantitative Modeling',
+        description: 'Pattern detection over monthly and quarterly candles with parameterized range thresholds, fundamental quality enrichment, validation against known ground-truth plays, and a backtest harness reporting hit rates per target and horizon.'
       },
       {
-        title: 'Scroll-driven 3D',
-        description: 'Camera interpolation keyed to scroll progress, 60 financial concept nodes with Bezier curve connections, exponential fog density progression, and video overlay blending.'
+        title: 'Resilient Data Ingestion',
+        description: 'Authenticated Playwright scraping with cookie persistence on a 24-hour TTL, resumable multi-hour batch runs with a per-symbol audit trail, and a four-source fallback chain so no single upstream outage takes the terminal down.'
       },
       {
-        title: 'Educational Platform',
-        description: 'Hierarchical content system with 40+ routes, two navigation modes (Browse vs. Sequential Study), progress tracking, and interactive simulators and trainers.'
+        title: 'Python API Design',
+        description: 'FastAPI with Pydantic models across 20 route modules covering stock data, scanning, backtesting, portfolio, plays, newsletter, knowledge base, billing, and admin — deployed to Render, with the Vite frontend on Vercel.'
       },
       {
-        title: 'CRM Integration',
-        description: 'GoHighLevel bidirectional sync via webhooks, tier mapping logic, embedded form automation, and subscriber lifecycle management.'
+        title: 'Honest Analytics Presentation',
+        description: 'Track-record surfaces where every claim carries its own window and denominator, built through repeated passes specifically to remove overstated tiers, redundant metrics, and framing that flattered the results.'
       }
     ]
   },
@@ -289,8 +302,8 @@ export const projects: Project[] = [
     id: 'bisect',
     slug: 'bisect',
     title: 'Bisect',
-    description: 'Creative platform bridging Blender and AI - 5 studios for vectors, textures, 3D scenes, audio, and video',
-    longDescription: 'Bisect bridges professional tools (Blender + ComfyUI) for creators who want results without pipeline complexity. Features 5 studios (Vector, Texture, 3D, Audio, Video), a CLI with 30+ commands, MCP server with 20+ AI tools, 600+ PBR materials, and e-commerce adapters for Shopify/WooCommerce. Export to React components or vanilla Three.js.',
+    description: 'Creative tooling that bridges Blender and ComfyUI — three shipped studios for vectors, textures, and 3D scenes, driven by a web UI, a CLI, or an AI agent',
+    longDescription: 'Bisect bridges professional tools (Blender + ComfyUI) for creators who want results without pipeline complexity. Three studios shipped — Vector, Texture, and 3D — with Audio and Video scaffolded but unfinished. The same core is reachable three ways: a web editor, a CLI with 30+ commands, and an MCP server exposing 20+ tools so an AI agent can drive it directly. Includes 600+ PBR materials with Blender sync, e-commerce adapters for Shopify and WooCommerce, and export to React components or vanilla Three.js. Built Nov 2025 – May 2026 and currently parked.',
     featured: true,
     category: 'ai-integration',
     techStack: ['Next.js 14', 'React 18', 'GPT-4o', 'Gemini', 'Claude', 'Three.js', 'Blender API', 'ComfyUI'],
@@ -302,8 +315,8 @@ export const projects: Project[] = [
       integrations: ['Blender Python API', 'ComfyUI', 'Shopify', 'WooCommerce']
     },
     aiHighlights: [
-      '5 creative studios with cross-asset workflows',
-      'CLI + MCP server for AI-powered automation',
+      'Three shipped studios on a shared asset pipeline',
+      'One core, three interfaces: web UI, CLI, and MCP server',
       '600+ PBR materials with Blender sync',
       'E-commerce ready (Shopify, WooCommerce)'
     ],
@@ -323,7 +336,7 @@ export const projects: Project[] = [
     outcome: 'Multi-LLM creative pipeline with CLI + MCP integration',
     problemStatement: 'Blender and ComfyUI are powerful but have steep learning curves. Creators need a bridge that connects these tools through a visual interface without node complexity.',
     metrics: [
-      { label: 'Studios', value: '5', detail: 'Vector, Texture, 3D, Audio, Video' },
+      { label: 'Studios', value: '3', detail: 'Vector, Texture, 3D shipped' },
       { label: 'CLI Commands', value: '30+', detail: 'Scene manipulation' },
       { label: 'MCP Tools', value: '20+', detail: 'AI-powered automation' },
       { label: 'Materials', value: '600+', detail: 'PBR presets with Blender sync' }
@@ -335,8 +348,8 @@ export const projects: Project[] = [
         tags: ['Blender', 'ComfyUI', 'Integration']
       },
       {
-        title: '5-Studio Architecture',
-        description: 'Vector (SVG/AI vectorization), Texture (MatCap/PBR), 3D (scene editing), Audio (SFX), and Video (AI generation) studios with unified Zustand state.',
+        title: 'Multi-Studio Architecture',
+        description: 'Vector (SVG/AI vectorization), Texture (MatCap/PBR), and 3D (scene editing) studios sharing one asset pipeline and unified Zustand state, with Audio and Video scaffolded on the same foundation.',
         tags: ['Architecture', 'Zustand', 'Multi-Studio']
       },
       {
@@ -391,7 +404,7 @@ export const projects: Project[] = [
     techStackDetailed: {
       frontend: ['Next.js 15 (App Router)', 'React 19', 'TypeScript', 'Tailwind CSS', 'Konva', 'Framer Motion'],
       mobile: ['Expo SDK', 'React Native', 'EAS Build & Submit', 'Expo Push'],
-      backend: ['Supabase Postgres', '73 Migrations', 'Row-Level Security', '24 Edge Functions (Deno)', 'Supabase Realtime', 'Supabase Storage'],
+      backend: ['Supabase Postgres', '121 Migrations', 'Row-Level Security', '33 Edge Functions (Deno)', 'Supabase Realtime', 'Supabase Storage'],
       payments: ['QorCommerce PFaaS', 'Sub-merchant boarding', 'Render (static-IP relay)', 'pdf-lib (NSA generation)'],
       infra: ['Vercel', 'Twilio (SMS)', 'AWS Rekognition (ID)', 'Google Cloud Vision (ID)', 'Resend (email)']
     },
@@ -485,7 +498,7 @@ export const projects: Project[] = [
     skills: [
       {
         title: 'Multi-Tenant Postgres + RLS',
-        description: '73 versioned migrations across clubs, promoters, guests, staff, bookings, payments, and underwriting. Row-Level Security on every table with role-aware helpers (is_active for staff, promoter_profiles join for affiliations). Indexes tuned for live floor queries during peak hours.'
+        description: '121 versioned migrations across clubs, promoters, guests, staff, bookings, payments, and underwriting. Row-Level Security on every table with role-aware helpers (is_active for staff, promoter_profiles join for affiliations). Indexes tuned for live floor queries during peak hours.'
       },
       {
         title: 'Payment Facilitator Integration',

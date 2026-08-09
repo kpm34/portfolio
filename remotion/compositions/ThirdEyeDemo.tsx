@@ -13,17 +13,17 @@ import { MetricReveal } from "./shared/MetricReveal";
 import { TechStackReveal } from "./shared/TechStackReveal";
 
 const thirdEyeMetrics = [
-  { label: "Financial Metrics", value: "14", detail: "Risk-adjusted calculations" },
-  { label: "3D Nodes", value: "60+", detail: "InstancedMesh rendering" },
-  { label: "Hit Rate", value: "94%", detail: "Real trade data" },
-  { label: "CFA Platform", value: "6K+", detail: "Lines of curriculum UI" },
+  { label: "API Endpoints", value: "130+", detail: "20 FastAPI route modules" },
+  { label: "Symbols", value: "290+", detail: "15 data tabs each" },
+  { label: "Patterns", value: "786", detail: "Backtested 2020–2025" },
+  { label: "Frontend Pages", value: "26", detail: "Terminal, scanner, admin" },
 ];
 
 const thirdEyeTechStack = {
-  frontend: ["Next.js", "React", "TypeScript", "Recharts"],
-  "3d": ["Three.js", "GSAP", "Anime.js"],
-  backend: ["Appwrite", "GoHighLevel CRM"],
-  analytics: ["Custom metrics engine"],
+  frontend: ["React 18", "Vite", "TypeScript", "TanStack Query"],
+  charts: ["Recharts", "lightweight-charts"],
+  backend: ["FastAPI", "Python", "Supabase"],
+  data: ["Playwright ingestion", "Pinecone RAG"],
 };
 
 // Highlight Card Component
@@ -104,7 +104,7 @@ const IntroScene: React.FC = () => {
   return (
     <ProjectIntro
       title="Third Eye Capital"
-      tagline="Financial analytics with 3D visualizations"
+      tagline="Equity research terminal + proprietary pattern engine"
     />
   );
 };
@@ -203,27 +203,27 @@ const HighlightsScene: React.FC = () => {
         }}
       >
         <HighlightCard
-          title="3D Scroll Visualization"
-          description="60+ financial nodes rendered with Three.InstancedMesh for GPU efficiency. Scroll-driven camera with exponential fog."
-          tags={["Three.js", "GSAP", "3D"]}
+          title="Wick-Wick Pattern Engine"
+          description="Proprietary detector for monthly and quarterly liquidity-purge setups, enriched with fundamental filters and validated against ground-truth plays."
+          tags={["Quant", "Backtesting", "Python"]}
           delay={20}
         />
         <HighlightCard
-          title="Financial Metrics Engine"
-          description="Real-time calculation of Sharpe Ratio, Sortino, Calmar, Alpha, Beta, and Value at Risk from live trade data."
-          tags={["Finance", "Analytics", "TypeScript"]}
+          title="Automated Data Pipeline"
+          description="Playwright ingestion collects 15 tabs per symbol into Supabase, with a four-stage fallback chain so a dead upstream degrades instead of failing."
+          tags={["ETL", "Playwright", "Caching"]}
           delay={35}
         />
         <HighlightCard
-          title="Monte Carlo Forecasting"
-          description="Probabilistic projections based on historical trade performance. Parametric inputs for capital and strategy."
-          tags={["Statistics", "Forecasting"]}
+          title="Published Track Record"
+          description="An auditable outcome ladder where every row carries its own time window and denominator, built so losing plays stay as visible as the winners."
+          tags={["Trust", "Analytics", "Product"]}
           delay={50}
         />
         <HighlightCard
-          title="CFA Learning Platform"
-          description="Multi-view state management across 9 different views with hierarchical curriculum navigation."
-          tags={["Education", "UX", "React"]}
+          title="Research Terminal"
+          description="Per-symbol fundamentals, valuation, 10-year financials, estimates, momentum and ownership, with TanStack Query server state and tiered access gating."
+          tags={["React", "TanStack Query", "Charts"]}
           delay={65}
         />
       </div>

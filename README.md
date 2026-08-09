@@ -6,7 +6,7 @@ Personal portfolio site for Kashyap Maheshwari.
 
 ## Featured Projects
 
-1. **CFB Fantasy** — [cfbfantasy.app](https://cfbfantasy.app)
+1. **CFB Fantasy** — [ballknowers.app](https://ballknowers.app)
 2. **Third Eye Capital** — [thirdeyecapital.ai](https://thirdeyecapital.ai)
 3. **Bisect** — [bisect.app](https://bisect.app)
 4. **Nightkey** — [nightkey.io](https://nightkey.io)

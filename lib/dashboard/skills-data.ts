@@ -10,7 +10,7 @@ export const skills: Skill[] = [
     yearsUsed: 3,
     keywords: ['next.js', 'nextjs', 'next', 'app router', 'server components', 'SSR', 'SSG'],
     evidence: [
-      { projectId: 'cfb-fantasy', description: 'Built full-stack SaaS platform with Next.js 15 App Router', impact: '100+ features, 4 months solo' },
+      { projectId: 'cfb-fantasy', description: 'Built full-stack SaaS platform with Next.js 15 App Router', impact: '100+ features, 10 months solo' },
       { projectId: 'thirdeye', description: 'Stock analysis terminal with Next.js', impact: '9-tab terminal interface' },
       { projectId: 'bisect', description: 'Creative platform with Next.js 14', impact: '5 studios' },
       { projectId: 'nightkey', description: 'iPad-first Next.js 16 dashboard for club operators with Konva floor plan editor and real-time booking state' },
@@ -84,7 +84,7 @@ export const skills: Skill[] = [
     yearsUsed: 2,
     keywords: ['tanstack query', 'react query', 'server state', 'caching', 'data fetching'],
     evidence: [
-      { projectId: 'thirdeye', description: 'Server state management for 70+ API endpoints' },
+      { projectId: 'thirdeye', description: 'Server state management for 130+ API endpoints' },
     ],
   },
 
@@ -109,7 +109,7 @@ export const skills: Skill[] = [
     yearsUsed: 2,
     keywords: ['fastapi', 'python api', 'rest api', 'pydantic', 'uvicorn'],
     evidence: [
-      { projectId: 'thirdeye', description: 'Built FastAPI backend with 70+ REST endpoints', impact: '70+ endpoints powering equity terminal' },
+      { projectId: 'thirdeye', description: 'Built FastAPI backend with 130+ REST endpoints', impact: '130+ endpoints powering equity terminal' },
     ],
   },
   {
@@ -120,7 +120,7 @@ export const skills: Skill[] = [
     yearsUsed: 3,
     keywords: ['rest', 'api design', 'endpoints', 'http', 'crud', 'api architecture'],
     evidence: [
-      { projectId: 'thirdeye', description: '70+ REST endpoints for equity research terminal and admin tools' },
+      { projectId: 'thirdeye', description: '130+ REST endpoints for equity research terminal and admin tools' },
       { projectId: 'cfb-fantasy', description: 'API routes for draft, scoring, waivers, trades, and more' },
     ],
   },
@@ -254,7 +254,7 @@ export const skills: Skill[] = [
     yearsUsed: 2,
     keywords: ['multi-tenant', 'tenancy', 'rls', 'row-level security', 'marketplace', 'role-based access'],
     evidence: [
-      { projectId: 'nightkey', description: 'Four-role marketplace (clubs, promoters, guests, bottle servers) on one Postgres with role-aware RLS on every table — 73 versioned migrations' },
+      { projectId: 'nightkey', description: 'Four-role marketplace (clubs, promoters, guests, bottle servers) on one Postgres with role-aware RLS on every table — 121 versioned migrations' },
     ],
   },
   {
@@ -452,7 +452,7 @@ export const skills: Skill[] = [
     yearsUsed: 2,
     keywords: ['statistics', 'statistical analysis', 'pearson correlation', 'covariance', 'quartile', 'regression', 'monte carlo', 'black-scholes', 'confidence intervals'],
     evidence: [
-      { projectId: 'thirdeye', description: 'Monte Carlo forecasting, Black-Scholes options pricing, probability-weighted portfolio scenarios with 95% confidence intervals' },
+      { projectId: 'thirdeye', description: 'Wick-Wick pattern detection over monthly and quarterly candles, fundamental quality enrichment, and a backtest harness reporting hit rates per target and horizon' },
       { projectId: 'thirdeye', description: 'Backtesting engine with Pearson correlation, covariance matrices, quartile decomposition' },
       { projectId: 'cfb-fantasy', description: 'Boom/bust volatility analysis from historical game data' },
     ],
@@ -492,7 +492,7 @@ export const skills: Skill[] = [
     keywords: ['postgresql', 'postgres', 'sql', 'relational database', 'rdbms'],
     evidence: [
       { projectId: 'cfb-fantasy', description: '50+ tables, 24 migrations, 30+ stored procedures, RLS policies', impact: '50+ tables with RLS' },
-      { projectId: 'nightkey', description: '73 versioned migrations modeling four-role marketplace (clubs, promoters, guests, servers) with RLS on every table' },
+      { projectId: 'nightkey', description: '121 versioned migrations modeling four-role marketplace (clubs, promoters, guests, servers) with RLS on every table' },
     ],
   },
   {
@@ -791,7 +791,7 @@ export const skills: Skill[] = [
     yearsUsed: 2,
     keywords: ['financial modeling', 'monte carlo', 'black-scholes', 'portfolio forecasting', 'options pricing', 'risk assessment'],
     evidence: [
-      { projectId: 'thirdeye', description: 'Monte Carlo forecasting with parametric inputs for capital, contributions, and strategy selection' },
+      { projectId: 'thirdeye', description: 'Backtesting across 786 enriched patterns (2020–2025) with per-target, per-horizon outcome reporting' },
       { projectId: 'thirdeye', description: 'Black-Scholes options pricing, probability-weighted portfolio scenarios, exit strategy modeling' },
       { projectId: 'thirdeye', description: 'Proprietary analysis algorithm with price action, financials, configurable range filtering, nesting invalidation' },
     ],

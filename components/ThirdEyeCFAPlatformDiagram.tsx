@@ -61,7 +61,7 @@ export const ThirdEyeCFAPlatformDiagram = () => {
                 <g transform="translate(30, 45)">
                     <rect width="100" height="50" rx="6" fill="#A855F7" fillOpacity="0.3" stroke="#A855F7" strokeOpacity="0.6" />
                     <text x="50" y="22" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#fff">HOME</text>
-                    <text x="50" y="38" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#A855F7">/study</text>
+                    <text x="50" y="38" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="9" fill="#A855F7">/learn</text>
                 </g>
 
                 <path d="M 130 70 L 160 70" stroke="#A855F7" strokeWidth="1.5" markerEnd="url(#arrow-cfa)" />
