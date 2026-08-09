@@ -70,7 +70,7 @@ const skillSections = {
     },
     {
       category: "Multi-Agent Systems",
-      description: "Ballknowers' internal content studio: an AI workforce of article, social, scout, mixer, analyst, and strategist agents polling a Supabase task queue with human approval on every publish path, feeding the app through a one-way factory/storefront publish flow. Bisect's agent architecture: Gemini Spatial Agent, Material Agent with RAG, Claude Blender Agent, and Agent Debate for consensus-based decisions. Multi-LLM routing (GPT-4o, Claude, Gemini) based on task requirements. Custom MCP servers for Blender scene manipulation and article CRUD."
+      description: "Ballknowers' internal content studio: an AI workforce of article, social, scout, mixer, analyst, and strategist agents polling a Supabase task queue with human approval on every publish path, feeding the app through a one-way factory/storefront publish flow. Bisect's agent architecture: Gemini Spatial Agent, Material Agent with RAG, Claude Blender Agent, and Agent Debate for consensus-based decisions. Multi-LLM routing (GPT-4o, Claude, Gemini) based on task requirements. Custom MCP servers for Blender scene manipulation and article CRUD. Voice interface with Porcupine wake-word detection, local Whisper transcription, and ElevenLabs TTS driving the studio hands-free."
     },
     {
       category: "Data Pipelines",

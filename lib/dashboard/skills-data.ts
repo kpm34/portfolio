@@ -444,6 +444,17 @@ export const skills: Skill[] = [
     ],
   },
   {
+    id: 'voice-ai',
+    name: 'Voice AI / Speech Interfaces',
+    category: 'ai-ml',
+    proficiency: 3,
+    yearsUsed: 1,
+    keywords: ['voice agent', 'whisper', 'speech-to-text', 'text-to-speech', 'wake word', 'elevenlabs'],
+    evidence: [
+      { projectId: 'content-studio', description: 'Lil Pepe — voice front door for the content orchestrator: Porcupine wake-word detection, local Whisper transcription, ElevenLabs TTS with offline fallback chain, and voice-driven multi-screen HUD control, packaged as a macOS app with a launchd agent' },
+    ],
+  },
+  {
     id: 'mcp-servers',
     name: 'MCP Server Development',
     category: 'ai-ml',

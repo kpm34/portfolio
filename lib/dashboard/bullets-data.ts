@@ -100,6 +100,12 @@ export const intelivanceBullets: ResumeBulletPoint[] = [
     text: 'Built an internal AI content factory with specialized agents (article, social, scout, analyst, strategist) polling a Supabase task queue, human approval gates, and one-way publish promotion into the production app',
     skills: ['multi-agent', 'llm-integration', 'supabase', 'python', 'mcp-servers'],
   },
+  {
+    id: 'cfb-voice-agent',
+    projectId: 'cfb-fantasy',
+    text: 'Built a hands-free voice assistant for the content studio with wake-word detection (Porcupine), local Whisper speech-to-text, and ElevenLabs TTS, controlling a multi-screen operator HUD through natural language',
+    skills: ['voice-ai', 'python', 'llm-integration'],
+  },
 
   // --- Third Eye Capital ---
   {

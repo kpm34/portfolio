@@ -133,8 +133,8 @@ export const projects: Project[] = [
       },
       {
         title: 'AI Content Studio (Internal)',
-        description: 'A separate AI-operated content factory that powers CFB Central and social growth. Specialized agents — article writer, social poster, scout, mixer, analyst, strategist — poll a Supabase task queue, draft content, and route everything through human approval before a one-way publish into the app. Includes an operator UI (Content Hub, Writing Room, Studio Conveyor), a Remotion render engine, ComfyUI/Blender generation workflows, and a custom MCP server for article CRUD.',
-        tags: ['AI Agents', 'Content Factory', 'Internal Tooling']
+        description: 'A separate AI-operated content factory that powers CFB Central and social growth. Specialized agents — article writer, social poster, scout, mixer, analyst, strategist — poll a Supabase task queue, draft content, and route everything through human approval before a one-way publish into the app. Includes an operator UI (Content Hub, Writing Room, Studio Conveyor), a Remotion render engine, ComfyUI/Blender generation workflows, a custom MCP server for article CRUD, and a voice assistant ("Lil Pepe") with wake-word detection, local Whisper transcription, and ElevenLabs speech that answers questions and drives the studio HUD hands-free.',
+        tags: ['AI Agents', 'Content Factory', 'Voice AI']
       },
       {
         title: '3D Explore Experience',
@@ -201,7 +201,7 @@ export const projects: Project[] = [
       },
       {
         title: 'AI Agent Orchestration',
-        description: 'An internal content studio where article, social, scout, mixer, analyst, and strategist agents run against a Supabase task queue with a Python worker — drafts flow through quality review and human approval, then publish one-way into the consumer app via a two-database factory/storefront architecture. Includes a custom MCP server (cfb-articles-mcp) for article CRUD.'
+        description: 'An internal content studio where article, social, scout, mixer, analyst, and strategist agents run against a Supabase task queue with a Python worker — drafts flow through quality review and human approval, then publish one-way into the consumer app via a two-database factory/storefront architecture. Includes a custom MCP server (cfb-articles-mcp) for article CRUD and a voice interface with wake-word detection, local Whisper STT, and ElevenLabs TTS for hands-free studio operation.'
       },
       {
         title: 'Video Production',
