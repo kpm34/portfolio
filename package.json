@@ -11,7 +11,9 @@
     "remotion:render:cfb": "remotion render remotion/index.ts CFBDemo public/projects/cfb-demo.mp4",
     "remotion:render:thirdeye": "remotion render remotion/index.ts ThirdEyeDemo public/projects/thirdeye-demo.mp4",
     "remotion:render:bisect": "remotion render remotion/index.ts BisectDemo public/projects/bisect-demo.mp4",
-    "remotion:render:all": "npm run remotion:render:cfb && npm run remotion:render:thirdeye && npm run remotion:render:bisect"
+    "remotion:render:all": "npm run remotion:render:cfb && npm run remotion:render:thirdeye && npm run remotion:render:bisect",
+    "test:e2e": "playwright test",
+    "test:contrast": "playwright test e2e/contrast"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.410",
@@ -29,6 +31,7 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
