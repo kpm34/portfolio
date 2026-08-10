@@ -61,6 +61,13 @@ export async function settlePage(page: Page): Promise<void> {
     }
     window.scrollTo(0, 0);
   });
+  // Looping/autoplaying <video> elements (e.g. product demo clips) keep the
+  // network busy indefinitely once playing, so `networkidle` would otherwise
+  // never resolve. Pause them first — playback state has no bearing on a
+  // contrast audit of rendered text.
+  await page.evaluate(() => {
+    document.querySelectorAll('video').forEach((v) => v.pause());
+  });
   await page.waitForLoadState('networkidle');
   await page.waitForTimeout(400);
 }

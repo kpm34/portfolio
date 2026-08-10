@@ -16,8 +16,7 @@ test('Marcellus is gone and Instrument Serif is loaded', async ({ page }) => {
   expect(fonts.join(' ')).toContain('Instrument Serif');
 });
 
-// un-fixme in Task 5 — the 44px hero is removed when the home page is rebuilt
-test.fixme('no text exceeds 44px anywhere', async ({ page }) => {
+test('no text exceeds 44px anywhere', async ({ page }) => {
   await page.goto('/');
   const oversized = await page.evaluate(() =>
     Array.from(document.querySelectorAll('*'))

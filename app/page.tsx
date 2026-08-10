@@ -1,64 +1,48 @@
-"use client";
+import { projects } from "@/lib/projects";
+import { ProductEntry } from "@/components/ProductEntry";
 
-import { projects } from '@/lib/projects';
-import { ProjectCard } from '@/components/ProjectCard';
-import { Hero } from '@/components/Hero';
-import { ContactForm } from '@/components/ContactForm';
-import { motion } from 'framer-motion';
+const FEATURED = ["cfb-fantasy", "thirdeye", "nightkey", "bisect"] as const;
 
 export default function Home() {
-  // Define the exact order of featured projects
-  const featuredProjectIds = ['cfb-fantasy', 'thirdeye', 'bisect', 'nightkey'];
-
-  // Get the full project objects in the correct order
-  const featuredProjects = featuredProjectIds
-    .map(id => projects.find(p => p.id === id))
-    .filter((p): p is NonNullable<typeof p> => p !== undefined);
+  const featured = FEATURED
+    .map((id) => projects.find((p) => p.id === id))
+    .filter((p): p is NonNullable<typeof p> => Boolean(p));
 
   return (
-    <main className="min-h-screen relative overflow-hidden bg-[#1C1C1C]">
-      {/* Subtle Background Mesh */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(128,0,32,0.03),transparent_50%)]" />
-      </div>
+    <main className="mx-auto w-full max-w-[1100px] px-6 pb-40">
+      <header className="mx-auto flex max-w-[720px] items-center justify-between pt-10">
+        <span className="label">Kashyap Maheshwari</span>
+        <span className="label flex items-center gap-2">
+          <span aria-hidden className="inline-block h-[6px] w-[6px] rounded-full bg-accent" />
+          Available
+        </span>
+      </header>
 
-      <Hero />
+      <section className="mx-auto mt-24 max-w-[720px]">
+        <h1 className="font-display text-[44px] italic leading-[1.1] tracking-[-0.01em]">
+          I build AI systems that operate real businesses.
+        </h1>
+        <p className="mt-6 max-w-[62ch] text-[16px] leading-relaxed text-muted">
+          My consumer app — live on the App Store and Google Play — is run by an
+          agent workforce I built: agents that write its articles, produce its
+          video, and report to me through a voice assistant. Every publish path
+          has a human approval gate.
+        </p>
+      </section>
 
-      <div className="w-full px-6 pb-32 relative z-10">
+      {featured.map((p, i) => (
+        <ProductEntry key={p.id} project={p} priority={i === 0} />
+      ))}
 
-        {/* Horizontal Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mt-20 max-w-7xl mx-auto">
-          {featuredProjects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
-          ))}
-        </div>
-
-        {/* Contact Form */}
-        <div className="mt-40">
-          <div className="flex items-center gap-4 mb-8">
-            <div className="h-[1px] flex-1 bg-[#F5F5DC]/10" />
-            <h2 className="text-xl font-mono text-[#F5F5DC]/40 uppercase tracking-widest">Contact</h2>
-            <div className="h-[1px] flex-1 bg-[#F5F5DC]/10" />
-          </div>
-          <ContactForm />
-        </div>
-
-        {/* Minimal Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-40 pt-12 border-t border-[#F5F5DC]/5 flex justify-between items-center text-sm text-[#F5F5DC]/40"
-        >
-          <p>© {new Date().getFullYear()} Kashyap Maheshwari</p>
-          <div className="flex gap-6 font-mono text-xs">
-            <span>Next.js</span>
-            <span>React Three Fiber</span>
-            <span>AI Architecture</span>
-          </div>
-        </motion.div>
-
-      </div>
+      <section className="mx-auto mt-32 max-w-[720px] border-t border-rule pt-10">
+        <h2 className="label">Currently</h2>
+        <p className="mt-4 max-w-[62ch] text-[16px] leading-relaxed text-muted">
+          Open to select freelance work and full-time roles.{" "}
+          <a href="mailto:kashpm2002@gmail.com" className="text-accent underline decoration-accent/30 underline-offset-4">
+            kashpm2002@gmail.com
+          </a>
+        </p>
+      </section>
     </main>
   );
 }

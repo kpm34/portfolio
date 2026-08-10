@@ -35,9 +35,13 @@ export interface Project {
   diagramUrl?: string;
   diagrams?: DiagramInfo[];
   image: string;
+  /** Optional looping clip. Absent until rendered — ProductMedia falls back to `image`. */
+  clip?: string;
   demoVideo?: string;
   images?: string[];
   gradient: string;
+  /** Exactly three short metadata chips, rendered as tracked caps. */
+  chips: string[];
   // New comprehensive fields
   problemStatement?: string;
   metrics?: Metric[];
@@ -78,6 +82,8 @@ export const projects: Project[] = [
       { slug: 'helmet-editor-architecture', title: 'Helmet Editor' }
     ],
     image: '/projects/cfb-demo-thumb.png',
+    clip: '/projects/cfb-demo.mp4',
+    chips: ['iOS · Android · Web', '50+ tables', '6 agents'],
     demoVideo: '/projects/cfb-demo.mp4',
     images: ['/projects/cfb-new.png', '/projects/cfb.png', '/projects/helmet.png'],
     gradient: 'from-orange-500 to-red-500',
@@ -245,6 +251,7 @@ export const projects: Project[] = [
       { slug: 'thirdeye-cfa-platform', title: 'CFA Learning Platform' }
     ],
     image: '/projects/thirdeye-v2.png',
+    chips: ['130 endpoints', '786 patterns backtested', '~290 symbols'],
     images: ['/projects/thirdeye-v2.png'],
     gradient: 'from-slate-500 to-gray-500',
     // New comprehensive fields
@@ -338,6 +345,7 @@ export const projects: Project[] = [
       { slug: 'bisect-materials', title: 'Material System' }
     ],
     image: '/projects/prism.png',
+    chips: ['3 studios', 'CLI + MCP server', '600+ materials'],
     demoVideo: '/projects/Demo.mov',
     images: ['/projects/prism.png'],
     gradient: 'from-emerald-500 to-teal-500',
@@ -432,6 +440,7 @@ export const projects: Project[] = [
       { slug: 'nightkey-floor-plan', title: 'Floor Plan & Bookings' }
     ],
     image: '/projects/nightkey.png',
+    chips: ['4 surfaces', '121 migrations', 'PayFac payouts'],
     images: ['/projects/nightkey.png', '/projects/nightkey-floor-plan.png', '/projects/nightkey-menu.png'],
     gradient: 'from-amber-500 to-orange-600',
     problemStatement: 'Nightclubs run on spreadsheets, group chats, and improvised cash splits. Guests can\'t reliably book a table, promoters can\'t prove the heads they brought, and operators can\'t see their floor in real time. Nightkey is the operating layer that ties guests, promoters, hosts, and venues together — with payments, bookings, and accountability built in.',

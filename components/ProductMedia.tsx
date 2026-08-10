@@ -25,6 +25,17 @@ export function ProductMedia({ poster, clip, alt, priority = false, testId }: Pr
 
   const videoRef = useInViewVideo(Boolean(clip) && allowMotion);
 
+  // React sets `muted` as a DOM property, not an HTML attribute, when a
+  // <video> node is created after mount (as here, gated behind allowMotion).
+  // Browsers' autoplay policy — and anything asserting on the attribute —
+  // needs it reflected explicitly.
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.setAttribute("muted", "");
+    }
+  }, [clip, allowMotion, videoRef]);
+
   return (
     <figure
       data-testid={`media-${testId}`}

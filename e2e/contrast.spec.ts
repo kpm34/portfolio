@@ -4,7 +4,8 @@ import { auditContrast, settlePage } from './lib/contrast';
 const PAGES = ['/', '/about', '/projects/cfb-fantasy', '/projects/nightkey'];
 
 for (const path of PAGES) {
-  test.fixme(`${path} has no WCAG AA contrast failures`, async ({ page }) => {
+  const runner = path === '/' ? test : test.fixme;
+  runner(`${path} has no WCAG AA contrast failures`, async ({ page }) => {
     await page.goto(path);
     await settlePage(page);
     const failures = await auditContrast(page);
