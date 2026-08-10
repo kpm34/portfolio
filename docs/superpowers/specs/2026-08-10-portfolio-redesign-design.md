@@ -101,6 +101,20 @@ touching anything else.
 `/projects/[slug]` keeps its long-form writeup and gains the 15 architecture
 diagrams as inline figures. Diagrams are reachable only from project pages.
 
+### Other surfaces affected by the token change
+
+Inverting `globals.css` changes every page that consumes the tokens, so these
+are in scope whether or not they are redesigned:
+
+- **`/about`** (306 lines) — must be brought onto the new palette and type
+  scale. Not a redesign, but it cannot ship still styled for a dark ground.
+- **`/diagrams/[slug]`** — the 21 diagram components draw their own strokes and
+  fills. Each must be checked against paper; any hardcoded light-on-dark colour
+  inverts to invisible.
+- **`/dashboard/*`** (private, `noindex`) — shares `globals.css`. Either scope
+  the dashboard to its own dark tokens or accept the inversion. Decide during
+  implementation; do not let it silently break.
+
 ## Non-goals
 
 - No changes to any app's own codebase.
