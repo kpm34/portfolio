@@ -1,36 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  --background: #1C1C1C; /* Deep Charcoal */
-  --foreground: #F5F5DC; /* Warm Beige */
-  --accent: #800020; /* Deep Burgundy */
-  --accent-glow: rgba(128, 0, 32, 0.15);
-  --card-bg: rgba(245, 245, 220, 0.03); /* Beige with low opacity */
-  --card-border: rgba(245, 245, 220, 0.08);
+  --paper:  #FAF9F6;
+  --ink:    #16150F;
+  --muted:  #5A5750;
+  --accent: #800020;
+  --rule:   rgb(22 21 15 / 0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains-mono);
+  --color-paper:  var(--paper);
+  --color-ink:    var(--ink);
+  --color-muted:  var(--muted);
+  --color-accent: var(--accent);
+  --color-rule:   var(--rule);
+
+  --font-sans:    var(--font-inter);
+  --font-mono:    var(--font-jetbrains-mono);
+  --font-display: var(--font-instrument-serif);
 }
 
 @layer utilities {
-  .glass-panel {
-    @apply bg-[var(--card-bg)] border border-[var(--card-border)] backdrop-blur-md;
+  /* 12px tracked caps used for every label and metadata chip */
+  .label {
+    @apply font-mono text-[12px] uppercase tracking-[0.12em] text-muted;
   }
-  
-  .text-gradient {
-    @apply bg-gradient-to-r from-[#F5F5DC] via-[#E8E6E3] to-[#D3D3D3] bg-clip-text text-transparent;
-  }
-
-  .text-accent-gradient {
-    @apply bg-gradient-to-r from-[#800020] to-[#A52A2A] bg-clip-text text-transparent;
+  /* the single deliberate lift under media — the only shadow on the site */
+  .media-lift {
+    box-shadow: 0 1px 2px rgb(22 21 15 / 0.06), 0 8px 24px rgb(22 21 15 / 0.05);
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
 }
