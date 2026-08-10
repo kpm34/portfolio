@@ -69,7 +69,25 @@ export async function settlePage(page: Page): Promise<void> {
     document.querySelectorAll('video').forEach((v) => v.pause());
   });
   await page.waitForLoadState('networkidle');
-  await page.waitForTimeout(400);
+
+  // Wait for animations to actually finish rather than guessing at a duration.
+  // A fixed timeout made this audit flaky under parallel workers: elements got
+  // measured mid-transition at partial opacity, so the composited ratio failed
+  // intermittently on whichever page happened to be starved of CPU. Both CSS
+  // transitions and framer-motion (WAAPI) register here, so this is
+  // deterministic where a sleep is not.
+  await page.evaluate(async () => {
+    const running = () =>
+      document.getAnimations().filter((a) => a.playState === 'running');
+    // Bound the wait: an infinite/looping animation would otherwise hang here.
+    const deadline = Date.now() + 3000;
+    while (running().length && Date.now() < deadline) {
+      await Promise.race([
+        Promise.allSettled(running().map((a) => a.finished)),
+        new Promise((r) => setTimeout(r, 250)),
+      ]);
+    }
+  });
 }
 
 /** Audits every rendered text leaf on the current page against WCAG AA. */

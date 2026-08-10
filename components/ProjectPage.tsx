@@ -88,23 +88,27 @@ export function ProjectPage({ project }: ProjectPageProps) {
   const handleMouseUp = () => setIsDragging(false);
   const handleMouseLeave = () => setIsDragging(false);
 
+  // Above-the-fold hero motion is ADDITIVE ONLY: the text is already visible in
+  // the server-rendered HTML and merely settles into place. Never reintroduce
+  // `opacity: 0` here — a hero that needs JavaScript to become readable is the
+  // exact defect this redesign was built to remove.
   const containerVariants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
+        staggerChildren: 0.06,
+        delayChildren: 0,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 1, y: 8 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "circOut" as const },
+      transition: { duration: 0.45, ease: "circOut" as const },
     },
   };
 

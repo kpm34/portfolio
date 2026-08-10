@@ -39,7 +39,7 @@ export function ProductMedia({ poster, clip, alt, priority = false, testId }: Pr
   return (
     <figure
       data-testid={`media-${testId}`}
-      className="relative w-full aspect-video overflow-hidden rounded-[2px] bg-paper media-lift"
+      className="relative w-full aspect-video max-h-[var(--media-max-h)] overflow-hidden rounded-[2px] bg-paper media-lift"
     >
       {clip && allowMotion ? (
         <video

@@ -5,7 +5,7 @@ import { ProductMedia } from "./ProductMedia";
 
 export function ProductEntry({ project, priority = false }: { project: Project; priority?: boolean }) {
   return (
-    <article className="mt-24 first:mt-16">
+    <article className="group mt-[var(--space-section)] border-t border-rule pt-[var(--space-section)]">
       <ProductMedia
         testId={project.slug}
         poster={project.image}
@@ -14,22 +14,25 @@ export function ProductEntry({ project, priority = false }: { project: Project; 
         priority={priority}
       />
 
-      <div className="mx-auto mt-6 max-w-[720px]">
+      <div className="mx-auto mt-7 max-w-[720px]">
         <h2 className="text-[20px] font-medium tracking-tight">
           <Link
             href={`/projects/${project.slug}`}
-            className="group inline-flex items-center gap-1 text-accent decoration-accent/30 underline-offset-4 hover:underline"
+            className="link-underline inline-flex items-center gap-1 text-accent"
           >
             {project.title}
-            <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-px group-hover:-translate-y-px" />
+            <ArrowUpRight
+              size={16}
+              className="transition-transform duration-[var(--dur-hover)] ease-[var(--ease-out)] group-hover:translate-x-[2px] group-hover:-translate-y-[2px]"
+            />
           </Link>
         </h2>
 
-        <p className="mt-2 max-w-[62ch] text-[16px] leading-relaxed text-muted">
+        <p className="mt-3 max-w-[62ch] text-[16px] leading-relaxed text-muted">
           {project.description}
         </p>
 
-        <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
+        <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
           {project.chips.map((c) => (
             <li key={c} className="label">{c}</li>
           ))}

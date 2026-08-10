@@ -18,7 +18,7 @@ export default function Home() {
         </span>
       </header>
 
-      <section className="mx-auto mt-24 max-w-[720px]">
+      <section className="mx-auto mt-[var(--space-hero)] max-w-[720px]">
         <h1 className="font-display text-[44px] italic leading-[1.1] tracking-[-0.01em]">
           I build AI systems that operate real businesses.
         </h1>
@@ -34,7 +34,7 @@ export default function Home() {
         <ProductEntry key={p.id} project={p} priority={i === 0} />
       ))}
 
-      <section className="mx-auto mt-32 max-w-[720px] border-t border-rule pt-10">
+      <section className="mx-auto mt-[var(--space-section)] max-w-[720px] border-t border-rule pt-[var(--space-section)]">
         <h2 className="label">Currently</h2>
         <p className="mt-4 max-w-[62ch] text-[16px] leading-relaxed text-muted">
           Open to select freelance work and full-time roles.{" "}

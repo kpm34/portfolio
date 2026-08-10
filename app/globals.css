@@ -6,6 +6,17 @@
   --muted:  #5A5750;
   --accent: #800020;
   --rule:   rgb(22 21 15 / 0.12);
+
+  /* Rhythm. Tuned optically against the rendered page rather than picked from
+     the Tailwind scale — round numbers everywhere is the spacing tell. */
+  --space-section: 5.5rem;   /* between top-level sections */
+  --space-hero:    4rem;     /* hero block to the first product */
+  --media-max-h:   64vh;     /* keeps a product's name on screen with its media */
+
+  /* Motion. Reference spring from the Interface Craft live-tuning lesson:
+     subtle overshoot that settles quickly. Overshoot is seasoning, not sauce. */
+  --dur-hover: 220ms;
+  --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @theme inline {
@@ -28,6 +39,40 @@
   /* the single deliberate lift under media — the only shadow on the site */
   .media-lift {
     box-shadow: 0 1px 2px rgb(22 21 15 / 0.06), 0 8px 24px rgb(22 21 15 / 0.05);
+    transition:
+      box-shadow var(--dur-hover) var(--ease-out),
+      transform  var(--dur-hover) var(--ease-out);
+  }
+  /* Media and its shadow move as one object from a shared origin — per-element
+     origins read as subtly wrong even when nobody can name why. */
+  .group:hover .media-lift {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 4px rgb(22 21 15 / 0.07), 0 18px 40px rgb(22 21 15 / 0.09);
+  }
+
+  /* Underline that draws in from the left rather than appearing. */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1px;
+    transition: background-size var(--dur-hover) var(--ease-out);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+/* Nothing on this site may animate for users who asked it not to. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0s !important;
+    scroll-behavior: auto !important;
   }
 }
 
