@@ -38,8 +38,18 @@ const TARGETS = {
 
   thirdeye: {
     url: 'https://thirdeyetrading.io/performance-dashboard',
-    settleMs: 6000,
-    durationMs: 10000,
+    // Data load time varies; wait for the rows rather than guessing a duration.
+    settleMs: 0,
+    durationMs: 9000,
+    // Wait for a POSITIVE signal — actual table rows. Waiting for a loader to
+    // disappear passes instantly before the loader has even rendered, which is
+    // how this first "succeeded" 98ms after navigation on a still-blank page.
+    readyWhen: async (page) =>
+      page.waitForFunction(
+        () => document.querySelectorAll('tbody tr').length >= 8,
+        undefined,
+        { timeout: 90_000 }
+      ),
     // The dashboard looks public in a logged-in browser but redirects to the
     // membership wall without a session. Sign in first, or the capture is a
     // recording of a signup page.
@@ -51,12 +61,13 @@ const TARGETS = {
       passwordSelector: '#password',
     },
     async act(page) {
-      // Slow scroll through the settled-plays table so the loop shows real rows
-      // rather than a static screenshot. Kept gentle so it reads as reading,
-      // not as a scrubbing animation.
-      for (let i = 0; i < 18; i++) {
-        await page.mouse.wheel(0, 40);
-        await page.waitForTimeout(230);
+      // Hold on the headline numbers first — the hit rate, settled-play count
+      // and median peak are the argument; the table is the evidence. Then a
+      // short scroll reveals rows without pushing the KPI row out of frame.
+      await page.waitForTimeout(2500);
+      for (let i = 0; i < 8; i++) {
+        await page.mouse.wheel(0, 32);
+        await page.waitForTimeout(260);
       }
     },
   },
@@ -130,8 +141,14 @@ if (target.login) {
     });
 }
 
+const navAt = Date.now();
 await page.goto(target.url, { waitUntil: 'domcontentloaded' });
-await page.waitForTimeout(target.settleMs);
+
+// Wait for real content rather than a fixed sleep — load time varies, and a
+// guessed timeout is how you end up shipping a clip of a spinner.
+if (target.readyWhen) await target.readyWhen(page);
+if (target.settleMs) await page.waitForTimeout(target.settleMs);
+const readyOffsetMs = Date.now() - navAt;
 
 // Refuse to record a paywall. Cheap guard, and it is exactly the failure that
 // silently produced a signup-page "demo" on the first attempt.
@@ -161,4 +178,7 @@ if (!file) {
 }
 const final = join(OUT_DIR, `${name}.webm`);
 renameSync(join(OUT_DIR, file), final);
+// Second line is where usable footage begins, so the encode step can trim the
+// load/spinner period instead of the caller guessing at it.
 console.log(final);
+console.log(`READY_AT_MS=${readyOffsetMs}`);

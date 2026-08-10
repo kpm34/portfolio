@@ -296,7 +296,8 @@ export const projects: Project[] = [
       { slug: 'thirdeye-3d-journey', title: '3D Financial Journey' },
       { slug: 'thirdeye-cfa-platform', title: 'CFA Learning Platform' }
     ],
-    image: '/projects/thirdeye-v2.png',
+    image: '/projects/thirdeye-poster.jpg',
+    clip: '/projects/thirdeye-loop.mp4',
     chips: ['130 endpoints', '786 patterns backtested', '~290 symbols'],
     images: ['/projects/thirdeye-v2.png'],
     gradient: 'from-slate-500 to-gray-500',
