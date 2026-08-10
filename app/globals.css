@@ -40,3 +40,14 @@ body {
   background: var(--accent);
   color: var(--paper);
 }
+
+/* The private dashboard keeps the old dark palette. Scoped, not global. */
+[data-surface="dark"] {
+  --paper:  #1C1C1C;
+  --ink:    #F5F5DC;
+  --muted:  rgb(245 245 220 / 0.65);
+  --accent: #C46A72;              /* lightened: 4.59:1 on #1C1C1C */
+  --rule:   rgb(245 245 220 / 0.12);
+  background: var(--paper);
+  color: var(--ink);
+}

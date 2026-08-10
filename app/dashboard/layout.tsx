@@ -6,5 +6,9 @@ export const metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <DashboardLayout>{children}</DashboardLayout>;
+  return (
+    <div data-surface="dark" className="min-h-screen">
+      <DashboardLayout>{children}</DashboardLayout>
+    </div>
+  );
 }
