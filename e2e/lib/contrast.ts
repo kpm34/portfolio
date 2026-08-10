@@ -87,6 +87,15 @@ export async function settlePage(page: Page): Promise<void> {
         new Promise((r) => setTimeout(r, 250)),
       ]);
     }
+    // Fail loudly rather than auditing a half-animated page. Text still at
+    // opacity 0 when the audit runs is silently DROPPED as "invisible", so a
+    // quiet timeout here would under-measure instead of erroring.
+    if (running().length) {
+      throw new Error(
+        `settlePage: ${running().length} animation(s) still running after 3000ms — ` +
+          `the contrast audit would silently skip un-settled text. Investigate rather than raising this bound.`
+      );
+    }
   });
 }
 
@@ -132,8 +141,17 @@ export async function auditContrast(page: Page): Promise<ContrastFailure[]> {
 
     const out: any[] = [];
     for (const el of Array.from(document.querySelectorAll('*'))) {
-      if (el.children.length) continue;                 // leaves only
-      if (!el.textContent?.trim()) continue;
+      // Measure any element carrying its own text, not just childless ones.
+      // A "leaves only" filter silently skipped every project title, because
+      // <a>Ballknowers<svg/></a> has an element child — i.e. it skipped exactly
+      // the elements that measured 1.57:1 and motivated this whole audit.
+      // Using own text (not textContent) also avoids double-counting ancestors.
+      const ownText = Array.from(el.childNodes)
+        .filter((n) => n.nodeType === Node.TEXT_NODE)
+        .map((n) => n.textContent ?? '')
+        .join('')
+        .trim();
+      if (!ownText) continue;
       if (!(el as HTMLElement).offsetParent && getComputedStyle(el).position !== 'fixed') continue;
 
       // inherited opacity chain
@@ -162,7 +180,7 @@ export async function auditContrast(page: Page): Promise<ContrastFailure[]> {
       const ratio = +(Math.max(L1, L2) / Math.min(L1, L2)).toFixed(2);
 
       if (ratio < required) {
-        out.push({ text: el.textContent.trim().slice(0, 40), px: Math.round(px), ratio, required, selector: sel(el) });
+        out.push({ text: ownText.slice(0, 40), px: Math.round(px), ratio, required, selector: sel(el) });
       }
     }
     return out;

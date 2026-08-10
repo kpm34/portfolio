@@ -5,8 +5,11 @@ import { Github, Linkedin, Mail, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
+// Additive only: the page is already readable in the server HTML and merely
+// settles. Never reintroduce `opacity: 0` — a headline that needs JavaScript to
+// become visible is the defect this redesign was built to remove.
 const containerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
@@ -17,7 +20,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
