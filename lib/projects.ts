@@ -486,9 +486,9 @@ export const projects: Project[] = [
       { slug: 'nightkey-onboarding', title: 'Merchant Onboarding' },
       { slug: 'nightkey-floor-plan', title: 'Floor Plan & Bookings' }
     ],
-    image: '/projects/nightkey-poster.jpg',
+    image: '/projects/nightkey-tables.jpg',
     chips: ['4 surfaces', '121 migrations', 'PayFac payouts'],
-    images: ['/projects/nightkey.png', '/projects/nightkey-floor-plan.png', '/projects/nightkey-menu.png'],
+    images: ['/projects/nightkey-tables.jpg', '/projects/nightkey-venue.jpg', '/projects/nightkey-tonight.jpg', '/projects/nightkey-analytics.jpg'],
     gradient: 'from-amber-500 to-orange-600',
     problemStatement: 'Nightclubs run on spreadsheets, group chats, and improvised cash splits. Guests can\'t reliably book a table, promoters can\'t prove the heads they brought, and operators can\'t see their floor in real time. Nightkey is the operating layer that ties guests, promoters, hosts, and venues together — with payments, bookings, and accountability built in.',
     metrics: [

@@ -71,6 +71,34 @@ const TARGETS = {
       }
     },
   },
+  nightkey: {
+    // Only the staff demo account reaches the operator dashboard; promoter and
+    // client are redirected to /promoter and /venues respectively.
+    url: 'https://nightkey.io/club-owner/tables',
+    settleMs: 1500,
+    durationMs: 9000,
+    login: {
+      url: 'https://nightkey.io/login',
+      emailVar: 'NIGHTKEY_EMAIL',
+      passwordVar: 'NIGHTKEY_PASSWORD',
+      emailSelector: '#email',
+      passwordSelector: '#password',
+    },
+    // Konva draws the floor plan into a canvas — wait for one with real size,
+    // not merely for the element to exist.
+    readyWhen: async (page) =>
+      page.waitForFunction(
+        () =>
+          Array.from(document.querySelectorAll('canvas')).some(
+            (c) => c.width > 200 && c.height > 200
+          ),
+        undefined,
+        { timeout: 60_000 }
+      ),
+    async act(page) {
+      await page.waitForTimeout(3000);
+    },
+  },
 };
 
 const name = process.argv[2];
@@ -128,7 +156,14 @@ if (target.login) {
   await page.waitForSelector(emailSelector, { timeout: 20_000 });
   await page.fill(emailSelector, email);
   await page.fill(passwordSelector, password);
-  await page.getByRole('button', { name: /^sign in$/i }).click();
+  // Submit varies per product: Third Eye has a named "SIGN IN" button, Nightkey's
+  // submit button has no accessible name at all. Named button when configured,
+  // Enter otherwise.
+  if (target.login.submitName) {
+    await page.getByRole('button', { name: target.login.submitName }).click();
+  } else {
+    await page.keyboard.press('Enter');
+  }
   // Wait for the app to leave the auth route rather than a fixed sleep.
   await page
     .waitForURL((u) => !u.pathname.startsWith('/auth'), { timeout: 30_000 })
