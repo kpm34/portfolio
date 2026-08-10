@@ -38,7 +38,6 @@ export interface Project {
   /** Optional looping clip. Absent until rendered — ProductMedia falls back to `image`. */
   clip?: string;
   demoVideo?: string;
-  images?: string[];
   gradient: string;
   /** Exactly three short metadata chips, rendered as tracked caps. */
   chips: string[];
@@ -77,8 +76,7 @@ export const projects: Project[] = [
     diagramUrl: '/diagrams/cfb-projections',
     image: '/projects/studio-hud.jpg',
     clip: '/projects/studio-hud.mp4',
-    chips: ['6 agents', 'human approval gate', 'voice-operated'],
-    images: ['/projects/studio-hud.jpg'],
+    chips: ['runs a live consumer app', 'human-gated publishing', 'voice-operated'],
     gradient: 'from-amber-500 to-yellow-600',
     outcome: 'Runs the content operation of a live App Store product',
     problemStatement: 'A consumer app needs constant content to stay alive, and one person cannot write, illustrate, edit and publish it daily. The studio is the workforce that does it — but nothing reaches users without me approving it first.',
@@ -129,9 +127,8 @@ export const projects: Project[] = [
     ],
     image: '/projects/cfb-poster.jpg',
     clip: '/projects/cfb-loop.mp4',
-    chips: ['iOS · Android · Web', '50+ tables', '6 agents'],
+    chips: ['live on App Store & Google Play', 'real-time drafts', 'built solo, end to end'],
     demoVideo: '/projects/cfb-demo.mp4',
-    images: ['/projects/cfb-new.png', '/projects/cfb.png', '/projects/helmet.png'],
     gradient: 'from-orange-500 to-red-500',
     // New comprehensive fields
     problemStatement: 'College football has 75 million fans, but fantasy has always treated CFB as an afterthought. Ballknowers is a platform dedicated to college fantasy — built to give those fans the app they deserve.',
@@ -139,7 +136,7 @@ export const projects: Project[] = [
       { label: 'Platforms', value: '3', detail: 'Live on iOS, Android, and web' },
       { label: 'Players', value: '2,500+', detail: 'Power 4 + Notre Dame' },
       { label: 'Scoring Types', value: '3', detail: 'PPR, Half-PPR, Standard' },
-      { label: 'Built Solo', value: '10 mo', detail: 'Design to app store release' }
+      { label: 'Built Solo', value: 'End to end', detail: 'Design through app store release' }
     ],
     outcome: 'Fantasy, content, and social platform for college football fans',
     technicalHighlights: [
@@ -298,17 +295,16 @@ export const projects: Project[] = [
     ],
     image: '/projects/thirdeye-poster.jpg',
     clip: '/projects/thirdeye-loop.mp4',
-    chips: ['130 endpoints', '786 patterns backtested', '~290 symbols'],
-    images: ['/projects/thirdeye-v2.png'],
+    chips: ['published, auditable track record', 'proprietary pattern engine', 'subscriber research product'],
     gradient: 'from-slate-500 to-gray-500',
     // New comprehensive fields
     outcome: 'Subscriber research product with a proprietary model and a published track record',
     problemStatement: 'Retail investors get news and opinion, not an edge with its results shown. Third Eye pairs a research terminal with a proprietary pattern model — and publishes every play, including the ones that did not work.',
     metrics: [
-      { label: 'API Endpoints', value: '130+', detail: 'Across 20 FastAPI route modules' },
-      { label: 'Symbols', value: '290+', detail: '15 data tabs each, ~2,600 cached entries' },
-      { label: 'Patterns', value: '786', detail: 'Enriched setups backtested 2020–2025' },
-      { label: 'Frontend Pages', value: '26', detail: 'Terminal, scanner, track record, admin' }
+      { label: 'Track Record', value: 'Public', detail: 'Every play published — wins and losses' },
+      { label: 'Coverage', value: '290+', detail: 'Symbols, 15 research tabs each' },
+      { label: 'Backtested', value: '2020–25', detail: '786 patterns validated before launch' },
+      { label: 'Model', value: 'Proprietary', detail: 'Wick-Wick liquidity-purge detector' }
     ],
     technicalHighlights: [
       {
@@ -392,9 +388,7 @@ export const projects: Project[] = [
       { slug: 'bisect-materials', title: 'Material System' }
     ],
     image: '/projects/prism.png',
-    chips: ['3 studios', 'CLI + MCP server', '600+ materials'],
-    demoVideo: '/projects/Demo.mov',
-    images: ['/projects/prism.png'],
+    chips: ['3 shipped studios', 'driven by web, CLI, or AI agent', 'Blender + ComfyUI, no node graphs'],
     gradient: 'from-emerald-500 to-teal-500',
     // New comprehensive fields
     outcome: 'Multi-LLM creative pipeline with CLI + MCP integration',
@@ -486,16 +480,15 @@ export const projects: Project[] = [
       { slug: 'nightkey-onboarding', title: 'Merchant Onboarding' },
       { slug: 'nightkey-floor-plan', title: 'Floor Plan & Bookings' }
     ],
-    image: '/projects/nightkey-tables.jpg',
-    chips: ['4 surfaces', '121 migrations', 'PayFac payouts'],
-    images: ['/projects/nightkey-tables.jpg', '/projects/nightkey-venue.jpg', '/projects/nightkey-tonight.jpg', '/projects/nightkey-analytics.jpg'],
+    image: '/projects/nightkey-browse.jpg',
+    chips: ['4 apps on one platform', 'payments & payouts built in', 'live booking-to-door operations'],
     gradient: 'from-amber-500 to-orange-600',
     problemStatement: 'Nightclubs run on spreadsheets, group chats, and improvised cash splits. Guests can\'t reliably book a table, promoters can\'t prove the heads they brought, and operators can\'t see their floor in real time. Nightkey is the operating layer that ties guests, promoters, hosts, and venues together — with payments, bookings, and accountability built in.',
     metrics: [
-      { label: 'Surfaces', value: '4', detail: 'Club dashboard, guest app, promoter app, bottle server' },
-      { label: 'Edge Functions', value: '24', detail: 'Boarding, payouts, webhooks, ID verify, notifications' },
-      { label: 'Migrations', value: '73', detail: 'Versioned Postgres schema with RLS on every table' },
-      { label: 'Platforms', value: '3', detail: 'Web (iPad), iOS, Android — one schema' }
+      { label: 'Apps', value: '4', detail: 'Club dashboard, guest app, promoter app, bottle server' },
+      { label: 'Stores', value: '2', detail: 'Live on the App Store and Google Play' },
+      { label: 'Payments', value: 'PayFac', detail: 'Sub-merchant boarding and split payouts, built in' },
+      { label: 'Operations', value: 'Live', detail: 'Booking → door check-in, updating in realtime' }
     ],
     outcome: 'Production marketplace with payments, bookings, and door operations',
     technicalHighlights: [
