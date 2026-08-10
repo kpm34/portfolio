@@ -43,6 +43,28 @@ export async function ratioForTest(page: Page, fg: string, bg: string): Promise<
   }, [fg, bg] as [string, string]);
 }
 
+/**
+ * Scrolls the page through its full height in viewport-sized increments so
+ * IntersectionObserver-driven entrance animations (framer-motion `whileInView`,
+ * etc.) actually trigger, then returns to the top and lets things settle.
+ * Call this before `auditContrast` — a headless run that never scrolls leaves
+ * scroll-animated content at its `initial` (often `opacity: 0`) state, which
+ * makes the audit silently skip it.
+ */
+export async function settlePage(page: Page): Promise<void> {
+  await page.evaluate(async () => {
+    const step = window.innerHeight;
+    const max = document.documentElement.scrollHeight;
+    for (let y = 0; y < max; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 150));
+    }
+    window.scrollTo(0, 0);
+  });
+  await page.waitForLoadState('networkidle');
+  await page.waitForTimeout(400);
+}
+
 /** Audits every rendered text leaf on the current page against WCAG AA. */
 export async function auditContrast(page: Page): Promise<ContrastFailure[]> {
   return page.evaluate(() => {
