@@ -1,7 +1,7 @@
 import { projects } from "@/lib/projects";
 import { ProductEntry } from "@/components/ProductEntry";
 
-const FEATURED = ["cfb-fantasy", "thirdeye", "nightkey", "bisect"] as const;
+const FEATURED = ["content-studio", "cfb-fantasy", "thirdeye", "nightkey"] as const;
 
 export default function Home() {
   const featured = FEATURED

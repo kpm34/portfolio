@@ -52,6 +52,52 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 'content-studio',
+    slug: 'content-studio',
+    title: 'AI Content Studio',
+    description: 'The agent workforce that runs Ballknowers — six specialised agents on a task queue, every publish path gated by human approval',
+    longDescription: 'A separate system that operates a live consumer app. Specialised agents — writer, analyst, artist, editor, publisher, support — poll a Supabase task queue, draft articles, social posts and video, and route everything through a human approval gate before a one-way publish into the product. A two-database factory/storefront split keeps drafting isolated from what users see. Operated through a HUD showing every agent\'s live status, a Content Hub and Writing Room for review, a Remotion render engine for video, a custom MCP server for article CRUD, and a voice interface — wake-word detection, local Whisper transcription, ElevenLabs speech — so the studio can be driven hands-free.',
+    featured: true,
+    category: 'ai-systems',
+    techStack: ['Python', 'Supabase', 'Claude', 'Gemini', 'Remotion', 'Whisper', 'ElevenLabs'],
+    techStackDetailed: {
+      agents: ['Writer', 'Analyst', 'Artist', 'Editor', 'Publisher', 'Support'],
+      orchestration: ['Supabase task queue', 'Python worker', 'Human approval gates', 'One-way publish'],
+      voice: ['Porcupine wake word', 'Local Whisper STT', 'ElevenLabs TTS'],
+      media: ['Remotion render engine', 'ComfyUI', 'Blender'],
+      devtools: ['cfb-articles-mcp (custom MCP server)'],
+      frontend: ['Next.js', 'Vite', 'Operator HUD']
+    },
+    aiHighlights: [
+      'Six specialised agents against one Supabase task queue',
+      'Human approval gate on every publish path — no autonomous posting',
+      'Two-database factory/storefront split isolates drafting from production',
+      'Voice-operated: wake word, local Whisper, ElevenLabs'
+    ],
+    diagramUrl: '/diagrams/cfb-projections',
+    image: '/projects/studio-hud.jpg',
+    clip: '/projects/studio-hud.mp4',
+    chips: ['6 agents', 'human approval gate', 'voice-operated'],
+    images: ['/projects/studio-hud.jpg'],
+    gradient: 'from-amber-500 to-yellow-600',
+    outcome: 'Runs the content operation of a live App Store product',
+    problemStatement: 'A consumer app needs constant content to stay alive, and one person cannot write, illustrate, edit and publish it daily. The studio is the workforce that does it — but nothing reaches users without me approving it first.',
+    skills: [
+      {
+        title: 'Agent Orchestration',
+        description: 'Six specialised agents poll a Supabase task queue through a Python worker. Drafts move through quality review and a human approval gate, then publish one-way into the consumer app across a two-database factory/storefront boundary.'
+      },
+      {
+        title: 'Voice Interface',
+        description: 'Porcupine wake-word detection, local Whisper speech-to-text, and ElevenLabs speech, driving the operator HUD by natural language so the studio can be run without touching a keyboard.'
+      },
+      {
+        title: 'Programmatic Media',
+        description: 'A Remotion render engine produces social video and carousels from structured data, with ComfyUI and Blender workflows feeding the assembly line.'
+      }
+    ]
+  },
+  {
     id: 'cfb-fantasy',
     slug: 'cfb-fantasy',
     title: 'Ballknowers — CFB Fantasy',
