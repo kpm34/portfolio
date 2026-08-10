@@ -49,7 +49,11 @@ const categoryColors: Record<string, { bg: string; border: string; text: string 
 
 const getColor = (category: string) => {
   const key = category.toLowerCase();
-  return categoryColors[key] || { bg: "rgba(128, 0, 32, 0.15)", border: "#800020", text: "#800020" };
+  // Fallback reuses the graph's own default node/text colour (#F5F5DC) rather
+  // than the maroon accent, which does not have enough contrast against the
+  // dark plate this graph is mounted on for categories outside the known set
+  // (e.g. "mobile", "payments").
+  return categoryColors[key] || { bg: "rgba(245, 245, 220, 0.15)", border: "#F5F5DC", text: "#F5F5DC" };
 };
 
 export function TechStackGraph({ techStack }: TechStackGraphProps) {
@@ -276,7 +280,6 @@ export function TechStackGraph({ techStack }: TechStackGraphProps) {
           fill="#F5F5DC"
           fontSize={10}
           fontFamily="monospace"
-          opacity={0.2}
         >
           {hoveredTech ? `${hoveredTech}` : 'TECH STACK'}
         </text>
