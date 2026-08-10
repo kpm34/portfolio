@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Marcellus } from "next/font/google";
+import { Inter, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,10 +14,11 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-const marcellus = Marcellus({
+const instrumentSerif = Instrument_Serif({
   weight: "400",
+  style: ["normal", "italic"],
   subsets: ["latin"],
-  variable: "--font-marcellus",
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} ${marcellus.variable} font-sans antialiased bg-[#030303] text-gray-200`}
+        className={`${inter.variable} ${jetbrainsMono.variable} ${instrumentSerif.variable} font-sans antialiased bg-paper text-ink`}
       >
         {children}
       </body>

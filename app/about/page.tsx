@@ -5,8 +5,11 @@ import { Github, Linkedin, Mail, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
+// Additive only: the page is already readable in the server HTML and merely
+// settles. Never reintroduce `opacity: 0` — a headline that needs JavaScript to
+// become visible is the defect this redesign was built to remove.
 const containerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
@@ -17,7 +20,7 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 12 },
   visible: {
     opacity: 1,
     y: 0,
@@ -105,7 +108,7 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="min-h-screen relative overflow-hidden bg-[#1C1C1C]">
+    <main className="min-h-screen relative overflow-hidden bg-paper text-ink">
       {/* Background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(128,0,32,0.03),transparent_50%)]" />
@@ -116,18 +119,18 @@ export default function AboutPage() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "circOut" }}
-        className="fixed top-0 left-0 w-full py-8 z-50 bg-[#1C1C1C]/80 backdrop-blur-sm px-6"
+        className="fixed top-0 left-0 w-full py-8 z-50 bg-paper/80 backdrop-blur-sm px-6"
       >
         <div className="w-full flex justify-between items-center">
-          <h2 className="text-sm font-light text-[#F5F5DC]/60 tracking-wide">
+          <h2 className="label">
             Systems that ship.
           </h2>
           <Link
             href="/"
-            className="flex items-center gap-2 text-[#F5F5DC]/60 hover:text-[#800020] transition-colors duration-300 absolute left-1/2 -translate-x-1/2"
+            className="flex items-center gap-2 text-muted hover:text-accent transition-colors duration-300 absolute left-1/2 -translate-x-1/2"
           >
             <ArrowLeft size={20} />
-            <span className="font-mono text-sm tracking-widest">BACK</span>
+            <span className="label">BACK</span>
           </Link>
           <div className="flex gap-6 items-center">
             <SocialLink href="https://github.com/kpm34" icon={<Github size={20} />} label="GitHub" />
@@ -146,24 +149,24 @@ export default function AboutPage() {
         >
           {/* ============ SECTION 1: BIOGRAPHY (Centered) ============ */}
           <motion.section variants={itemVariants} className="px-6 md:px-12 lg:px-20 mb-32">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tighter text-[#F5F5DC] mb-8">
+            <div className="max-w-[720px] mx-auto text-center">
+              <h1 className="font-display italic text-[44px] leading-[1.1] tracking-[-0.01em] mb-8">
                 About
               </h1>
-              <p className="text-xl text-[#F5F5DC]/70 leading-relaxed mb-6">
+              <p className="text-[16px] leading-relaxed text-ink mb-6">
                 I&apos;m Kashyap Maheshwari—a full-stack engineer who builds production applications, real-time systems, and AI integrations.
               </p>
-              <p className="text-lg text-[#F5F5DC]/60 leading-relaxed mb-4">
-                My path started in the lab. With degrees in <span className="text-[#F5F5DC]">Biological Sciences</span> from Pitt and
-                <span className="text-[#F5F5DC]"> Human Physiology</span> from Louisville.
+              <p className="text-[16px] leading-relaxed text-muted mb-4">
+                My path started in the lab. With degrees in <span className="text-ink">Biological Sciences</span> from Pitt and
+                <span className="text-ink"> Human Physiology</span> from Louisville.
               </p>
-              <p className="text-lg text-[#F5F5DC]/60 leading-relaxed mb-4">
-                That transition led me to build <span className="text-[#F5F5DC]">CFB Fantasy</span>, a full-stack fantasy sports platform with real-time draft rooms,
-                automated scoring pipelines, and a companion mobile app. I&apos;ve also built <span className="text-[#F5F5DC]">Bisect</span>,
-                a creative platform bridging Blender and AI with a CLI, MCP server, and multi-agent system, and <span className="text-[#F5F5DC]">Third Eye Capital</span>,
+              <p className="text-[16px] leading-relaxed text-muted mb-4">
+                That transition led me to build <span className="text-ink">CFB Fantasy</span>, a full-stack fantasy sports platform with real-time draft rooms,
+                automated scoring pipelines, and a companion mobile app. I&apos;ve also built <span className="text-ink">Bisect</span>,
+                a creative platform bridging Blender and AI with a CLI, MCP server, and multi-agent system, and <span className="text-ink">Third Eye Capital</span>,
                 a stock newsletter and analysis platform with proprietary financial models, 3D concept visualizations, and investor learning tools.
               </p>
-              <p className="text-lg text-[#F5F5DC]/60 leading-relaxed">
+              <p className="text-[16px] leading-relaxed text-muted">
                 I work across the stack: Next.js and React on the frontend, PostgreSQL and Supabase for data, Three.js for 3D,
                 and Claude/Gemini for AI integrations. I care about systems that are reliable under pressure, because I learned in the lab
                 that the details you overlook will find you.
@@ -171,29 +174,29 @@ export default function AboutPage() {
 
               {/* Education Cards */}
               <div className="grid md:grid-cols-2 gap-6 mt-12 max-w-2xl mx-auto">
-                <div className="p-6 bg-[#F5F5DC]/[0.02] border border-[#F5F5DC]/5 rounded-lg text-left">
-                  <p className="text-sm font-mono text-[#800020] mb-2">M.S. Human Physiology</p>
-                  <p className="text-[#F5F5DC]/80">University of Louisville</p>
-                  <p className="text-[#F5F5DC]/50 text-sm mt-1">GPA: 3.93 · 2022-2024</p>
+                <div className="p-6 bg-ink/[0.02] border border-rule rounded-[2px] text-left">
+                  <p className="label mb-2">M.S. Human Physiology</p>
+                  <p className="text-ink">University of Louisville</p>
+                  <p className="text-muted text-sm mt-1">GPA: 3.93 · 2022-2024</p>
                 </div>
-                <div className="p-6 bg-[#F5F5DC]/[0.02] border border-[#F5F5DC]/5 rounded-lg text-left">
-                  <p className="text-sm font-mono text-[#800020] mb-2">B.S. Biological Sciences</p>
-                  <p className="text-[#F5F5DC]/80">University of Pittsburgh</p>
-                  <p className="text-[#F5F5DC]/50 text-sm mt-1">Minor: Chemistry · 2016-2019</p>
+                <div className="p-6 bg-ink/[0.02] border border-rule rounded-[2px] text-left">
+                  <p className="label mb-2">B.S. Biological Sciences</p>
+                  <p className="text-ink">University of Pittsburgh</p>
+                  <p className="text-muted text-sm mt-1">Minor: Chemistry · 2016-2019</p>
                 </div>
               </div>
             </div>
           </motion.section>
 
           {/* Divider */}
-          <div className="w-full h-px bg-[#F5F5DC]/5 mb-24" />
+          <div className="w-full h-px bg-rule mb-24" />
 
           {/* ============ SECTION 2: SKILLS (Sidebar + Content) ============ */}
           <motion.section variants={itemVariants} className="px-6 md:px-12 lg:px-20">
             <div className="flex items-center gap-4 mb-12">
-              <div className="h-px w-12 bg-[#800020]" />
-              <h2 className="text-xl font-mono text-[#F5F5DC]/40 uppercase tracking-widest">Skills</h2>
-              <div className="h-px flex-1 bg-[#F5F5DC]/5" />
+              <div className="h-px w-12 bg-accent" />
+              <h2 className="label">Skills</h2>
+              <div className="h-px flex-1 bg-rule" />
             </div>
 
             <div className="flex gap-16">
@@ -206,15 +209,15 @@ export default function AboutPage() {
                       onClick={() => scrollToSection(section)}
                       className={`block text-left w-full transition-colors duration-300 ${
                         activeSection === section
-                          ? 'text-[#800020]'
-                          : 'text-[#F5F5DC]/40 hover:text-[#F5F5DC]/70'
+                          ? 'text-accent'
+                          : 'text-muted hover:text-ink'
                       }`}
                     >
-                      <span className="text-lg font-semibold">{section}</span>
+                      <span className="text-[16px] font-medium">{section}</span>
                       <div className="mt-2 space-y-1">
                         {categories.map((cat) => (
                           <p key={cat.category} className={`text-xs font-mono pl-3 border-l ${
-                            activeSection === section ? 'border-[#800020]/50' : 'border-[#F5F5DC]/10'
+                            activeSection === section ? 'border-accent/50' : 'border-rule'
                           }`}>
                             {cat.category}
                           </p>
@@ -226,17 +229,17 @@ export default function AboutPage() {
               </div>
 
               {/* Skills Content */}
-              <div className="flex-1 space-y-24">
+              <div className="flex-1 space-y-24 max-w-[720px]">
                 {Object.entries(skillSections).map(([sectionName, categories]) => (
                   <div key={sectionName} id={sectionName} className="scroll-mt-32">
-                    <h3 className="text-3xl font-bold text-[#F5F5DC] mb-10 pb-4 border-b border-[#F5F5DC]/10">
+                    <h3 className="text-[20px] font-medium text-ink mb-10 pb-4 border-b border-rule">
                       {sectionName}
                     </h3>
                     <div className="space-y-12">
                       {categories.map((cat) => (
                         <div key={cat.category}>
-                          <h4 className="text-sm font-mono text-[#800020] uppercase tracking-wider mb-4">{cat.category}</h4>
-                          <p className="text-[#F5F5DC]/70 leading-relaxed">{cat.description}</p>
+                          <h4 className="label mb-4">{cat.category}</h4>
+                          <p className="text-[16px] leading-relaxed text-muted">{cat.description}</p>
                         </div>
                       ))}
                     </div>
@@ -247,19 +250,19 @@ export default function AboutPage() {
           </motion.section>
 
           {/* Divider */}
-          <div className="w-full h-px bg-[#F5F5DC]/5 my-24" />
+          <div className="w-full h-px bg-rule my-24" />
 
           {/* ============ SECTION 3: CONTACT ============ */}
           <motion.section variants={itemVariants} className="px-6 md:px-12 lg:px-20">
-            <div className="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <div className="max-w-[720px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
               <div>
-                <h2 className="text-3xl font-bold text-[#F5F5DC] mb-2">Get in Touch</h2>
-                <p className="text-[#F5F5DC]/60">Interested in working together? Let&apos;s talk.</p>
+                <h2 className="text-[20px] font-medium text-ink mb-2">Get in Touch</h2>
+                <p className="text-muted">Interested in working together? Let&apos;s talk.</p>
               </div>
               <div className="flex gap-4">
                 <a
                   href="mailto:kashpm2002@gmail.com"
-                  className="px-6 py-3 bg-[#800020] text-[#F5F5DC] font-mono text-sm rounded hover:bg-[#800020]/80 transition-colors"
+                  className="px-6 py-3 bg-accent text-paper font-mono text-sm rounded hover:bg-ink transition-colors"
                 >
                   Send Email
                 </a>
@@ -267,7 +270,7 @@ export default function AboutPage() {
                   href="https://linkedin.com/in/kashyapmaheshwari"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3 border border-[#F5F5DC]/20 text-[#F5F5DC]/70 font-mono text-sm rounded hover:border-[#F5F5DC]/40 hover:text-[#F5F5DC] transition-colors"
+                  className="px-6 py-3 border border-rule text-muted font-mono text-sm rounded hover:border-ink/40 hover:text-ink transition-colors"
                 >
                   LinkedIn
                 </a>
@@ -282,7 +285,7 @@ export default function AboutPage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-24 pt-12 border-t border-[#F5F5DC]/5 text-center text-sm text-[#F5F5DC]/40 px-6"
+          className="mt-24 pt-12 border-t border-rule text-center text-sm text-muted px-6"
         >
           <p>&copy; {new Date().getFullYear()} Kashyap Maheshwari</p>
         </motion.div>
@@ -297,7 +300,7 @@ function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center gap-2 text-[#F5F5DC]/60 hover:text-[#800020] transition-colors duration-300"
+      className="group flex items-center gap-2 text-muted hover:text-accent transition-colors duration-300"
       aria-label={label}
     >
       {icon}

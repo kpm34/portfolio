@@ -10,8 +10,13 @@
 !.yarn/releases
 !.yarn/versions
 
+# this repo uses pnpm — never commit a competing npm lockfile
+package-lock.json
+
 # testing
 /coverage
+/test-results/
+/playwright-report/
 
 # next.js
 /.next/
