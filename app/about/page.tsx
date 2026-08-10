@@ -39,7 +39,7 @@ const skillSections = {
     },
     {
       category: "3D & Interactive Graphics",
-      description: "React Three Fiber helmet customizer with zone-based color selection, PBR material finishes, and Bezier curve stripe patterns. Third Eye Capital's 3D financial journey with scroll-driven camera and fog reveal effects. Bisect's multi-studio architecture for vector, texture, 3D scene, audio, and video workflows. ReactFlow diagramming system for database schemas and architecture visualization with Dagre auto-layout."
+      description: "React Three Fiber helmet customizer with zone-based color selection, PBR material finishes, and Bezier curve stripe patterns. Third Eye Trading's 3D financial journey with scroll-driven camera and fog reveal effects. Bisect's multi-studio architecture for vector, texture, 3D scene, audio, and video workflows. ReactFlow diagramming system for database schemas and architecture visualization with Dagre auto-layout."
     },
     {
       category: "Automation & DevTools",
@@ -69,7 +69,7 @@ const skillSections = {
     },
     {
       category: "ML Projections Pipeline",
-      description: "Calibrated Ridge and Logistic Regression models with TimeSeriesSplit validation in Ballknowers, combining Vegas betting lines, injury adjustments, defensive matchups, and trailing usage shares. Walk-forward XGBoost pattern screen in Third Eye Capital. Weekly backtesting against actual outcomes with boom/bust rate calculation. Full ML feedback loop: predictions stored, outcomes tracked, accuracy measured per model version."
+      description: "Calibrated Ridge and Logistic Regression models with TimeSeriesSplit validation in Ballknowers, combining Vegas betting lines, injury adjustments, defensive matchups, and trailing usage shares. Walk-forward XGBoost pattern screen in Third Eye Trading. Weekly backtesting against actual outcomes with boom/bust rate calculation. Full ML feedback loop: predictions stored, outcomes tracked, accuracy measured per model version."
     },
     {
       category: "Multi-Agent Systems",
@@ -163,7 +163,7 @@ export default function AboutPage() {
               <p className="text-[16px] leading-relaxed text-muted mb-4">
                 That transition led me to build <span className="text-ink">CFB Fantasy</span>, a full-stack fantasy sports platform with real-time draft rooms,
                 automated scoring pipelines, and a companion mobile app. I&apos;ve also built <span className="text-ink">Bisect</span>,
-                a creative platform bridging Blender and AI with a CLI, MCP server, and multi-agent system, and <span className="text-ink">Third Eye Capital</span>,
+                a creative platform bridging Blender and AI with a CLI, MCP server, and multi-agent system, and <span className="text-ink">Third Eye Trading</span>,
                 a stock newsletter and analysis platform with proprietary financial models, 3D concept visualizations, and investor learning tools.
               </p>
               <p className="text-[16px] leading-relaxed text-muted">

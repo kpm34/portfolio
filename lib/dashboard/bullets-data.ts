@@ -107,7 +107,7 @@ export const intelivanceBullets: ResumeBulletPoint[] = [
     skills: ['voice-ai', 'python', 'llm-integration'],
   },
 
-  // --- Third Eye Capital ---
+  // --- Third Eye Trading ---
   {
     id: 'te-backend',
     projectId: 'thirdeye',

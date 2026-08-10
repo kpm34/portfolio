@@ -268,7 +268,7 @@ export const projects: Project[] = [
   {
     id: 'thirdeye',
     slug: 'thirdeye',
-    title: 'Third Eye Capital',
+    title: 'Third Eye Trading',
     description: 'Equity research terminal and proprietary pattern-detection engine — 130+ endpoint FastAPI backend, an automated market-data pipeline, and a published track record',
     longDescription: 'A subscriber research product built around a proprietary edge. The terminal covers ~290 symbols with 15 data tabs each — fundamentals, valuation, 10-year financials, ratio trends, estimates, dividends, momentum, and ownership — fed by an automated Seeking Alpha ingestion pipeline with a four-stage fallback chain. On top of it sits the Wick-Wick model, a candlestick pattern detector for monthly and quarterly liquidity-purge setups, backtested across 786 enriched patterns from 2020–2025 and published as an auditable track record. Rounded out with a pattern scanner, screener, backtesting engine, options-surface capture, portfolio and play tracking, a CFA learning hub, and a tiered subscriber funnel with admin CRM.',
     featured: true,
@@ -289,7 +289,7 @@ export const projects: Project[] = [
       'Automated ingestion: 15 tabs × ~290 symbols, four-stage fallback chain',
       'Pinecone RAG over a research knowledge base'
     ],
-    liveUrl: 'https://thirdeyecapital.ai',
+    liveUrl: 'https://thirdeyetrading.io',
     diagramUrl: '/diagrams/thirdeye-architecture',
     diagrams: [
       { slug: 'thirdeye-architecture', title: 'System Overview' },

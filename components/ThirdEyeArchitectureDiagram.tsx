@@ -55,7 +55,7 @@ export const ThirdEyeArchitectureDiagram = () => {
             </defs>
 
             {/* Title */}
-            <text x="350" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="24" fontWeight="bold" fill="white">Third Eye Capital Architecture</text>
+            <text x="350" y="40" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="24" fontWeight="bold" fill="white">Third Eye Trading Architecture</text>
             <text x="350" y="62" textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fill="#666">Research Terminal + Pattern Detection Engine</text>
 
             {/* Tech badges */}

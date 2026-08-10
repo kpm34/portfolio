@@ -27,7 +27,7 @@ const diagrams: Record<string, { title: string; subtitle: string; project: strin
     project: "cfb-fantasy"
   },
   "thirdeye-architecture": {
-    title: "Third Eye Capital Architecture",
+    title: "Third Eye Trading Architecture",
     subtitle: "Stock Analysis Platform + 3D Visualization",
     project: "thirdeye"
   },
