@@ -81,8 +81,8 @@ export const projects: Project[] = [
       { slug: 'cfb-scoring', title: 'Scoring System' },
       { slug: 'helmet-editor-architecture', title: 'Helmet Editor' }
     ],
-    image: '/projects/cfb-demo-thumb.png',
-    clip: '/projects/cfb-demo.mp4',
+    image: '/projects/cfb-poster.jpg',
+    clip: '/projects/cfb-loop.mp4',
     chips: ['iOS · Android · Web', '50+ tables', '6 agents'],
     demoVideo: '/projects/cfb-demo.mp4',
     images: ['/projects/cfb-new.png', '/projects/cfb.png', '/projects/helmet.png'],
@@ -439,7 +439,7 @@ export const projects: Project[] = [
       { slug: 'nightkey-onboarding', title: 'Merchant Onboarding' },
       { slug: 'nightkey-floor-plan', title: 'Floor Plan & Bookings' }
     ],
-    image: '/projects/nightkey.png',
+    image: '/projects/nightkey-poster.jpg',
     chips: ['4 surfaces', '121 migrations', 'PayFac payouts'],
     images: ['/projects/nightkey.png', '/projects/nightkey-floor-plan.png', '/projects/nightkey-menu.png'],
     gradient: 'from-amber-500 to-orange-600',
