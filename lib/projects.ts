@@ -481,6 +481,7 @@ export const projects: Project[] = [
       { slug: 'nightkey-floor-plan', title: 'Floor Plan & Bookings' }
     ],
     image: '/projects/nightkey-browse.jpg',
+    demoVideo: '/projects/nightkey-demo.mp4',
     chips: ['4 apps on one platform', 'payments & payouts built in', 'live booking-to-door operations'],
     gradient: 'from-amber-500 to-orange-600',
     problemStatement: 'Nightclubs run on spreadsheets, group chats, and improvised cash splits. Guests can\'t reliably book a table, promoters can\'t prove the heads they brought, and operators can\'t see their floor in real time. Nightkey is the operating layer that ties guests, promoters, hosts, and venues together — with payments, bookings, and accountability built in.',
