@@ -22,9 +22,31 @@ const instrumentSerif = Instrument_Serif({
   display: "swap",
 });
 
+const siteUrl = "https://kashcreates.app";
+
 export const metadata: Metadata = {
-  title: "Kashyap Maheshwari | AI Systems Architect & Full-Stack Developer",
-  description: "Building production-ready AI applications with scalable architecture. Specializing in AI integrations, automation systems, and infrastructure design.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Kashyap Maheshwari",
+    template: "%s · Kashyap Maheshwari",
+  },
+  description:
+    "I build AI systems that operate real businesses — live products on the App Store, Google Play, and the web.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Kashyap Maheshwari",
+    title: "Kashyap Maheshwari",
+    description:
+      "I build AI systems that operate real businesses — live products on the App Store, Google Play, and the web.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kashyap Maheshwari",
+    description:
+      "I build AI systems that operate real businesses — live products on the App Store, Google Play, and the web.",
+  },
 };
 
 export default function RootLayout({
