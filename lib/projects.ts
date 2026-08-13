@@ -480,7 +480,8 @@ export const projects: Project[] = [
       { slug: 'nightkey-onboarding', title: 'Merchant Onboarding' },
       { slug: 'nightkey-floor-plan', title: 'Floor Plan & Bookings' }
     ],
-    image: '/projects/nightkey-browse.jpg',
+    image: '/projects/nightkey-poster.jpg',
+    clip: '/projects/nightkey-demo.mp4',
     demoVideo: '/projects/nightkey-demo.mp4',
     chips: ['4 apps on one platform', 'payments & payouts built in', 'live booking-to-door operations'],
     gradient: 'from-amber-500 to-orange-600',

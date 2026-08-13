@@ -23,3 +23,20 @@ Personal portfolio website. Goal: a sharp, opinionated showcase of four producti
 ## User Preferences
 - Aesthetic: warm dark theme, generous spacing, intentional typography (not template-y)
 - Voice: terse, specific, concrete; avoid generic "AI Systems Architect" framing
+
+## CV / Resume
+- **Canonical static files** (repo root, last synced Aug 9 2026):
+  - `Kashyap_Maheshwari_Resume.pdf` — shareable PDF
+  - `Kashyap_Maheshwari_Resume_Engineer.html` — primary editable source (Nightkey, Ballknowers, Third Eye)
+  - `Kashyap_Maheshwari_Resume_Tech.html` — alternate variant
+- **Resume builder**: `/dashboard/resume` — bullet source in `lib/dashboard/bullets-data.ts`; variants in browser localStorage
+- **Gap**: `PROJECT_REVIEW.md` notes Third Eye options-surface work not yet reflected in resume files
+
+## Nightkey demo
+- Clip: `public/projects/nightkey-demo.mp4` (33s screen recording)
+- Poster: `public/projects/nightkey-poster.jpg` (frame extracted from demo)
+- Wired via `clip` + `demoVideo` in `lib/projects.ts`; `/projects/nightkey` hero uses `ProductMedia`
+
+## Project pages
+- Removed Key Features carousel, Tech Stack graph, and Architecture Diagrams from `ProjectPage.tsx`
+- Pages now: hero media, overview, optional skills prose, live CTA

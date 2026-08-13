@@ -1,9 +1,8 @@
 import { test, expect } from '@playwright/test';
 
 test('renders an image and no video when no clip is supplied', async ({ page }) => {
-  await page.goto('/');
-  // Nightkey ships without a clip
-  const fig = page.getByTestId('media-nightkey');
+  await page.goto('/projects/bisect');
+  const fig = page.getByTestId('media-bisect');
   await expect(fig.locator('img')).toBeVisible();
   await expect(fig.locator('video')).toHaveCount(0);
 });
